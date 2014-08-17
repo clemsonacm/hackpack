@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/moon.css"/>
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="git-101" class="slide level1">
+<h1>Git 101</h1>
+<h3 id="brought-to-you-by-clemson-acm">Brought to you by Clemson ACM</h3>
+<p>We're on <a href="http://steamcommunity.com/groups/clemsonacm">Steam</a> &amp; <a href="https://www.facebook.com/groups/283823058297107/">Facebook</a>!</p>
+<h3 id="speakers">Speakers:</h3>
+<p>Robert Underwood - CS Major<br /> Austin Anderson - ACM President</p>
+</section>
+<section id="coming-up" class="slide level1">
+<h1>Coming Up</h1>
+<ol type="1">
+<li>Unpleasant and contemptible people in cs.</li>
+<li>Why on Earth do I care?</li>
+<li>How you can <em>git</em> started?</li>
+<li>Wrap-up</li>
+</ol>
+</section>
+<section id="unpleasant-people" class="slide level1">
+<h1>Unpleasant People</h1>
+<ul>
+<li>git - (n) An unpleasant or contemptible person.
+<ul>
+<li>Not something we generally like</li>
+<li>For example that git in McAdams that never bathes</li>
+<li><a href="http://www.oxforddictionaries.com/us/definition/english/git">Oxford English Dictionary</a></li>
+</ul></li>
+<li>git - (n) Free, Open Source, Fast, Scalable, and Distributed Version Control System
+<ul>
+<li>Free as in lunch</li>
+<li>Open Source as in Linux</li>
+<li>Distributed Version Control System??</li>
+</ul></li>
+</ul>
+</section>
+<section id="dcvs-and-why-you-should-care" class="slide level1">
+<h1>DCVS and Why You Should Care</h1>
+<ul>
+<li>Imagine the following...</li>
+</ul>
+</section>
+<section id="version-control-iteration-1-manual" class="slide level1">
+<h1>Version Control Iteration 1 (Manual)</h1>
+<ul>
+<li>Create a file</li>
+<li>Save several copies</li>
+<li>Opps, we overwrote our backup ...</li>
+</ul>
+</section>
+<section id="oh-what-about-austin" class="slide level1">
+<h1>Oh, What about Austin?</h1>
+<ul>
+<li>Two people working on the project</li>
+<li><code>diff</code> and <code>patch</code></li>
+<li>What if Daniel joins the team?</li>
+<li>What about reversion?</li>
+</ul>
+</section>
+<section id="version-control-iteration-2-cvs" class="slide level1">
+<h1>Version Control Iteration 2 (CVS)</h1>
+<ul>
+<li>Send files to a central location</li>
+<li>Keep a copy of each version of a file</li>
+<li>Keep track of some meta data</li>
+<li>Programmaticly control reversion</li>
+<li>Now 50 people join the team...</li>
+</ul>
+</section>
+<section id="ok-what-about-austin-now" class="slide level1">
+<h1>Ok, What about Austin Now?</h1>
+<ul>
+<li>What if Daniel Joins the team?</li>
+<li>What about reversion?</li>
+<li>What happens if the server dies?</li>
+<li>What if we want to branch out?</li>
+</ul>
+</section>
+<section id="version-control-iteration-3" class="slide level1">
+<h1>Version Control Iteration 3</h1>
+<ul>
+<li>Each programmer keeps a copy of the repo</li>
+<li>Programmers <code>merge</code> their copies of the repo</li>
+<li>Store branches as diffs of past code</li>
+<li>Now were <em>gitting</em> somewhere
+<ul>
+<li>see what we did there...</li>
+</ul></li>
+</ul>
+</section>
+<section id="ok-what-about-austin-now-1" class="slide level1">
+<h1>Ok, What about Austin Now?</h1>
+<ul>
+<li>What if Daniel Joins the team?</li>
+<li>What about reversion?</li>
+<li>What happens if the server dies?</li>
+<li>What if we want to branch out?</li>
+</ul>
+</section>
+<section id="getting-started-with-git" class="slide level1">
+<h1>Getting Started with git</h1>
+<ul>
+<li>First, <code>git config --global</code>:
+<ul>
+<li>user.name &quot;Mr. President&quot;</li>
+<li>user.email acm@clemson.edu</li>
+<li>core.editor vim</li>
+<li>color.ui</li>
+</ul></li>
+<li><code>git init</code></li>
+</ul>
+</section>
+<section id="adding-some-files" class="slide level1">
+<h1>Adding some files</h1>
+<ul>
+<li><code>git add</code></li>
+<li><code>git status</code></li>
+<li><code>git commit</code></li>
+</ul>
+</section>
+<section id="ok...-what-just-happend" class="slide level1">
+<h1>Ok... What just happend?</h1>
+<ul>
+<li><code>git log</code></li>
+<li><code>git diff</code></li>
+<li><code>git blame</code></li>
+</ul>
+</section>
+<section id="opps..." class="slide level1">
+<h1>Opps...</h1>
+<ul>
+<li><code>git checkout --</code></li>
+<li><code>git revert</code></li>
+<li>As a last resort <code>git reset HEAD --hard</code></li>
+</ul>
+</section>
+<section id="what-is-master" class="slide level1">
+<h1>What is Master?</h1>
+<ul>
+<li>One Branch to rule them all??</li>
+<li>Stable, Final, Sharable Product</li>
+<li>Try not to make changes directly here</li>
+<li><strong>Always</strong> test changes merged into Master</li>
+</ul>
+</section>
+<section id="because-branches" class="slide level1">
+<h1>Because Branches</h1>
+<ul>
+<li><code>git branch</code></li>
+<li><code>git checkout -b MyNewBranch</code></li>
+<li><code>git merge MyNewBranch</code></li>
+</ul>
+</section>
+<section id="sharing-code" class="slide level1">
+<h1>Sharing code</h1>
+<ul>
+<li>GitHub and Bitbucket offer free &quot;hosts&quot;</li>
+<li>Fairly easy to set up a git &quot;server&quot;</li>
+<li><code>git remote add origin</code></li>
+<li><code>git push -u MyNewBranch</code></li>
+</ul>
+</section>
+<section id="downloading-code" class="slide level1">
+<h1>Downloading Code</h1>
+<ul>
+<li><code>git clone</code></li>
+<li><code>git pull</code></li>
+</ul>
+</section>
+<section id="merge-conflicts" class="slide level1">
+<h1>Merge Conflicts</h1>
+<ul>
+<li><code>git mergetool</code></li>
+<li>There are also tools to do this better</li>
+<li>Often fairly painless</li>
+<li>Don't forget to retest after merges</li>
+</ul>
+</section>
+<section id="need-more-power" class="slide level1">
+<h1>Need more power?</h1>
+<ul>
+<li>Some hosts provides wikis and issue trackers</li>
+<li>Pull Requests as a code review tool</li>
+<li>Git provides hooks for automating tasks</li>
+<li>vim Fugitive</li>
+<li><code>git help</code></li>
+</ul>
+</section>
+<section id="but-my-lovely-ui..." class="slide level1">
+<h1>But my lovely UI... :(</h1>
+<ul>
+<li>There are tools that use git with GUIs</li>
+<li>Some of them are quite good</li>
+<li>Meld is fantastic, but there are others
+<ul>
+<li>Downside is Meld is not on lab machines</li>
+<li>gvimdiff and vimdiff for the vim crowd</li>
+<li>For the emacs OS use <code>emerge</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="wrap-up" class="slide level1">
+<h1>Wrap-Up</h1>
+</section>
+<section id="summary" class="slide level1">
+<h1>Summary</h1>
+<ul>
+<li>Please use version control</li>
+<li>Git is an easy to use DCVS</li>
+<li>Spend less time reverting more time coding</li>
+</ul>
+</section>
+<section id="further-resources" class="slide level1">
+<h1>Further Resources</h1>
+<ul>
+<li><a href="https://www.atlassian.com/dms/wac/images/landing/git/atlassian_git_cheatsheet.pdf">Cheatsheet</a></li>
+<li><a href="https://www.atlassian.com/git/workflows">Workflows</a></li>
+<li><a href="http://blogs.atlassian.com/2012/02/mercurial-vs-git-why-mercurial/?utm_source=wac-dvcs&amp;utm_medium=text&amp;utm_content=dvcs-options-git-or-mercurial">Mecurial (hg)</a></li>
+</ul>
+</section>
+<section id="questions" class="slide level1">
+<h1>Questions</h1>
+<p>Send us feedback at <code>acm@cs.clemson.edu</code>!</p>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
