@@ -30,83 +30,67 @@ Unpleasant People
     -   Open Source as in Linux
     -   Distributed Version Control System??
 
-DCVS and Why You Should Care
-============================
+What is DVCS and Why You Should Care
+====================================
 -   Imagine the following...
 
-Version Control Iteration 1 (Manual)
+What you are probably doing right now
 =====================================
 -   Create a file 
--   Save several copies
+-   Save several copies (with different names?)
 -   Opps, we overwrote our backup ...
 
-
-Oh, What about Austin?
-===========================
--   Two people working on the project
+And what about group projects?
+===============================
+-   Emailing versions back and forth
 -   `diff` and `patch`
--   What if Daniel joins the team?
--   What about reversion?
+-   What if you screwed up?
+-   What if a new group member joins?
 
-
-Version Control Iteration 2 (CVS)
-=================================
--   Send files to a central location
--   Keep a copy of each version of a file
--   Keep track of some meta data
--   Programmaticly control reversion
--   Now 50 people join the team...
-
-
-Ok, What about Austin Now?
-===========================
--   What if Daniel Joins the team?
--   What about reversion?
--   What happens if the server dies?
--   What if we want to branch out?
-
-Version Control Iteration 3
-===========================
--   Each programmer keeps a copy of the repo
--   Programmers `merge` their copies of the repo
--   Store branches as diffs of past code
+Now version control makes us happy :)
+=====================================
+-   Store a file to a repository
+-   The software tracks the versions
+-   New team members checkout/clone the repo
 -   Now were *gitting* somewhere
     - see what we did there...
-
-Ok, What about Austin Now?
-===========================
--   What if Daniel Joins the team?
--   What about reversion?
--   What happens if the server dies?
--   What if we want to branch out?
 
 Getting Started with git
 ========================
 -   First, `git config --global`:
     -   user.name   "Mr. President"
     -   user.email acm@clemson.edu
-    -   core.editor vim
-    -   color.ui
--   `git init`
-
+    -   core.editor Vim
+    -   color.ui True
+-   `git init` - creates a new repo
+-   `git clone`
 
 Adding some files
 =================
--   `git add`
--   `git status`
--   `git commit`
+-   `git add` - staging new changes
+-   `git status` - see the current status
+-   `git commit` - Saves a 'set' of version
 
-Ok... What just happend?
+Ok... What just happened?
 ========================
--   `git log`
--   `git diff`
--   `git blame`
+-   `git log` - See what you did
+-   `git diff` - See the actual changes
+-   `git blame` - See when a line was last changed
 
-Opps...
-=======
--   `git checkout --`
--   `git revert`
+Opps... Now what??
+=================
+-   `git checkout --` to reset to last commit
+-   `git revert` - to reset to a specific commit
+    -   try not to use `git reset` ever
 -   As a last resort `git reset HEAD --hard`
+
+What is a branch?
+================
+-   A branch is a set of related versions
+-   Great for
+    -   Trying something new 
+    -   Building new features 
+    -   Toss it or Merge it
 
 What is Master?
 ===============
@@ -121,17 +105,14 @@ Because Branches
 -   `git checkout -b MyNewBranch`
 -   `git merge MyNewBranch`
 
+
 Sharing code
 ============
 -   GitHub and Bitbucket offer free "hosts" 
 -   Fairly easy to set up a git "server"
 -   `git remote add origin`
 -   `git push -u MyNewBranch`
-
-Downloading Code
-================
--   `git clone`
--   `git pull`
+-   `git push` after the first push
 
 Merge Conflicts
 ==============
@@ -143,7 +124,7 @@ Merge Conflicts
 Need more power?
 ================
 -   Some hosts provides wikis and issue trackers
--   Pull Requests as a code review tool
+-   Pull Requests are a great code review tool
 -   Git provides hooks for automating tasks
 -   vim Fugitive
 -   `git help`
@@ -152,9 +133,10 @@ But my lovely UI... :(
 ======================
 -   There are tools that use git with GUIs
 -   Some of them are quite good
+    -   Github has a great desktop client
 -   Meld is fantastic, but there are others
     -   Downside is Meld is not on lab machines
-    -   gvimdiff and vimdiff for the vim crowd
+    -   gvimdiff and vimdiff for the Vim crowd
     -   For the emacs OS use `emerge`
 
 
