@@ -38,7 +38,7 @@ What you are probably doing right now
 =====================================
 -   Create a file 
 -   Save several copies (with different names?)
--   Opps, we overwrote our backup ...
+-   Oops, we overwrote our backup ...
 
 And what about group projects?
 ===============================
@@ -77,7 +77,7 @@ Ok... What just happened?
 -   `git diff` - See the actual changes
 -   `git blame` - See when a line was last changed
 
-Opps... Now what??
+Oops... Now what??
 =================
 -   `git checkout --` to reset to last commit
 -   `git revert` - to reset to a specific commit
@@ -123,7 +123,7 @@ Merge Conflicts
 
 Need more power?
 ================
--   Some hosts provides wikis and issue trackers
+-   Some hosts provide wikis and issue trackers
 -   Pull Requests are a great code review tool
 -   Git provides hooks for automating tasks
 -   vim Fugitive
@@ -151,6 +151,7 @@ Summary
 
 Further Resources
 =================
+-   [Great Book](http://git-scm.com/book)
 -   [Cheatsheet](https://www.atlassian.com/dms/wac/images/landing/git/atlassian_git_cheatsheet.pdf)
 -   [Workflows](https://www.atlassian.com/git/workflows)
 -   [Mecurial (hg)](http://blogs.atlassian.com/2012/02/mercurial-vs-git-why-mercurial/?utm_source=wac-dvcs&utm_medium=text&utm_content=dvcs-options-git-or-mercurial)
