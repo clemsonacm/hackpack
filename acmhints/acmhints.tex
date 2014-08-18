@@ -1,0 +1,71 @@
+\documentclass[letterpaper, 10pt]{report}
+\title{Clemson Hack Pack}
+\author{Clemson ACM}
+\date{\today}
+\usepackage{multicol}
+\usepackage{geometry}
+\geometry{margin =1in}
+
+%Set up the code verbatim sections
+\usepackage{fancyvrb}
+\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\normalsize}
+
+\begin{document}
+\maketitle
+
+\begingroup
+\let\clearpage\relax
+\chapter*{10 Commandments of ACM Contests}
+\begin{center}Paraphrased from Dr. Dean\end{center}
+\begin{multicols}{2}
+\begin{enumerate}
+    \item Thou shalt sort first and ask questions later
+    \item Thou shalt know the STL and use it well
+    \item Thou shalt know thy algorithms by heart
+    \item Thou shalt brute force $\leq$ 10 million items
+    \item Thou shalt when in doubt solve with DP
+    \item Thou shalt never count by 1
+    \item Thou shalt reinitialize thy data structures
+    \item Thou shalt test often and submit early
+    \item Thou shalt never trust a sample input
+    \item Thou shalt print according to the output spec
+\end{enumerate}
+\end{multicols}
+\begin{center}
+Remember what the Dr. said\\
+"Algorithms are Cool!"
+\end{center}
+
+\chapter*{Some Basic VIMRC Settings}
+\begin{multicols}{2}
+\begin{code}
+set mouse=a
+imap jj $<ESC>$
+set ai
+set nu
+set scs
+set bs=2
+set ts=4
+sy on
+colo=slate
+set bg=dark
+\end{code}
+\end{multicols}
+
+\chapter*{Makefile}
+\begin{code}
+CC=g++
+all :
+    $(CC) *.c -o $*.o
+\end{code}
+\endgroup
+
+
+\tableofcontents
+
+
+\section{Binary Search Tree}
+\section{Dijkstra}
+\section{Heaps}
+
+\end{document}
