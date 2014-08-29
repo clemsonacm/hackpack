@@ -8,7 +8,7 @@ We're on [Steam](http://steamcommunity.com/groups/clemsonacm) &
 
 ### Speakers:
 
-Robert Underwood - CS Major\
+Robert Underwood - ACM Vice President\
  Austin Anderson - ACM President
 
 Coming Up
@@ -84,6 +84,7 @@ Oops... Now what??
     -   try not to use `git reset` ever
 -   As a last resort `git reset HEAD --hard`
 
+
 What is a branch?
 ================
 -   A branch is a set of related versions
@@ -105,7 +106,6 @@ Because Branches
 -   `git checkout -b MyNewBranch`
 -   `git merge MyNewBranch`
 
-
 Sharing code
 ============
 -   GitHub and Bitbucket offer free "hosts" 
@@ -113,6 +113,14 @@ Sharing code
 -   `git remote add origin`
 -   `git push -u MyNewBranch`
 -   `git push` after the first push
+
+When sharing is not caring
+==========================
+-   Some files should not be shared
+    -   May contain sensitive information
+    -   May be machine/developer specific
+    -   May be a breach of academic integrity
+-   Use a `.gitignore` or `core.excludes` file
 
 Merge Conflicts
 ==============

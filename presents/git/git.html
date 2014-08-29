@@ -34,7 +34,7 @@
 <h3 id="brought-to-you-by-clemson-acm">Brought to you by Clemson ACM</h3>
 <p>We're on <a href="http://steamcommunity.com/groups/clemsonacm">Steam</a> &amp; <a href="https://www.facebook.com/groups/283823058297107/">Facebook</a>!</p>
 <h3 id="speakers">Speakers:</h3>
-<p>Robert Underwood - CS Major<br /> Austin Anderson - ACM President</p>
+<p>Robert Underwood - ACM Vice President<br /> Austin Anderson - ACM President</p>
 </section>
 <section id="coming-up" class="slide level1">
 <h1>Coming Up</h1>
@@ -62,67 +62,39 @@
 </ul></li>
 </ul>
 </section>
-<section id="dcvs-and-why-you-should-care" class="slide level1">
-<h1>DCVS and Why You Should Care</h1>
+<section id="what-is-dvcs-and-why-you-should-care" class="slide level1">
+<h1>What is DVCS and Why You Should Care</h1>
 <ul>
 <li>Imagine the following...</li>
 </ul>
 </section>
-<section id="version-control-iteration-1-manual" class="slide level1">
-<h1>Version Control Iteration 1 (Manual)</h1>
+<section id="what-you-are-probably-doing-right-now" class="slide level1">
+<h1>What you are probably doing right now</h1>
 <ul>
 <li>Create a file</li>
-<li>Save several copies</li>
-<li>Opps, we overwrote our backup ...</li>
+<li>Save several copies (with different names?)</li>
+<li>Oops, we overwrote our backup ...</li>
 </ul>
 </section>
-<section id="oh-what-about-austin" class="slide level1">
-<h1>Oh, What about Austin?</h1>
+<section id="and-what-about-group-projects" class="slide level1">
+<h1>And what about group projects?</h1>
 <ul>
-<li>Two people working on the project</li>
+<li>Emailing versions back and forth</li>
 <li><code>diff</code> and <code>patch</code></li>
-<li>What if Daniel joins the team?</li>
-<li>What about reversion?</li>
+<li>What if you screwed up?</li>
+<li>What if a new group member joins?</li>
 </ul>
 </section>
-<section id="version-control-iteration-2-cvs" class="slide level1">
-<h1>Version Control Iteration 2 (CVS)</h1>
+<section id="now-version-control-makes-us-happy" class="slide level1">
+<h1>Now version control makes us happy :)</h1>
 <ul>
-<li>Send files to a central location</li>
-<li>Keep a copy of each version of a file</li>
-<li>Keep track of some meta data</li>
-<li>Programmaticly control reversion</li>
-<li>Now 50 people join the team...</li>
-</ul>
-</section>
-<section id="ok-what-about-austin-now" class="slide level1">
-<h1>Ok, What about Austin Now?</h1>
-<ul>
-<li>What if Daniel Joins the team?</li>
-<li>What about reversion?</li>
-<li>What happens if the server dies?</li>
-<li>What if we want to branch out?</li>
-</ul>
-</section>
-<section id="version-control-iteration-3" class="slide level1">
-<h1>Version Control Iteration 3</h1>
-<ul>
-<li>Each programmer keeps a copy of the repo</li>
-<li>Programmers <code>merge</code> their copies of the repo</li>
-<li>Store branches as diffs of past code</li>
+<li>Store a file to a repository</li>
+<li>The software tracks the versions</li>
+<li>New team members checkout/clone the repo</li>
 <li>Now were <em>gitting</em> somewhere
 <ul>
 <li>see what we did there...</li>
 </ul></li>
-</ul>
-</section>
-<section id="ok-what-about-austin-now-1" class="slide level1">
-<h1>Ok, What about Austin Now?</h1>
-<ul>
-<li>What if Daniel Joins the team?</li>
-<li>What about reversion?</li>
-<li>What happens if the server dies?</li>
-<li>What if we want to branch out?</li>
 </ul>
 </section>
 <section id="getting-started-with-git" class="slide level1">
@@ -132,34 +104,50 @@
 <ul>
 <li>user.name &quot;Mr. President&quot;</li>
 <li>user.email acm@clemson.edu</li>
-<li>core.editor vim</li>
-<li>color.ui</li>
+<li>core.editor Vim</li>
+<li>color.ui True</li>
 </ul></li>
-<li><code>git init</code></li>
+<li><code>git init</code> - creates a new repo</li>
+<li><code>git clone</code></li>
 </ul>
 </section>
 <section id="adding-some-files" class="slide level1">
 <h1>Adding some files</h1>
 <ul>
-<li><code>git add</code></li>
-<li><code>git status</code></li>
-<li><code>git commit</code></li>
+<li><code>git add</code> - staging new changes</li>
+<li><code>git status</code> - see the current status</li>
+<li><code>git commit</code> - Saves a 'set' of version</li>
 </ul>
 </section>
-<section id="ok...-what-just-happend" class="slide level1">
-<h1>Ok... What just happend?</h1>
+<section id="ok...-what-just-happened" class="slide level1">
+<h1>Ok... What just happened?</h1>
 <ul>
-<li><code>git log</code></li>
-<li><code>git diff</code></li>
-<li><code>git blame</code></li>
+<li><code>git log</code> - See what you did</li>
+<li><code>git diff</code> - See the actual changes</li>
+<li><code>git blame</code> - See when a line was last changed</li>
 </ul>
 </section>
-<section id="opps..." class="slide level1">
-<h1>Opps...</h1>
+<section id="oops...-now-what" class="slide level1">
+<h1>Oops... Now what??</h1>
 <ul>
-<li><code>git checkout --</code></li>
-<li><code>git revert</code></li>
+<li><code>git checkout --</code> to reset to last commit</li>
+<li><code>git revert</code> - to reset to a specific commit
+<ul>
+<li>try not to use <code>git reset</code> ever</li>
+</ul></li>
 <li>As a last resort <code>git reset HEAD --hard</code></li>
+</ul>
+</section>
+<section id="what-is-a-branch" class="slide level1">
+<h1>What is a branch?</h1>
+<ul>
+<li>A branch is a set of related versions</li>
+<li>Great for
+<ul>
+<li>Trying something new</li>
+<li>Building new features</li>
+<li>Toss it or Merge it</li>
+</ul></li>
 </ul>
 </section>
 <section id="what-is-master" class="slide level1">
@@ -186,13 +174,19 @@
 <li>Fairly easy to set up a git &quot;server&quot;</li>
 <li><code>git remote add origin</code></li>
 <li><code>git push -u MyNewBranch</code></li>
+<li><code>git push</code> after the first push</li>
 </ul>
 </section>
-<section id="downloading-code" class="slide level1">
-<h1>Downloading Code</h1>
+<section id="when-sharing-is-not-caring" class="slide level1">
+<h1>When sharing is not caring</h1>
 <ul>
-<li><code>git clone</code></li>
-<li><code>git pull</code></li>
+<li>Some files should not be shared
+<ul>
+<li>May contain sensitive information</li>
+<li>May be machine/developer specific</li>
+<li>May be a breach of academic integrity</li>
+</ul></li>
+<li>Use a <code>.gitignore</code> or <code>core.excludes</code> file</li>
 </ul>
 </section>
 <section id="merge-conflicts" class="slide level1">
@@ -207,8 +201,8 @@
 <section id="need-more-power" class="slide level1">
 <h1>Need more power?</h1>
 <ul>
-<li>Some hosts provides wikis and issue trackers</li>
-<li>Pull Requests as a code review tool</li>
+<li>Some hosts provide wikis and issue trackers</li>
+<li>Pull Requests are a great code review tool</li>
 <li>Git provides hooks for automating tasks</li>
 <li>vim Fugitive</li>
 <li><code>git help</code></li>
@@ -218,11 +212,14 @@
 <h1>But my lovely UI... :(</h1>
 <ul>
 <li>There are tools that use git with GUIs</li>
-<li>Some of them are quite good</li>
+<li>Some of them are quite good
+<ul>
+<li>Github has a great desktop client</li>
+</ul></li>
 <li>Meld is fantastic, but there are others
 <ul>
 <li>Downside is Meld is not on lab machines</li>
-<li>gvimdiff and vimdiff for the vim crowd</li>
+<li>gvimdiff and vimdiff for the Vim crowd</li>
 <li>For the emacs OS use <code>emerge</code></li>
 </ul></li>
 </ul>
@@ -241,6 +238,7 @@
 <section id="further-resources" class="slide level1">
 <h1>Further Resources</h1>
 <ul>
+<li><a href="http://git-scm.com/book">Great Book</a></li>
 <li><a href="https://www.atlassian.com/dms/wac/images/landing/git/atlassian_git_cheatsheet.pdf">Cheatsheet</a></li>
 <li><a href="https://www.atlassian.com/git/workflows">Workflows</a></li>
 <li><a href="http://blogs.atlassian.com/2012/02/mercurial-vs-git-why-mercurial/?utm_source=wac-dvcs&amp;utm_medium=text&amp;utm_content=dvcs-options-git-or-mercurial">Mecurial (hg)</a></li>
