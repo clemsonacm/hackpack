@@ -4,6 +4,7 @@
 \date{\today}
 \usepackage{multicol}
 \usepackage{geometry}
+\usepackage{tabularx}
 \geometry{margin =1in}
 
 %Set up the code verbatim sections
@@ -36,7 +37,117 @@ Remember what the Dr. said\\
 "Algorithms are Cool!"
 \end{center}
 
-\chapter*{Some Basic VIMRC Settings}
+\endgroup
+
+
+\tableofcontents
+
+\chapter{Basic Data Structures}
+\section{Set}
+Sets are Associative, Ordered, set, Unique Keyed, and Allocator Aware\cite{cplusplus}.  Set means that the key is also the value. Use it when it is only important if something has been seen before.
+\begin{code}
+    #include <set>
+    std::set<type_one> myset;
+
+    //iterator
+    std::set<type_one>::iterator it;
+
+    //insert O(N log(N)) or O(N) am for sorted inputs
+    myset.insert(type_one (value));
+
+    //remove O(log N) or O(1) am post-find
+    myset.erase(it);
+    myset.erase(key);
+
+    //find O(log N)
+    myset.find(key)
+\end{code}
+\section{Map}
+Maps are Associative, Ordered, Mapped, Unique Keyed, and Allocator aware\cite{cplusplus}.  Mapped means that each key corresponds to a specific value. Use it to record relationships in data.
+\begin{code}
+    #include <map>
+    std::map<key_type,value_type> mymap;
+
+    //iterator
+    std::map<key_type, value_type>::iterator it;
+
+    //insert O(N log(N)) or O(N) am for sorted inputs
+    mymap.insert( std::pair<key_type, value_type>(key, value);
+    mymap[key] = value;
+
+    //remove O(log N) or O(1) am post-find
+    mymap.erase(it);
+    mymap.erase(key);
+
+    //find O(log N)
+    mymap.find(key)
+\end{code}
+\section{Heaps}
+
+
+\chapter{Algorithms}
+\section{Dijkstra}
+
+\chapter{C IO Functions}
+Occasionally it is far easier to use the C IO functions to meet an output spec. It is also possible to set the precision and width options via numbers after the present,but before the specifier.  The general form of a specifier is: 
+
+\begin{code}
+    %[flags][width][.precision][length]specifier
+\end{code}
+
+\begin{table}[h]
+    \caption{Format Specifier Codes \cite{cplusplus}}
+    \begin{tabularx}{\textwidth}{|l|X|l|} \hline
+        Format Code &   Output              &   Example     \\ \hline
+        d           &   Signed Int          &   314         \\
+        u           &   Unsigned Int        &   314         \\
+        o           &   Unsigned Octal      &   472         \\
+        x           &   Unsigned hex        &   13a         \\
+        X           &   UNSIGNED HEX        &   13A         \\
+        f           &   floating point      &   3.140000    \\
+        e           &   Scientific notation &   3.140000e+00\\
+        c           &   character           &   A           \\
+        s           &   string              &   ACM         \\
+        p           &   pointer address     &   0x40060c    \\
+        l           &   Used with other specifiers to indicate a long & 314 \\
+        \%\%        &   Prints a literal \% &   \%          \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[h]
+    \caption{Modifier Flags \cite{cplusplus}}
+    \begin{tabularx}{\textwidth}{|l|X|l|} \hline
+        Format Code &   Output                  &   Example     \\ \hline
+        -           &   Left-justify            &   314         \\
+        +           &   Force-sign character    &   +314         \\
+        \#           &   Show prefix             &   0x13a       \\
+                    &   Show decimal point      &   314.        \\
+        0           &   Left pad field with 0   &   0314       \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\section{Examples}
+\begin{code}
+    #include <stdio.h>
+    int main (){
+        //To stdout
+        double f = 3.14;
+        int    i = 314;
+        char*  s = "ACM";
+        printf("%5f,%5i,%5s\n", f, i, s);
+
+        //Same thing to a file
+        FILE * outputfile;
+        outputfile = fopen("outputfile.txt","w");
+        fprintf(outputfile,"%5f,%5i,%5s\n", f, i, s);
+        fclose(outputfile);
+    }
+\end{code}
+
+\chapter{Appendix}
+\section{Some Basic VIMRC Settings}
 \begin{multicols}{2}
 \begin{code}
 set mouse=a
@@ -52,20 +163,15 @@ set bg=dark
 \end{code}
 \end{multicols}
 
-\chapter*{Makefile}
+\section{Makefile}
 \begin{code}
 CC=g++
 all :
     $(CC) *.c -o $*.o
 \end{code}
-\endgroup
 
-
-\tableofcontents
-
-
-\section{Binary Search Tree}
-\section{Dijkstra}
-\section{Heaps}
+\bibliographystyle{plain}
+\bibliography{acmhints}
 
 \end{document}
+
