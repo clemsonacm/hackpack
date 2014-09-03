@@ -35,14 +35,14 @@ What is Vim?
 ============
 
 Vim is
-======
+------
 +   a programmers text editor
 +   Very programmable and extensible
 +   A tool that is meant to be learned
 +   Awesome
 
 Vim is NOT
-==========
+----------
 +   All of the tools in you tool box
 +   A Word Processor
 
@@ -68,16 +68,60 @@ Copy and Paste
 +   Think registers
     +   You now have 20 copy buffers
 +   `"+` register 
++   ctrl r in insert mode puts the register
+
+Important registers
+===================
++   "[1-9] history buffers
++   "0 the yank buffer
++   "[a-z] named registers
++   "[A-Z] same as "[a-z] but append
+
+Other important registers
+=========================
++   "+ The "global" register
++   "/ current search pattern
++   "- small delete
++   "= expression register  
++   `"_` the blackhole register
+
+Read-only registers
+===================
++   ": last Ex command
++   ". last inserted text
++   "% filename of the current buffer.  
++   "# filename of the alternate file 
+    +   More on that in a minute
+
 
 Multiple Files
 ==============
 +   Use buffers and windows
++   `^w` is prefixes most "window" commands
++   very handy for viewing multiple files
++   :vsp, :sp, :res :bn :bd :bp
++   :b will change the buffer
 
 Using vim to Write Code faster
 ==============================
++   Syntax Completion
++   Omnicompletion
++   Snippets
+    +   Snipmate and Ultisnips
+    +   Abbreviations will do simple snippets
++   Templates
+
+Navigating large code bases
+==========================
++   Cscope
++   Ctags
 
 Using vim to Test faster
 ========================
++   :make <make_target>
++   :set makeprg
++   :cn :cw :cp ]c [c
++   :shell
 
 But Vim does have X feature
 ===========================
