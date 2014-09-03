@@ -1,135 +1,242 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <title></title>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
-    <style type="text/css">code{white-space: pre;}</style>
-    <link rel="stylesheet" href="reveal.js/css/theme/moon.css"/>
-    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
-    <script>
-      if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-      }
-    </script>
-    <!--[if lt IE 9]>
+<meta charset="utf-8">
+<meta name="generator" content="pandoc">
+<title></title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+<style type="text/css">code{white-space: pre;}</style>
+<link rel="stylesheet" href="reveal.js/css/theme/moon.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'reveal.js/css/print/pdf.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+</script>
+<!--[if lt IE 9]>
     <script src="reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
 </head>
 <body>
-  <div class="reveal">
+<div class="reveal">
     <div class="slides">
 
 
-<section id="introduction-to-vim" class="slide level1">
-<h1>Introduction to Vim</h1>
-<h3 id="brought-to-you-by-clemson-acm">Brought to you by Clemson ACM</h3>
-<p>We're on <a href="http://steamcommunity.com/groups/clemsonacm">Steam</a> &amp; <a href="https://www.facebook.com/groups/283823058297107/">Facebook</a>!</p>
-<h3 id="speakers">Speakers:</h3>
-<p>Robert Underwood - CS Major<br /> Austin Anderson - ACM President</p>
-</section>
-<section id="coming-up" class="slide level1">
-<h1>Coming Up</h1>
-<ol type="1">
-<li>Setting Expectations</li>
-<li>What is Vim?</li>
-<li>Why use Vim?</li>
-<li>Getting Started in Vim</li>
-<li>Cool Stuff that can be done</li>
-</ol>
-</section>
-<section id="setting-some-expectations" class="slide level1">
-<h1>Setting some Expectations</h1>
-<ul>
-<li>This discussion will not:
-<ul>
-<li>Make you magically a Vim guru</li>
-<li>Show even 10% of Vim's power</li>
-</ul></li>
-<li>This discussion will:
-<ul>
-<li>Teach you enough to teach yourself</li>
-<li>Show you some of the cool and useful features</li>
-</ul></li>
-</ul>
-<blockquote>
-<p>Most people use only 10% of the functionality of vim The 10% only differs from person to person</p>
-</blockquote>
-</section>
-<section id="what-is-vim" class="slide level1">
-<h1>What is Vim?</h1>
-</section>
-<section id="vim-is" class="slide level1">
-<h1>Vim is</h1>
-<ul>
-<li>a programmers text editor</li>
-<li>Very programmable and extensible</li>
-<li>Awesome</li>
-</ul>
-</section>
-<section id="vim-is-not" class="slide level1">
-<h1>Vim is NOT</h1>
-<ul>
-<li>An Integrated Development Environment</li>
-<li>A Word Processor</li>
-</ul>
-</section>
-<section id="somethings-to-understand-about-vim" class="slide level1">
-<h1>Somethings to understand about Vim</h1>
-<ul>
-<li>Vim is designed for speed</li>
-<li>Vim is designed to be minimal</li>
-<li>Vim was designed to be learned</li>
-</ul>
-</section>
-<section id="wrap-up" class="slide level1">
-<h1>Wrap-Up</h1>
-</section>
-<section id="summary" class="slide level1">
-<h1>Summary</h1>
-</section>
-<section id="further-resources" class="slide level1">
-<h1>Further Resources</h1>
-</section>
-<section id="questions" class="slide level1">
-<h1>Questions</h1>
-<p>Send us feedback at <code>acm@cs.clemson.edu</code>!</p>
-</section>
+        <section id="introduction-to-vim" class="slide level1">
+            <h1>Introduction to Vim</h1>
+            <h3 id="brought-to-you-by-clemson-acm">Brought to you by Clemson ACM</h3>
+            <p>We're on <a href="http://steamcommunity.com/groups/clemsonacm">Steam</a> &amp; <a href="https://www.facebook.com/groups/283823058297107/">Facebook</a>!</p>
+            <h3 id="speakers">Speakers:</h3>
+            <p>Robert Underwood - CS Major<br /> Austin Anderson - ACM President</p>
+        </section>
+        <section id="coming-up" class="slide level1">
+            <h1>Coming Up</h1>
+            <ol type="1">
+                <li>Setting Expectations</li>
+                <li>What is Vim?</li>
+            </ol>
+        </section>
+        <section id="setting-some-expectations" class="slide level1">
+            <h1>Setting some Expectations</h1>
+            <ul>
+                <li>This discussion will not:
+                <ul>
+                    <li>Go over the basics in vimtutor</li>
+                    <li>Make you magically a Vim guru</li>
+                    <li>Show even 10% of Vim's power</li>
+                </ul></li>
+                <li>This discussion will:
+                <ul>
+                    <li>Show you some of the cool and useful features</li>
+                    <li>Teach you enough to teach yourself</li>
+                </ul></li>
+            </ul>
+            <blockquote>
+                <p>Most people use only 10% of the functionality of vim The 10% only differs from person to person</p>
+            </blockquote>
+        </section>
+        <section id="what-is-vim" class="slide level1">
+            <h1>What is Vim?</h1>
+            <h2 id="vim-is">Vim is</h2>
+            <ul>
+                <li>a programmers text editor</li>
+                <li>Very programmable and extensible</li>
+                <li>A tool that is meant to be learned</li>
+                <li>Awesome</li>
+            </ul>
+            <h2 id="vim-is-not">Vim is NOT</h2>
+            <ul>
+                <li>All of the tools in you tool box</li>
+                <li>A Word Processor</li>
+            </ul>
+        </section>
+        <section id="composability" class="slide level1">
+            <h1>Composability</h1>
+            <ul>
+                <li>To take elements to make up a whole</li>
+                <li>Actions and Motions
+                <ul>
+                    <li>Motions move the cursor</li>
+                    <li>Actions do something</li>
+                </ul></li>
+                <li>combinations of Action and Motion</li>
+            </ul>
+        </section>
+        <section id="antipaterns" class="slide level1">
+            <h1>Antipaterns</h1>
+            <p>A bad way of doing something that becomes habit ex: 1. llllllll instead of e 2. ddi instead of C</p>
+        </section>
+        <section id="fixing-some-common-annoyances" class="slide level1">
+            <h1>Fixing Some Common Annoyances</h1>
+            <ul>
+                <li>Turn on the mouse</li>
+                <li>Turn on Syntax Highlighting</li>
+                <li>Set your background color</li>
+                <li>I hate escape</li>
+                <li>Each annoyance has a reason</li>
+            </ul>
+        </section>
+        <section id="copy-and-paste" class="slide level1">
+            <h1>Copy and Paste</h1>
+            <ul>
+                <li>Forget Copy and Paste</li>
+                <li>Think registers
+                <ul>
+                    <li>You now have 20 copy buffers</li>
+                </ul></li>
+                <li><code>&quot;+</code> register</li>
+                <li>ctrl r in insert mode puts the register</li>
+            </ul>
+        </section>
+        <section id="important-registers" class="slide level1">
+            <h1>Important registers</h1>
+            <ul>
+                <li>&quot;[1-9] history buffers</li>
+                <li>&quot;0 the yank buffer</li>
+                <li>&quot;[a-z] named registers</li>
+                <li>&quot;[A-Z] same as &quot;[a-z] but append</li>
+            </ul>
+        </section>
+        <section id="other-important-registers" class="slide level1">
+            <h1>Other important registers</h1>
+            <ul>
+                <li>&quot;+ The &quot;global&quot; register</li>
+                <li>&quot;/ current search pattern</li>
+                <li>&quot;- small delete</li>
+                <li>&quot;= expression register<br /></li>
+                <li><code>&quot;_</code> the blackhole register</li>
+            </ul>
+        </section>
+        <section id="read-only-registers" class="slide level1">
+            <h1>Read-only registers</h1>
+            <ul>
+                <li>&quot;: last Ex command</li>
+                <li>&quot;. last inserted text</li>
+                <li>&quot;% filename of the current buffer.<br /></li>
+                <li>&quot;# filename of the alternate file
+                <ul>
+                    <li>More on that in a minute</li>
+                </ul></li>
+            </ul>
+        </section>
+        <section id="multiple-files" class="slide level1">
+            <h1>Multiple Files</h1>
+            <ul>
+                <li>Use buffers and windows</li>
+                <li><code>^w</code> is prefixes most &quot;window&quot; commands</li>
+                <li>very handy for viewing multiple files</li>
+                <li>:vsp, :sp, :res :bn :bd :bp</li>
+                <li>:b will change the buffer</li>
+            </ul>
+        </section>
+        <section id="using-vim-to-write-code-faster" class="slide level1">
+            <h1>Using vim to Write Code faster</h1>
+            <ul>
+                <li>Syntax Completion</li>
+                <li>Omnicompletion</li>
+                <li>Snippets
+                <ul>
+                    <li>Snipmate and Ultisnips</li>
+                    <li>Abbreviations will do simple snippets</li>
+                </ul></li>
+                <li>Templates</li>
+            </ul>
+        </section>
+        <section id="navigating-large-code-bases" class="slide level1">
+            <h1>Navigating large code bases</h1>
+            <ul>
+                <li>Cscope</li>
+                <li>Ctags</li>
+            </ul>
+        </section>
+        <section id="using-vim-to-test-faster" class="slide level1">
+            <h1>Using vim to Test faster</h1>
+            <ul>
+                <li>:make <make_target></li>
+                <li>:set makeprg</li>
+                <li>:cn :cw :cp ]c [c</li>
+                <li>:shell</li>
+            </ul>
+        </section>
+        <section id="but-vim-does-have-x-feature" class="slide level1">
+            <h1>But Vim does have X feature</h1>
+            <ul>
+                <li>It may be a feature</li>
+                <li>Separation of concerns
+                <ul>
+                    <li>Uses Cindent for indenting</li>
+                    <li>Uses Ctags for tag management</li>
+                </ul></li>
+                <li>Try Emacs</li>
+            </ul>
+        </section>
+        <section id="wrap-up" class="slide level1">
+            <h1>Wrap-Up</h1>
+        </section>
+        <section id="summary" class="slide level1">
+            <h1>Summary</h1>
+        </section>
+        <section id="further-resources" class="slide level1">
+            <h1>Further Resources</h1>
+        </section>
+        <section id="questions" class="slide level1">
+            <h1>Questions</h1>
+            <p>Send us feedback at <code>acm@cs.clemson.edu</code>!</p>
+        </section>
     </div>
-  </div>
+</div>
 
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
-  <script src="reveal.js/js/reveal.min.js"></script>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.min.js"></script>
 
-  <script>
+<script>
 
-      // Full list of configuration options available here:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-        // Optional libraries used to extend on reveal.js
-        dependencies: [
-          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+// Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
 //          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
 //          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 ]});
-    </script>
-    </body>
+</script>
+</body>
 </html>

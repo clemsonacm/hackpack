@@ -54,6 +54,13 @@ Composability
     +   Actions do something
 +   combinations of Action and Motion 
 
+Antipaterns
+============
+A bad way of doing something that becomes habit
+ex:
+1.  llllllll instead of e
+2.  ddi instead of C
+
 Fixing Some Common Annoyances
 =============================
 +   Turn on the mouse
