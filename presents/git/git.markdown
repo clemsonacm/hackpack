@@ -1,7 +1,6 @@
-Git 101
-=======
-
-### Brought to you by Clemson ACM
+Git Thee to a Version Control System!
+=====================================
+### Keeping your code straight with Git, brought to you by Clemson ACM
 
 We're on [Steam](http://steamcommunity.com/groups/clemsonacm) &
 [Facebook](https://www.facebook.com/groups/283823058297107/)!
@@ -13,18 +12,15 @@ Robert Underwood - ACM Vice President\
 
 Coming Up
 =========
-1.  Unpleasant and contemptible people in cs.
+1.  Git is a VCS. What are those?
 2.  Why on Earth do I care?
-3.  How you can *git* started?
+3.  How can I _git_ started?
 4.  Wrap-up
 
 Unpleasant People
 =====================
 
 -   git - (n) An unpleasant or contemptible person.
-    -   Not something we generally like
-    -   For example that git in McAdams that never bathes
-    -   [Oxford English Dictionary](http://www.oxforddictionaries.com/us/definition/english/git)
 -   git - (n) Free, Open Source, Fast, Scalable, and Distributed Version Control System
     -   Free as in lunch
     -   Open Source as in Linux
@@ -36,9 +32,13 @@ What is DVCS and Why You Should Care
 
 What you are probably doing right now
 =====================================
--   Create a file 
--   Save several copies (with different names?)
--   Oops, we overwrote our backup ...
+-   Code backups?
+    -    Create a file 
+    -    Save several copies (with different names?)
+    -    Oops, we overwrote our backup ... it's gone!
+-   Trying new things?
+    -    Save old code to a new file
+    -    Merging good stuff with bad stuff is hard!
 
 And what about group projects?
 ===============================
@@ -53,7 +53,6 @@ Now version control makes us happy :)
 -   The software tracks the versions
 -   New team members checkout/clone the repo
 -   Now were *gitting* somewhere
-    - see what we did there...
 
 Getting Started with git
 ========================
@@ -63,25 +62,26 @@ Getting Started with git
     -   core.editor Vim
     -   color.ui True
 -   `git init` - creates a new repo
--   `git clone`
+-   `git clone` - get your own copy of another repo
 
 Adding some files
 =================
--   `git add` - staging new changes
+-   `git add` - staging new changes and files
 -   `git status` - see the current status
--   `git commit` - Saves a 'set' of version
+-   `git commit` - saves a set of code changes
 
 Ok... What just happened?
 ========================
 -   `git log` - See what you did
 -   `git diff` - See the actual changes
 -   `git blame` - See when a line was last changed
+-   `git reflog` - Look through all recent commits, even dead ones!
 
 Oops... Now what??
 =================
 -   `git checkout --` to reset to last commit
 -   `git revert` - to reset to a specific commit
-    -   try not to use `git reset` ever
+    -   try not to use `git reset` ever -- why?
 -   As a last resort `git reset HEAD --hard`
 
 
@@ -91,13 +91,14 @@ What is a branch?
 -   Great for
     -   Trying something new 
     -   Building new features 
-    -   Toss it or Merge it
+-   Toss it or Merge it
 
 What is Master?
 ===============
--   One Branch to rule them all??
+-   One Branch to rule them all?
 -   Stable, Final, Sharable Product
 -   Try not to make changes directly here
+    - At least not in projects with advanced branching systems
 -   **Always** test changes merged into Master
 
 Because Branches
@@ -109,6 +110,7 @@ Because Branches
 Sharing code
 ============
 -   GitHub and Bitbucket offer free "hosts" 
+    - Both offer free private repos if you add a `.edu` email address!
 -   Fairly easy to set up a git "server"
 -   `git remote add origin`
 -   `git push -u MyNewBranch`
@@ -118,6 +120,8 @@ When sharing is not caring
 ==========================
 -   Some files should not be shared
     -   May contain sensitive information
+        - API Keys
+        - Passwords
     -   May be machine/developer specific
     -   May be a breach of academic integrity
 -   Use a `.gitignore` or `core.excludes` file
