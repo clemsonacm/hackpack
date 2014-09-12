@@ -1,280 +1,307 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <title></title>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
-    <style type="text/css">code{white-space: pre;}</style>
-    <link rel="stylesheet" href="reveal.js/css/theme/moon.css"/>
-    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
-    <script>
-      if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-      }
-    </script>
-    <!--[if lt IE 9]>
+<meta charset="utf-8">
+<meta name="generator" content="pandoc">
+<title></title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+<style type="text/css">code{white-space: pre;}</style>
+<link rel="stylesheet" href="reveal.js/css/theme/moon.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'reveal.js/css/print/pdf.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+</script>
+<!--[if lt IE 9]>
     <script src="reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
 </head>
 <body>
-  <div class="reveal">
+<div class="reveal">
     <div class="slides">
 
 
-<section id="git-101" class="slide level1">
-<h1>Git 101</h1>
-<h3 id="brought-to-you-by-clemson-acm">Brought to you by Clemson ACM</h3>
-<p>We're on <a href="http://steamcommunity.com/groups/clemsonacm">Steam</a> &amp; <a href="https://www.facebook.com/groups/283823058297107/">Facebook</a>!</p>
-<h3 id="speakers">Speakers:</h3>
-<p>Robert Underwood - ACM Vice President<br /> Austin Anderson - ACM President</p>
-</section>
-<section id="coming-up" class="slide level1">
-<h1>Coming Up</h1>
-<ol type="1">
-<li>Unpleasant and contemptible people in cs.</li>
-<li>Why on Earth do I care?</li>
-<li>How you can <em>git</em> started?</li>
-<li>Wrap-up</li>
-</ol>
-</section>
-<section id="unpleasant-people" class="slide level1">
-<h1>Unpleasant People</h1>
-<ul>
-<li>git - (n) An unpleasant or contemptible person.
-<ul>
-<li>Not something we generally like</li>
-<li>For example that git in McAdams that never bathes</li>
-<li><a href="http://www.oxforddictionaries.com/us/definition/english/git">Oxford English Dictionary</a></li>
-</ul></li>
-<li>git - (n) Free, Open Source, Fast, Scalable, and Distributed Version Control System
-<ul>
-<li>Free as in lunch</li>
-<li>Open Source as in Linux</li>
-<li>Distributed Version Control System??</li>
-</ul></li>
-</ul>
-</section>
-<section id="what-is-dvcs-and-why-you-should-care" class="slide level1">
-<h1>What is DVCS and Why You Should Care</h1>
-<ul>
-<li>Imagine the following...</li>
-</ul>
-</section>
-<section id="what-you-are-probably-doing-right-now" class="slide level1">
-<h1>What you are probably doing right now</h1>
-<ul>
-<li>Create a file</li>
-<li>Save several copies (with different names?)</li>
-<li>Oops, we overwrote our backup ...</li>
-</ul>
-</section>
-<section id="and-what-about-group-projects" class="slide level1">
-<h1>And what about group projects?</h1>
-<ul>
-<li>Emailing versions back and forth</li>
-<li><code>diff</code> and <code>patch</code></li>
-<li>What if you screwed up?</li>
-<li>What if a new group member joins?</li>
-</ul>
-</section>
-<section id="now-version-control-makes-us-happy" class="slide level1">
-<h1>Now version control makes us happy :)</h1>
-<ul>
-<li>Store a file to a repository</li>
-<li>The software tracks the versions</li>
-<li>New team members checkout/clone the repo</li>
-<li>Now were <em>gitting</em> somewhere
-<ul>
-<li>see what we did there...</li>
-</ul></li>
-</ul>
-</section>
-<section id="getting-started-with-git" class="slide level1">
-<h1>Getting Started with git</h1>
-<ul>
-<li>First, <code>git config --global</code>:
-<ul>
-<li>user.name &quot;Mr. President&quot;</li>
-<li>user.email acm@clemson.edu</li>
-<li>core.editor Vim</li>
-<li>color.ui True</li>
-</ul></li>
-<li><code>git init</code> - creates a new repo</li>
-<li><code>git clone</code></li>
-</ul>
-</section>
-<section id="adding-some-files" class="slide level1">
-<h1>Adding some files</h1>
-<ul>
-<li><code>git add</code> - staging new changes</li>
-<li><code>git status</code> - see the current status</li>
-<li><code>git commit</code> - Saves a 'set' of version</li>
-</ul>
-</section>
-<section id="ok...-what-just-happened" class="slide level1">
-<h1>Ok... What just happened?</h1>
-<ul>
-<li><code>git log</code> - See what you did</li>
-<li><code>git diff</code> - See the actual changes</li>
-<li><code>git blame</code> - See when a line was last changed</li>
-</ul>
-</section>
-<section id="oops...-now-what" class="slide level1">
-<h1>Oops... Now what??</h1>
-<ul>
-<li><code>git checkout --</code> to reset to last commit</li>
-<li><code>git revert</code> - to reset to a specific commit
-<ul>
-<li>try not to use <code>git reset</code> ever</li>
-</ul></li>
-<li>As a last resort <code>git reset HEAD --hard</code></li>
-</ul>
-</section>
-<section id="what-is-a-branch" class="slide level1">
-<h1>What is a branch?</h1>
-<ul>
-<li>A branch is a set of related versions</li>
-<li>Great for
-<ul>
-<li>Trying something new</li>
-<li>Building new features</li>
-<li>Toss it or Merge it</li>
-</ul></li>
-</ul>
-</section>
-<section id="what-is-master" class="slide level1">
-<h1>What is Master?</h1>
-<ul>
-<li>One Branch to rule them all??</li>
-<li>Stable, Final, Sharable Product</li>
-<li>Try not to make changes directly here</li>
-<li><strong>Always</strong> test changes merged into Master</li>
-</ul>
-</section>
-<section id="because-branches" class="slide level1">
-<h1>Because Branches</h1>
-<ul>
-<li><code>git branch</code></li>
-<li><code>git checkout -b MyNewBranch</code></li>
-<li><code>git merge MyNewBranch</code></li>
-</ul>
-</section>
-<section id="sharing-code" class="slide level1">
-<h1>Sharing code</h1>
-<ul>
-<li>GitHub and Bitbucket offer free &quot;hosts&quot;</li>
-<li>Fairly easy to set up a git &quot;server&quot;</li>
-<li><code>git remote add origin</code></li>
-<li><code>git push -u MyNewBranch</code></li>
-<li><code>git push</code> after the first push</li>
-</ul>
-</section>
-<section id="when-sharing-is-not-caring" class="slide level1">
-<h1>When sharing is not caring</h1>
-<ul>
-<li>Some files should not be shared
-<ul>
-<li>May contain sensitive information</li>
-<li>May be machine/developer specific</li>
-<li>May be a breach of academic integrity</li>
-</ul></li>
-<li>Use a <code>.gitignore</code> or <code>core.excludes</code> file</li>
-</ul>
-</section>
-<section id="merge-conflicts" class="slide level1">
-<h1>Merge Conflicts</h1>
-<ul>
-<li><code>git mergetool</code></li>
-<li>There are also tools to do this better</li>
-<li>Often fairly painless</li>
-<li>Don't forget to retest after merges</li>
-</ul>
-</section>
-<section id="need-more-power" class="slide level1">
-<h1>Need more power?</h1>
-<ul>
-<li>Some hosts provide wikis and issue trackers</li>
-<li>Pull Requests are a great code review tool</li>
-<li>Git provides hooks for automating tasks</li>
-<li>vim Fugitive</li>
-<li><code>git help</code></li>
-</ul>
-</section>
-<section id="but-my-lovely-ui..." class="slide level1">
-<h1>But my lovely UI... :(</h1>
-<ul>
-<li>There are tools that use git with GUIs</li>
-<li>Some of them are quite good
-<ul>
-<li>Github has a great desktop client</li>
-</ul></li>
-<li>Meld is fantastic, but there are others
-<ul>
-<li>Downside is Meld is not on lab machines</li>
-<li>gvimdiff and vimdiff for the Vim crowd</li>
-<li>For the emacs OS use <code>emerge</code></li>
-</ul></li>
-</ul>
-</section>
-<section id="wrap-up" class="slide level1">
-<h1>Wrap-Up</h1>
-</section>
-<section id="summary" class="slide level1">
-<h1>Summary</h1>
-<ul>
-<li>Please use version control</li>
-<li>Git is an easy to use DCVS</li>
-<li>Spend less time reverting more time coding</li>
-</ul>
-</section>
-<section id="further-resources" class="slide level1">
-<h1>Further Resources</h1>
-<ul>
-<li><a href="http://git-scm.com/book">Great Book</a></li>
-<li><a href="https://www.atlassian.com/dms/wac/images/landing/git/atlassian_git_cheatsheet.pdf">Cheatsheet</a></li>
-<li><a href="https://www.atlassian.com/git/workflows">Workflows</a></li>
-<li><a href="http://blogs.atlassian.com/2012/02/mercurial-vs-git-why-mercurial/?utm_source=wac-dvcs&amp;utm_medium=text&amp;utm_content=dvcs-options-git-or-mercurial">Mecurial (hg)</a></li>
-</ul>
-</section>
-<section id="questions" class="slide level1">
-<h1>Questions</h1>
-<p>Send us feedback at <code>acm@cs.clemson.edu</code>!</p>
-</section>
+        <section id="git-thee-to-a-version-control-system" class="slide level1">
+            <h1>Git Thee to a Version Control System!</h1>
+            <h3 id="keeping-your-code-straight-with-git-brought-to-you-by-clemson-acm">Keeping your code straight with Git, brought to you by Clemson ACM</h3>
+            <p>We're on <a href="http://steamcommunity.com/groups/clemsonacm">Steam</a> &amp; <a href="https://www.facebook.com/groups/283823058297107/">Facebook</a>!</p>
+            <h3 id="speakers">Speakers:</h3>
+            <p>Robert Underwood - ACM Vice President<br /> Austin Anderson - ACM President</p>
+        </section>
+        <section id="coming-up" class="slide level1">
+            <h1>Coming Up</h1>
+            <ol type="1">
+                <li>Git is a VCS. Huh?</li>
+                <li>Why on Earth do I care?</li>
+                <li>How can I <em>git</em> started?</li>
+                <li>Wrap-up</li>
+            </ol>
+        </section>
+        <section id="unpleasant-people" class="slide level1">
+            <h1>Unpleasant People</h1>
+            <ul>
+                <li>git - (n) An unpleasant or contemptible person.</li>
+                <li>git - (n) Free, Open Source, Fast, Scalable, and Distributed Version Control System
+                <ul>
+                    <li>Free as in lunch</li>
+                    <li>Open Source as in Linux
+                    <ul>
+                        <li>Git was built as a VCS <em>for</em> Linux!</li>
+                    </ul></li>
+                    <li>Distributed Version Control System??</li>
+                </ul></li>
+            </ul>
+        </section>
+        <section id="what-is-dvcs-and-why-you-should-care" class="slide level1">
+            <h1>What is DVCS and Why You Should Care</h1>
+            <ul>
+                <li>Imagine the following...</li>
+            </ul>
+        </section>
+        <section id="what-you-are-probably-doing-right-now" class="slide level1">
+            <h1>What you are probably doing right now</h1>
+            <ul>
+                <li>Backing up your code?
+                <ul>
+                    <li>Create a file</li>
+                    <li>Save several copies (with different names?)</li>
+                    <li>Oops, we overwrote our backup ... it's gone!</li>
+                </ul></li>
+                <li>Trying new things?
+                <ul>
+                    <li>Save old code to a new file</li>
+                    <li>Merging good stuff with bad stuff is hard!</li>
+                    <li>Found a bug later on? When did it get here?</li>
+                </ul></li>
+            </ul>
+        </section>
+        <section id="and-what-about-group-projects" class="slide level1">
+            <h1>And what about group projects?</h1>
+            <ul>
+                <li>Emailing versions back and forth</li>
+                <li><code>diff</code> and <code>patch</code></li>
+                <li>What if you screwed up?
+                <ul>
+                    <li>How does everyone get the fix?</li>
+                </ul></li>
+                <li>What if a new group member joins?</li>
+            </ul>
+        </section>
+        <section id="a-version-control-system-handles-it-all" class="slide level1">
+            <h1>A <em>Version Control System</em> handles it all!</h1>
+            <ul>
+                <li>Store a file to a <strong>repository</strong> (a.k.a. a <strong>repo</strong>)</li>
+                <li>The software tracks the versions</li>
+                <li>Provides tools for...
+                <ul>
+                    <li>Finding when bugs were added</li>
+                    <li>Finding who wrote a piece of code</li>
+                    <li>Restoring old versions of code</li>
+                    <li>Merging different versions of the same code (teams, etc.)</li>
+                    <li>And more!</li>
+                </ul></li>
+                <li>New team members checkout/clone the repo</li>
+                <li>Now were <em>gitting</em> somewhere!</li>
+            </ul>
+        </section>
+        <section id="getting-started-with-git" class="slide level1">
+            <h1>Getting Started with git</h1>
+            <ul>
+                <li>First, <code>git config --global</code>:
+                <ul>
+                    <li>user.name &quot;Mr. President&quot;</li>
+                    <li>user.email acm@clemson.edu</li>
+                    <li>core.editor Vim</li>
+                    <li>color.ui True</li>
+                </ul></li>
+                <li><code>git init</code> - creates a new repo in the current folder</li>
+                <li><code>git clone &lt;url&gt;</code> - get your own copy of another repo</li>
+            </ul>
+        </section>
+        <section id="adding-some-files" class="slide level1">
+            <h1>Adding some files</h1>
+            <ul>
+                <li><code>git add files...</code> - staging new changes and files</li>
+                <li><code>git status</code> - see the current status</li>
+                <li><code>git commit</code> - saves a set of changes and a <em>commit message</em></li>
+            </ul>
+        </section>
+        <section id="ok...-what-just-happened" class="slide level1">
+            <h1>Ok... What just happened?</h1>
+            <ul>
+                <li><code>git log</code> - See what you did</li>
+                <li><code>git diff</code> - See the actual changes as a <em>diff</em></li>
+                <li><code>git blame</code> - See when a line was last changed</li>
+                <li><code>git reflog</code> - Look through <em>all</em> recent commits!</li>
+            </ul>
+        </section>
+        <section id="oops...-now-what" class="slide level1">
+            <h1>Oops... Now what??</h1>
+            <ul>
+                <li><code>git checkout --</code> to reset to last commit</li>
+                <li><code>git revert</code> - to reset to a specific commit
+                <ul>
+                    <li>try not to use <code>git reset</code> ever</li>
+                </ul></li>
+                <li>As a last resort <code>git reset HEAD --hard</code></li>
+            </ul>
+        </section>
+        <section id="what-is-a-branch" class="slide level1">
+            <h1>What is a branch?</h1>
+            <ul>
+                <li>A branch is a set of related versions</li>
+                <li>Great for
+                <ul>
+                    <li>Trying something new</li>
+                    <li>Building new features</li>
+                </ul></li>
+                <li>Toss it or Merge it</li>
+            </ul>
+        </section>
+        <section id="what-is-master" class="slide level1">
+            <h1>What is Master?</h1>
+            <ul>
+                <li>One Branch to rule them all?</li>
+                <li>Stable, Final, Sharable Product</li>
+                <li>Try not to make changes directly here
+                <ul>
+                    <li>at least for team projects</li>
+                </ul></li>
+                <li><strong>Always</strong> test changes merged into Master</li>
+            </ul>
+        </section>
+        <section id="because-branches" class="slide level1">
+            <h1>Because Branches</h1>
+            <ul>
+                <li><code>git branch</code></li>
+                <li><code>git checkout -b MyNewBranch</code></li>
+                <li><code>git merge MyNewBranch</code></li>
+            </ul>
+        </section>
+        <section id="sharing-code" class="slide level1">
+            <h1>Sharing code</h1>
+            <ul>
+                <li>GitHub and Bitbucket offer free &quot;hosts&quot;
+                <ul>
+                    <li>Free stuff for <code>.edu</code> email addresses!</li>
+                </ul></li>
+                <li>Fairly easy to set up a git &quot;server&quot;</li>
+                <li><code>git remote add origin</code></li>
+                <li><code>git push -u MyNewBranch</code></li>
+                <li><code>git push</code> after the first push</li>
+            </ul>
+        </section>
+        <section id="when-sharing-is-not-caring" class="slide level1">
+            <h1>When sharing is not caring</h1>
+            <ul>
+                <li>Some files should not be shared
+                <ul>
+                    <li>May contain sensitive information
+                    <ul>
+                        <li>API Keys</li>
+                        <li>Passwords</li>
+                    </ul></li>
+                    <li>May be machine/developer specific</li>
+                    <li>May be a breach of academic integrity</li>
+                </ul></li>
+                <li>Use a <code>.gitignore</code> or <code>core.excludes</code> file</li>
+            </ul>
+        </section>
+        <section id="merge-conflicts" class="slide level1">
+            <h1>Merge Conflicts</h1>
+            <ul>
+                <li><code>git mergetool</code></li>
+                <li>There are also tools to do this better</li>
+                <li>Often fairly painless</li>
+                <li>Don't forget to retest after merges</li>
+            </ul>
+        </section>
+        <section id="need-more-power" class="slide level1">
+            <h1>Need more power?</h1>
+            <ul>
+                <li>Some hosts provide wikis and issue trackers</li>
+                <li>Pull Requests are a great code review tool</li>
+                <li>Git provides hooks for automating tasks</li>
+                <li>Create your own commands with git!</li>
+                <li>vim Fugitive</li>
+                <li><code>git help</code></li>
+            </ul>
+        </section>
+        <section id="but-my-lovely-ui..." class="slide level1">
+            <h1>But my lovely UI... :(</h1>
+            <ul>
+                <li>There are tools that use git with GUIs</li>
+                <li>Some of them are quite good
+                <ul>
+                    <li>Github has a great desktop client</li>
+                </ul></li>
+                <li>Meld is fantastic, but there are others
+                <ul>
+                    <li>Downside is Meld is not on lab machines</li>
+                    <li>gvimdiff and vimdiff for the Vim crowd</li>
+                    <li>For the emacs OS use <code>emerge</code></li>
+                </ul></li>
+            </ul>
+        </section>
+        <section id="wrap-up" class="slide level1">
+            <h1>Wrap-Up</h1>
+        </section>
+        <section id="summary" class="slide level1">
+            <h1>Summary</h1>
+            <ul>
+                <li>Please use version control</li>
+                <li>Git is an easy to use DCVS</li>
+                <li>Spend less time reverting more time coding</li>
+            </ul>
+        </section>
+        <section id="further-resources" class="slide level1">
+            <h1>Further Resources</h1>
+            <ul>
+                <li><a href="http://git-scm.com/book">Great Book</a></li>
+                <li><a href="https://www.atlassian.com/dms/wac/images/landing/git/atlassian_git_cheatsheet.pdf">Cheatsheet</a></li>
+                <li><a href="https://www.atlassian.com/git/workflows">Workflows</a></li>
+                <li><a href="http://blogs.atlassian.com/2012/02/mercurial-vs-git-why-mercurial/?utm_source=wac-dvcs&amp;utm_medium=text&amp;utm_content=dvcs-options-git-or-mercurial">Mecurial (hg)</a></li>
+            </ul>
+        </section>
+        <section id="questions" class="slide level1">
+            <h1>Questions</h1>
+            <p>Send us feedback at <code>acm@cs.clemson.edu</code>!</p>
+        </section>
     </div>
-  </div>
+</div>
 
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
-  <script src="reveal.js/js/reveal.min.js"></script>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.min.js"></script>
 
-  <script>
+<script>
 
-      // Full list of configuration options available here:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-        // Optional libraries used to extend on reveal.js
-        dependencies: [
-          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+// Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
 //          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
 //          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 ]});
-    </script>
-    </body>
+</script>
+</body>
 </html>

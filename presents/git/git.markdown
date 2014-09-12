@@ -70,26 +70,26 @@ Getting Started with git
     -   core.editor Vim
     -   color.ui True
 -   `git init` - creates a new repo in the current folder
--   `git clone <url> [location]` - get your own copy of another repo
+-   `git clone <url>` - get your own copy of another repo
 
 Adding some files
 =================
 -   `git add files...` - staging new changes and files
 -   `git status` - see the current status
--   `git commit` - saves a set of code changes, plus a *commit message*
+-   `git commit` - saves a set of changes and a *commit message*
 
 Ok... What just happened?
 ========================
 -   `git log` - See what you did
 -   `git diff` - See the actual changes as a *diff*
 -   `git blame` - See when a line was last changed
--   `git reflog` - Look through all recent commits, even dead ones!
+-   `git reflog` - Look through *all* recent commits!
 
 Oops... Now what??
 =================
 -   `git checkout --` to reset to last commit
 -   `git revert` - to reset to a specific commit
-    -   try not to use `git reset` ever -- why?
+    -   try not to use `git reset` ever
 -   As a last resort `git reset HEAD --hard`
 
 What is a branch?
@@ -105,7 +105,7 @@ What is Master?
 -   One Branch to rule them all?
 -   Stable, Final, Sharable Product
 -   Try not to make changes directly here
-    -   At least not in projects with advanced branching systems
+    -   at least for team projects
 -   **Always** test changes merged into Master
 
 Because Branches
@@ -117,7 +117,7 @@ Because Branches
 Sharing code
 ============
 -   GitHub and Bitbucket offer free "hosts" 
-    -   Both offer free private repos if you add a `.edu` email address!
+    -   Free stuff for `.edu` email addresses!
 -   Fairly easy to set up a git "server"
 -   `git remote add origin`
 -   `git push -u MyNewBranch`
@@ -145,7 +145,7 @@ Need more power?
 -   Some hosts provide wikis and issue trackers
 -   Pull Requests are a great code review tool
 -   Git provides hooks for automating tasks
--   Create your own commands by aliasing complex ones (look on Stack Overflow)
+-   Create your own commands with git!
 -   vim Fugitive
 -   `git help`
 
