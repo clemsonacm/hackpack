@@ -12,18 +12,18 @@ Robert Underwood - ACM Vice President\
 
 Coming Up
 =========
-1.  Git is a VCS. What are those?
+1.  Git is a VCS. Huh?
 2.  Why on Earth do I care?
 3.  How can I _git_ started?
 4.  Wrap-up
 
 Unpleasant People
 =====================
-
 -   git - (n) An unpleasant or contemptible person.
 -   git - (n) Free, Open Source, Fast, Scalable, and Distributed Version Control System
     -   Free as in lunch
     -   Open Source as in Linux
+        -   Git was built as a VCS _for_ Linux!
     -   Distributed Version Control System??
 
 What is DVCS and Why You Should Care
@@ -32,27 +32,35 @@ What is DVCS and Why You Should Care
 
 What you are probably doing right now
 =====================================
--   Code backups?
-    -    Create a file 
-    -    Save several copies (with different names?)
-    -    Oops, we overwrote our backup ... it's gone!
+-   Backing up your code?
+    -   Create a file
+    -   Save several copies (with different names?)
+    -   Oops, we overwrote our backup ... it's gone!
 -   Trying new things?
-    -    Save old code to a new file
-    -    Merging good stuff with bad stuff is hard!
+    -   Save old code to a new file
+    -   Merging good stuff with bad stuff is hard!
+    -   Found a bug later on? When did it get here?
 
 And what about group projects?
 ===============================
 -   Emailing versions back and forth
 -   `diff` and `patch`
 -   What if you screwed up?
+    -   How does everyone get the fix?
 -   What if a new group member joins?
 
-Now version control makes us happy :)
-=====================================
--   Store a file to a repository
+A _Version Control System_ handles it all!
+==========================================
+-   Store a file to a **repository** (a.k.a. a **repo**)
 -   The software tracks the versions
+-   Provides tools for...
+    -   Finding when bugs were added
+    -   Finding who wrote a piece of code
+    -   Restoring old versions of code
+    -   Merging different versions of the same code (teams, etc.)
+    -   And more!
 -   New team members checkout/clone the repo
--   Now were *gitting* somewhere
+-   Now were *gitting* somewhere!
 
 Getting Started with git
 ========================
@@ -61,19 +69,19 @@ Getting Started with git
     -   user.email acm@clemson.edu
     -   core.editor Vim
     -   color.ui True
--   `git init` - creates a new repo
--   `git clone` - get your own copy of another repo
+-   `git init` - creates a new repo in the current folder
+-   `git clone <url> [location]` - get your own copy of another repo
 
 Adding some files
 =================
--   `git add` - staging new changes and files
+-   `git add files...` - staging new changes and files
 -   `git status` - see the current status
--   `git commit` - saves a set of code changes
+-   `git commit` - saves a set of code changes, plus a *commit message*
 
 Ok... What just happened?
 ========================
 -   `git log` - See what you did
--   `git diff` - See the actual changes
+-   `git diff` - See the actual changes as a *diff*
 -   `git blame` - See when a line was last changed
 -   `git reflog` - Look through all recent commits, even dead ones!
 
@@ -83,7 +91,6 @@ Oops... Now what??
 -   `git revert` - to reset to a specific commit
     -   try not to use `git reset` ever -- why?
 -   As a last resort `git reset HEAD --hard`
-
 
 What is a branch?
 ================
@@ -98,7 +105,7 @@ What is Master?
 -   One Branch to rule them all?
 -   Stable, Final, Sharable Product
 -   Try not to make changes directly here
-    - At least not in projects with advanced branching systems
+    -   At least not in projects with advanced branching systems
 -   **Always** test changes merged into Master
 
 Because Branches
@@ -110,7 +117,7 @@ Because Branches
 Sharing code
 ============
 -   GitHub and Bitbucket offer free "hosts" 
-    - Both offer free private repos if you add a `.edu` email address!
+    -   Both offer free private repos if you add a `.edu` email address!
 -   Fairly easy to set up a git "server"
 -   `git remote add origin`
 -   `git push -u MyNewBranch`
@@ -120,8 +127,8 @@ When sharing is not caring
 ==========================
 -   Some files should not be shared
     -   May contain sensitive information
-        - API Keys
-        - Passwords
+        -   API Keys
+        -   Passwords
     -   May be machine/developer specific
     -   May be a breach of academic integrity
 -   Use a `.gitignore` or `core.excludes` file
@@ -138,6 +145,7 @@ Need more power?
 -   Some hosts provide wikis and issue trackers
 -   Pull Requests are a great code review tool
 -   Git provides hooks for automating tasks
+-   Create your own commands by aliasing complex ones (look on Stack Overflow)
 -   vim Fugitive
 -   `git help`
 
@@ -150,7 +158,6 @@ But my lovely UI... :(
     -   Downside is Meld is not on lab machines
     -   gvimdiff and vimdiff for the Vim crowd
     -   For the emacs OS use `emerge`
-
 
 Wrap-Up
 =======
