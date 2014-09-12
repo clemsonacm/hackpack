@@ -91,11 +91,18 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         </section>
         <section id="antipaterns" class="slide level1">
             <h1>Antipaterns</h1>
-            <p>A bad way of doing something that becomes habit ex: 1. llllllll instead of e 2. ddi instead of C</p>
+            <ul>
+                <li>A bad way of doing something that becomes habit
+                <ul>
+                    <li>llllllll instead of e</li>
+                    <li>ddi instead of C</li>
+                </ul></li>
+            </ul>
         </section>
         <section id="fixing-some-common-annoyances" class="slide level1">
             <h1>Fixing Some Common Annoyances</h1>
             <ul>
+                <li>Use .vimrc to store preferences</li>
                 <li>Turn on the mouse</li>
                 <li>Turn on Syntax Highlighting</li>
                 <li>Set your background color</li>
@@ -112,35 +119,36 @@ if( window.location.search.match( /print-pdf/gi ) ) {
                     <li>You now have 20 copy buffers</li>
                 </ul></li>
                 <li><code>&quot;+</code> register</li>
-                <li>ctrl r in insert mode puts the register</li>
+                <li><code>:reg</code> - view the contents of registers</li>
+                <li><code>^r</code> in insert mode puts the register</li>
+            </ul>
+        </section>
+        <section id="common-registers" class="slide level1">
+            <h1>Common registers</h1>
+            <ul>
+                <li><code>&quot;[1-9]</code> history buffers</li>
+                <li><code>&quot;0</code> the yank buffer</li>
+                <li><code>&quot;[a-z]</code> named registers</li>
+                <li><code>&quot;[A-Z]</code> same as &quot;[a-z] but append</li>
             </ul>
         </section>
         <section id="important-registers" class="slide level1">
             <h1>Important registers</h1>
             <ul>
-                <li>&quot;[1-9] history buffers</li>
-                <li>&quot;0 the yank buffer</li>
-                <li>&quot;[a-z] named registers</li>
-                <li>&quot;[A-Z] same as &quot;[a-z] but append</li>
-            </ul>
-        </section>
-        <section id="other-important-registers" class="slide level1">
-            <h1>Other important registers</h1>
-            <ul>
-                <li>&quot;+ The &quot;global&quot; register</li>
-                <li>&quot;/ current search pattern</li>
-                <li>&quot;- small delete</li>
-                <li>&quot;= expression register<br /></li>
+                <li><code>&quot;+</code> The &quot;global&quot; register</li>
+                <li><code>&quot;/</code> current search pattern</li>
+                <li><code>&quot;-</code> small delete</li>
+                <li><code>&quot;=</code> expression register<br /></li>
                 <li><code>&quot;_</code> the blackhole register</li>
             </ul>
         </section>
         <section id="read-only-registers" class="slide level1">
             <h1>Read-only registers</h1>
             <ul>
-                <li>&quot;: last Ex command</li>
-                <li>&quot;. last inserted text</li>
-                <li>&quot;% filename of the current buffer.<br /></li>
-                <li>&quot;# filename of the alternate file
+                <li><code>&quot;:</code> last Ex command</li>
+                <li><code>&quot;.</code> last inserted text</li>
+                <li><code>&quot;%</code> filename of the current buffer.<br /></li>
+                <li><code>&quot;#</code> filename of the alternate file
                 <ul>
                     <li>More on that in a minute</li>
                 </ul></li>
@@ -156,33 +164,85 @@ if( window.location.search.match( /print-pdf/gi ) ) {
                 <li>:b will change the buffer</li>
             </ul>
         </section>
-        <section id="using-vim-to-write-code-faster" class="slide level1">
-            <h1>Using vim to Write Code faster</h1>
+        <section id="syntax-completion" class="slide level1">
+            <h1>Syntax Completion</h1>
             <ul>
-                <li>Syntax Completion</li>
-                <li>Omnicompletion</li>
-                <li>Snippets
+                <li>Syntax Completion
                 <ul>
-                    <li>Snipmate and Ultisnips</li>
-                    <li>Abbreviations will do simple snippets</li>
+                    <li><code>^n</code> - Next default completion</li>
+                    <li><code>^p</code> - Previous default completion</li>
                 </ul></li>
-                <li>Templates</li>
+                <li>Omni-completion <code>^x^o</code>
+                <ul>
+                    <li>C (limited C++)</li>
+                    <li>CSS, HTML, XHTML, JS</li>
+                    <li>PHP, RUBY</li>
+                </ul></li>
+            </ul>
+        </section>
+        <section id="programming-completion" class="slide level1">
+            <h1>Programming Completion</h1>
+            <ul>
+                <li><code>^x^f</code> File paths</li>
+                <li><code>^x^d</code> Definition</li>
+                <li><code>^x^]</code> Tags</li>
+                <li><code>^x^i</code> Keywords</li>
+                <li><code>^x^l</code> lines</li>
+            </ul>
+        </section>
+        <section id="other-completions" class="slide level1">
+            <h1>Other Completions</h1>
+            <ul>
+                <li><code>^x^t</code> Thesaurus</li>
+                <li><code>^x^k</code> Dictionary</li>
+                <li><code>^x^s</code> Spelling</li>
+                <li><code>^x^v</code> Vim commands</li>
+            </ul>
+        </section>
+        <section id="snippets" class="slide level1">
+            <h1>Snippets</h1>
+            <ul>
+                <li>Abbreviations will do simple snippets</li>
+                <li><code>:ab</code> create/view abbreviations</li>
+                <li>Snipmate and Ultisnips
+                <ul>
+                    <li>Better snippets support</li>
+                    <li>Provide advanced completion features</li>
+                </ul></li>
+            </ul>
+        </section>
+        <section id="templates" class="slide level1">
+            <h1>Templates</h1>
+            <ul>
+                <li><code>0r ~/path/to/template</code></li>
+                <li>Reads in a template to new files</li>
+                <li>Can be blocked on file type</li>
             </ul>
         </section>
         <section id="navigating-large-code-bases" class="slide level1">
             <h1>Navigating large code bases</h1>
             <ul>
-                <li>Cscope</li>
-                <li>Ctags</li>
+                <li>Ctags
+                <ul>
+                    <li><code>^]</code> go to tag under cursor</li>
+                    <li><code>^T</code> go back to last place</li>
+                    <li><code>:tags</code> show the tag stack</li>
+                </ul></li>
+                <li>Cscope
+                <ul>
+                    <li>More powerful but confined to C/C++</li>
+                    <li>Much more intelligent</li>
+                    <li>Can be configured otherwise, but its hacky</li>
+                </ul></li>
             </ul>
         </section>
         <section id="using-vim-to-test-faster" class="slide level1">
             <h1>Using vim to Test faster</h1>
             <ul>
-                <li>:make <make_target></li>
-                <li>:set makeprg</li>
-                <li>:cn :cw :cp ]c [c</li>
-                <li>:shell</li>
+                <li><code>:make &lt;make_target&gt;</code></li>
+                <li><code>:set makeprg</code></li>
+                <li><code>:cn</code> <code>:cw</code> <code>:cp</code> <code>]c</code> <code>[c</code></li>
+                <li><code>:shell</code></li>
             </ul>
         </section>
         <section id="but-vim-does-have-x-feature" class="slide level1">
