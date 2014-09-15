@@ -89,7 +89,7 @@ Oops... Now what??
 =================
 -   `git checkout --` to reset to last commit
 -   `git revert` - to reset to a specific commit
-    -   try not to use `git reset` ever
+    -   try not to use `git reset`
 -   As a last resort `git reset HEAD --hard`
 
 What is a branch?
