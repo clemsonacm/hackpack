@@ -1,0 +1,19 @@
+\section{Set}
+Sets are Associative, Ordered, set, Unique Keyed, and Allocator Aware\cite{cplusplus}.  Set means that the key is also the value. Use it when it is only important if something has been seen before.
+\begin{code}
+    #include <set>
+    std::set<type_one> myset;
+
+    //iterator
+    std::set<type_one>::iterator it;
+
+    //insert O(N log(N)) or O(N) am for sorted inputs
+    myset.insert(type_one (value));
+
+    //remove O(log N) or O(1) am post-find
+    myset.erase(it);
+    myset.erase(key);
+
+    //find O(log N)
+    myset.find(key)
+\end{code}
