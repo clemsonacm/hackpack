@@ -11,7 +11,7 @@ What is this repository for?
 This repository contains resources developed to aid with doing cool stuff in
 Computer Science.  The main projects are as follows:
 
-### Clemson Hackpack and Hackpack++ ###
+### Clemson Hackpack and Hackpack++ 
 *   the Hackpack is a concise and extensive cheatsheet/guide designed to be
     used during ACM style programming comptetions.  If you already know your
     datastructure and algorithms go here.
@@ -19,7 +19,7 @@ Computer Science.  The main projects are as follows:
     from the hackpack, but also includes a bit more detail so that you could
     use it as a learning tool for the different techniques.
 
-###   Presentations ###
+###   Presentations 
 In addition to the Hackpack, we put on a series of educational seminars through
 out the year.  They cover neat topics and tools in CS.  We currently have
 presentations for the following:
@@ -35,14 +35,14 @@ How do I get set up?
 
 Depending on what you are doing you will need different tools:
 
-### Clemson Hackpack and Hackpack++ ###
+### Clemson Hackpack and Hackpack++ 
 
 *   `git` - for tracking changes
 *   `g++` - all code samples are in C++98 with C++11 listed as noted
 *   `pdflatex` - The hackpack body is written in LaTeX
 *   `make` - Make is to automate compilation and testing of the documents
 
-### Presentations ###
+### Presentations 
 
 *   `git` - for tracking changes
 *   `pandoc` - convert markdown files to revealjs
@@ -52,7 +52,7 @@ Depending on what you are doing you will need different tools:
 Contribution Guidelines
 -----------------------
 
-### Clemson Hackpack and Hackpack++ ### 
+### Clemson Hackpack and Hackpack++ 
 
 For all projects and improvements:
 
@@ -62,7 +62,7 @@ For all projects and improvements:
 4.  When the pull request is reviewed, and the code will be merged into
     master when approved.
 
-#### Writing Documentation ####
+#### Writing Documentation 
 For each item in the Hackpack, please include the following:
 
 1.  Algorithm Name
@@ -89,7 +89,7 @@ Code Must meet the following standards:
 * Code review
 * Other guidelines
 
-### Presentations ### 
+### Presentations
 
 If you have a good presentations let us know.  We will use revealjs and markdown
 for presentations.  If you have an improvement, follow the procedure above.
