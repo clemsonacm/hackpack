@@ -57,10 +57,15 @@ Contribution Guidelines
 For all projects and improvements:
 
 1.  Clone the repo
-2.  Checkout a new branch with the topic as the name
-3.  When the branch is complete, create a pull request in Bitbucket
-4.  When the pull request is reviewed, and the code will be merged into
-    master when approved.
+2.  Choose an issue from the issue tracker
+3.  Checkout a new branch with the topic as the name
+4.  Push the branch to the repo
+5.  When the branch is complete, create a pull request in Bitbucket
+6.  When the pull request is reviewed, and the code will be merged by one of the
+    admins into master when approved.
+
+If you have any questions related to the issues in the tracker, comment on the
+issues and CC one of the admins.
 
 #### Writing Documentation 
 For each item in the Hackpack, please include the following:
