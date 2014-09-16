@@ -39,7 +39,7 @@ Depending on what you are doing you will need different tools:
 
 *   `git` - for tracking changes
 *   `g++` - all code samples are in C++98 with C++11 listed as noted
-*   `pdflatex` - The hackpack body is written in LaTeX
+*   `pdflatex` - The Hackpack body is written in LaTeX
 *   `make` - Make is to automate compilation and testing of the documents
 
 ### Presentations 
@@ -79,11 +79,11 @@ Code Must meet the following standards:
 2.  Code must compile under contest conditions: `g++ -g -O2 -std=gnu++0x -static $*`
 3.  Code must be delivered with the passing unit tests.
 4.  Code must be commented with detailed explanations and asymptotic notation
-    where appliciable
+    where applicable
 5.  Code must be concise but not as the expense of readability
 6.  Source code must solve a problem:  It should solve a specific problem and
-    include all relevent io and supporting code.  The algorithm should not be in
-    a vaccum.
+    include all relevant io and supporting code.  The algorithm should not be in
+    a vacuum.
 
 * Writing tests
 * Code review
