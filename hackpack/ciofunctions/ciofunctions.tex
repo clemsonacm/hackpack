@@ -39,20 +39,4 @@ Occasionally it is far easier to use the C IO functions to meet an output spec. 
 \end{table}
 
 \subsection{Examples}
-\begin{code}
-    #include <stdio.h>
-    int main (){
-        //To stdout
-        double f = 3.14;
-        int    i = 314;
-        char*  s = "ACM";
-        printf("%5f,%5i,%5s\n", f, i, s);
-
-        //Same thing to a file
-        FILE * outputfile;
-        outputfile = fopen("outputfile.txt","w");
-        fprintf(outputfile,"%5f,%5i,%5s\n", f, i, s);
-        fclose(outputfile);
-    }
-\end{code}
-
+\lstinputlisting[language=c++]{ciofunctions/ciofunctions.cpp}

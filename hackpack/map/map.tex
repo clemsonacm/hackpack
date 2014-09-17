@@ -1,20 +1,3 @@
 \section{Map}
 Maps are Associative, Ordered, Mapped, Unique Keyed, and Allocator aware\cite{cplusplus}.  Mapped means that each key corresponds to a specific value. Use it to record relationships in data.
-\begin{code}
-    #include <map>
-    std::map<key_type,value_type> mymap;
-
-    //iterator
-    std::map<key_type, value_type>::iterator it;
-
-    //insert O(N log(N)) or O(N) am for sorted inputs
-    mymap.insert( std::pair<key_type, value_type>(key, value);
-    mymap[key] = value;
-
-    //remove O(log N) or O(1) am post-find
-    mymap.erase(it);
-    mymap.erase(key);
-
-    //find O(log N)
-    mymap.find(key)
-\end{code}
+\lstinputlisting[language=c++]{./map/map.cpp}
