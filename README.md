@@ -105,4 +105,4 @@ for presentations.  If you have an improvement, follow the procedure above.
 
 Who do I talk to?
 -----------------
-Contact `acm@cs.clemson.edu` with any questions
+Contact <acm@cs.clemson.edu> with any questions
