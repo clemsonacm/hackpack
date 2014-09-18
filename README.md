@@ -68,16 +68,17 @@ If you have any questions related to the issues in the tracker, comment on the
 issues and CC one of the admins.
 
 #### Writing Documentation 
-For each item in the Hackpack, please include the following:
+For each item in the Hackpack, please include the following in clearly deliniated subsections:
 
-1.  Algorithm Name
-2.  Brief Description of the topic
+1.  Name and Brief Description of the topic
+2.  Data structures should have a "Reference" section with a code sample only commonly used functions
 3.  A list of possible uses and applications
 4.  A possible contest problem
 5.  Sample code that answers the contest problem
 6.  References using BibTeX where applicable
 7.  Should be "compiled" properly by pdflatex and the make
 
+#### Writing Code
 Code Must meet the following standards:
 
 1.  Code should be indented with tabs and not exceed 80 characters per line.
@@ -90,9 +91,12 @@ Code Must meet the following standards:
     include all relevant io and supporting code.  The algorithm should not be in
     a vacuum.
 
-* Writing tests
-* Code review
-* Other guidelines
+#### Writing Tests
+All code must have tests that meet the following requirements
+
+1.  Test at least the upper and lower boundries of the allowed inputs.  
+2.  Testing files should be prefixed by "test"
+3.  Tests should be runnable by calling `make test` in the directory of the source
 
 ### Presentations
 
