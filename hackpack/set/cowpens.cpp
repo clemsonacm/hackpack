@@ -35,7 +35,7 @@ int main (){
         after = myset.upper_bound(*it);
 
 		//compute the left and right boundaries
-        leftxbound = (before != myset.begin()) ? before->first : 0;
+        leftxbound = (*before != *it) ? before->first : 0;
         rightxbound = (after != myset.end()) ? after->first : 1000000;
 
 		//compute the area of the box
