@@ -1,18 +1,40 @@
 #include <set>
-//Create a set of type_one
-std::set<type_one> myset;
+#include <iostream>
+//Create a set of int
+std::set<int> myset;
 
-//iterator
-std::set<type_one>::iterator it;
+//iterator to a set of int
+std::set<int>::iterator it;
+std::set<int>::reverse_iterator rit;
 
 int main(){
-    //insert O(N log(N)) or O(N) am for sorted inputs
-    myset.insert(type_one (value));
 
-    //remove O(log N) or O(1) am post-find
-    myset.erase(it);
-    myset.erase(key);
+    //insert O(N log(N)) or O(N) am for sorted inputs
+    int key;
+    for(key = 0; key < 10; key++){
+        myset.insert(key);
+    }
 
     //find O(log N)
-    myset.find(key)
+    it = myset.find(3);
+
+    //removes 3 in O(1) am post-find time
+    myset.erase(it);
+    //removes 4 from the set  O(log N) time
+    myset.erase(4);
+
+    //iterate the set in forward order O(N log (N))
+    for(it = myset.begin(); it != myset.end(); it++){
+        std::cout << *it << " " ;
+    }
+    std::cout << std::endl;
+
+    //iterate the set in reverse order O(N log (N))
+    for(rit = myset.rbegin(); rit != myset.rend(); rit++){
+        std::cout << *rit << " " ;
+    }
+    
+    // Empties the set O(N) time
+    myset.clear();
+
 }
