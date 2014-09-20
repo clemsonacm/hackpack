@@ -7,6 +7,12 @@
 \usepackage{tabularx}
 \geometry{margin =1in}
 
+% Chapter title format: "X. Chaptertitle", not "Chapter X\nChaptertitle".
+\usepackage{titlesec}
+\titleformat{\chapter}[block]
+  {\normalfont\huge\bfseries}{\thechapter.}{1em}{\Huge}
+  \titlespacing*{\chapter}{0pt}{-19pt}{5pt}
+
 % Citations should use superscript. It's nice.
 \usepackage[superscript, biblabel]{cite}
 
