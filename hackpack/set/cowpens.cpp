@@ -22,34 +22,41 @@ int main (){
 
     //Sort the elements on increasing y values
     sort(list.begin(),list.end(),SortOnY);
-//    for(vector<pii>::iterator it = list.begin(); it != list.end(); it++){
-//        cout << it->first << ", " << it->second << endl;
-//    }
+
+	//initalize varibles
     set<pii>::iterator before, after;
     int leftxbound, rightxbound;
     long area = 0;
+
+	//Use a sweep line based on the set
     for(vector<pii>::iterator it = list.begin(); it != list.end(); it++){
         myset.insert(*it);
         before = myset.lower_bound(*it);
         after = myset.upper_bound(*it);
+
+		//compute the left and right boundaries
         leftxbound = (before != myset.begin()) ? before->first : 0;
         rightxbound = (after != myset.end()) ? after->first : 1000000;
-//        cout << "---------------------------" << endl << "leftxbound: " << leftxbound << endl;
-//        cout << "rightxbound: " << rightxbound << endl << "current: " << it->first << ", " << it->second << endl;
+
+		//compute the area of the box
         area = max(area,  (long)it->second * (long)(rightxbound - leftxbound));
-//        cout << it->second * (rightxbound - leftxbound) << endl;
     }
+
+	//Some times it is better to make a change than code an edge case
     myset.insert(make_pair(0,0));
     myset.insert(make_pair(1000000,0));
+
+	//Check all of the plots that extend to the back of the plot
     after = myset.begin();
-    for(set<pii>::iterator before = myset.begin(); before != myset.end(); before++){
+    for(before = myset.begin(); after != myset.end(); before++){
         after++;
-        leftxbound = (before != myset.begin()) ? before->first : 0;
+        leftxbound = before->first; 
         rightxbound = (after != myset.end()) ? after->first : 1000000;
+
+		//compute the area of the long plots
         area = max(area, (long)(rightxbound - leftxbound) * MAXHEIGHT);
-//        cout << "---------------------------" << endl << "leftxbound: " << leftxbound << endl;
-//        cout << "rightxbound: " << rightxbound << endl;
-//        cout << (rightxbound - leftxbound) * MAXHEIGHT << endl;
     }
-//    cout << area << endl;
+
+	//output according to the output spec
+    cout << area << endl;
 }
