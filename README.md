@@ -77,6 +77,7 @@ For each item in the Hackpack, please include the following in clearly delineate
 5.  Sample code that answers the one of the contest problems
 6.  References using BibTeX where applicable
 7.  Should be "compiled" properly by pdflatex and the make
+8.  Each sentence must be on a separate line.
 
 #### Writing Code
 Code Must meet the following standards:
