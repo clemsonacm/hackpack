@@ -68,13 +68,13 @@ If you have any questions related to the issues in the tracker, comment on the
 issues and CC one of the admins.
 
 #### Writing Documentation 
-For each item in the Hackpack, please include the following in clearly deliniated subsections:
+For each item in the Hackpack, please include the following in clearly delineated subsections:
 
 1.  Name and Brief Description of the topic
 2.  Data structures should have a "Reference" section with a code sample only commonly used functions
 3.  A list of possible uses and applications
-4.  A possible contest problem
-5.  Sample code that answers the contest problem
+4.  2-3 possible contest problems preferably of varying difficulty
+5.  Sample code that answers the one of the contest problems
 6.  References using BibTeX where applicable
 7.  Should be "compiled" properly by pdflatex and the make
 
@@ -94,7 +94,7 @@ Code Must meet the following standards:
 #### Writing Tests
 All code must have tests that meet the following requirements
 
-1.  Test at least the upper and lower boundries of the allowed inputs.  
+1.  Test at least the upper and lower boundaries of the allowed inputs.  
 2.  Testing files should be prefixed by "test"
 3.  Tests should be runnable by calling `make test` in the directory of the source
 
