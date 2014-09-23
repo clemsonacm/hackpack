@@ -1,5 +1,13 @@
 \section{Set}
-Sets are a data structure that are useful for determining if an element has been seen before or not.  Sets are Associative, Ordered, Set, Unique Keyed, and Allocator Aware\cite{cplusplus}.  Associative means that elements are referenced by some key and not by an absolute position in the data structure. Ordered means that internally the set follows a strict order based off the key.  Unique key means that there cannot be two keys with the same value.  Set means that the key is also the value. Allocator-aware means that the container knows who to dynamically allocate memory for itself.  Sets are generally implemented as a binary search tree.  See "unordered set" for a version of the set that is Unordered, but is based on hash tables.
+Sets are a data structure that are useful for determining if an element has been seen before or not.
+Sets are Associative, Ordered, Set, Unique Keyed, and Allocator Aware\cite{cplusplus}.
+Associative means that elements are referenced by some key and not by an absolute position in the data structure.
+Ordered means that internally the set follows a strict order based off the key.
+Unique key means that there cannot be two keys with the same value.
+Set means that the key is also the value.
+Allocator-aware means that the container knows who to dynamically allocate memory for itself.
+Sets are generally implemented as a binary search tree.
+See "unordered set" for a version of the set that is Unordered, but is based on hash tables.
 
 \subsection{Reference}
 \lstinputlisting[language=c++]{./set/set.cpp}
@@ -12,7 +20,11 @@ Sets are a data structure that are useful for determining if an element has been
 \end{itemize}
 
 \subsection{Contest Problem, The Building of Cowpens!}
-Farmer John is building fences to contain his cows on his property.  However being both obsessed with right angles and not killing trees, Farmer John must construct his fence as a rectangle and not cut down any trees.  Also not wanting for his cows to thirsty, he builds will build the fence along side the river on the southern side of his property.  You can assume that the river has the positon $Y=0$ and farmer John's property lies north of the river.  Farmer John wants to know the area of the largest such section of his property.\\
+Farmer John is building fences to contain his cows on his property.
+However being both obsessed with right angles and not killing trees, Farmer John must construct his fence as a rectangle and not cut down any trees.
+Also not wanting for his cows to thirsty, he builds will build the fence along side the river on the southern side of his property.
+You can assume that the river has the positon $Y=0$ and farmer John's property lies north of the river.
+Farmer John wants to know the area of the largest such section of his property.\\
 Input: You will be first given the number of trees, $N<1000000$, followed by the positions, $0<=(X,Y) <= 1000000$, of the trees in the field. \\
 Output: The area of the largest fenced area.
 \lstinputlisting{./set/cowpens.cpp}
