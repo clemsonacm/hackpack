@@ -61,8 +61,8 @@ For all projects and improvements:
 3.  Checkout a new branch with the topic as the name
 4.  Push the branch to the repo
 5.  When the branch is complete, create a pull request in Bitbucket
-6.  When the pull request is reviewed and approved,the code will be merged by
-	one of the admins into master.
+6.  When the pull request is reviewed and approved, the code will be merged by
+    one of the admins into master.
 
 If you have any questions related to the issues in the tracker, comment on the
 issues and CC one of the admins.
