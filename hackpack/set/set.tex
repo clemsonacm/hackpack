@@ -22,9 +22,25 @@ See "unordered set" for a version of the set that is Unordered, but is based on 
 \subsection{Contest Problem, The Building of Cowpens!}
 Farmer John is building fences to contain his cows on his property.
 However being both obsessed with right angles and not killing trees, Farmer John must construct his fence as a rectangle and not cut down any trees.
-Also not wanting for his cows to thirsty, he builds will build the fence along side the river on the southern side of his property.
-You can assume that the river has the positon $Y=0$ and farmer John's property lies north of the river.
-Farmer John wants to know the area of the largest such section of his property.\\
-Input: You will be first given the number of trees, $N<1000000$, followed by the positions, $0<=(X,Y) <= 1000000$, of the trees in the field. \\
-Output: The area of the largest fenced area.
+Also not wanting for his cows to be thirsty, he will build the pen along side the river on the southern side of his property.
+You can assume that the river has the position $Y=0$ and farmer John's property lies north of the river.
+Farmer John wants to know the area of the largest such section of his property.
+\subsubsection{Input:} You will be first given the number of trees, $N<1000000$, followed by the positions, $(0,0) \leq (X,Y) \leq (1000000, 1000000)$, of the trees in the field. 
+\subsubsection{Output:} The area of the largest fenced area.
 \lstinputlisting{./set/cowpens.cpp}
+
+\subsection{Contest Problem, The Cows form a Union}
+The Cows have formed on a union and gone on strike!
+Being faithful union members, each cow has its union id number painted on their sides.
+Farmer John in efforts to track Union activity on the farm, took two pictures of the cows during their rallies: one in the morning and one at night.
+He knows that the cows that stay all day with the closest id numbers are the Union bosses.
+He wants to figure out which cows are the Union bosses so that he can attempt to negotiate with them.
+\subsubsection{Input:} The id numbers $0 < i \leq 1000000$ of the cows that were present in photo 1 ending with 0, followed with the id numbers of the cows in photo 2 ending with 0.
+\subsubsection{Output:} The id numbers of the cows with the closest id numbers in ascending order separated by a single space.
+
+\subsection{Contest Problem, Closest Cows}
+Cows often graze on grass in the feilds near Farmer John's Barn.
+When looking down from the top of the silo, Farmer John ponders which pair of cows of different breeds -- one being a Holstein and one a Guernsey -- are the closest on the field.
+\subsubsection{Input:} First, you will be given the number of Guernseies, $ G \leq 500000$ followed by the position $(0,0) \leq (X,Y) \leq (1000000,1000000)$ on the field of the Guernseies.
+In the same way, the number of Holsteins $H \leq 500000$ will be followed by the position of the Holsteins $(0,0) \leq (X,Y) \leq (1000000,1000000)$ on the field will be given.
+\subsubsection{Output:} Output the distance between the closest Holstein Guernsey pair.
