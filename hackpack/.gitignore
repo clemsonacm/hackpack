@@ -1,8 +1,13 @@
 *.aux
 *.bbl
 *.blg
+*.idx
+*.ilg
+*.ind
+*.fdb_latexmk
+*.fls
 *.log
-*.toc
-*.swp
+*.out
 *.pdf
-a.out
+*.swp
+*.toc
