@@ -4,6 +4,8 @@
 *.idx
 *.ilg
 *.ind
+*.fdb_latexmk
+*.fls
 *.log
 *.out
 *.pdf
