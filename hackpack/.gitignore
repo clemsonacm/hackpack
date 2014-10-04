@@ -1,8 +1,11 @@
 *.aux
 *.bbl
 *.blg
+*.idx
+*.ilg
+*.ind
 *.log
-*.toc
-*.swp
+*.out
 *.pdf
-a.out
+*.swp
+*.toc
