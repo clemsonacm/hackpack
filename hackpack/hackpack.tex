@@ -2,15 +2,8 @@
 \title{Clemson Hack Pack}
 \author{Clemson ACM}
 \date{\today}
-\usepackage{multicol}
-\usepackage{geometry}
-\usepackage{tabularx}
-\usepackage{listings}
-\geometry{margin =1in}
 
-%Set up the code verbatim sections
-\usepackage{fancyvrb}
-\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\normalsize}
+\input{./style/style.tex}
 
 \begin{document}
 \maketitle
@@ -33,7 +26,9 @@
 \input{samplemakefile/samplemakefile}
 
 \bibliographystyle{plain}
-\bibliography{acmhints}
+\bibliography{hackpack}
+
+\printindex
 
 \end{document}
 
