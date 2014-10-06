@@ -2,8 +2,20 @@
 \usepackage{multicol}
 \usepackage{geometry}
 \usepackage{tabularx}
-\usepackage{hyperref}
 \geometry{margin=1in}
+
+% Make links, footnotes, etc. clickable, and generate pdf bookmarks.
+\usepackage{hyperref}
+\hypersetup{
+  pdfauthor={Clemson ACM, acm@cs.clemson.edu},
+  pdfcreator={Clemson ACM, acm@cs.clemson.edu},
+  pdftitle={Clemson ACM Hack Pack},
+  pdfsubject={Clemson ACM Hack Pack},
+  unicode=true,
+  colorlinks=false,
+  pdfborder=0 0 0,
+  bookmarks=true
+}
 
 % Chapter title format: "X. Chaptertitle", not "Chapter X\nChaptertitle".
 \usepackage{titlesec}
