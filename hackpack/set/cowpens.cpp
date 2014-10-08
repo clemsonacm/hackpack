@@ -9,7 +9,7 @@ const long MAXHEIGHT= 1000000;
 typedef pair<long,long> pii;
 
 //The default sorting of pii is v1.first < v2.first;
-//SortOnY allows for sorting on accending y values
+//SortOnY allows for sorting on ascending y values
 bool SortOnY(pii v1 ,pii v2){return v1.second < v2.second;}
 vector<pii> list;
 set<pii> myset;
@@ -25,7 +25,7 @@ int main (){
     //Sort the elements on increasing y values
     sort(list.begin(),list.end(),SortOnY);
 
-	//initalize varibles
+	//initialize variables
     set<pii>::iterator before, after;
     long leftxbound, rightxbound;
     long area = 0;
@@ -56,11 +56,6 @@ int main (){
         leftxbound = before->first; 
         rightxbound = (after != myset.end()) ? after->first : 1000000;
 
-//		cout << "point1: " << before->first << ", " << before->second << endl;
-//		cout << "point2: " << after->first << ", " << after->second << endl;
-//		cout << "left: " << leftxbound << endl << "right: " << rightxbound << endl;
-//		cout << "area" << MAXHEIGHT * (rightxbound - leftxbound) << endl;
-//		cout << "----------------------------------------------------------------"<< endl;
 		//compute the area of the long plots
         area = max(area, (long)(rightxbound - leftxbound) * MAXHEIGHT);
     }

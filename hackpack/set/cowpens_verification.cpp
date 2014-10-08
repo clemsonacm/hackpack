@@ -34,10 +34,6 @@ int main(int argc, char *argv[])
 	for(vector<pii>::iterator left = v.begin(); left!= v.end(); left++){
 		long min_y = 1000000;
 		for(vector<pii>::iterator right = left+1; right!= v.end(); right++){
-//			cout << "left: " << left->first << ", " << left->second << endl;
-//			cout << "right: " << right->first << ", " <<  right->second << endl;
-//			cout << "min_y: " << min_y << endl;
-//			cout << "area: " << area << endl;
 			area = max(area, (right->first - left->first) * min_y);
 			min_y = min( min_y, right->second);
 		}
