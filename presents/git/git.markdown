@@ -1,7 +1,6 @@
-Git 101
-=======
-
-### Brought to you by Clemson ACM
+Git Thee to a Version Control System!
+=====================================
+### Keeping your code straight with Git, brought to you by Clemson ACM
 
 We're on [Steam](http://steamcommunity.com/groups/clemsonacm) &
 [Facebook](https://www.facebook.com/groups/283823058297107/)!
@@ -13,21 +12,18 @@ Robert Underwood - ACM Vice President\
 
 Coming Up
 =========
-1.  Unpleasant and contemptible people in cs.
+1.  Git is a VCS. Huh?
 2.  Why on Earth do I care?
-3.  How you can *git* started?
+3.  How can I _git_ started?
 4.  Wrap-up
 
 Unpleasant People
 =====================
-
 -   git - (n) An unpleasant or contemptible person.
-    -   Not something we generally like
-    -   For example that git in McAdams that never bathes
-    -   [Oxford English Dictionary](http://www.oxforddictionaries.com/us/definition/english/git)
 -   git - (n) Free, Open Source, Fast, Scalable, and Distributed Version Control System
     -   Free as in lunch
     -   Open Source as in Linux
+        -   Git was built as a VCS _for_ Linux!
     -   Distributed Version Control System??
 
 What is DVCS and Why You Should Care
@@ -36,54 +32,65 @@ What is DVCS and Why You Should Care
 
 What you are probably doing right now
 =====================================
--   Create a file 
--   Save several copies (with different names?)
--   Oops, we overwrote our backup ...
+-   Backing up your code?
+    -   Create a file
+    -   Save several copies (with different names?)
+    -   Oops, we overwrote our backup ... it's gone!
+-   Trying new things?
+    -   Save old code to a new file
+    -   Merging good stuff with bad stuff is hard!
+    -   Found a bug later on? When did it get here?
 
 And what about group projects?
 ===============================
 -   Emailing versions back and forth
 -   `diff` and `patch`
 -   What if you screwed up?
+    -   How does everyone get the fix?
 -   What if a new group member joins?
 
-Now version control makes us happy :)
-=====================================
--   Store a file to a repository
+A _Version Control System_ handles it all!
+==========================================
+-   Store a file to a **repository** (a.k.a. a **repo**)
 -   The software tracks the versions
+-   Provides tools for...
+    -   Finding when bugs were added
+    -   Finding who wrote a piece of code
+    -   Restoring old versions of code
+    -   Merging different versions of the same code (teams, etc.)
+    -   And more!
 -   New team members checkout/clone the repo
--   Now were *gitting* somewhere
-    - see what we did there...
+-   Now were *gitting* somewhere!
 
 Getting Started with git
 ========================
 -   First, `git config --global`:
     -   user.name   "Mr. President"
-    -   user.email acm@clemson.edu
+    -   user.email acm@cs.clemson.edu
     -   core.editor Vim
     -   color.ui True
--   `git init` - creates a new repo
--   `git clone`
+-   `git init` - creates a new repo in the current folder
+-   `git clone <url>` - get your own copy of another repo
 
 Adding some files
 =================
--   `git add` - staging new changes
+-   `git add files...` - staging new changes and files
 -   `git status` - see the current status
--   `git commit` - Saves a 'set' of version
+-   `git commit` - saves a set of changes and a *commit message*
 
 Ok... What just happened?
 ========================
 -   `git log` - See what you did
--   `git diff` - See the actual changes
+-   `git diff` - See the actual changes as a *diff*
 -   `git blame` - See when a line was last changed
+-   `git reflog` - Look through *all* recent commits!
 
 Oops... Now what??
 =================
 -   `git checkout --` to reset to last commit
 -   `git revert` - to reset to a specific commit
-    -   try not to use `git reset` ever
+    -   try not to use `git reset`
 -   As a last resort `git reset HEAD --hard`
-
 
 What is a branch?
 ================
@@ -91,13 +98,14 @@ What is a branch?
 -   Great for
     -   Trying something new 
     -   Building new features 
-    -   Toss it or Merge it
+-   Toss it or Merge it
 
 What is Master?
 ===============
--   One Branch to rule them all??
+-   One Branch to rule them all?
 -   Stable, Final, Sharable Product
 -   Try not to make changes directly here
+    -   at least for team projects
 -   **Always** test changes merged into Master
 
 Because Branches
@@ -109,6 +117,7 @@ Because Branches
 Sharing code
 ============
 -   GitHub and Bitbucket offer free "hosts" 
+    -   Free stuff for `.edu` email addresses!
 -   Fairly easy to set up a git "server"
 -   `git remote add origin`
 -   `git push -u MyNewBranch`
@@ -118,6 +127,8 @@ When sharing is not caring
 ==========================
 -   Some files should not be shared
     -   May contain sensitive information
+        -   API Keys
+        -   Passwords
     -   May be machine/developer specific
     -   May be a breach of academic integrity
 -   Use a `.gitignore` or `core.excludes` file
@@ -134,10 +145,11 @@ Need more power?
 -   Some hosts provide wikis and issue trackers
 -   Pull Requests are a great code review tool
 -   Git provides hooks for automating tasks
+-   Create your own commands with git!
 -   vim Fugitive
 -   `git help`
 
-But my lovely UI... :(
+But my lovely UI... <span id=emoticon>:(</span>
 ======================
 -   There are tools that use git with GUIs
 -   Some of them are quite good
@@ -146,7 +158,6 @@ But my lovely UI... :(
     -   Downside is Meld is not on lab machines
     -   gvimdiff and vimdiff for the Vim crowd
     -   For the emacs OS use `emerge`
-
 
 Wrap-Up
 =======
