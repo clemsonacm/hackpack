@@ -1,10 +1,8 @@
-\documentclass[letterpaper, 10pt]{report}
-\title{Clemson Hack Pack}
-\author{Clemson ACM}
-\date{\today}
+\usepackage{makeidx}
 \usepackage{multicol}
 \usepackage{geometry}
 \usepackage{tabularx}
+\usepackage{hyperref}
 \geometry{margin =1in}
 
 % Chapter title format: "X. Chaptertitle", not "Chapter X\nChaptertitle".
@@ -57,28 +55,5 @@
   framexbottommargin=4pt
 }
 
-\begin{document}
-\maketitle
-
-\input{./tencommandments/tencommandments.tex}
-
-\tableofcontents
-
-\chapter{Basic Data Structures}
-\input{./set/set}
-\input{./map/map}
-\input{./heap/heap}
-
-\chapter{Algorithms}
-
-
-\chapter{Appendix}
-\input{./ciofunctions/ciofunctions}
-\input{./vimrc/vimrc}
-\input{samplemakefile/samplemakefile}
-
-\bibliographystyle{plain}
-\bibliography{acmhints}
-
-\end{document}
-
+%Turn on the powerful indexing features
+\makeindex
