@@ -6,16 +6,18 @@
 using namespace std;
 
 const long MAXHEIGHT= 1000000;
-typedef pair<int,int> pii;
+typedef pair<long,long> pii;
+
+//The default sorting of pii is v1.first < v2.first;
+//SortOnY allows for sorting on accending y values
 bool SortOnY(pii v1 ,pii v2){return v1.second < v2.second;}
-bool SortOnX(pii v1 ,pii v2){return v1.first < v2.first;}
 vector<pii> list;
 set<pii> myset;
 
 int main (){
-    int N,x,y;
+    long N,x,y;
     cin >> N;
-    for(int i = 0; i < N; i++){
+    for(long i = 0; i < N; i++){
         cin >> x >> y;
         list.push_back(make_pair(x,y));
     }
@@ -25,26 +27,27 @@ int main (){
 
 	//initalize varibles
     set<pii>::iterator before, after;
-    int leftxbound, rightxbound;
+    long leftxbound, rightxbound;
     long area = 0;
+
+	//Some times it is better to make a change than code an edge case
+    myset.insert(make_pair(0,0));
+    myset.insert(make_pair(1000000,0));
 
 	//Use a sweep line based on the set
     for(vector<pii>::iterator it = list.begin(); it != list.end(); it++){
         myset.insert(*it);
         before = myset.lower_bound(*it);
         after = myset.upper_bound(*it);
-
-		//compute the left and right boundaries
-        leftxbound = (*before != *it) ? before->first : 0;
-        rightxbound = (after != myset.end()) ? after->first : 1000000;
+		
+		//lower_bound returns the pointer to the current element
+		//decrement if it will be within bounds
+		if(before != myset.begin()) before--;
 
 		//compute the area of the box
-        area = max(area,  (long)it->second * (long)(rightxbound - leftxbound));
+        area = max(area,  it->second * (after->first - before->first));
     }
 
-	//Some times it is better to make a change than code an edge case
-    myset.insert(make_pair(0,0));
-    myset.insert(make_pair(1000000,0));
 
 	//Check all of the plots that extend to the back of the plot
     after = myset.begin();
@@ -53,6 +56,11 @@ int main (){
         leftxbound = before->first; 
         rightxbound = (after != myset.end()) ? after->first : 1000000;
 
+//		cout << "point1: " << before->first << ", " << before->second << endl;
+//		cout << "point2: " << after->first << ", " << after->second << endl;
+//		cout << "left: " << leftxbound << endl << "right: " << rightxbound << endl;
+//		cout << "area" << MAXHEIGHT * (rightxbound - leftxbound) << endl;
+//		cout << "----------------------------------------------------------------"<< endl;
 		//compute the area of the long plots
         area = max(area, (long)(rightxbound - leftxbound) * MAXHEIGHT);
     }
