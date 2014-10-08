@@ -5,6 +5,7 @@
 #include<vector>
 using namespace std;
 
+//Using longs because 1000000*1000000 > MAX_INT
 const long MAXHEIGHT= 1000000;
 typedef pair<long,long> pii;
 
@@ -27,7 +28,6 @@ int main (){
 
 	//initialize variables
     set<pii>::iterator before, after;
-    long leftxbound, rightxbound;
     long area = 0;
 
 	//Some times it is better to make a change than code an edge case
@@ -53,11 +53,9 @@ int main (){
     after = myset.begin();
     for(before = myset.begin(); after != myset.end(); before++){
         after++;
-        leftxbound = before->first; 
-        rightxbound = (after != myset.end()) ? after->first : 1000000;
 
 		//compute the area of the long plots
-        area = max(area, (long)(rightxbound - leftxbound) * MAXHEIGHT);
+        area = max(area, (after->first - before->first) * MAXHEIGHT);
     }
 
 	//output according to the output spec
