@@ -66,7 +66,7 @@ Getting Started with git
 ========================
 -   First, `git config --global`:
     -   user.name   "Mr. President"
-    -   user.email acm@clemson.edu
+    -   user.email acm@cs.clemson.edu
     -   core.editor Vim
     -   color.ui True
 -   `git init` - creates a new repo in the current folder
@@ -149,7 +149,7 @@ Need more power?
 -   vim Fugitive
 -   `git help`
 
-But my lovely UI... :(
+But my lovely UI... <span id=emoticon>:(</span>
 ======================
 -   There are tools that use git with GUIs
 -   Some of them are quite good
