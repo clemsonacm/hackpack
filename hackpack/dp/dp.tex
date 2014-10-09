@@ -15,7 +15,8 @@ The basic idea is to save the results of smaller problems and use the results to
 \subsection{Contest Problem, Knapsack}
 Given a set of n items with size -- $s$ -- and value -- $v$ -- pack the items into a knapsack of capacity C such that the value of the items inside the knapsack is maximized.  The optimal solution is of the form:
 $$M(j) = \max \left\{M(j-1), \max \left\{M(j - s_i) + v_i \right\}\right\}$$
-
+Where $M(0) = 0$
+\lstinputlisting{./dp/knapsack.cpp}
 
 \subsection{Contest Problem, Integer Knapsack}
 \subsection{Contest Problem, Largest Increasing Subsequence}
