@@ -1,6 +1,7 @@
 *.aux
 *.bbl
 *.blg
+*.dSYM
 *.idx
 *.ilg
 *.ind
