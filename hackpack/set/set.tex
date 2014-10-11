@@ -13,6 +13,7 @@ See "unordered set" for a version of the set that is Unordered, but is based on 
 \lstinputlisting[language=c++]{./set/set.cpp}
 
 \subsection{Applications}
+
 \begin{itemize}
     \item   Determining how many and what items are in one set are also in another
     \item   Determining how many and what items are in one set but \emph{not} in another
@@ -25,9 +26,24 @@ However being both obsessed with right angles and not killing trees, Farmer John
 Also not wanting for his cows to be thirsty, he will build the pen along side the river on the southern side of his property.
 You can assume that the river has the position $Y=0$ and farmer John's property lies north of the river.
 Farmer John wants to know the area of the largest such section of his property.
-\subsubsection{Input:} You will be first given the number of trees, $N<1000000$, followed by the positions, $(0,0) \leq (X,Y) \leq (1000000, 1000000)$, of the trees in the field. 
-\subsubsection{Output:} The area of the largest fenced area.
+
+\subsubsection{Input:} 
+You will be first given the number of trees, $N<1000000$, followed by the positions, $(0,0) \leq (X,Y) \leq (1000000, 1000000)$, of the trees in the field. 
+
+\subsubsection{Output:} 
+The area of the largest fenced area.
+
 \lstinputlisting{./set/cowpens.cpp}
+
+\subsubsection{Lessons Learned}
+
+\begin{itemize}
+	\item	Set can be used as a basic binary search trees
+	\item	Write comparision functions to change orderings of sets, maps, and the sort function
+	\item	Typedef long type names to something sorter for ease of use
+	\item	Sometimes it is better to \emph{modify} the input than code edge cases
+	\item	lower\_bound returns an iterator pointing to the first element $\leq$ the searched element
+\end{itemize}
 
 \subsection{Contest Problem, The Cows form a Union}
 The Cows have formed on a union and gone on strike!
