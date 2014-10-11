@@ -12,13 +12,38 @@ The basic idea is to save the results of smaller problems and use the results to
 	\item	Solving the maximum value continuous sub-array problem
 \end{itemize}
 
-\subsection{Contest Problem, Knapsack}
-Given a set of n items with size -- $s$ -- and value -- $v$ -- pack the items into a knapsack of capacity C such that the value of the items inside the knapsack is maximized.  The optimal solution is of the form:
-$$M(j) = \max \left\{M(j-1), \max \left\{M(j - s_i) + v_i \right\}\right\}$$
-Where $M(0) = 0$
+\subsection{Contest Problem, A Knapsack Full of Fireworks}\index{Knapsack}
+The cows on Farmer John's Farm are planning a fireworks show for his birthday.
+They have found all of the loose change from all over the farm and want to purchase fireworks to maximize the wow factor for their purchase.
+
+\subsubsection{Input}
+You will be given the $N$ the number of fireworks in the catalog,
+Followed by $C$ the number of cents that the cows found.
+The input will then have the cost of each firework $P$ in cents followed by the wow factor of the firework $W$.
+
+\subsubsection{Output}
+Output the maximum wow factor as an integer
+
 \lstinputlisting{./dp/knapsack.cpp}
 
-\subsection{Contest Problem, Integer Knapsack}
+\subsubsection{Lessons Learned}
+The optimal solution is of the form:
+$$W(j) = \max \left\{W(j-1), \max \left\{W(j - p_i) + v_i \right\}\right\}$$
+Where $W(0) = 0$
+
+\subsection{Contest Problem, A Few Fireworks More}\index{Knapsack!Integer}
+The Cows have reconsidered there original plan of buying just the fireworks with the greatest wow factor.
+Instead they want to buy the most wow factor given they use each firework type at most once.
+
+\subsubsection{Input}
+You will be given the $N$ the number of fireworks in the catalog,
+Followed by $C$ the number of cents that the cows found.
+The input will then have the cost of each firework $P$ in cents followed by the wow factor of the firework $W$.
+
+\subsubsection{Output}
+Output the maximum wow factor as an integer
+
+\subsubsection{Lesson Learned}
 A similar problem to the knapsack, except each item can be used at most once.  The solution here is to expand the state space.  The optimal solution is of the form
 $$M(i,j) = \max \left\{ M(i-1, j) , M(i-1, j- s_i) + v_i \right\}$$
 Where $M(0,j) = 0$ and $M(i,0) = 0$
