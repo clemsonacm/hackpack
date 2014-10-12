@@ -21,9 +21,16 @@
 \usepackage{parskip}
 
 % Chapter title format: "X. Chaptertitle", not "Chapter X\nChaptertitle".
+% Also, make \sections stand out a bit more.
 \usepackage{titlesec}
 \titleformat{\chapter}[block]{\normalfont\huge\bfseries}{\thechapter.}{1em}{\Huge}
-\titlespacing*{\chapter}{0pt}{-19pt}{5pt}
+\titleformat{\section}[block]{\normalfont\large\bfseries}{\thesection.}{1em}{\LARGE}
+
+% Adjust spacing around headers to reduce empty space
+\titlespacing*{\chapter}{0pt}{-22pt}{-1pt}
+\titlespacing*{\section}{0pt}{10pt}{0pt}
+\titlespacing*{\subsection}{0pt}{10pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
 
 % Citations should use superscript. It's nice.
 \usepackage[superscript, biblabel]{cite}
@@ -35,17 +42,10 @@
 \usepackage[scaled]{beramono}
 \usepackage[T1]{fontenc}
 
-% Code sections use the listings environment, plus a pretty caption.
+% Code sections use the listings environment, supplemented by a caption (below)
 \usepackage{color}
 \usepackage{xcolor}
 \usepackage{listings}
-\usepackage{caption}
-\DeclareCaptionFont{white}{\color{white}}
-\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
-\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
-\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\vspace{1.5pt}\hspace{10pt}#1#2#3}}}
-\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf, sf}}
-
 \lstset{
   basicstyle=\footnotesize\ttfamily, % Use a truetype, footnote-sized font.
   numbers=left,                      % line numbers go on the left
@@ -63,11 +63,19 @@
   showspaces=false,                  % show spaces as space, not a litle underscore.
   showstringspaces=false             % same as above, in strings.
   showtabs=false,                    % same as above, with tabs.
+  abovecaptionskip=5pt,
+  belowcaptionskip=5pt,
   xleftmargin=17pt,
   framexleftmargin=17pt,
   framexrightmargin=5pt,
   framexbottommargin=4pt
 }
+
+% Listings caption configuration.
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\vspace{1.5pt}\hspace{10pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf, sf}}
 
 % Turn on the powerful indexing features
 \makeindex
