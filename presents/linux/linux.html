@@ -1,720 +1,491 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Clemson ACM Linux Workshop</title>
-    <meta charset='utf-8'>
-    <meta content='width=1024, user-scalable=no' name='viewport'>
-    <!-- deck.js's core css -->
-    <link href="deck.js/core/deck.core.css" rel="stylesheet" type="text/css"/>
-    <!-- deck.js extension CSS files -->
-    <link href="deck.js/extensions/goto/deck.goto.css" rel="stylesheet" type="text/css"/>
-    <link href="deck.js/extensions/menu/deck.menu.css" rel="stylesheet" type="text/css"/>
-    <link href="deck.js/extensions/navigation/deck.navigation.css" rel="stylesheet" type="text/css"/>
-    <link href="deck.js/extensions/status/deck.status.css" rel="stylesheet" type="text/css"/>
-    <link href="deck.js/extensions/codemirror/deck.codemirror.css" rel="stylesheet" type="text/css"/>
-    <link href="deck.js/extensions/hash/deck.hash.css" rel="stylesheet" type="text/css"/>
-    <link href="deck.js/extensions/scale/deck.scale.css" rel="stylesheet" type="text/css"/>
-    <!-- all css in the css dir: Keydown CSS, your custom CSS, and themes from deck.js -->
-    <link href="css/keydown.css" rel="stylesheet" type="text/css"/>
-    <link href="css/swiss.css" rel="stylesheet" type="text/css"/>
-    <link href="css/horizontal-slide.css" rel="stylesheet" type="text/css"/>
-    <link href="css/default.css" rel="stylesheet" type="text/css"/>
-    <!-- Modernizr (provided for legacy browsers) -->
-    <script src="deck.js/support/modernizr.custom.js" type="text/javascript"></script>
-  </head>
-  <body class='deck-container keydown'>
-    <section class='slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Linux 101</h1>
-        
-        <h3>Brought to you by Clemson ACM</h3>
-        
-        <p>We're on <a href="http://steamcommunity.com/groups/clemsonacm">Steam</a> &amp; <a href="https://www.facebook.com/groups/283823058297107/">Facebook</a>!</p>
-        
-        <h3>Speakers:</h3>
-        
-        <p>Joshua Hull - Chief Presenter<br/>
-        Austin Anderson - ACM President</p>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Coming up</h1>
-        
-        <ol>
-        <li>What's up with Linux?</li>
-        <li>The linux file system</li>
-        <li>Terminal Power</li>
-        <li>Getting owned by Permissions</li>
-        <li>Working from Other Machines</li>
-        <li>Your free webhosting at people.cs.clemson.edu</li>
-        <li>Wrap-up</li>
-        </ol>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='Tux-simple bottom-left full-background slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>What's up with Linux?</h1>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Linux: A Short History</h1>
-        
-        <ul>
-        <li>Created in 1991 by <strong>Linus Torvalds</strong></li>
-        <li>Written in C and Assembly</li>
-        <li>Uses a <em>Unix-like</em> file structure (more on that later)</li>
-        <li>Kernel is still being maintained by Torvalds &amp; open source contributors</li>
-        <li>You could contribute if you wanted!</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>What's a Distribution?</h1>
-        
-        <ul>
-        <li>A "flavor" of Linux with small differences from the others</li>
-        <li><strong>All</strong> have many similarities</li>
-        <li>Might differ in...
-        
-        <ul>
-        <li> <em>Desktop Environment</em>, the set of programs that handle... the desktop
-        
-        <ul>
-        <li> Examples are <strong>Gnome</strong> and <strong>KDE</strong></li>
-        </ul>
-        </li>
-        <li> <em>Package manager</em></li>
-        <li> Default <em>applications</em></li>
-        <li> Behind-the-scenes <em>settings</em></li>
-        </ul>
-        </li>
-        <li>Some common distributions are Ubuntu (and children Xubuntu, Kubuntu), Fedora, Debian, and Arch Linux (not for the faint of heart) -- you configure <em>everything</em></li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Big Names in *nix</h1>
-        
-        <ul>
-        <li><strong>Linus Torvalds</strong> - creator of Linux, <em>extremely passionate</em>.</li>
-        <li>GNU Project - "GNU's Not Unix", connected to open source software licensing (like the GNU Public License, or GPL)</li>
-        <li>Greg Kroah-Hartman: Linux Kernel maintainer and all around awesome dude.</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>"Kernel" and Other Scary Words</h1>
-        
-        <ul>
-        <li><strong>Kernel</strong> is the part of Linux that interacts with your PC's hardware.</li>
-        <li><strong>Shell</strong> refers to the program that handles your terminal environment with things like the <em>prompt</em> and coloring.</li>
-        <li><strong>Bash</strong> is the default shell.</li>
-        <li><strong>Grub</strong> is a common Linux <em>boot manager</em> that remembers how to get from turning your computer on into the OS.</li>
-        <li><strong>PATH</strong> is an <em>environment variable</em> that remembers where to look for executables when you type one in the terminal</li>
-        <li><strong>Version control systems</strong> like <strong>Git</strong>, <strong>SVN</strong>, and <strong>Mercurial</strong> allow you to easily implement histories of a project. Linux uses Git!
-        
-        <ul>
-        <li>Web handin uses Mercurial as a backend and provides a tutorial for connecting to Handin on your machine</li>
-        </ul>
-        </li>
-        <li><strong><code>make</code> and <code>Makefile</code>s</strong> are a <em>build system</em> that allow you to define rules for running multiple commands at once. Very useful for compiling code.</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>"Building from Source"</h1>
-        
-        <ul>
-        <li>When you can't get a pre-compiled executable</li>
-        <li>Download the source code and run...</li>
-        <li><code>./configure</code></li>
-        <li><code>make</code></li>
-        <li><code>sudo make install</code></li>
-        <li>Didn't work? Read README</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Packaging systems</h1>
-        
-        <ul>
-        <li>Easy way to install many applications pre-configured for your OS</li>
-        <li>Different distributions have their own <strong>Package Managers</strong>
-        
-        <ul>
-        <li>All package managers need to be run using <code>sudo</code></li>
-        <li><code>apt-get</code> - used on Debian based system, including Ubuntu.
-        
-        <ul>
-        <li><code>apt-get update</code> - update metadata</li>
-        <li><code>apt-cache search &lt;package&gt;</code> - find package</li>
-        <li><code>apt-get install &lt;package&gt;</code> - install package</li>
-        <li><code>apt-get dist-upgrade</code> - update all packages</li>
-        </ul>
-        </li>
-        <li><code>yum</code> - used on Red Hat based system, including Fedora</li>
-        <li><code>pacman</code> - used on Arch Linux</li>
-        </ul>
-        </li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='bottom-left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>The Linux File System</h1>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Basic Hierarchy</h1>
-        
-        <ul>
-        <li>Based on <em>one</em> root directory, not drives like C: or D:</li>
-        <li>Physical devices (drives, output) and important folders are <em>mounted</em> to subdirectories of <code>/</code>
-        
-        <ul>
-        <li><code>/home</code> - where user's files normally live</li>
-        <li><code>/dev</code> - device nodes. Don't mess with things here.</li>
-        <li><code>/mnt</code> - where you can mount things like USB drives.</li>
-        <li><code>/usr</code> - where system libraries and the like are.</li>
-        <li><code>/bin</code> - stores system executables
-        
-        <h2>Some distros are a little different in how they manage these folders.</h2></li>
-        </ul>
-        </li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Everything is a File</h1>
-        
-        <ul>
-        <li>Linux sees every object as a subclass of a file.</li>
-        <li>Folders, links, output devices, executables are all "files"!</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Where are my .exes?</h1>
-        
-        <ul>
-        <li>File extensions categorize, not restrict</li>
-        <li>A file with any name could be executed
-        
-        <ul>
-        <li><code>a.out</code>, <code>prog1</code>, <code>.bashrc</code></li>
-        </ul>
-        </li>
-        <li>Files starting with a dot like <code>.bashrc</code> are usually <em>hidden</em> from listings</li>
-        <li>Running a command like <code>sl</code> is really just running an executable file within the PATH</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='bottom-left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Terminal Power</h1>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>echo "Simple navigation commands"</h1>
-        
-        <ul>
-        <li>Stuck? <code>Ctrl+c</code> force quits the running program.</li>
-        <li><code>pwd</code> lists your current directory</li>
-        <li><code>cd directory</code> moves the terminal to <code>directory</code></li>
-        <li><code>ls</code> lists files and folders in the current directory
-        
-        <ul>
-        <li><code>ls -l</code> gives additional file information</li>
-        <li><code>ls -a</code> shows even <code>.hidden-files</code></li>
-        </ul>
-        </li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>echo "Simple navigation commands"</h1>
-        
-        <h2>THERE IS NO TRASHCAN. DELETION IS PERMANENT.</h2>
-        
-        <ul>
-        <li><code>mv orig.file new.file</code> moves <code>orig.file</code> to <code>new.file</code>
-        
-        <ul>
-        <li>Use this for moving and <strong>renaming</strong>!</li>
-        </ul>
-        </li>
-        <li><code>cp orig.file clone.file</code> copies <code>orig.file</code> to <code>clone.file</code></li>
-        <li><code>rm file</code> removes a file
-        
-        <ul>
-        <li><code>rm -r directory</code> deletes a directory</li>
-        </ul>
-        </li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>--Flags?! : Command Structure</h1>
-        
-        <ul>
-        <li>Generally <code>command -one-letter-flag --longer-flag parameter [optional parameter] parameter-list...</code></li>
-        <li>Some flags need their own value arguments after them
-        
-        <ul>
-        <li><code>ping -c 12</code> OR <code>ping --count=12</code></li>
-        </ul>
-        </li>
-        <li>Structure varies by program: try <code>progname --help</code> or <code>-h</code> for a guide simpler than <code>man progname</code></li>
-        <li>Many commands use <code>--verbose</code> or <code>-v</code> to print <em>more</em> useful information. Verbosity is good!</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Terminal Symbols &amp; Shorthand</h1>
-        
-        <ul>
-        <li><code>.</code> (one dot) is the <em>current directory</em></li>
-        <li><code>..</code> (two dots) is the <em>parent directory</em></li>
-        <li><code>/</code> is the <em>root directory</em></li>
-        <li><code>~</code> is your <em>user directory</em></li>
-        <li><code>!!</code> is the <em>previously entered command</em>
-        
-        <ul>
-        <li>Use <code>sudo !!</code> to run the last command under sudo</li>
-        </ul>
-        </li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Terminal Symbols &amp; Shorthand</h1>
-        
-        <ul>
-        <li><code>\</code> begins an escape character sequence
-        
-        <ul>
-        <li><code>\n</code> is a newline character</li>
-        <li><code>\</code> (space) inserts a space into one argument (otherwise the argument will break)</li>
-        <li><code>\\</code> actually inserts a backslash</li>
-        <li><code>$(command)</code> or <code>command</code> inserts the output of <code>command</code> into</li>
-        <li><code>command&amp;</code> will run <code>command</code> in the background</li>
-        </ul>
-        </li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Messing with Output</h1>
-        
-        <ul>
-        <li>Any text output you see in the terminal comes from <strong>standard out</strong> (the same stream as <strong>cout</strong> in C++ and <strong>printf()</strong> in C)
-        
-        <ul>
-        <li><code>echo input</code> - print <code>input</code> to standard out</li>
-        <li><code>cat input.file</code> - print contents of <code>file</code> to the terminal</li>
-        </ul>
-        </li>
-        <li>Many commands like <code>grep</code> and <code>less</code> read from <strong>standard in</strong> (<strong>cin</strong> in C++, what <strong>scanf()</strong> reads from in C) if no other args are specified
-        
-        <ul>
-        <li><code>grep pattern input.file</code> prints lines from <code>input.file</code> that match/contain the search pattern (could be as simple as one word)</li>
-        <li><code>less input.file</code> allows you to read up and down through a large chunk of data</li>
-        </ul>
-        </li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Piping and Redirection</h1>
-        
-        <ul>
-        <li><strong>Piping</strong> with <code>command-a | command-b</code> connects the <em>standard output</em> of <code>command-a</code> to <em>standard input</em> of <code>command-b</code>, for chaining commands
-        
-        <ul>
-        <li><code>command-a | less</code> pipes <code>command-a</code>'s output into less for easy reading</li>
-        </ul>
-        </li>
-        <li><strong>Redirection</strong> handles using file contents for standard in / out</li>
-        <li><code>progname &gt; output.file</code> overwrites <code>output.file</code> with <code>progname</code>'s output
-        
-        <ul>
-        <li><code>&gt;&gt;</code> <em>appends to</em> <code>output.file</code> with <code>progname</code>'s output</li>
-        <li><code>&amp;&gt;</code> overwrites <code>output.file</code> with <code>progname</code>'s <em>error output</em></li>
-        <li><code>&amp;&gt;&gt;</code> <em>appends to</em> <code>output.file</code> with <code>progname</code>'s <em>error output</em></li>
-        </ul>
-        </li>
-        <li><code>progname &lt; input.file</code> uses <code>input.file</code>'s content as input for <code>progname</code></li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Shell History</h1>
-        
-        <h2>"How did I run that again?"</h2>
-        
-        <ul>
-        <li>Press the up key to cycle through your previously entered commands</li>
-        <li><code>history</code> - print previous commands</li>
-        <li>Try it with grep -- <code>history | grep ls</code></li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Shell configuration</h1>
-        
-        <ul>
-        <li>On your home machine, you could replace <strong>bash</strong> with another shell like <strong>zsh</strong> or <strong>ksh</strong></li>
-        <li>Editing <code>~/.bashrc</code> can customize your shell with functions, <strong>aliases</strong>, and <strong>functions</strong>.</li>
-        <li>Aliases are simple: <code>alias sl=echo "Steam Locomotive"</code></li>
-        <li>There are a ton of tutorials on customizing the shell, so we'll skip it for now.</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1><code>man</code> and Other Awesome Commands</h1>
-        
-        <ul>
-        <li><code>man</code> - summons an <em>extensive</em> manual page for about anything
-        
-        <ul>
-        <li><code>man stdio.h</code>, <code>man grep</code>, <code>man man</code></li>
-        </ul>
-        </li>
-        <li><code>tar</code> - manage tarball (.tar) and tarball + gzipped (.tgz, .tar.gz) archives
-        
-        <ul>
-        <li><code>tar -xzf</code> (e<strong>x</strong>tract <strong>z</strong>e <strong>f</strong>iles!!) <code>&lt;archive&gt;</code>
-        
-        <ul>
-        <li><code>tar -xf</code> for just <code>.tar</code></li>
-        </ul>
-        </li>
-        <li><code>tar -czf</code> (<strong>c</strong>reate <strong>z</strong>e <strong>f</strong>iles!!) <code>archivename.tgz files...</code> to create an archive</li>
-        <li><a href="http://imgs.xkcd.com/comics/tar.png">Relevant XKCD comic</a></li>
-        </ul>
-        </li>
-        <li><code>sl</code> summons a steam locomotive!</li>
-        <li><code>touch name.file</code> creates an empty <code>name.file</code> if none exists</li>
-        <li><code>nano [edit.file]</code> opens a simple editor</li>
-        <li><code>curl -O [URL]</code> copies a file from the web</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Shell Scripts</h1>
-        
-        <ul>
-        <li>put commands into a file to run them all at once repeatidly</li>
-        <li>add <code>#!/bin/bash</code> as the first line</li>
-        <li>one command per line</li>
-        <li><code>chmod u+x script.sh</code></li>
-        <li><code>./script.sh</code></li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='bottom-left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Getting Owned by Permissions</h1>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Users, Root and Groups</h1>
-        
-        <ul>
-        <li><em>Users</em> are unique accounts</li>
-        <li><em>Root</em> is the <strong>superuser</strong> and can do <em>anything</em>.
-        
-        <ul>
-        <li><strong>DON'T TRY TO USE ROOT ON THE CU MACHINES</strong>.</li>
-        <li>Run one command as root with <code>sudo &lt;command&gt;</code> and temporarily login with <code>sudo su</code></li>
-        </ul>
-        </li>
-        <li>Users in the same <em>Groups</em> share permissions pertaining to that group
-        
-        <ul>
-        <li>E.g. users in <code>sudoers</code> can use <code>sudo</code> (the admin group might be different on other distros)</li>
-        <li>Users can be in multiple groups</li>
-        </ul>
-        </li>
-        <li><code>man chmod</code> and <code>man chgrp</code> for more info on permissions and groups</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='bottom-left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Working from other machines</h1>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Getting to your files with SSH</h1>
-        
-        <ul>
-        <li><code>ssh username@access.cs.clemson.edu</code> starts a remote connection to the Lab computer</li>
-        <li>Pick one of the servers listed in the message and <code>ssh</code> to it</li>
-        <li><strong>DON'T RUN/COMPILE ON access.cs.clemson.edu</strong></li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Using a VM</h1>
-        
-        <ul>
-        <li>VirtualBox
-        
-        <ul>
-        <li>Can run a Linux VM inside of Windows/Mac OS X</li>
-        </ul>
-        </li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Windows: Cygwin?</h1>
-        
-        <h2><strong>Bad Idea.</strong></h2>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Your Free Clemson Web Hosting</h1>
-        
-        <ul>
-        <li>Run <code>cd /web/home/username/public_html</code>
-        
-        <ul>
-        <li>Trust us, it's there</li>
-        </ul>
-        </li>
-        <li>Files you put there will be served on the web at <code>people.cs.clemson.edu/~username/</code></li>
-        <li>Change permissions so the web server can access them
-        
-        <ul>
-        <li><code>chmod a+r [serving files]</code></li>
-        <li><code>chmod a+g [sub-directories]</code></li>
-        </ul>
-        </li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='bottom-left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Wrap-up</h1>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Final warnings</h1>
-        
-        <h2>NEVER RUN A RANDOM COMMAND FROM THE INTERNET</h2>
-        
-        <ul>
-        <li><strong>DON'T CHEAT</strong>
-        
-        <ul>
-        <li>Professors use advanced software that checks the algorithms your code uses</li>
-        <li>Changing variable names won't help</li>
-        </ul>
-        </li>
-        <li>Don't use <code>sudo</code> on the lab machines
-        
-        <ul>
-        <li>They yell at you and phone home to the sysadmins</li>
-        </ul>
-        </li>
-        <li>Want to install something? Email <code>ithelp@clmeson.edu</code> and put <code>School of Computing</code> in the subject line.</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>The snapshot system</h1>
-        
-        <ul>
-        <li>Contents are in <code>~/.snapshot</code></li>
-        <li>Keeps hourly, nightly, and weekly backups of files in <code>~</code></li>
-        <li>Especially useful when you accidentally overwrite a project at 2 am
-        
-        <h2>SNAPSHOTS ARE UNIQUE TO CLEMSON. DON'T RELY ON IT!</h2></li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Further resources</h1>
-        
-        <ul>
-        <li><code>http://www.cs.clemson.edu/help/linux-workshop/soc_linux_cheatsheet.pdf</code> -- the cheatsheet we're distributing</li>
-        <li><code>http://www.cs.clemson.edu/help/linux-workshop</code>
-        
-        <ul>
-        <li>Steps to install a VM just like the lab machines</li>
-        <li>submit/handin information is deprecated</li>
-        </ul>
-        </li>
-        <li>Plug a long command into <a href="http://explainshell.com/">ExplainShell.com</a> to see what it does</li>
-        <li>We're on <a href="http://steamcommunity.com/groups/clemsonacm">Steam</a> &amp; <a href="https://www.facebook.com/groups/283823058297107/">Facebook</a>!</li>
-        <li>Lists system admin staff</li>
-        </ul>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='bottom-left slide'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>Questions</h1>
-        
-        <p>Send us feedback at <code>acm@cs.clemson.edu</code>!</p>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <!-- deck.js navigation extension -->
-    <a class='deck-prev-link' href='#' title='Previous'>&#8592;</a>
-    <a class='deck-next-link' href='#' title='Next'>&#8594;</a>
-    <!-- deck.js hash extension -->
-    <a class='deck-permalink' href='.' title='Permalink to this slide'>#</a>
-    <!-- deck.js status extension -->
-    <p class='deck-status'>
-      <span class='deck-status-current'></span>
-      /
-      <span class='deck-status-total'></span>
-    </p>
-    <!-- jQuery & deck.js -->
-    <script src="deck.js/support/jquery.1.6.4.min.js" type="text/javascript"></script>
-    <script src="deck.js/core/deck.core.js" type="text/javascript"></script>
-    <!-- deck.js extension JS files -->
-    <script src="deck.js/extensions/goto/deck.goto.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/menu/deck.menu.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/navigation/deck.navigation.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/status/deck.status.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/deck.codemirror.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/rst/rst.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/lua/lua.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/php/php.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/scheme/scheme.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/clojure/clojure.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/velocity/velocity.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/r/r.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/coffeescript/coffeescript.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/python/python.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/ruby/ruby.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/clike/clike.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/htmlmixed/htmlmixed.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/stex/stex.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/haskell/haskell.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/css/css.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/xml/xml.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/yaml/yaml.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/javascript/javascript.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/sparql/sparql.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/diff/diff.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/smalltalk/smalltalk.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/xmlpure/xmlpure.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/mode/plsql/plsql.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/codemirror/codemirror.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/hash/deck.hash.js" type="text/javascript"></script>
-    <script src="deck.js/extensions/scale/deck.scale.js" type="text/javascript"></script>
-    <!-- your custom JS here, including call to initialize deck.js-codemirror -->
-    <!-- Initialize the deck. -->
-    <script type='text/javascript'>
-      $(function() { $.deck('.slide'); });
-    </script>
-  </body>
-</html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="generator" content="pandoc">
+		<title></title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="reveal.min.css"/>
+		<style type="text/css">code{white-space: pre;}</style>
+		<link rel="stylesheet" href="moon.css"/>
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+	var link = document.createElement( 'link' );
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = 'print/pdf.css';
+	document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+		</script>
+		<!--[if lt IE 9]>
+	  <script src="reveal.js/lib/js/html5shiv.js"></script>
+	  <![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
 
+
+				<section id="linux-101" class="slide level1">
+					<h1>Linux 101</h1>
+					<h3 id="brought-to-you-by-clemson-acm">Brought to you by Clemson ACM</h3>
+					<p>We're on <a href="http://steamcommunity.com/groups/clemsonacm">Steam</a> &amp; <a href="https://www.facebook.com/groups/283823058297107/">Facebook</a>!</p>
+					<h3 id="speakers">Speakers:</h3>
+					<p>Joshua Hull - Chief Presenter<br /> Austin Anderson - ACM President</p>
+				</section>
+				<section id="coming-up" class="slide level1">
+					<h1>Coming up</h1>
+					<ol type="1">
+						<li>What's up with Linux?</li>
+						<li>The linux file system</li>
+						<li>Terminal Power</li>
+						<li>Getting owned by Permissions</li>
+						<li>Working from Other Machines</li>
+						<li>Your free webhosting at people.cs.clemson.edu</li>
+						<li>Wrap-up</li>
+					</ol>
+				</section>
+				<section id="whats-up-with-linux" class="slide level1">
+					<h1>What's up with Linux?</h1>
+				</section>
+				<section id="linux-a-short-history" class="slide level1">
+					<h1>Linux: A Short History</h1>
+					<ul>
+						<li>Created in 1991 by <strong>Linus Torvalds</strong></li>
+						<li>Written in C and Assembly</li>
+						<li>Uses a <em>Unix-like</em> file structure (more on that later)</li>
+						<li>Kernel is still being maintained by Torvalds &amp; open source contributors</li>
+						<li>You could contribute if you wanted!</li>
+					</ul>
+				</section>
+				<section id="whats-a-distribution" class="slide level1">
+					<h1>What's a Distribution?</h1>
+					<ul>
+						<li>A &quot;flavor&quot; of Linux with small differences from the others</li>
+						<li><strong>All</strong> have many similarities</li>
+						<li>Might differ in...
+							<ul>
+								<li><em>Desktop Environment</em>, the set of programs that handle... the desktop
+									<ul>
+										<li>Examples are <strong>Gnome</strong> and <strong>KDE</strong></li>
+									</ul></li>
+									<li><em>Package manager</em></li>
+									<li>Default <em>applications</em></li>
+									<li>Behind-the-scenes <em>settings</em></li>
+							</ul></li>
+					</ul>
+				</section>
+				<section id="common-distributions" class="slide level1">
+					<h1>Common Distributions</h1>
+					<ul>
+						<li>Some common distributions are Ubuntu (and children Xubuntu, Kubuntu), Fedora, Debian, and Arch Linux (not for the faint of heart) -- you configure <em>everything</em></li>
+					</ul>
+				</section>
+				<section id="big-names-in-nix" class="slide level1">
+					<h1>Big Names in *nix</h1>
+					<ul>
+						<li><strong>Linus Torvalds</strong> - creator of Linux, <em>extremely passionate</em>.</li>
+						<li>GNU Project - &quot;GNU's Not Unix&quot;, connected to open source software licensing (like the GNU Public License, or GPL)</li>
+						<li>Greg Kroah-Hartman: Linux Kernel maintainer and all around awesome dude.</li>
+					</ul>
+				</section>
+				<section id="kernel-and-other-scary-words" class="slide level1">
+					<h1>&quot;Kernel&quot; and Other Scary Words</h1>
+					<ul>
+						<li><strong>Kernel</strong> is the part of Linux that interacts with your PC's hardware.</li>
+						<li><strong>Shell</strong> refers to the program that handles your terminal environment with things like the <em>prompt</em> and coloring.</li>
+						<li><strong>Bash</strong> is the default shell.</li>
+					</ul>
+				</section>
+				<section id="kernel-and-other-scary-words-1" class="slide level1">
+					<h1>&quot;Kernel&quot; and Other Scary Words</h1>
+					<ul>
+						<li><strong>Grub</strong> is a common Linux <em>boot manager</em> that remembers how to get from turning your computer on into the OS.</li>
+						<li><strong>PATH</strong> is an <em>environment variable</em> that remembers where to look for executables when you type one in the terminal</li>
+					</ul>
+				</section>
+				<section id="kernel-and-other-scary-words-2" class="slide level1">
+					<h1>&quot;Kernel&quot; and Other Scary Words</h1>
+					<ul>
+						<li><strong>Version control systems</strong> like <strong>Git</strong>, <strong>SVN</strong>, and <strong>Mercurial</strong> allow you to easily implement histories of a project. Linux uses Git!
+							<ul>
+								<li>Web handin uses Mercurial as a backend and provides a tutorial for connecting to Handin on your machine</li>
+							</ul></li>
+							<li><strong><code>make</code> and <code>Makefile</code>s</strong> are a <em>build system</em> that allow you to define rules for running multiple commands at once. Very useful for compiling code.</li>
+					</ul>
+				</section>
+				<section id="building-from-source" class="slide level1">
+					<h1>&quot;Building from Source&quot;</h1>
+					<ul>
+						<li>When you can't get a pre-compiled executable</li>
+						<li>Download the source code and run...</li>
+						<li><code>./configure</code></li>
+						<li><code>make</code></li>
+						<li><code>sudo make install</code></li>
+						<li>Didn't work? Read README</li>
+					</ul>
+				</section>
+				<section id="packaging-systems" class="slide level1">
+					<h1>Packaging systems</h1>
+					<ul>
+						<li>Easy way to install many applications pre-configured for your OS</li>
+						<li>Different distributions have their own <strong>Package Managers</strong>
+							<ul>
+								<li>All package managers need to be run using <code>sudo</code></li>
+								<li><code>apt-get</code> - used on Debian based system, including Ubuntu.
+									<ul>
+										<li><code>apt-get update</code> - update metadata</li>
+										<li><code>apt-cache search &lt;package&gt;</code> - find package</li>
+										<li><code>apt-get install &lt;package&gt;</code> - install package</li>
+										<li><code>apt-get dist-upgrade</code> - update all packages</li>
+									</ul></li>
+							</ul></li>
+					</ul>
+				</section>
+				<section id="other-packaging-systems" class="slide level1">
+					<h1>Other Packaging systems</h1>
+					<ul>
+						<li><code>yum</code> - used on Red Hat based system, including Fedora</li>
+						<li><code>pacman</code> - used on Arch Linux</li>
+						<li><code>rpm</code> - Legacy back end that is compatible with yum</li>
+					</ul>
+				</section>
+				<section id="the-linux-file-system" class="slide level1">
+					<h1>The Linux File System</h1>
+				</section>
+				<section id="basic-hierarchy" class="slide level1">
+					<h1>Basic Hierarchy</h1>
+					<ul>
+						<li>Based on <em>one</em> root directory, not drives like C: or D:</li>
+						<li>Physical devices (drives, output) and important folders are <em>mounted</em> to subdirectories of <code>/</code>
+							<ul>
+								<li><code>/home</code> - where user's files normally live</li>
+								<li><code>/dev</code> - device nodes. Don't mess with things here.</li>
+								<li><code>/mnt</code> - where you can mount things like USB drives.</li>
+								<li><code>/usr</code> - where system libraries and the like are.</li>
+								<li><code>/bin</code> - stores system executables</li>
+							</ul>
+							<strong>Some distros are a little different in how they manage these folders.</strong></li>
+					</ul>
+				</section>
+				<section id="everything-is-a-file" class="slide level1">
+					<h1>Everything is a File</h1>
+					<ul>
+						<li>Linux sees every object as a subclass of a file.</li>
+						<li>Folders, links, output devices, executables are all &quot;files&quot;!</li>
+					</ul>
+				</section>
+				<section id="where-are-my-.exes" class="slide level1">
+					<h1>Where are my .exes?</h1>
+					<ul>
+						<li>File extensions categorize, not restrict</li>
+						<li>A file with any name could be executed
+							<ul>
+								<li><code>a.out</code>, <code>prog1</code>, <code>.bashrc</code></li>
+							</ul></li>
+							<li>Files starting with a dot like <code>.bashrc</code> are usually <em>hidden</em> from listings</li>
+							<li>Running a command like <code>sl</code> is really just running an executable file within the PATH</li>
+					</ul>
+				</section>
+				<section id="terminal-power" class="slide level1">
+					<h1>Terminal Power</h1>
+				</section>
+				<section id="echo-simple-navigation-commands" class="slide level1">
+					<h1>echo &quot;Simple navigation commands&quot;</h1>
+					<ul>
+						<li>Stuck? <code>Ctrl+c</code> force quits the running program.</li>
+						<li><code>pwd</code> lists your current directory</li>
+						<li><code>cd directory</code> moves the terminal to <code>directory</code></li>
+						<li><code>ls</code> lists files and folders in the current directory
+							<ul>
+								<li><code>ls -l</code> gives additional file information</li>
+								<li><code>ls -a</code> shows even <code>.hidden-files</code></li>
+							</ul></li>
+					</ul>
+				</section>
+				<section id="echo-simple-navigation-commands-1" class="slide level1">
+					<h1>echo &quot;Simple navigation commands&quot;</h1>
+					<h2 id="there-is-no-trashcan.-deletion-is-permanent.">THERE IS NO TRASHCAN. DELETION IS PERMANENT.</h2>
+					<ul>
+						<li><code>mv orig.file new.file</code> moves <code>orig.file</code> to <code>new.file</code>
+							<ul>
+								<li>Use this for moving and <strong>renaming</strong>!</li>
+							</ul></li>
+							<li><code>cp orig.file clone.file</code> copies <code>orig.file</code> to <code>clone.file</code></li>
+							<li><code>rm file</code> removes a file
+								<ul>
+									<li><code>rm -r directory</code> deletes a directory</li>
+								</ul></li>
+					</ul>
+				</section>
+				<section id="flags-command-structure" class="slide level1">
+					<h1>--Flags?! : Command Structure</h1>
+					<ul>
+						<li>Generally <code>command -one-letter-flag --longer-flag parameter</code> <code>[optional parameter] parameter-list...</code></li>
+						<li>Some flags need their own value arguments after them
+							<ul>
+								<li><code>ping -c 12</code> OR <code>ping --count=12</code></li>
+							</ul></li>
+							<li>Structure varies by program: try <code>progname --help</code> or <code>-h</code>
+								<ul>
+									<li>Sometimes simpler than <code>man progname</code></li>
+								</ul></li>
+								<li>Many commands use <code>--verbose</code> or <code>-v</code> to print <em>more</em> useful information. Verbosity is good!</li>
+					</ul>
+				</section>
+				<section id="terminal-symbols-shorthand" class="slide level1">
+					<h1>Terminal Symbols &amp; Shorthand</h1>
+					<ul>
+						<li><code>.</code> (one dot) is the <em>current directory</em></li>
+						<li><code>..</code> (two dots) is the <em>parent directory</em></li>
+						<li><code>/</code> is the <em>root directory</em></li>
+						<li><code>~</code> is your <em>user directory</em></li>
+						<li><code>!!</code> is the <em>previously entered command</em>
+							<ul>
+								<li>Use <code>sudo !!</code> to run the last command under sudo</li>
+							</ul></li>
+					</ul>
+				</section>
+				<section id="terminal-symbols-shorthand-1" class="slide level1">
+					<h1>Terminal Symbols &amp; Shorthand</h1>
+					<ul>
+						<li><code>\</code> begins an escape character sequence
+							<ul>
+								<li><code>\n</code> is a newline character</li>
+								<li><code>\</code> (space) inserts a space into one argument (otherwise the argument will break)</li>
+								<li><code>\\</code> actually inserts a backslash</li>
+								<li><code>$(command)</code> or <code>command</code> inserts the output of <code>command</code> into</li>
+								<li><code>command&amp;</code> will run <code>command</code> in the background</li>
+							</ul></li>
+					</ul>
+				</section>
+				<section id="messing-with-output" class="slide level1">
+					<h1>Messing with Output</h1>
+					<ul>
+						<li>Any text output you see in the terminal comes from <strong>standard out</strong> (the same stream as <strong>cout</strong> in C++ and <strong>printf()</strong> in C)
+							<ul>
+								<li><code>echo input</code> - print <code>input</code> to standard out</li>
+								<li><code>cat input.file</code> - print contents of <code>file</code> to the terminal</li>
+							</ul></li>
+							<li>Many commands like <code>grep</code> and <code>less</code> read from <strong>standard in</strong> (<strong>cin</strong> in C++, what <strong>scanf()</strong> reads from in C) if no other args are specified
+								<ul>
+									<li><code>grep pattern input.file</code> prints lines from <code>input.file</code> that match/contain the search pattern (could be as simple as one word)</li>
+									<li><code>less input.file</code> allows you to read up and down through a large chunk of data</li>
+								</ul></li>
+					</ul>
+				</section>
+				<section id="piping-and-redirection" class="slide level1">
+					<h1>Piping and Redirection</h1>
+					<ul>
+						<li><strong>Piping</strong> with <code>command-a | command-b</code> connects the <em>standard output</em> of <code>command-a</code> to <em>standard input</em> of <code>command-b</code>, for chaining commands
+							<ul>
+								<li><code>command-a | less</code> pipes <code>command-a</code>'s output into less for easy reading</li>
+							</ul></li>
+							<li><strong>Redirection</strong> handles using file contents for standard in / out</li>
+							<li><code>progname &gt; output.file</code> overwrites <code>output.file</code> with <code>progname</code>'s output</li>
+					</ul>
+				</section>
+				<section id="redirection" class="slide level1">
+					<h1>Redirection</h1>
+					<ul>
+						<li><code>&gt;&gt;</code> <em>appends to</em> <code>output.file</code> with <code>progname</code>'s output</li>
+						<li><code>&amp;&gt;</code> overwrites <code>output.file</code> with <code>progname</code>'s <em>error output</em></li>
+						<li><code>&amp;&gt;&gt;</code> <em>appends to</em> <code>output.file</code> with <code>progname</code>'s <em>error output</em></li>
+						<li><code>progname &lt; input.file</code> uses <code>input.file</code>'s content as input for <code>progname</code></li>
+					</ul>
+				</section>
+				<section id="shell-history" class="slide level1">
+					<h1>Shell History</h1>
+					<h2 id="how-did-i-run-that-again">&quot;How did I run that again?&quot;</h2>
+					<ul>
+						<li>Press the up key to cycle through your previously entered commands</li>
+						<li><code>history</code> - print previous commands</li>
+						<li>Try it with grep -- <code>history | grep ls</code></li>
+						<li><code>ctrl-r</code> for a history search</li>
+					</ul>
+				</section>
+				<section id="shell-configuration" class="slide level1">
+					<h1>Shell configuration</h1>
+					<ul>
+						<li>On your home machine, you could replace <strong>bash</strong> with another shell like <strong>zsh</strong> or <strong>ksh</strong></li>
+						<li>Editing <code>~/.bashrc</code> can customize your shell with functions, <strong>aliases</strong>, and <strong>functions</strong>.</li>
+						<li>Aliases are simple: <code>alias sl=echo &quot;Steam Locomotive&quot;</code></li>
+						<li>There are a ton of tutorials on customizing the shell, so we'll skip it for now.</li>
+					</ul>
+				</section>
+				<section id="man-and-other-awesome-commands" class="slide level1">
+					<h1><code>man</code> and Other Awesome Commands</h1>
+					<ul>
+						<li><code>man</code> - summons an <em>extensive</em> manual page for about anything
+							<ul>
+								<li><code>man stdio.h</code>, <code>man grep</code>, <code>man man</code></li>
+							</ul></li>
+							<li><code>sl</code> summons a steam locomotive!</li>
+							<li><code>touch name.file</code> creates an empty <code>name.file</code> if none exists</li>
+							<li><code>vim [edit.file]</code> awesome text editor with steep learning curve</li>
+							<li><code>nano [edit.file]</code> opens a simple editor</li>
+							<li><code>curl -O [URL]</code> copies a file from the web</li>
+					</ul>
+				</section>
+				<section id="man-and-other-awesome-commands-1" class="slide level1">
+					<h1><code>man</code> and Other Awesome Commands</h1>
+					<ul>
+						<li><code>tar</code> - manage tarball (.tar) and tarball + gzipped (.tgz, .tar.gz) archives
+							<ul>
+								<li><code>tar -xzf</code> (e<strong>x</strong>tract <strong>z</strong>e <strong>f</strong>iles!!) <code>&lt;archive&gt;</code>
+									<ul>
+										<li><code>tar -xf</code> for just <code>.tar</code></li>
+									</ul></li>
+									<li><code>tar -czf</code> (<strong>c</strong>reate <strong>z</strong>e <strong>f</strong>iles!!) <code>archivename.tgz files...</code> to create an archive</li>
+									<li><a href="http://imgs.xkcd.com/comics/tar.png">Relevant XKCD comic</a></li>
+							</ul></li>
+					</ul>
+				</section>
+				<section id="shell-scripts" class="slide level1">
+					<h1>Shell Scripts</h1>
+					<ul>
+						<li>put commands into a file to run them all at once repeatidly</li>
+						<li>add <code>#!/bin/bash</code> as the first line</li>
+						<li>one command per line</li>
+						<li><code>chmod u+x script.sh</code></li>
+						<li><code>./script.sh</code></li>
+					</ul>
+				</section>
+				<section id="getting-owned-by-permissions" class="slide level1">
+					<h1>Getting Owned by Permissions</h1>
+				</section>
+				<section id="users-root-and-groups" class="slide level1">
+					<h1>Users, Root and Groups</h1>
+					<ul>
+						<li><em>Users</em> are unique accounts</li>
+						<li><em>Root</em> is the <strong>superuser</strong> and can do <em>anything</em>.
+							<ul>
+								<li><strong>DON'T TRY TO USE ROOT ON THE CU MACHINES</strong>.</li>
+								<li>Run one command as root with <code>sudo &lt;command&gt;</code> and temporarily login with <code>sudo su</code></li>
+							</ul></li>
+							<li>Users in the same <em>Groups</em> share permissions pertaining to that group
+								<ul>
+									<li>E.g. users in <code>sudoers</code> can use <code>sudo</code> (the admin group might be different on other distros)</li>
+									<li>Users can be in multiple groups</li>
+								</ul></li>
+								<li><code>man chmod</code> and <code>man chgrp</code> for more info on permissions and groups</li>
+					</ul>
+				</section>
+				<section id="working-from-other-machines" class="slide level1">
+					<h1>Working from other machines</h1>
+				</section>
+				<section id="getting-to-your-files-with-ssh" class="slide level1">
+					<h1>Getting to your files with SSH</h1>
+					<ul>
+						<li><code>ssh username@access.cs.clemson.edu</code> starts a remote connection to the Lab computer</li>
+						<li>Pick one of the servers listed in the message and <code>ssh</code> to it</li>
+						<li><strong>DON'T RUN/COMPILE ON access.cs.clemson.edu</strong></li>
+					</ul>
+				</section>
+				<section id="using-a-vm" class="slide level1">
+					<h1>Using a VM</h1>
+					<ul>
+						<li>VirtualBox
+							<ul>
+								<li>Can run a Linux VM inside of Windows/Mac OS X</li>
+							</ul></li>
+					</ul>
+				</section>
+				<section id="windows-cygwin" class="slide level1">
+					<h1>Windows: Cygwin?</h1>
+					<h2 id="bad-idea."><strong>Bad Idea.</strong></h2>
+				</section>
+				<section id="your-free-clemson-web-hosting" class="slide level1">
+					<h1>Your Free Clemson Web Hosting</h1>
+					<ul>
+						<li>Run <code>cd /web/home/username/public_html</code>
+							<ul>
+								<li>Trust us, it's there</li>
+							</ul></li>
+							<li>Files you put there will be served on the web at <code>people.cs.clemson.edu/~username/</code></li>
+							<li>Change permissions so the web server can access them
+								<ul>
+									<li><code>chmod a+r [serving files]</code></li>
+									<li><code>chmod a+g [sub-directories]</code></li>
+								</ul></li>
+					</ul>
+				</section>
+				<section id="wrap-up" class="slide level1">
+					<h1>Wrap-up</h1>
+				</section>
+				<section id="final-warnings" class="slide level1">
+					<h1>Final warnings</h1>
+					<h2 id="never-run-a-random-command-from-the-internet">NEVER RUN A RANDOM COMMAND FROM THE INTERNET</h2>
+					<ul>
+						<li><strong>DON'T CHEAT</strong>
+							<ul>
+								<li>Professors use advanced software that checks the algorithms your code uses</li>
+								<li>Changing variable names won't help</li>
+							</ul></li>
+							<li>Don't use <code>sudo</code> on the lab machines
+								<ul>
+									<li>They yell at you and phone home to the sysadmins</li>
+								</ul></li>
+								<li>Want to install something? Email <code>ithelp@clmeson.edu</code> and put <code>School of Computing</code> in the subject line.</li>
+					</ul>
+				</section>
+				<section id="the-snapshot-system" class="slide level1">
+					<h1>The snapshot system</h1>
+					<ul>
+						<li>Contents are in <code>~/.snapshot</code></li>
+						<li>Keeps hourly, nightly, and weekly backups of files in <code>~</code></li>
+						<li><p>Especially useful when you accidentally overwrite a project at 2 am</p>
+							<h2>SNAPSHOTS ARE UNIQUE TO CLEMSON. DON'T RELY ON IT!</h2></li>
+					</ul>
+				</section>
+				<section id="further-resources" class="slide level1">
+					<h1>Further resources</h1>
+					<ul>
+						<li><code>http://www.cs.clemson.edu/help/linux-workshop/soc_linux_cheatsheet.pdf</code> -- the cheatsheet we're distributing</li>
+						<li><code>http://www.cs.clemson.edu/help/linux-workshop</code>
+							<ul>
+								<li>Steps to install a VM just like the lab machines</li>
+								<li>submit/handin information is deprecated</li>
+							</ul></li>
+							<li>Plug a long command into <a href="http://explainshell.com/">ExplainShell.com</a> to see what it does</li>
+							<li>We're on <a href="http://steamcommunity.com/groups/clemsonacm">Steam</a> &amp; <a href="https://www.facebook.com/groups/283823058297107/">Facebook</a>!</li>
+							<li>Lists system admin staff</li>
+					</ul>
+				</section>
+				<section id="questions" class="slide level1">
+					<h1>Questions</h1>
+					<p>Send us feedback at <code>acm@cs.clemson.edu</code>!</p>
+				</section>
+			</div>
+		</div>
+
+
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+	controls: true,
+	progress: true,
+	history: true,
+	center: true,
+	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+	transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+		// Optional libraries used to extend on reveal.js
+	dependencies: [
+	{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+	{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+	{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+		//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+		//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	]});
+		</script>
+	</body>
+</html>
