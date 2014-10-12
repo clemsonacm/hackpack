@@ -1,8 +1,8 @@
-all: cowpens.cpp cowpens_verification.cpp
+all: cowpens.cpp cowpens-verification.cpp
 	g++ -std=c++11 cowpens.cpp -o cowpens -Wall
-	g++ -std=c++11 cowpens_verification.cpp -o cowpens_verify -Wall
+	g++ -std=c++11 cowpens-verification.cpp -o cowpens-verification -Wall
 test: all
-	./cowpens < data
-	./cowpens_verify < data
+	./cowpens < cowpens-test.in
+	./cowpens-verification < cowpens-test.in
 clean:
-	rm cowpens cowpens_verify
+	rm cowpens cowpens-verification
