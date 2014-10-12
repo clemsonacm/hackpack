@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 {
 	//Read in the number of items, capacity, and items
 	int N,C,s,v;
-	cin >> N >> C;
+	cin >> C >> N;
 	for (int i = 0; i < N; i++){
 		cin >> s >> v;
 		items.push_back(item(s,v));
