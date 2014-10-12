@@ -90,26 +90,25 @@ In the case of several cows having a equally close id numbers, choose the cows w
 \subsection{Contest Problem, Closest Cows}
 Cows often graze on grass in the feilds near Farmer John's Barn.
 When looking down from the top of the silo, Farmer John ponders which pair of cows of different breeds -- one being a Holstein and one a Guernsey -- are the closest on the field.
-\subsubsection{Input:} First, you will be given the number of Guernseies, $ G \leq 500000$ followed by the position $(0,0) \leq (X,Y) \leq (1000000,1000000)$ on the field of the Guernseies.
-In the same way, the number of Holsteins $H \leq 500000$ will be followed by the position of the Holsteins $(0,0) \leq (X,Y) \leq (1000000,1000000)$ on the field will be given.
-\subsubsection{Output:} Output the distance between the closest Holstein Guernsey pair.
+
 \subsubsection{Input Format}
 \begin{itemize}
-  \item Line 1: One integer, $N$, $(N < 1000000)$, specifying the number of trees in the field.
-  \item Lines 2..$(N+1)$: Each line contains two integers $X$ and $Y$ $(0 <= X,Y <= 1000000)$.
-        Each pair corresponds to the location of one tree in Farmer John's field.
+	\item Line 1: One integer, $G$, $(G < 500000)$, specifying the number of number of Guernseies to follow.
+	\item Line 2..$(G+1)$: Two integers $X$ and $Y$ $0 \leq X,Y \leq 1000000$.
+		Each pair corresponds the location of one Guernsey in the field
+	\item Line $(G+2)$: One integer, $H$, $(H < 500000)$, specifying the number of number of Holsteins to follow. 
+	\item Line $(G+3)$..$(G+H+2)$: Two integers $X$ and $Y$ $0 \leq X,Y \leq 1000000$.
+		Each pair corresponds the location of one Holstein in the field
 \end{itemize}
 
 \subsubsection{Sample Input}
-\lstinputlisting{./set/cowpens.in}
+\lstinputlisting{./set/closest.in}
 
 \subsubsection{Output Format}
 \begin{itemize}
-  \item Line 1: One integer that represents the area of the largest possible rectangle that Farmer John can build.
+  \item Line 1: One double with 3 decimal places that represents distance between the closest Holstein Guernsey pair.
 \end{itemize}
 
 \subsubsection{Sample Output}
-\lstinputlisting{./set/cowpens.out}
+\lstinputlisting{./set/closest.out}
 
-\subsubsection{Example Solution}
-\lstinputlisting{./set/cowpens.cpp}
