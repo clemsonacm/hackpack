@@ -21,14 +21,14 @@ See "unordered set" for a version of the set that is Unordered, but is based on 
 \end{itemize}
 
 \subsection{Example Contest Problem: Cow Pens}
-Farmer John's cows keep wandering off into the hills to learn cowculus from nomadic mathemeticans.
+Farmer John's cows keep wandering off into the hills to learn cowculus from nomadic mathematicians.
 Unappreciative of refined bovine arithmetic, Farmer John decides to fence in his cows to keep them from escaping.
 
 He wants to build the fence without crossing over any of the trees on his property (which the cows claim are valuable for studying graph theory), and he'd like to build the fence in the shape of a rectangle (a perfect shape, the cows say).
 One side of the rectangle should be formed by the river at the southern edge of Farmer John's property, so that the cows can contemplate wave-based trigonometric functions (and stay hydrated).
 
 Please compute the maximum area that Farmer John can enclose with a fence that meets the above requirements.
-You can assume that the river has the positon $Y=0$ and farmer John's property lies north of the river.
+You can assume that the river has the position $Y=0$ and farmer John's property lies north of the river.
 
 \subsubsection{Input Format}
 \begin{itemize}
@@ -54,8 +54,62 @@ You can assume that the river has the positon $Y=0$ and farmer John's property l
 \subsubsection{Lessons Learned}
 \begin{itemize}
 	\item	Set can be used as a basic binary search trees
-	\item	Write comparision functions to change orderings of sets, maps, and the sort function
+	\item	Write comparison functions to change orderings of sets, maps, and the sort function
 	\item	Typedef long type names to something sorter for ease of use
 	\item	Sometimes it is better to \emph{modify} the input than code edge cases
 	\item	lower\_bound returns an iterator pointing to the first element $\leq$ the searched element
 \end{itemize}
+
+\subsection{Contest Problem, The Cows form a Union}
+The Cows have formed on a union and gone on strike to protest the building of Farmer John's new cow pen.
+
+Being faithful union members, each cow has its union id number painted on its side.
+Farmer John in efforts to track Union activity on the farm, took two pictures of the cows during their rallies: one in the morning and one at night.
+He knows that the cows that were present in either photograph with the closest id numbers are the Union bosses.
+
+Please find which cows are the Union bosses so that Farmer John can attempt to negotiate with them.
+In the case of several cows having a equally close id numbers, choose the cows with the smallest id numbers.
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line 1: A list of at most 1 million id numbers $i$, $(0 < i \leq 1000000)$, separated by spaces ending in $0$ indicating the cows present in the first photo.
+	\item Line 2: A list of at most 1 million id numbers $i$, $(0 < i \leq 1000000)$, separated by spaces ending in $0$ indicating the cows present in the second photo.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\lstinputlisting{./set/union.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+  \item Line 1: Three integers in ascending order separated by spaces indicating the three cows who lead the union
+\end{itemize}
+
+\subsubsection{Sample Output}
+\lstinputlisting{./set/union.out}
+
+\subsection{Contest Problem, Closest Cows}
+Cows often graze on grass in the feilds near Farmer John's Barn.
+When looking down from the top of the silo, Farmer John ponders which pair of cows of different breeds -- one being a Holstein and one a Guernsey -- are the closest on the field.
+\subsubsection{Input:} First, you will be given the number of Guernseies, $ G \leq 500000$ followed by the position $(0,0) \leq (X,Y) \leq (1000000,1000000)$ on the field of the Guernseies.
+In the same way, the number of Holsteins $H \leq 500000$ will be followed by the position of the Holsteins $(0,0) \leq (X,Y) \leq (1000000,1000000)$ on the field will be given.
+\subsubsection{Output:} Output the distance between the closest Holstein Guernsey pair.
+\subsubsection{Input Format}
+\begin{itemize}
+  \item Line 1: One integer, $N$, $(N < 1000000)$, specifying the number of trees in the field.
+  \item Lines 2..$(N+1)$: Each line contains two integers $X$ and $Y$ $(0 <= X,Y <= 1000000)$.
+        Each pair corresponds to the location of one tree in Farmer John's field.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\lstinputlisting{./set/cowpens.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+  \item Line 1: One integer that represents the area of the largest possible rectangle that Farmer John can build.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\lstinputlisting{./set/cowpens.out}
+
+\subsubsection{Example Solution}
+\lstinputlisting{./set/cowpens.cpp}
