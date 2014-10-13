@@ -5,7 +5,7 @@ The basic idea is to save the results of smaller problems and use the results to
 \subsection{Applications}
 \begin{itemize}
 	\item	Improving runtimes of some other algorithms
-	\item	Solving the knapsack in $O(n)$ time
+	\item	Solving the knapsack in $O(nm)$ time
 	\item	Solving the integer knapsack in $O(nm)$ time
 	\item	Solving the largest increasing subsequece in $O(n \log n)$ time
 	\item	Solving the maximum value sub-array problem in $O(n)$
@@ -14,16 +14,30 @@ The basic idea is to save the results of smaller problems and use the results to
 
 \subsection{Contest Problem, A Knapsack Full of Fireworks}\index{Knapsack}
 The cows on Farmer John's Farm are planning a fireworks show for his birthday.
+
 They have found all of the loose change from all over the farm and want to purchase fireworks to maximize the wow factor for their purchase.
 
-\subsubsection{Input}
-You will be given the $N$ the number of fireworks in the catalog,
-Followed by $C$ the number of cents that the cows found.
-The input will then have the cost of each firework $P$ in cents followed by the wow factor of the firework $W$.
+Please help the cows determine the maximum wow factor they can get for their loose change.
 
-\subsubsection{Output}
-Output the maximum wow factor as an integer
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line 1: One integer, $N$, $(1 \leq N \leq 100)$ the number of fireworks in the catalog,
+	\item Line 2: One integer, $C$, $(1 \leq C \leq 10000)$ the number of cents that the cows found.
+	\item Line 3..$(N+2)$ Two integers $P,W$ representing the price and wow factor for the fireworks.
+\end{itemize}
 
+\subsubsection{Sample Input}
+\lstinputlisting{./dp/knapsack.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: A single integer representing the maximum wow factor
+\end{itemize}
+
+\subsubsection{Sample Output}
+\lstinputlisting{./dp/knapsack.out}
+
+\subsubsection{Sample Solution}
 \lstinputlisting{./dp/knapsack.cpp}
 
 \subsubsection{Lessons Learned}
@@ -33,6 +47,7 @@ Where $W(0) = 0$
 
 \subsection{Contest Problem, A Few Fireworks More}\index{Knapsack!Integer}
 The Cows have reconsidered there original plan of buying just the fireworks with the greatest wow factor.
+
 Instead they want to buy the most wow factor given they use each firework type at most once.
 
 \subsubsection{Input}
