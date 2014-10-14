@@ -1,13 +1,4 @@
-*.aux
+build
 *.bbl
-*.blg
-*.idx
-*.ilg
-*.ind
-*.fdb_latexmk
-*.fls
-*.log
-*.pdf
-*.swp
-*.toc
-hackpack.out
+*.run
+*.exe

@@ -1,5 +1,3 @@
-\section{Some Basic VIMRC Settings}
-\begin{lstlisting}[language={}, label=vimrc,caption=vimrc]
 set mouse=a   " Turn the mouse on
 imap jj <ESC> " Make it easy to escape
 set ai        " turn on auto-indention
@@ -10,4 +8,3 @@ set ts=4      " Set tabstop to 4 spaces
 sy on         " turn on syntax highlighting
 colo=slate    " pick a nice color scheme
 set bg=dark   " make it better for black terminals
-\end{lstlisting}

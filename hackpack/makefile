@@ -1,5 +1,5 @@
 all:
-	latexmk -pdf
+	latexmk -pdf -outdir=build -auxdir=build
 
 clean:
-	latexmk -c
+	latexmk -c -outdir=build
