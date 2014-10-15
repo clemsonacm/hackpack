@@ -7,4 +7,6 @@ all: $(OBJS)
 .cpp.o:
 	$(CC) $(CFLAGS) -c $<
 clean:
-	rm *.o
+	rm *.o a.out
+test:
+	./a.out
