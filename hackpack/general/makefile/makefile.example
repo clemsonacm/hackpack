@@ -1,12 +1,7 @@
-CC=g++
-CFLAGS=-g -Wall
 SRCS=$(wildcard *.cpp)
-OBJS=$(SRCS:.cpp=.o)
-all: $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS)
-.cpp.o:
-	$(CC) $(CFLAGS) -c $<
+all: $(SRCS)
+	g++ $(SRCS) -g -Wall
 clean:
-	rm *.o a.out
+	rm a.out
 test:
 	./a.out
