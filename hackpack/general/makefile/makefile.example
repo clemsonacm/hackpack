@@ -1,3 +1,10 @@
 CC=g++
-all :
-    $(CC) *.c -o $*.o
+CFLAGS=-g -Wall
+SRCS=$(wildcard *.cpp)
+OBJS=$(SRCS:.cpp=.o)
+all: $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS)
+.cpp.o:
+	$(CC) $(CFLAGS) -c $<
+clean:
+	rm *.o
