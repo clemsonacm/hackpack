@@ -14,8 +14,8 @@ Computer Science.  The main projects are as follows:
 ### Clemson Hackpack and Hackpack++ 
 *   the Hackpack is a concise and extensive cheatsheet/guide designed to be
     used during ACM style programming comptetions.  If you already know your
-    data structures and algorithms go here.
-*   The Hackpack++ is a extensive guide that includes all of the great info
+    data structures and algorithms, go here.
+*   The Hackpack++ is an extensive guide that includes all of the great info
     from the hackpack, but also includes a bit more detail so that you could
     use it as a learning tool for the different techniques.
 
@@ -82,7 +82,7 @@ All examples assume a topic called `foo` and a sample problem `bar`:
 	`structures/set`
 
 
-+	`foo` the name of the branch were `foo` is being worked on
++	`foo` the name of the branch where `foo` is being worked on
 +	`foo.tex` the hackpack documentation on the algorithm
 +	`foo.cpp` reference code for the foo data structure in C++ if applicable
 +	`bar.in`  sample input for foo.cpp if applicable
