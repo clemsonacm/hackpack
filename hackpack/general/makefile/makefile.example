@@ -1,3 +1,7 @@
-CC=g++
-all :
-    $(CC) *.c -o $*.o
+SRCS=$(wildcard *.cpp)
+all: $(SRCS)
+	g++ $(SRCS) -g -Wall
+clean:
+	rm a.out
+test:
+	./a.out
