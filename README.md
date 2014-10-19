@@ -75,7 +75,7 @@ All examples assume a topic called `foo` and a sample problem `bar`:
 	`TenCommandments.tex`
 +	All sample contest problems should be in a subdirectory called `problems`
 	and in a further subdirectory based on the problem name.  For example if the
-	topic `foo` has a problem `bar` the path to the code sample could be `foo/bar.cpp`
+	topic `foo` has a problem `bar` the path to the code sample could be `foo/problems/bar/bar.cpp`
 +	In the _rare_ circumstance that your finished product is one `tex` file and
 	place it in general instead
 +	See how the `set` material is laid out for reference.  It is in
