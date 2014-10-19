@@ -87,7 +87,7 @@ All examples assume a topic called `foo` and a sample problem `bar`:
 +	`foo.cpp` reference code for the foo data structure in C++ if applicable
 +	`bar.in`  sample input for foo.cpp if applicable
 +	`bar.out` sample output for foo.cpp if applicable
-+	`bar.exe` untracked compiled binary __DO NOT ADD THIS__  it to make it
++	`bar.exe` untracked compiled binary __DO NOT ADD THIS__  it makes it
 	easier to spot in the `.gitignore`
 +	`bar.py`  a version of `foo.cpp` in python if applicable. _Alternate
 	versions of algorithms in languages other than C++ should be written after
