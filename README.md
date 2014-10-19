@@ -89,7 +89,7 @@ All examples assume a topic called `foo` and a sample problem `bar`:
 +	`bar.out` sample output for foo.cpp if applicable
 +	`bar.exe` untracked compiled binary __DO NOT ADD THIS__  it to make it
 	easier to spot in the `.gitignore`
-+	`bar.py`  a version of `foo.cpp` in python if applicable. _alternate
++	`bar.py`  a version of `foo.cpp` in python if applicable. _Alternate
 	versions of algorithms in languages other than C++ should be written after
 	the C++ code is written_
 +	`bar.example` files such as `.vimrc` that do not have an extension normally
