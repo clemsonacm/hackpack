@@ -75,7 +75,7 @@ All examples assume a topic called `foo` and a sample problem `bar`:
 	`TenCommandments.tex`
 +	All sample contest problems should be in a subdirectory called `problems`
 	and in a further subdirectory based on the problem name.  For example if the
-	topic `foo` has a problem `bar` the path to the code sample could be `foo/problems/bar/bar.cpp`
+	topic `foo` has a problem `bar` the path to the code sample could be `foo/problems/bar/bar.cpp`.
 +	In the _rare_ circumstance that your finished product is one `tex` file,
 	place it in `general` instead
 +	See how the `set` material is laid out for reference.  It is in
@@ -88,7 +88,7 @@ All examples assume a topic called `foo` and a sample problem `bar`:
 +	`bar.in`  sample input for foo.cpp if applicable
 +	`bar.out` sample output for foo.cpp if applicable
 +	`bar.exe` untracked compiled binary __DO NOT ADD THIS__.  It makes it
-	easier to spot in the `.gitignore`
+	easier to spot in the `.gitignore`.
 +	`bar.py`  a version of `foo.cpp` in python if applicable. _Alternate
 	versions of algorithms in languages other than C++ should be written after
 	the C++ code is written_
