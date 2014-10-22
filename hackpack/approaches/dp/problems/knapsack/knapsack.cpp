@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 	//Iteratively solve the rest
 	for (int j = 1; j <= C; j++){
 		int m=INT_MIN;
-		for(auto i = items.begin(); i != items.end(); i++){
+		for(vector<item>::iterator i = items.begin(); i != items.end(); i++){
 			if(j - i->size >= 0) m = max(A[j - i->size] + i->value, m);
 		}
 		A.push_back( max(A[j-1], m));
