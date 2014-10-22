@@ -1,0 +1,42 @@
+\section{C IO Functions}
+Occasionally it is far easier to use the C IO functions to meet an output spec. It is also possible to set the precision and width options via numbers after the present,but before the specifier.  The general form of a specifier is: 
+
+\begin{lstlisting}[label=format code format,caption=Format Codes for printf()]
+%[flags][width][.precision][length]specifier
+\end{lstlisting}
+
+\begin{table}[h]
+	\caption{Format Specifier Codes\cite{cplusplus}}
+	\begin{tabularx}{\textwidth}{|l|X|l|} \hline
+		Format Code &   Output              &   Example     \\ \hline
+		d           &   Signed Int          &   314         \\
+		u           &   Unsigned Int        &   314         \\
+		o           &   Unsigned Octal      &   472         \\
+		x           &   Unsigned hex        &   13a         \\
+		X           &   UNSIGNED HEX        &   13A         \\
+		f           &   floating point      &   3.140000    \\
+		e           &   Scientific notation &   3.140000e+00\\
+		c           &   character           &   A           \\
+		s           &   string              &   ACM         \\
+		p           &   pointer address     &   0x40060c    \\
+		l           &   Used with other specifiers to indicate a long & 314 \\
+		\%\%        &   Prints a literal \% &   \%          \\
+		\hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[h]
+	\caption{Modifier Flags \cite{cplusplus}}
+	\begin{tabularx}{\textwidth}{|l|X|l|} \hline
+		Format Code &   Output                  &   Example    \\ \hline
+		-           &   Left-justify            &   314        \\
+		+           &   Force-sign character    &   +314       \\
+		\#          &   Show prefix             &   0x13a      \\
+			  &   Show decimal point      &   314.       \\
+		0           &   Left pad field with 0   &   0314       \\
+		\hline
+	\end{tabularx}
+\end{table}
+
+\subsection{Examples}
+\lstinputlisting[language=c++]{./general/ciofunctions/ciofunctions.cpp}

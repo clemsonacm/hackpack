@@ -14,8 +14,8 @@ Computer Science.  The main projects are as follows:
 ### Clemson Hackpack and Hackpack++ 
 *   the Hackpack is a concise and extensive cheatsheet/guide designed to be
     used during ACM style programming comptetions.  If you already know your
-    data structures and algorithms go here.
-*   The Hackpack++ is a extensive guide that includes all of the great info
+    data structures and algorithms, go here.
+*   The Hackpack++ is an extensive guide that includes all of the great info
     from the hackpack, but also includes a bit more detail so that you could
     use it as a learning tool for the different techniques.
 
@@ -67,6 +67,40 @@ For all projects and improvements:
 If you have any questions related to the issues in the tracker, comment on the
 issues and CC one of the admins.
 
+#### Folder Structure and File Naming conventions
+All examples assume a topic called `foo` and a sample problem `bar`:
+
++	All file names should be lowercase with `-` (hyphens) separating the words
+	in a file.  For example, `ten-commandments.tex` instead of
+	`TenCommandments.tex`
++	All sample contest problems should be in a subdirectory called `problems`
+	and in a further subdirectory based on the problem name.  For example if the
+	topic `foo` has a problem `bar` the path to the code sample could be `foo/problems/bar/bar.cpp`.
++	In the _rare_ circumstance that your finished product is one `tex` file,
+	place it in `general` instead
++	See how the `set` material is laid out for reference.  It is in
+	`structures/set`
+
+
++	`foo` the name of the branch where `foo` is being worked on
++	`foo.tex` the hackpack documentation on the algorithm
++	`foo.cpp` reference code for the foo data structure in C++ if applicable
++	`bar.in`  sample input for foo.cpp if applicable
++	`bar.out` sample output for foo.cpp if applicable
++	`bar.exe` untracked compiled binary __DO NOT ADD THIS__.  It makes it
+	easier to spot in the `.gitignore`.
++	`bar.py`  a version of `foo.cpp` in python if applicable. _Alternate
+	versions of algorithms in languages other than C++ should be written after
+	the C++ code is written_
++	`bar.example` files such as `.vimrc` that do not have an extension normally
++	`bar-test.cpp` An automated unit test written in cpp
++	`bar-test.in`  Data for the automated unit test
++	`bar-test.out` Expected output for the automated unit test
+
+
+
+
+
 #### Writing Documentation 
 For each item in the Hackpack, please include the following in clearly delineated subsections:
 
@@ -96,7 +130,9 @@ Code Must meet the following standards:
 All code must have tests that meet the following requirements
 
 1.  Test at least the upper and lower boundaries of the allowed inputs.  
-2.  Testing files should be prefixed by "test"
+2.  Testing files should be postfixed by `-test` prior to the extension.  For
+	example,  `foo.cpp` test files should be called `foo-test.cpp` and
+	`foo-test.in` respectively
 3.  Tests should be runnable by calling `make test` in the directory of the source
 
 ### Presentations

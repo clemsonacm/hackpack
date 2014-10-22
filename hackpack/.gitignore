@@ -1,14 +1,4 @@
-*.aux
+build
 *.bbl
-*.blg
-*.dSYM
-*.idx
-*.ilg
-*.ind
-*.fdb_latexmk
-*.fls
-*.log
-*.out
-*.pdf
-*.swp
-*.toc
+*.run
+*.exe
