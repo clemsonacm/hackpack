@@ -5,4 +5,4 @@ clean:
 	rm *.o one-zero.exe
 test: all
 	./one-zero.exe < one-zero.in
-	echo < one-zero.out
+	cat one-zero.out
