@@ -50,12 +50,24 @@ The Cows have reconsidered there original plan of buying just the fireworks with
 Instead they want to buy the most wow factor given they use each firework type at most once.
 
 \subsubsection{Input}
-You will be given the $N$ the number of fireworks in the catalog,
-Followed by $C$ the number of cents that the cows found.
-The input will then have the cost of each firework $P$ in cents followed by the wow factor of the firework $W$.
+\begin{itemize}
+	\item Line 1: One integer, $N$, $(1 \leq N \leq 100)$ the number of fireworks in the catalog,
+	\item Line 2: One integer, $C$, $(1 \leq C \leq 10000)$ the number of cents that the cows found.
+	\item Line 3..$(N+2)$ Two integers $P,W$ representing the price and wow factor for the fireworks.
+\end{itemize}
 
-\subsubsection{Output}
-Output the maximum wow factor as an integer
+\subsubsection{Sample Input}
+\lstinputlisting{./approaches/dp/problems/one-zero/one-zero.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: A single integer representing the maximum wow factor using each firework at most once
+\end{itemize}
+\subsubsection{Sample Output}
+\lstinputlisting{./approaches/dp/problems/one-zero/one-zero.out}
+
+\subsubsection{Sample Solution}
+\lstinputlisting{./approaches/dp/problems/one-zero/one-zero.cpp}
 
 \subsubsection{Lesson Learned}
 A similar problem to the knapsack, except each item can be used at most once.  The solution here is to expand the state space.  The optimal solution is of the form
