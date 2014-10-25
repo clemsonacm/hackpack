@@ -2,14 +2,16 @@
 #include <vector>
 using namespace std;
 
-#define MAX_LEN 10000
-int L[MAX_LEN];
 
 int main(int argc, char *argv[])
 {
 	int val;
 	vector<int> A;
-	while(cin >> val) A.push_back(val);
+	vector<int> L;
+	while(cin >> val) {
+		A.push_back(val);
+		L.push_back(1);
+	}
 
 	//solve the problem
 	for(int j=0; j<A.size(); j++){
