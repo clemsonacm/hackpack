@@ -38,12 +38,12 @@ int main(int numberOfArgs, char** args)
 		}
 	}
 
-	if(loc == -1) cout << "Nothing about a swimming pool." << endl;
+	if(loc == -1) cout << "The agreement does not mention a pool." << endl;
 	else
 	{
 		unsigned int beg = loc;
 		unsigned int end = loc + keyword.length();
-		while(text[beg - 2] != '.') beg--;
+		while(text[beg - 2] != '.' && beg > 0) beg--;
 		while(text[end] != '.') end++;
 		cout << text.substr(beg, end - beg + 1) << endl;
 	}
