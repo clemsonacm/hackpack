@@ -74,6 +74,38 @@ A similar problem to the knapsack, except each item can be used at most once.  T
 $$M(i,j) = \max \left\{ M(i-1, j) , M(i-1, j- s_i) + v_i \right\}$$
 Where $M(0,j) = 0$ and $M(i,0) = 0$
 
-\lstinputlisting{./approaches/dp/problems/largest-increasing/largest-increassing.cpp}
-\subsection{Contest Problem, Largest Increasing Subsequence}
+\subsection{Contest Problem, The Good, the Bad, the Cowy}\index{Largest Increasing Subsequence}
+The cows have decided to put on a vote to determine if the fireworks show they put on for Farmer John's Birthday was a success.
+However, being schooled in the high arts of bovine politics, a simple majority will not do as first past the post ballot systems are inherently subject to rigging.
+
+Instead, the cows have decided to issue integer votes,
+and if the largest increasing subsequence of the votes is greater than half the number of cows then the cows will determine the display a success.
+
+Help the cows determine the results of their election.
+
+\subsubsection{Input}
+\begin{itemize}
+	\item Line 1: Several Integers separated by spaces representing the votes of the cows.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\lstinputlisting{./approaches/dp/problems/cowy/cowy.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: 1 if the cows have determined the display was a success or 0 otherwise.
+\end{itemize}
+\subsubsection{Sample Output}
+\lstinputlisting{./approaches/dp/problems/cowy/cowy.out}
+
+\subsubsection{Sample Solution}
+\lstinputlisting{./approaches/dp/problems/cowy/cowy.cpp}
+
+\subsubsection{Lesson Learned}
+\begin{itemize}
+	\item This problem can be solved in $O(n \log n)$ time
+	\item Sometimes you have to check the entire array to find the solution
+	\item $while( cin >> val)$ can be used to read in an uncertain number of values
+\end{itemize}
+
 \subsection{Contest Problem, Maximum value sub-array problem}

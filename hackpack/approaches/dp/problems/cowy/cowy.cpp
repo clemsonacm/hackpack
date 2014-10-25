@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		k = max(k,L[i]);
 	}
 
-	cout << k << endl;
+	cout << ((k > A.size()/2)?1:0) << endl;
 
 
 	return 0;
