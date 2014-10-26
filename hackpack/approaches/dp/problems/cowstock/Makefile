@@ -1,4 +1,5 @@
 CXX=g++
+CPPFLAGS=-std=c++11
 all: cowstock.o
 	$(CXX) $^ -o cowstock.exe
 clean:
