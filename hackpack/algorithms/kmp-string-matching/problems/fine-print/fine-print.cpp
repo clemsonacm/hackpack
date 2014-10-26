@@ -24,12 +24,45 @@ int main(int numberOfArgs, char** args)
 		if(text[i] == keyword[0])
 		{
 			unsigned int skip = 0;
+			bool using_submatch = false;
+			unsigned int submatch_idx = 0;
+			unsigned int submatch_beg = 0;
 			for(unsigned int m = 1; m <= keyword.length() && i + m < text.length(); m++)
 			{
 				if(m == keyword.length()) { match_idx = i; break; } // Complete match.
 
+				if(!using_submatch && text[i + m] == keyword[0])
+				{
+//					cout << "Possible submatch: " << text.substr(i + m, 4) << endl;
+					using_submatch = true;
+					submatch_idx = 1;
+					submatch_beg = i + m;
+				}
+				else
+				{
+					if(text[i + m] == keyword[submatch_idx]) submatch_idx++;
+					if(text[i + m] != keyword[submatch_idx]) using_submatch = false;
+				}
+				
 				if(text[i + m] == keyword[m]) skip++; // Matched character.
 				else break; // Mismatch.
+				else // Mismatch.
+				{
+//					cout << "Mismatch occured." << endl;
+					// Don't break the loop. Set 'i' to the beginning
+					// of the submatch.
+					if(using_submatch)
+					{
+//						cout << "Submatch was in use. Starting matching at index " << i + submatch_idx << " (\'" << text[i + submatch_idx] << "\')." << endl;
+//						cout << "The match is quite possibly at index " << submatch_beg << endl;
+//						cout << "Testing " << text.substr(submatch_beg, keyword.length()) << endl;
+						using_submatch = false;
+						m = submatch_idx;
+						i += submatch_beg;
+					}
+					// No possible submatches.
+					else break;
+				}
 			}
 			i += (1 + skip);
 		}
