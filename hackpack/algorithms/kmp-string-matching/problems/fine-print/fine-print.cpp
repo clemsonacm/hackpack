@@ -17,32 +17,29 @@ int main(int numberOfArgs, char** args)
 
 	// KMP algorithm to find keyword.
 	const string keyword = "pool";
-	unsigned int begin_at = 0;
-	long loc = -1;
+	long match_idx = -1;
 	for(unsigned int i = 0; i < text.length(); i++)
 	{
 		// Consider a possible match
 		if(text[i] == keyword[0])
 		{
-			begin_at = i;
-			for(int j = 0; j < keyword.length() && i + j < text.length(); j++)
+			unsigned int skip = 0;
+			for(unsigned int m = 1; m <= keyword.length() && i + m < text.length(); m++)
 			{
-				// If the next letter to match does not match the first of
-				// the keyword, 'i' can be moved forward.
-				if(text[i + j] != keyword[0]) begin_at = i + j;
-				if(text[i + j] != keyword[j]) break; // Mismatch occurred.
-				if(j == keyword.length() - 1) { loc = i; break; } // Match found.
+				if(m == keyword.length()) { match_idx = i; break; } // Complete match.
+
+				if(text[i + m] == keyword[m]) skip++; // Matched character.
+				else break; // Mismatch.
 			}
-			if(loc >= 0) break;		// Finish on first match found...
-			else i = begin_at;		// or continue from where the prospective matching halted.
+			i += (1 + skip);
 		}
 	}
 
-	if(loc == -1) cout << "The agreement does not mention a pool." << endl;
+	if(match_idx == -1) cout << "The agreement does not mention a pool." << endl;
 	else
 	{
-		unsigned int beg = loc;
-		unsigned int end = loc + keyword.length();
+		unsigned int beg = match_idx;
+		unsigned int end = match_idx + keyword.length();
 		while(text[beg - 2] != '.' && beg > 0) beg--;
 		while(text[end] != '.') end++;
 		cout << text.substr(beg, end - beg + 1) << endl;
