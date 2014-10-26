@@ -3,5 +3,5 @@ all: $(SRCS)
 	g++ $(SRCS) -g -Wall -o fine-print.exe
 clean:
 	rm fine-print.exe
-test:
+test: all
 	./fine-print.exe fine-print.in
