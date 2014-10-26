@@ -4,5 +4,4 @@ all: $(SRCS)
 clean:
 	rm fine-print.exe
 test:
-	fine-print.exe fine-print.in
-	fine-print.exe fine-print-no-pool.in
+	./fine-print.exe fine-print.in
