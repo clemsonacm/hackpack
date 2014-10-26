@@ -4,4 +4,4 @@ all: $(SRCS)
 clean:
 	rm fine-print.exe
 test: all
-	./fine-print.exe fine-print.in
+	./fine-print.exe fine-print-test.in
