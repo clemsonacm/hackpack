@@ -3,17 +3,15 @@
 #include <string>
 using namespace std;
 
-int main(int numberOfArgs, char** args)
+int main()
 {
 	// Read input.
 	string text = "", buffer = "";
-	ifstream file(args[1]);
-	while(!file.eof())
+	while(!cin.eof())
 	{
-		getline(file, buffer);
+		getline(cin, buffer);
 		text += buffer;
 	}
-	file.close();
 
 	// KMP algorithm to find keyword.
 	const string keyword = "pool";
