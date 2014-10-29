@@ -20,3 +20,7 @@ The area of a triangle given three points is most easily computed by taking half
 \subsection{Area of Polygon}
 This function returns the area of the polygon defined by the input list of points. It does work for concave polygons, though not self-intersecting or self-crossing polygons- they must be able to be traced by a non-intersecting line. This algorithm adds the area between the segment and the y axis if the segment goes up, otherwise it subtracts it.
 \lstinputlisting[language=c++]{./general/computational-geometry/poly-area.cpp}
+
+\subsection{Side of a Line}
+This function returns true or false based on whether two points are both above or both below a line. To calculate which side of a line a point is on, take the value of the line at the x-value of the point and compare it to the y-value of the point, as is done in the function. This function takes in two points in double[2] format, as well as doubles for the slope and y-intercept of the line.
+\lstinputlisting[language=c++]{./general/computational-geometry/line-sides.cpp}
