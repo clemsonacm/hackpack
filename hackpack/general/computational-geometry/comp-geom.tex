@@ -1,46 +1,22 @@
 \section{Computational Geometry}
-Basic geometric algorithms are an essential part of many programs. While they are relatively simple, they can be difficult to remember under pressure and can be error-prone in coding. 
+Basic geometric algorithms are an essential part of many programs. While they are relatively simple, they can be difficult to remember under pressure and can be error-prone in coding. Problems that are based on computational geometry ...
 
 \subsection{Cross Product}
 The cross product is an operation on 3-dimensional vectors that finds a perpendicular vector.
 \lstinputlisting[language=c++]{./general/computational-geometry/cross-product.cpp}
 
-%\begin{lstlisting}[label=format code format,caption=Cross Product]
-%%[flags][width][.precision][length]specifier
-%\end{lstlisting}
+\subsection{Dot Product}
+The dot product is a vector operation that takes two vectors of equal length and returns the sum of the corresponding elements. For example, [1, 2] dot [3, 4] is 1*3 + 2*4, or 11. The dot product is alternately equal to the product of the vectors times the cosine of the angle between them.
+\lstinputlisting[language=c++]{./general/computational-geometry/dot-product.cpp}
 
-%\begin{table}[h]
-%	\caption{Format Specifier Codes\cite{cplusplus}}
-%	\begin{tabularx}{\textwidth}{|l|X|l|} \hline
-%		Format Code &   Output              &   Example     \\ \hline
-%		d           &   Signed Int          &   314         \\
-%		u           &   Unsigned Int        &   314         \\
-%		o           &   Unsigned Octal      &   472         \\
-%		x           &   Unsigned hex        &   13a         \\
-%		X           &   UNSIGNED HEX        &   13A         \\
-%		f           &   floating point      &   3.140000    \\
-%		e           &   Scientific notation &   3.140000e+00\\
-%		c           &   character           &   A           \\
-%		s           &   string              &   ACM         \\
-%		p           &   pointer address     &   0x40060c    \\
-%		l           &   Used with other specifiers to indicate a long & 314 \\
-%		\%\%        &   Prints a literal \% &   \%          \\
-%		\hline
-%	\end{tabularx}
-%\end{table}
+\subsection{Arctangent}
+The arctangent function takes the ratio between the opposite and adjacent sides of a right triangle and returns the angle (between -pi/2 and pi/2 (or -tau/4 and tau/4)). This will need to be corrected if the answer is required to be in quadrant 2 or 3. The other trigonometric functions are included in cmath as well. These do use radians, so convert to degrees by multiplying by 180/pi if necessary.
+\lstinputlisting[language=c++]{./general/computational-geometry/arctan.cpp}
 
-%\begin{table}[h]
-%	\caption{Modifier Flags \cite{cplusplus}}
-%	\begin{tabularx}{\textwidth}{|l|X|l|} \hline
-%		Format Code &   Output                  &   Example    \\ \hline
-%		-           &   Left-justify            &   314        \\
-%		+           &   Force-sign character    &   +314       \\
-%		\#          &   Show prefix             &   0x13a      \\
-%			  &   Show decimal point      &   314.       \\
-%		0           &   Left pad field with 0   &   0314       \\
-%		\hline
-%	\end{tabularx}
-%\end{table}
+\subsection{Area of Triangle}
+The area of a triangle given three points is most easily computed by taking half the absolute value of the determinant of two of its rows, as done here. This could also be computed via length*height/2 or Heron's formula, which takes is the square root of the product of the semiperimeter and the semiperimeter minus each side.
+\lstinputlisting[language=c++]{./general/computational-geometry/tri-area.cpp}
 
-%\subsection{Examples}
-%\lstinputlisting[language=c++]{./general/ciofunctions/ciofunctions.cpp}
+\subsection{Area of Polygon}
+This function returns the area of the polygon defined by the input list of points. It does work for concave polygons, though not self-intersecting or self-crossing polygons- they must be able to be traced by a non-intersecting line. This algorithm adds the area between the segment and the y axis if the segment goes up, otherwise it subtracts it.
+\lstinputlisting[language=c++]{./general/computational-geometry/poly-area.cpp}
