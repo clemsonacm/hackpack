@@ -107,36 +107,3 @@ Help the cows determine the results of their election.
 	\item Sometimes you have to check the entire array to find the solution
 	\item $while( cin >> val)$ can be used to read in an uncertain number of values
 \end{itemize}
-
-\subsection{Contest Problem, Cowstock}
-Farmer John loved his firework display for his birthday and has decided to reward the cows with a trip to Cowstock -- the greatest Moosiclal Concert series of all time.
-
-Upon arriving, the cows are given a brochure containing the times and locations of all of the concerts to be given that day.
-The cows want to maximize the number of concerts that they are able to attend.
-
-Help the cows determine how may concerts they can attend.
-
-\subsubsection{Input}
-\begin{itemize}
-	\item Line 1: One integer $N$, $(1<10000)$ indicating the number of concerts
-	\item Line 2..$(N+1)$: $T$ the time of the song, followed by $N$ integers indicating the shortest travel time between this location and the other $N$ locations in the same order as they are presented.
-\end{itemize}
-
-\subsubsection{Sample Input}
-\lstinputlisting{./approaches/dp/problems/cowstock/cowstock.in}
-
-\subsubsection{Output Format}
-\begin{itemize}
-	\item Line 1: One integer indicating the number of songs that the cows get to see.
-\end{itemize}
-\subsubsection{Sample Output}
-\lstinputlisting{./approaches/dp/problems/cowstock/cowstock.out}
-
-\subsubsection{Sample Solution}
-\lstinputlisting{./approaches/dp/problems/cowstock/cowstock.cpp}
-
-\subsubsection{Lesson Learned}
-\begin{itemize}
-	\item DP is often used in conjunction with other techniques
-	\item Don't be afraid to sort first and ask questions later
-\end{itemize}
