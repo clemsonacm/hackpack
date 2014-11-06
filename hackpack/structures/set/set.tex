@@ -1,11 +1,14 @@
 \section{Set}\index{Set!Ordered Set}
 Sets are a data structure that are useful for determining if an element has been seen before or not.
-Sets are Associative \index{Associative}, Ordered \index{Ordered}, Set \index{Set}, Unique Keyed \index{Unique Keyed}, and Allocator Aware\index{Allocator Aware}\cite{cplusplus}.
-Associative means that elements are referenced by some key and not by an absolute position in the data structure.
-Ordered means that internally the set follows a strict order based off the key.
-Unique key means that there cannot be two keys with the same value.
-Set means that the key is also the value.
-Allocator-aware means that the container knows who to dynamically allocate memory for itself.
+Sets are...\cite{cplusplus}
+\begin{itemize}
+	\item Associative\index{Associative}: elements are referenced by some key and not by an absolute position in the data structure.
+	\item Ordered\index{Ordered}: internally, the set follows a strict order based off the key.
+	\item Set\index{Set}: the key is also the value.
+	\item Unique Keyed\index{Unique Keyed}: there cannot be two keys with the same value.
+	\item Allocator Aware\index{Allocator Aware}: the container knows how to dynamically allocate memory for itself.
+\end{itemize}
+
 Sets are generally implemented as a binary search tree.
 See "unordered set" for a version of the set that is Unordered, but is based on hash tables.
 
@@ -15,26 +18,26 @@ See "unordered set" for a version of the set that is Unordered, but is based on 
 \subsection{Applications}
 
 \begin{itemize}
-    \item   Determining how many and what items are in one set are also in another
-    \item   Determining how many and what items are in one set but \emph{not} in another
-    \item   Filtering out non-unique inputs
+	\item Determining how many and what items are in one set and also in another.
+	\item Determining how many and what items are in one set but \emph{not} in another.
+	\item Filtering out non-unique inputs.
 \end{itemize}
 
 \subsection{Example Contest Problem: Cow Pens}
 Farmer John's cows keep wandering off into the hills to learn cowculus from nomadic mathematicians.
 Unappreciative of refined bovine arithmetic, Farmer John decides to fence in his cows to keep them from escaping.
 
-He wants to build the fence without crossing over any of the trees on his property (which the cows claim are valuable for studying graph theory), and he'd like to build the fence in the shape of a rectangle (a perfect shape, the cows say).
+He wants to build the fence without crossing over any of the trees on his property (which the cows claim are valuable for studying graph theory), and he'd like the fence to be rectangular (a perfect shape, the cows say).
 One side of the rectangle should be formed by the river at the southern edge of Farmer John's property, so that the cows can contemplate wave-based trigonometric functions (and stay hydrated).
 
 Please compute the maximum area that Farmer John can enclose with a fence that meets the above requirements.
-You can assume that the river has the position $Y=0$ and farmer John's property lies north of the river.
+You can assume that the river has the position $Y=0$ and Farmer John's property lies north of the river.
 
 \subsubsection{Input Format}
 \begin{itemize}
-  \item Line 1: One integer, $N$, $(N < 1000000)$, specifying the number of trees in the field.
-  \item Lines 2..$(N+1)$: Each line contains two integers $X$ and $Y$ $(0 <= X,Y <= 1000000)$.
-        Each pair corresponds to the location of one tree in Farmer John's field.
+	\item Line 1: One integer, $N$, $(N < 1000000)$, specifying the number of trees in the field.
+	\item Lines 2..$(N+1)$: Each line contains two integers $X$ and $Y$ $(0 <= X,Y <= 1000000)$.
+		Each pair corresponds to the location of one tree in Farmer John's field.
 \end{itemize}
 
 \subsubsection{Sample Input}
@@ -53,27 +56,29 @@ You can assume that the river has the position $Y=0$ and farmer John's property 
 
 \subsubsection{Lessons Learned}
 \begin{itemize}
-	\item	Set can be used as a basic binary search trees
-	\item	Write comparison functions to change orderings of sets, maps, and the sort function
-	\item	Typedef long type names to something sorter for ease of use
-	\item	Sometimes it is better to \emph{modify} the input than code edge cases
-	\item	lower\_bound returns an iterator pointing to the first element $\leq$ the searched element
+	\item The STL Set can be used as a basic binary search tree.
+	\item Write comparison functions to change orderings of Sets, Maps, and the \code{sort()} function.
+	\item \code{typedef} long type names to something shorter for ease of use.
+	\item Sometimes it is better to \emph{modify} the input than code edge cases.
+	\item \code{lower\_bound} returns an iterator pointing to the first element $\leq$ the searched element.
 \end{itemize}
 
-\subsection{Contest Problem, The Cows form a Union}
-The Cows have formed on a union and gone on strike to protest the building of Farmer John's new cow pen.
+\subsection{Example Contest Problem: The Cows Form a Union}
+The cows have formed a union, and have gone on strike to protest Farmer John's new cow pen.
 
-Being faithful union members, each cow has its union id number painted on its side.
-Farmer John in efforts to track Union activity on the farm, took two pictures of the cows during their rallies: one in the morning and one at night.
-He knows that the cows that were present in either photograph with the closest id numbers are the Union bosses.
+Each cow has been given a unique union ID number, painted on its side.
+The three cows with the smallest, closest ID numbers just so happen to be the union bosses.
 
-Please find which cows are the Union bosses so that Farmer John can attempt to negotiate with them.
-In the case of several cows having a equally close id numbers, choose the cows with the smallest id numbers.
+Farmer John, in efforts to track union activity, took two photographs of cow rallies that he's sure the bosses attended, but he's not sure which cows are the bosses.
+Using the ID numbers of all the cows in the photographs, please determine the three cows that have the closest ID numbers so that Farmer John can attempt to negotiate with them.
+In case several sets of cows have equally close ID numbers, choose the set that contains the lowest ID number.
 
 \subsubsection{Input Format}
 \begin{itemize}
-	\item Line 1: A list of at most 1 million id numbers $i$, $(0 < i \leq 1000000)$, separated by spaces ending in $0$ indicating the cows present in the first photo.
-	\item Line 2: A list of at most 1 million id numbers $i$, $(0 < i \leq 1000000)$, separated by spaces ending in $0$ indicating the cows present in the second photo.
+	\item Line 1: A space-delimited list, ending with $0$, of $N$ ID numbers $(0 \leq N \leq 1000000)$. 
+		Each number $i_n$ $(0 < i_{0..N-1} \leq 1000000)$ indicates that a cow with that ID number is present in the \emph{first} photograph.
+	\item Line 2: A space-delimited list, ending with $0$, of $N$ ID numbers $(0 \leq N \leq 1000000)$. 
+		Each number $i_n$ $(0 < i_{0..N-1} \leq 1000000)$ indicates that a cow with that ID number is present in the \emph{second} photograph.
 \end{itemize}
 
 \subsubsection{Sample Input}
@@ -81,27 +86,26 @@ In the case of several cows having a equally close id numbers, choose the cows w
 
 \subsubsection{Output Format}
 \begin{itemize}
-  \item Line 1: Three integers in ascending order separated by spaces indicating the three cows who lead the union
+	\item Line 1: Three space-delimited integers in ascending order, indicating the three cows who lead the union.
 \end{itemize}
 
 \subsubsection{Sample Output}
 \lstinputlisting{./structures/set/problems/union/union.out}
 
-\subsection{Contest Problem, Cow distances}
-As a result of the cows lobbying efforts,  the federal government is investigating Farmer John for possible violations of the Magnanimous Agricultural Defense of Cloven Ochlophobic Workers Safety Act.
+\subsection{Example Contest Problem: Cow Distances}
+As a result of the cows' lobbying efforts, the federal government is investigating Farmer John for possible violations of the Magnanimous Agricultural Defense of Cloven Ochlophobic Workers Statute, which states that any two cows of differing breeds (Farmer John owns Guernseys and Holsteins) must be given an inter-breed comfort zone of at least 1.000 meters.
+Cows of the same breed are allowed to mingle as cozily as they wish.
 
-According to the law, one may be found in violation of the act if the distance between two cows of different breeds is less than 1.000 meters.
-
-Please find help the regulators determine if Farmer John is in violation of the law.
+Assuming the regulators know the precise location of every cow in Farmer John's field, please help the federal government determine whether or not to crack down on Farmer John's gross oppression of his herd.
 
 \subsubsection{Input Format}
 \begin{itemize}
-	\item Line 1: One integer, $G$, $(G < 500000)$, specifying the number of number of Guernseies to follow.
-	\item Line 2..$(G+1)$: Two integers $X$ and $Y$ $0 \leq X,Y \leq 1000000$.
-		Each pair corresponds the location of one Guernsey in the field
+	\item Line 1: One integer $G$, $(G < 500000)$, specifying the number of number of Guernseys to follow.
+	\item Line 2..$(G+1)$: Two integers $X$ and $Y$, $0 \leq X,Y \leq 1000000$.
+		Each pair corresponds to the location of one Guernsey in the field.
 	\item Line $(G+2)$: One integer, $H$, $(H < 500000)$, specifying the number of number of Holsteins to follow. 
-	\item Line $(G+3)$..$(G+H+2)$: Two integers $X$ and $Y$ $0 \leq X,Y \leq 1000000$.
-		Each pair corresponds the location of one Holstein in the field
+	\item Line $(G+3)$..$(G+H+2)$: Two integers $X$ and $Y$, $0 \leq X,Y \leq 1000000$.
+		Each pair corresponds to the location of one Holstein in the field.
 \end{itemize}
 
 \subsubsection{Sample Input}
@@ -109,7 +113,7 @@ Please find help the regulators determine if Farmer John is in violation of the 
 
 \subsubsection{Output Format}
 \begin{itemize}
-  \item Line 1: the number $1$ if Farmer John is breaking the law and $0$ if he is not.
+	\item Line 1: the number $1$ if Farmer John is breaking the law and $0$ if he is not.
 \end{itemize}
 
 \subsubsection{Sample Output}
