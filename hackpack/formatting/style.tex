@@ -4,19 +4,6 @@
 \usepackage{tabularx}
 \geometry{margin=1in}
 
-% Make links, footnotes, etc. clickable, and generate pdf bookmarks.
-\usepackage{hyperref}
-\hypersetup{
-  pdfauthor={Clemson ACM, acm@cs.clemson.edu},
-  pdfcreator={Clemson ACM, acm@cs.clemson.edu},
-  pdftitle={Clemson ACM Hack Pack},
-  pdfsubject={Clemson ACM Hack Pack},
-  unicode=true,
-  colorlinks=false,
-  pdfborder=0 0 0,
-  bookmarks=true
-}
-
 % Paragraph spacing should be easy!
 \usepackage{parskip}
 
@@ -59,16 +46,14 @@
   commentstyle=\itshape\color{gray}, % comment literal style
   title=\lstname,                    % show the filename of files included with \lstinputlisting
   frame=b,                           % show a frame along the bottom
+  rulecolor=\color{lightgray},
   language=C++,                      % the default language of the code
   showspaces=false,                  % show spaces as space, not a litle underscore.
   showstringspaces=false             % same as above, in strings.
   showtabs=false,                    % same as above, with tabs.
-  abovecaptionskip=5pt,
-  belowcaptionskip=5pt,
   xleftmargin=17pt,
   framexleftmargin=17pt,
-  framexrightmargin=5pt,
-  framexbottommargin=4pt
+  framexrightmargin=5pt
 }
 
 % Listings caption configuration.
@@ -78,6 +63,7 @@
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf, sf}}
 
 % Defines a tikz frame for page-broken listing hints.
+% Shamelessly stolen from https://tex.stackexchange.com/questions/77996/how-to-show-a-hint-when-lstlisting-is-breaking-page
 \usepackage[framemethod=tikz]{mdframed}
 \mdfdefinestyle{note}
   {
@@ -102,11 +88,12 @@
   }
 
 % Sets up the hint content and style for page-broken listings.
-\newcommand*\continuingfont{\footnotesize\itshape}
+\newcommand*\continuingfont{\color{gray}\footnotesize\itshape}
 \newcommand*\continuingtext{Continues on next page}
 \newcommand*\continuedtext{Continued from previous page}
 
-% 
+% A wrapper command for automatically wrapping input listings
+% with a hintable frame.
 \newcommand{\acmlisting}[2][]
 {
 \mdframed[style=note]
@@ -116,3 +103,17 @@
 
 % Turn on the powerful indexing features
 \makeindex
+
+% Make links, footnotes, etc. clickable, and generate pdf bookmarks.
+\usepackage{hyperref}
+\hypersetup{
+  pdfauthor={Clemson ACM, acm@cs.clemson.edu},
+  pdfcreator={Clemson ACM, acm@cs.clemson.edu},
+  pdftitle={Clemson ACM Hack Pack},
+  pdfsubject={Clemson ACM Hack Pack},
+  unicode=true,
+  colorlinks=false,
+  pdfborder=0 0 0,
+  bookmarks=true
+}
+
