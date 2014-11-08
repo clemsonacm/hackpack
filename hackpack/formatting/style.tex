@@ -42,10 +42,10 @@
 \usepackage[scaled]{beramono}
 \usepackage[T1]{fontenc}
 
-% Code sections use the listings environment, supplemented by a caption (below)
+% Use the listings package for pretty source code inclusions.
+\usepackage{listings}
 \usepackage{color}
 \usepackage{xcolor}
-\usepackage{listings}
 \lstset{
   basicstyle=\footnotesize\ttfamily, % Use a truetype, footnote-sized font.
   numbers=left,                      % line numbers go on the left
@@ -76,6 +76,35 @@
 \DeclareCaptionFont{white}{\color{white}}
 \DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\vspace{1.5pt}\hspace{10pt}#1#2#3}}}
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf, sf}}
+
+% Make listings hint on page break.
+\usepackage[framemethod=tikz]{mdframed}
+\mdfdefinestyle{note}
+  {
+    hidealllines = true ,
+    skipabove    = .5\baselineskip ,
+    skipbelow    = .5\baselineskip ,
+    singleextra  = {} ,
+    firstextra   = {
+      \node[right,overlay,align=left,font=\continuingfont]
+        at (O) {\continuingtext};
+    } ,
+    secondextra  = {
+      \node[above right,overlay,align=left,font=\continuingfont]
+        at (O |- P) {\continuedtext};
+    } ,
+    middleextra  = {
+      \node[below right,overlay,align=left,font=\continuingfont]
+        at (O) {\continuingtext};
+      \node[above right,overlay,align=left,font=\continuingfont]
+        at (O |- P) {\continuedtext};
+    }
+  }
+
+% customize the appearance of the continuing notes:
+\newcommand*\continuingfont{\footnotesize\itshape}
+\newcommand*\continuingtext{Source code continues on the next page...}
+\newcommand*\continuedtext{Continued from previous page...}
 
 % Turn on the powerful indexing features
 \makeindex
