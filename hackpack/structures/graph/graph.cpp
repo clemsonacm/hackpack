@@ -19,6 +19,12 @@ class sparse_graph{
 		//returns an end iterator for all edges leaving source; O(K) time to traverse
 		unordered_map<int, int>::iterator end(int source){ return graph.find(source)->second.end(); }
 
+        //returns begin iterator over all of the nodes
+        unordered_map<int, unordered_map<int,int> >::iterator begin () {return graph.begin();}
+
+        //returns end iterator over all of the nodes
+        unordered_map<int, unordered_map<int,int> >::iterator end () {return graph.end();}
+        
 		//Constructs the sparse graphraph
 		sparse_graph(): graph() {};
 };
