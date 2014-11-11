@@ -10,6 +10,7 @@ vector<unsigned int> match_idxs;
 int* build_table(string s)
 {
 	int* table = new int[s.length()]();
+	fill(table, table + s.length(), 0);
 	for(int str_sz = 1; str_sz <= s.length(); str_sz++)
 	{
 		if(str_sz == 1) continue;
