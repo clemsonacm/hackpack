@@ -3,6 +3,27 @@
 #include <string>
 using namespace std;
 
+// Create the partial match table.
+int* build_table(string s)
+{
+	int* table = new int[s.length()]();
+	for(int str_sz = 1; str_sz <= s.length(); str_sz++)
+	{
+		if(str_sz == 1) { table[0] = -1; continue; }
+		for(int curr_len = str_sz - 1; curr_len > 0; curr_len--)
+		{
+			// Take the first and last 'curr_len' characters.
+			string prefix = s.substr(0, curr_len);
+			string suffix = s.substr(str_sz - curr_len, curr_len);
+
+			// Keep the length of longest matching prefix and suffix.
+			if(prefix == suffix) { table[str_sz - 1] = curr_len; break; }
+		}
+	}
+
+	return table;
+}
+
 int main()
 {
 	// Read input.
