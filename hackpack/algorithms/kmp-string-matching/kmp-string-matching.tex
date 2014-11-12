@@ -45,7 +45,11 @@ There are no matching substrings; the value here is zero.
 \end{description}
 
 When a mismatch occurs, and by consulting this table of values, the KMP algorithm can tell us where to resume the search for the desired keyword again.
-The KMP algorithm (as it is commonly known as) runs in $O(k + n)$ time.
+
+The KMP algorithm (as it is commonly known as) has two distinct parts.
+The first, constructing the partial match table, requires $O(k)$ time.
+The second, the actual string matching portion, takes $O(n)$ time.
+Therefore, the running time of the algorithm can be described as $O(k + n)$.
 
 \subsection{Applications}
 \begin{itemize}
