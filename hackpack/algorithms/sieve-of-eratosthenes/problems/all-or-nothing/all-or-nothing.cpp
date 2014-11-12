@@ -32,7 +32,9 @@ int main()
 	}
 
 	// Remaining numbers != 0 are prime.	
-	cout << prefix[b - 1] - ( a > 2 ? prefix[a - 2] : 0 ) << endl;
+	if(a < 2) cout << prefix[b - 1];
+	else cout << prefix[b - 1] - prefix[a - 2];
+	cout << endl;
 
 	return 0;
 }
