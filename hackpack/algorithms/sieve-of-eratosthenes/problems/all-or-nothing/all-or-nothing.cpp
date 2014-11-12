@@ -1,5 +1,4 @@
 #include <bitset>
-#include <cmath>
 #include <iostream>
 using namespace std;
 
@@ -21,7 +20,7 @@ int main()
 		// If this number has been marked, do not use it.
 		if(sieve[i]) continue;
 		// Mark composites of the prime.
-		for(unsigned int j = pow(i, 2); j <= N; j += i)
+		for(unsigned int j = (i * i); j <= N; j += i)
 			sieve[j] = 1;
 	}
 
