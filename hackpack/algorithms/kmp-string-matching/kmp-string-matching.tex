@@ -91,6 +91,13 @@ To save Farmer John from a long night (he works early mornings) find out if anyt
 \subsubsection{Sample Solution}
 \lstinputlisting[label=The Fine Print Sample Solution, caption=The Fine Print Sample Solution]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.cpp}
 
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item The KMP algorithm improves upon regular iterative string matching.
+	\item A time penalty, $O(k)$, is incurred to build the partial match table.
+	\item It runs exactly like straightforward string matching without the advantage of the partial match table.
+\end{itemize}
+
 \subsection{Contest Problem, DNA Splicing}
 The No-bonez alien race has descended upon Farmer John's beloved cows!
 Rather than abducting them though, they have begun experimenting on them genetically.
@@ -118,9 +125,5 @@ Remove the alien DNA and save all of Farmer John's cows.
 
 \subsubsection{Lessons Learned}
 \begin{itemize}
-	\item The KMP algorithm improves upon regular iterative string matching.
-	\item A time penalty, $O(k)$, is incurred to build the partial match table.
-	\item It runs exactly like straightforward string matching without the advantage of the partial match table.
 	\item Besides using the KMP string matching algorithm, another common way of approaching string matching is hashing.
 \end{itemize}
-
