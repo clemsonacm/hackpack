@@ -4,6 +4,9 @@
 \usepackage{tabularx}
 \geometry{margin=1in}
 
+% Custom command for inline code.
+\newcommand{\code}[1]{\texttt{#1}}
+
 % Paragraph spacing should be easy!
 \usepackage{parskip}
 
@@ -64,7 +67,7 @@
 
 % Defines a tikz frame for page-broken listing hints.
 % Shamelessly stolen from https://tex.stackexchange.com/questions/77996/how-to-show-a-hint-when-lstlisting-is-breaking-page
-\usepackage[framemethod=tikz]{mdframed}
+\usepackage[framemethod=tikz]{./formatting/mdframed}
 \mdfdefinestyle{note}
   {
     hidealllines = true ,
