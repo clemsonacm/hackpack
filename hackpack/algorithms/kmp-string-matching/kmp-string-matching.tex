@@ -2,10 +2,48 @@
 This algorithm is a method of speeding up string searches by using mismatches to determine where a search should continue.
 Prior to beginning a search, a table of values is computed.
 In this table (called the partial match table) are the lengths of the longest proper prefixes that match the longest proper suffixes up to the given permutation of characters.
-For example, the longest proper prefix matching the corresponding suffix of the seven characters of the word 'edified' is 'e'.
-To see this, you must consider the first and last three characters of the string, 'ed' and 'ie'.
-Obviously, 'ed' and 'ie'  are not the same string, so we consider the substring prefix and suffix of just one character 'e' and 'e'.
-These substrings match, and so the value that would be encoded at the seventh position in the array (index 6 with a zero-based index) is 1.
+
+For example, let us consider the string 'abababcd'.
+Throughout the construction of the table, we consider the first N characters of the string to yield the substring we want to analyze.
+
+\begin{description}
+\item[$N = 1$ 'a']
+This substring contains only one character and cannot contain a proper prefix, therefore, we set the first index to 0.
+
+\item[$N = 2$ 'ab']
+There is only one proper prefix ('a') and one proper suffix ('b'), and they do not match, therefore, this one is set to 0 as well.
+
+\item[$N = 3$ 'aba']
+Now, we have two prefixes, 'a' and 'ab', and two suffixes, 'a' and 'ba'.
+While, 'ab' and 'ba' do not match, 'a' and 'a' do.
+So, this time, we can set the value to 1, because that is the length of the longest match.
+
+\item[$N = 4$ 'abab']
+Suffixes: 'a', 'ab', and 'aba'.
+Prefixes: 'b', 'ab', and 'bab'.
+Perusing the substrings in decreasing length, 'ab' provides a match. The value is set to 2.
+
+\item[$N = 5$ 'ababa']
+Suffixes: 'a', 'ab', 'aba', and 'abab'.
+Prefixes: 'a', 'ba', 'aba', and 'baba'.
+The longest match here is 'aba', with a length of 3.
+
+\item[$N = 6$ 'ababab']
+Suffixes: 'a', 'ab', 'aba', 'abab', and, 'ababa'.
+Prefixes: 'b', 'ab', 'bab', 'abab', and, 'babab'.
+This time, the longest match is 'abab', so we set a value of 4.
+
+\item[$N = 7$ 'abababc']
+Suffixes: 'a', 'ab', 'aba', 'abab', 'ababa', and 'ababab'.
+Prefixes: 'c', 'bc', 'abc', 'babc', 'ababc', and 'bababc'.
+In this case, there are no matches, so the value is zero.
+
+\item[$N = 8$ 'abababcd']
+Suffixes: 'a', 'ab', 'aba', 'abab', 'ababa', 'ababab', and 'abababc'
+Prefixes: 'd', 'cd', 'bcd', 'abcd', 'babcd', 'ababcd', and 'bababcd'
+There are no matching substrings; the value here is zero.
+\end{description}
+
 When a mismatch occurs, and by consulting this table of values, the KMP algorithm can tell us where to resume the search for the desired keyword again.
 The KMP algorithm (as it is commonly known as) runs in $O(k + n)$ time.
 
