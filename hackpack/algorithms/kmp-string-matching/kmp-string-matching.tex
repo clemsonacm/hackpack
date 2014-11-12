@@ -74,14 +74,17 @@ To save Farmer John from a long night (he works early mornings) find out if anyt
 
 \subsubsection{Input}
 \begin{itemize}
-	\item Text from standard input representing the legal document terminated with an EOF.
+	\item Line 1: Text from standard input representing the legal document terminated with an EOF.
 \end{itemize}
 \lstinputlisting[label=The Fine Print Sample Input, caption=The Fine Print Sample Input, linerange={1-2,1026-1032,1374-1377}]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.in}
 
 \subsubsection{Output}
 \begin{itemize}
-	\item The sentence containing 'pool' if it exists. All sentences within the text end in a period.
-	\item The string ''The agreement does not mention a pool.'' if a sentence containing 'pool' doesn't exist.
+	\item Line 1:
+	\begin{itemize}
+		\item The sentence containing 'pool' if it exists. All sentences within the text end in a period.
+		\item The string ''The agreement does not mention a pool.'' if a sentence containing 'pool' doesn't exist.
+	\end{itemize}
 \end{itemize}
 \lstinputlisting[label=The Fine Print Sample Output, caption=The Fine Print Sample Output]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.out}
 
@@ -103,13 +106,13 @@ Remove the alien DNA and save all of Farmer John's cows.
 
 \subsubsection{Input}
 \begin{itemize}
-\item Text from standard input representing the cow's DNA sequence spliced with the alien cow's DNA terminated with an EOF.
+\item Line 1: Text from standard input representing the cow's DNA sequence spliced with the alien cow's DNA..
 \end{itemize}
 \lstinputlisting[label=DNA Splicing Sample Input, caption=DNA Splicing Sample Input]{./algorithms/kmp-string-matching/problems/dna-splice/dna-splice.in}
 
 \subsubsection{Output}
 \begin{itemize}
-\item The cow's DNA sequence with the alien DNA removed.
+\item Line 1: The cow's DNA sequence with the alien DNA removed.
 \end{itemize}
 \lstinputlisting[label=DNA Splicing Sample Output, caption=DNA Splicing Sample Output]{./algorithms/kmp-string-matching/problems/dna-splice/dna-splice.out}
 
