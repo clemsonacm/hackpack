@@ -129,3 +129,32 @@ Remove the alien DNA and save all of Farmer John's cows.
 \end{itemize}
 
 \subsection{Tandem Repeats\cite{acmsoutheastregional2013}}
+\textit{Tandem repeats} occur in DNA when a pattern of one or more nucleotides is repeated, and the repetitions are directly adjacent to each other.
+For example, consider the sequence:
+\begin{center}
+	\sethlcolor{gray}
+	ATTCGATTCGATTCG\\
+	This contains nine tandem repeats:\\
+	\hl{ATTCGATTCG}ATTCG\\
+	A\hl{TTCGATTCGA}TTCG\\
+	AT\hl{TCGATTCGAT}TCG\\
+	ATT\hl{CGATTCGATT}CG\\
+	ATTC\hl{GATTCGATTC}G\\
+	ATTCG\hl{ATTCGATTCG}\\
+	A\hl{TT}CGATTCGATTCG\\
+	ATTCGA\hl{TT}CGATTCG\\
+	ATTCGATTCGA\hl{TT}CG\\
+\end{center}
+
+Given a nucleotide sequence, how many tandem repeats occur in it?
+
+\subsubsection{Input}
+There will be several test cases in the input.
+Each test case will consist of a single string on its own line, with 1 to 100,000 capital letters, consisting only of A, G, T, and C.
+This represents a nucleotide sequence.
+The input will end with a line with a single 0.
+
+\subsubsection{Output}
+For each test case, output a single integer on its own line, indicating the number of tandem repeats in the nucleotide sequence.
+Output no spaces, and do not separate answers with blank lines.
+
