@@ -1,5 +1,12 @@
 \section{Knuth-Morris-Pratt String Matching}\index{string matching}
 This algorithm is a method of speeding up string searches by using mismatches to determine where a search should continue.
+Prior to beginning a search, a table of values is computed.
+In this table (called the partial match table) are the lengths of the longest proper prefixes that match the longest proper suffixes up to the given permutation of characters.
+For example, the longest proper prefix matching the corresponding suffix of the first three characters of the word 'edified' is 'ed'.
+To see this, you must consider the first and last three characters of the string, 'edi' and 'ied'.
+Obviously, 'edi' and 'ied'  are not the same string, so we consider the substring prefix and suffix of just two characters 'ed' and 'ed'.
+These substrings match, and so the value that would be encoded at the third position in the array (index 2 with a zero-based index) is 2.
+When a mismatch occurs, and by consulting this table of values, the KMP algorithm can tell us where to resume the search for the desired keyword again.
 The KMP algorithm (as it is commonly known as) runs in $O(k + n)$ time.
 
 \subsection{Applications}
