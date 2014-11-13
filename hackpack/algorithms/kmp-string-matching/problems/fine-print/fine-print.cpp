@@ -53,6 +53,9 @@ int main()
 					// Consult table to see where to start 'i' at.
 					const unsigned int pm_len = m + 1;
 					i += pm_len - pm_table[pm_len - 1];
+
+					// It will be necessary to negate the next loop's i++.
+					i--;
 					break;
 				}
 			}
