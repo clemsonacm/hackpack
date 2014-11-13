@@ -44,14 +44,18 @@ Prefixes: 'd', 'cd', 'bcd', 'abcd', 'babcd', 'ababcd', and 'bababcd'
 There are no matching substrings; the value here is zero.
 \end{description}
 
-\begin{center}
-	\begin{tabular}{ | c | c | c | c | c | c | c | c | c | }
-		\hline
-		Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
-		W[i]  & a & b & a & b & a & b & c & d \\ \hline
-		T[i]  & 0 & 0 & 1 & 2 & 3 & 4 & 0 & 0 \\ \hline
-	\end{tabular}
-\end{center}
+\begin{table}
+	\begin{center}
+		\begin{tabular}{ | c | c | c | c | c | c | c | c | c | }
+			\hline
+			Index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+			W[i]  & a & b & a & b & a & b & c & d \\ \hline
+			T[i]  & 0 & 0 & 1 & 2 & 3 & 4 & 0 & 0 \\ \hline
+		\end{tabular}
+		\caption{The computed partial match table for the string.
+		W is the string for which the table is computed and T is the partial match table itself.}
+	\end{center}
+\end{table}
 
 As mismatches occur, and by consulting this table of values, the KMP algorithm dictates where to resume the search for the desired keyword again.
 Suppose that the algorithm is currently matching against the string 'ababaccabcdefg'.
