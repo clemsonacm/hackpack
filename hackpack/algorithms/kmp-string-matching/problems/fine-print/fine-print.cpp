@@ -37,7 +37,7 @@ int main()
 	// KMP algorithm to find keyword.
 	const string keyword = "pool";
 	int const* const pm_table = build_table(keyword);
-	for(unsigned int i = 0; i < text.length() - keyword.length(); i++)
+	for(unsigned int i = 0; i <= text.length() - keyword.length(); i++)
 	{
 		// Consider a possible match
 		if(text[i] == keyword[0])
