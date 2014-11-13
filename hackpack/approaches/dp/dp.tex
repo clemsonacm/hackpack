@@ -12,18 +12,20 @@ The basic idea is to save the results of smaller problems and use the results to
 	\item	Solving the maximum value continuous sub-array problem
 \end{itemize}
 
-\subsection{Contest Problem, A Knapsack Full of Fireworks}\index{Knapsack}
-The cows on Farmer John's Farm are planning a fireworks show for his birthday.
+\subsection{Example Contest Problem: A Knapsack Full of Fireworks}\index{Knapsack}
+The cows on Farmer John's Farm are planning on putting on a fireworks show for Farmer John's birthday.
 
-They have found all of the loose change from all over the farm and want to purchase fireworks to maximize the wow factor for their purchase.
+They have pooled all of their loose change, and hope to purchase a collection of fireworks that will maximize  Farmer John's amazement during the show so that he will be more likely to build them a new barn.
+Each firework's label helpfully includes a "wow factor" rating explicitly for this purpose.
+A high "wow factor" is more desirable than a low one.
 
-Please help the cows determine the maximum wow factor they can get for their loose change.
+Please help the cows determine the maximum "wow factor" they can get for their loose change.
 
 \subsubsection{Input Format}
 \begin{itemize}
-	\item Line 1: One integer, $N$, $(1 \leq N \leq 100)$ the number of fireworks in the catalog,
-	\item Line 2: One integer, $C$, $(1 \leq C \leq 10000)$ the number of cents that the cows found.
-	\item Line 3..$(N+2)$ Two integers $P,W$ representing the price and wow factor for the fireworks.
+	\item Line 1: One integer, $N$ $(1 \leq N \leq 100)$, the number of fireworks in the catalog.
+   \item Line 2: One integer, $C$ $(1 \leq C \leq 10000)$, the total amount of change that the cows have to spend.
+	\item Lines 3..$(N+2)$ Two integers $P,W$ representing the price and wow factor for the fireworks.
 \end{itemize}
 
 \subsubsection{Sample Input}
@@ -44,16 +46,17 @@ The optimal solution is of the form:
 $$W(j) = \max \left\{W(j-1), \max \left\{W(j - p_i) + v_i \right\}\right\}$$
 Where $W(0) = 0$
 
-\subsection{Contest Problem, A Few Fireworks More}\index{Knapsack!Integer}
-The Cows have reconsidered there original plan of buying just the fireworks with the greatest wow factor.
+\subsection{Example Contest Problem: A Few Fireworks More}\index{Knapsack!Integer}
+The cows have reconsidered their original plan of buying just the fireworks with the greatest total "wow factor".
+Instead, they want to incorporate "wow factor" \emph{and} diversity, so the cows have decided to purchase a collection of fireworks that optimizes "wow factor" and includes no more than one of each type of firework.
 
-Instead they want to buy the most wow factor given they use each firework type at most once.
+Please help the cows determine the maximum "wow factor" they can get for their loose change, on the condition that they purchase no more than one of each type of firework.
 
 \subsubsection{Input}
 \begin{itemize}
-	\item Line 1: One integer, $N$, $(1 \leq N \leq 100)$ the number of fireworks in the catalog,
+	\item Line 1: One integer, $N$, $(1 \leq N \leq 100)$ the number of fireworks in the catalog.
 	\item Line 2: One integer, $C$, $(1 \leq C \leq 10000)$ the number of cents that the cows found.
-	\item Line 3..$(N+2)$ Two integers $P,W$ representing the price and wow factor for the fireworks.
+	\item Lines 3..$(N+2)$ Two integers $P,W$ representing the price and wow factor for the fireworks.
 \end{itemize}
 
 \subsubsection{Sample Input}
@@ -74,18 +77,17 @@ A similar problem to the knapsack, except each item can be used at most once.  T
 $$M(i,j) = \max \left\{ M(i-1, j) , M(i-1, j- s_i) + v_i \right\}$$
 Where $M(0,j) = 0$ and $M(i,0) = 0$
 
-\subsection{Contest Problem, The Good, the Bad, the Cowy}\index{Largest Increasing Subsequence}
-The cows have decided to put on a vote to determine if the fireworks show they put on for Farmer John's Birthday was a success.
-However, being schooled in the high arts of bovine politics, a simple majority will not do as first past the post ballot systems are inherently subject to rigging.
+\subsection{Example Contest Problem: The Good, the Bad, the Cowy}\index{Largest Increasing Subsequence}
+Farmer John's birthday party went off without a hitch, but the cows are worried that Farmer John isn't yet convinced that he should build the cows a new barn: just in case, they have decided to put it to a vote whether or not they should bake him a cake as well.
+Unfortunately, the cows are all experts in the school of bovine politics, and think that a simple majorityvote will simply not do because of the dangers of vote rigging.
 
-Instead, the cows have decided to issue integer votes,
-and if the largest increasing subsequence of the votes is greater than half the number of cows then the cows will determine the display a success.
+Instead, the cows have resorted to a rather odd voting system: each cow votes with an integer value, and if the largest increasing subsequence of all the votes is greater than half the number of cows, then the cows will bake Farmer John a cake.
 
-Help the cows determine the results of their election.
+Help the cows determine the results of their vote.
 
 \subsubsection{Input}
 \begin{itemize}
-	\item Line 1: Several Integers separated by spaces representing the votes of the cows.
+	\item Line 1: Several integers, separated by spaces, representing the votes of the cows.
 \end{itemize}
 
 \subsubsection{Sample Input}
@@ -93,7 +95,7 @@ Help the cows determine the results of their election.
 
 \subsubsection{Output Format}
 \begin{itemize}
-	\item Line 1: 1 if the cows have determined the display was a success or 0 otherwise.
+	\item Line 1: ``1'' if the cows have decided to buy a cake, and ``0'' otherwise.
 \end{itemize}
 \subsubsection{Sample Output}
 \lstinputlisting{./approaches/dp/problems/cowy/cowy.out}
@@ -103,7 +105,7 @@ Help the cows determine the results of their election.
 
 \subsubsection{Lesson Learned}
 \begin{itemize}
-	\item This problem can be solved in $O(n \log n)$ time
-	\item Sometimes you have to check the entire array to find the solution
-	\item $while( cin >> val)$ can be used to read in an uncertain number of values
+	\item This problem can be solved in $O(n \log n)$ time.
+	\item Sometimes you have to check the entire array to find the solution.
+	\item $while(cin >> val)$ can be used to read in an uncertain number of values.
 \end{itemize}
