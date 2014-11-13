@@ -51,8 +51,7 @@ int main()
 				if(text[i + m] != keyword[m])
 				{
 					// Consult table to see where to start 'i' at.
-					const unsigned int pm_len = m + 1;
-					i += pm_len - pm_table[pm_len - 1];
+					i += m - pm_table[m - 1];
 
 					// It will be necessary to negate the next loop's i++.
 					i--;
