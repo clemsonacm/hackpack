@@ -65,6 +65,17 @@ Instead of resuming the search at the second character of the string, the algori
 It resumes matching after skipping $l - P[l - 1]$ characters, where $l$ is the length of the partial match and $P$ is the partial match table.
 So, in this case, the algorithm will skip $6 - P[5] = 6 - 4 = 2$ characters ahead of where the match started.
 
+\begin{center}
+	\begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c | c | c | c | }
+		\hline
+		0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 \\ \hline
+		a & b & a & b & a & c & c & a & b & c & d & e & f & g \\ \hline
+		| & | & | & | & | & X &   &   &   &   &   &   &   &   \\ \hline
+		a & b & a & b & a & b & c & d &   &   &   &   &   &   \\ \hline
+
+	\end{tabular}
+\end{center}
+
 The KMP algorithm (as it is commonly known as) has two distinct parts.
 The first, constructing the partial match table, requires $O(k)$ time.
 The second, the actual string matching portion, takes $O(n)$ time.
