@@ -1,0 +1,46 @@
+\section{Sieve of Eratosthenes}\index{sieve!Eratosthenes}\index{primes}
+The sieve of Eratosthenes is a simple, yet effective algorithm for generating primes less than around 10 million.
+It works by iteratively eliminating (''sifting'') multiples of primes.
+Numbers that are left are prime.
+The algorithm runs in $O(n\log\log n)$ time and requires $O(n)$ memory to generate all primes up to $n$.
+
+\subsection{Applications}
+\begin{itemize}
+	\item	Finding prime numbers below \texttildelow10 million
+\end{itemize}
+
+\subsection{Contest Problem, All or Nothing}
+After many hard days and nights, Farmer John has completed the construction of a larger barn to house his cows.
+Though both parties would like to begin migration to the new barn, the cows want to perform the migration in a fair manner so that no cow gets to enjoy the new barn before another.
+
+Each day, Farmer John plans to move an equal number of cows over.
+He is not willing to do any \textit{more} work one day, nor any \textit{less} work another day, and he is \textit{certainly} not willing to move a single cow a day.
+The cows, after consulting amongst themselves, have decided to trick Farmer John into thinking that he has a prime number of cows.
+This would, in turn, force him to move all of the cows at once.
+Currently, they are exploring their options of how many different prime head counts they could give Farmer John.
+
+Find out the number of possible prime head counts the cows can give Farmer John such that he is forced to move all of the cows to the new barn early tomorrow.
+
+\subsubsection{Input}
+\begin{itemize}
+	\item Line 1: Two integers $A,B$,$(1 \leq A < B \leq 10000000)$, separated by spaces indicating head counts.
+\end{itemize}
+
+\lstinputlisting[label=All or Nothing Sample Input, caption=All or Nothing Sample Input]{./algorithms/sieve-of-eratosthenes/problems/all-or-nothing/all-or-nothing.in}
+
+\subsubsection{Output}
+\begin{itemize}
+	\item Line 1: One integer representing the number of head counts between A and B inclusive where Farmer John has to move all the cows at once.
+\end{itemize}
+
+\lstinputlisting[label=All or Nothing Sample Output, caption=All or Nothing Sample Output]{./algorithms/sieve-of-eratosthenes/problems/all-or-nothing/all-or-nothing.out}
+
+\subsubsection{Sample Solution}
+\lstinputlisting[label=All or Nothing Sample Solution, caption=All or Nothing Sample Solution]{./algorithms/sieve-of-eratosthenes/problems/all-or-nothing/all-or-nothing.cpp}
+
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item The sieve is a simple tool for finding primes $<10,000,000$.
+	\item Requires a sequence of at least size N where N is equal to the upper bound (can be made more efficient by excluding even numbers).
+	\item Aligning the sequence of numbers with the array indices eliminates quite a bit of $\pm1$ confusion, leading to cleaner code
+\end{itemize}
