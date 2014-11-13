@@ -4,18 +4,8 @@
 \usepackage{tabularx}
 \geometry{margin=1in}
 
-% Make links, footnotes, etc. clickable, and generate pdf bookmarks.
-\usepackage{hyperref}
-\hypersetup{
-  pdfauthor={Clemson ACM, acm@cs.clemson.edu},
-  pdfcreator={Clemson ACM, acm@cs.clemson.edu},
-  pdftitle={Clemson ACM Hack Pack},
-  pdfsubject={Clemson ACM Hack Pack},
-  unicode=true,
-  colorlinks=false,
-  pdfborder=0 0 0,
-  bookmarks=true
-}
+% Custom command for inline code.
+\newcommand{\code}[1]{\texttt{#1}}
 
 % Paragraph spacing should be easy!
 \usepackage{parskip}
@@ -42,10 +32,10 @@
 \usepackage[scaled]{beramono}
 \usepackage[T1]{fontenc}
 
-% Code sections use the listings environment, supplemented by a caption (below)
+% Use the listings package for pretty source code inclusions.
+\usepackage{listings}
 \usepackage{color}
 \usepackage{xcolor}
-\usepackage{listings}
 \lstset{
   basicstyle=\footnotesize\ttfamily, % Use a truetype, footnote-sized font.
   numbers=left,                      % line numbers go on the left
@@ -59,16 +49,14 @@
   commentstyle=\itshape\color{gray}, % comment literal style
   title=\lstname,                    % show the filename of files included with \lstinputlisting
   frame=b,                           % show a frame along the bottom
+  rulecolor=\color{lightgray},
   language=C++,                      % the default language of the code
   showspaces=false,                  % show spaces as space, not a litle underscore.
   showstringspaces=false             % same as above, in strings.
   showtabs=false,                    % same as above, with tabs.
-  abovecaptionskip=5pt,
-  belowcaptionskip=5pt,
   xleftmargin=17pt,
   framexleftmargin=17pt,
-  framexrightmargin=5pt,
-  framexbottommargin=4pt
+  framexrightmargin=5pt
 }
 
 % Listings caption configuration.
@@ -77,5 +65,58 @@
 \DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\vspace{1.5pt}\hspace{10pt}#1#2#3}}}
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf, sf}}
 
+% Defines a tikz frame for page-broken listing hints.
+% Shamelessly stolen from https://tex.stackexchange.com/questions/77996/how-to-show-a-hint-when-lstlisting-is-breaking-page
+\usepackage[framemethod=tikz]{./formatting/mdframed}
+\mdfdefinestyle{note}
+  {
+    hidealllines = true ,
+    skipabove    = .5\baselineskip ,
+    skipbelow    = .5\baselineskip ,
+    singleextra  = {} ,
+    firstextra   = {
+      \node[right,overlay,align=center,font=\continuingfont]
+        at (O) {\continuingtext};
+    } ,
+    secondextra  = {
+      \node[above right,overlay,align=left,font=\continuingfont]
+        at (O |- P) {\continuedtext};
+    } ,
+    middleextra  = {
+      \node[right,overlay,align=left,font=\continuingfont]
+        at (O) {\continuingtext};
+      \node[above right,overlay,align=left,font=\continuingfont]
+        at (O |- P) {\continuedtext};
+    }
+  }
+
+% Sets up the hint content and style for page-broken listings.
+\newcommand*\continuingfont{\color{gray}\footnotesize\itshape}
+\newcommand*\continuingtext{Continues on next page}
+\newcommand*\continuedtext{Continued from previous page}
+
+% A wrapper command for automatically wrapping input listings
+% with a hintable frame.
+\newcommand{\acmlisting}[2][]
+{
+\mdframed[style=note]
+\lstinputlisting[#1]{#2}
+\endmdframed
+}
+
 % Turn on the powerful indexing features
 \makeindex
+
+% Make links, footnotes, etc. clickable, and generate pdf bookmarks.
+\usepackage{hyperref}
+\hypersetup{
+  pdfauthor={Clemson ACM, acm@cs.clemson.edu},
+  pdfcreator={Clemson ACM, acm@cs.clemson.edu},
+  pdftitle={Clemson ACM Hack Pack},
+  pdfsubject={Clemson ACM Hack Pack},
+  unicode=true,
+  colorlinks=false,
+  pdfborder=0 0 0,
+  bookmarks=true
+}
+

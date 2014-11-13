@@ -109,9 +109,11 @@ For each item in the Hackpack, please include the following in clearly delineate
 3.  A list of possible uses and applications
 4.  2-3 possible contest problems; preferably of varying difficulty
 5.  Sample code that answers one of the contest problems
-6.  References using BibTeX where applicable
-7.  Should be "compiled" properly by pdflatex and the make
-8.  Each sentence must be on a separate line.
+6.  Please use the `\acmlisting` for code listings.  A caption and label should be specified.  If applicable, line ranges should be specified to limit the amount of text displayed.
+7.  It would be preferred if each set of sample code had some lessons learned to point out some key elements of the implementation
+8.  References using BibTeX where applicable
+9.  Should be "compiled" properly by pdflatex and the make
+10.  Each sentence must be on a separate line.
 
 #### Writing Code
 Code Must meet the following standards:
