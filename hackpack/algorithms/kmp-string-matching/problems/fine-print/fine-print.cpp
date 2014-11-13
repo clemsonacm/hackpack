@@ -7,9 +7,9 @@ using namespace std;
 vector<unsigned int> match_idxs;
 
 // Create the partial match table.
-int* build_table(string s)
+int const* build_table(const string& s)
 {
-	int* table = new int[s.length()]();
+	int* const table = new int[s.length()]();
 	fill(table, table + s.length(), 0);
 	for(int str_sz = 1; str_sz <= s.length(); str_sz++)
 	{
@@ -36,7 +36,7 @@ int main()
 
 	// KMP algorithm to find keyword.
 	const string keyword = "pool";
-	int* pm_table = build_table(keyword);
+	int const* const pm_table = build_table(keyword);
 	for(unsigned int i = 0; i < text.length() - keyword.length(); i++)
 	{
 		// Consider a possible match
