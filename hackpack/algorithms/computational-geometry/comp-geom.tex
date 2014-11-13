@@ -3,36 +3,36 @@ Basic geometric algorithms are an essential part of many programs. These algorit
 
 \subsection{Cross Product}
 The cross product is an operation on 3-dimensional vectors that finds a perpendicular vector.
-\lstinputlisting[language=c++]{./general/computational-geometry/cross-product.cpp}
+\acmlisting[caption= Cross Product, label = Cross Product]{./general/computational-geometry/cross-product.cpp}
 
 \subsection{Dot Product}
 The dot product is a vector operation that takes two vectors of equal length and returns the sum of the corresponding elements. For example, [1, 2] dot [3, 4] is 1*3 + 2*4, or 11. The dot product is alternately equal to the product of the vectors times the cosine of the angle between them.
-\lstinputlisting[language=c++]{./general/computational-geometry/dot-product.cpp}
+\acmlisting[caption = Dot Product, label = Dot Product]{./general/computational-geometry/dot-product.cpp}
 
 \subsection{Arctangent}
 The arctangent function takes the ratio between the opposite and adjacent sides of a right triangle and returns the angle (between -pi/2 and pi/2 (or -tau/4 and tau/4)). This will need to be corrected if the answer is required to be in quadrant 2 or 3. The other trigonometric functions are included in cmath as well. These do use radians, so convert to degrees by multiplying by 180/pi if necessary.
-\lstinputlisting[language=c++]{./general/computational-geometry/arctan.cpp}
+\acmlisting[caption = Arctangent, label = Arctangent]{./general/computational-geometry/arctan.cpp}
 
 \subsection{Area of Triangle}
 The area of a triangle given three points is most easily computed by taking half the absolute value of the determinant of two of its rows, as done here. This could also be computed via length*height/2 or Heron's formula, which takes is the square root of the product of the semiperimeter and the semiperimeter minus each side.
-\lstinputlisting[language=c++]{./general/computational-geometry/tri-area.cpp}
+\acmlisting[caption = Area of Triangle, label = Area of Triangle]{./general/computational-geometry/tri-area.cpp}
 
 \subsection{Area of Polygon}
 This function returns the area of the polygon defined by the input list of points. It does work for concave polygons, though not self-intersecting or self-crossing polygons- they must be able to be traced by a non-intersecting line. This algorithm adds the area between the segment and the y axis if the segment goes up, otherwise it subtracts it.
-\lstinputlisting[language=c++]{./general/computational-geometry/poly-area.cpp}
+\acmlisting[caption = Area of Polygon, label = Area of Polygon]{./general/computational-geometry/poly-area.cpp}
 
 \subsection{Side of a Line}
 This function returns true or false based on whether two points are both above or both below a line. To calculate which side of a line a point is on, take the value of the line at the x-value of the point and compare it to the y-value of the point, as is done in the function. This function takes in two points in double[2] format, as well as doubles for the slope and y-intercept of the line.
-\lstinputlisting[language=c++]{./general/computational-geometry/line-sides.cpp}
+\acmlisting[caption = Side of a Line, label = Side of a Line]{./general/computational-geometry/line-sides.cpp}
 
 \subsection{Distance from point to line in 3 Dimensions}
 This function will resturn the distance between a point and a line as defined by any two points on the line. Input format is 3 3-element double arrays, the first two being points on the line and the third the point from which to measure the distance.
-\lstinputlisting[language=c++]{./general/computational-geometry/point-line-dist.cpp}
+\acmlisting[caption = Distance from point to line in 3 Dimensions, label = Distance from point to line in 3 Dimensions]{./general/computational-geometry/point-line-dist.cpp}
 
 \subsection{Point inside Polygon}
 This function tests whether a point is contained in a polygon defined by a number of vertices and the arrays for the x and y coordinates of the vertices in addition to an x and a y coordinate.
-\lstinputlisting[language=c++]{./general/computational-geometry/poly-inside.cpp}
+\acmlisting[caption = Point inside Polygon, label = Point inside Polygon]{./general/computational-geometry/poly-inside.cpp}
 
 \subsection{Polygon Convexity}
 To calculate whether a polygon is convex or not.
-\lstinputlisting[language=c++]{./general/computational-geometry/poly-convex.cpp}
+\acmlisting[caption = Polygon Convexity, label = Polygon Convexity]{./general/computational-geometry/poly-convex.cpp}
