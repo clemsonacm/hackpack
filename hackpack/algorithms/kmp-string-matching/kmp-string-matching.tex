@@ -65,8 +65,7 @@ Suppose that the algorithm is currently matching against the string 'ababaccabcd
 Immediately, it will attempt to match the first eight characters against our chosen keyword 'abababcd'.
 Of course, during this process, it will realize that this is a mismatch when matching the string's 6\textsuperscript{th} character ('c') against the keyword's (b).
 Instead of resuming the search at the second character of the string, the algorithm consults the table.
-It resumes matching after skipping $l - P[l - 1]$ characters, where $l$ is the length of the partial match and $P$ is the partial match table.
-So, in this case, the algorithm will skip $6 - P[5] = 6 - 4 = 2$ characters ahead of where the match started.
+If, during the search, the algorithm passed by the start of another possible match, the table can tell exactly where the start of that match begins at relative to what index the initial mismatch occurred.
 
 \begin{center}
 	\begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c | c | c | c | }
@@ -78,6 +77,12 @@ So, in this case, the algorithm will skip $6 - P[5] = 6 - 4 = 2$ characters ahea
 
 	\end{tabular}
 \end{center}
+
+In this case, our partial match got as far as five characters before encountering a problem.
+Using the table, we discover how far the matching should backtrack with $P[l - 1]$ where $P$ is the partial match table and $l$ is the length of the partial match.
+In this case, the search resumes the matching process after moving $l - P[l - 1]$ characters from where the match started, where $l$ is the length of the partial match and $P$ is the partial match table.
+So, the algorithm will move its matching back $5 - P[5 - 1] = 5 - P[4] = 5 - 3 = 2$ characters from where it is currently.
+
 
 The KMP algorithm (as it is commonly known as) has two distinct parts.
 The first, constructing the partial match table, requires $O(k)$ time.
