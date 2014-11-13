@@ -11,7 +11,7 @@ int const* build_table(const string& s)
 {
 	int* const table = new int[s.length()]();
 	fill(table, table + s.length(), 0);
-	for(int str_sz = 1; str_sz <= s.length(); str_sz++)
+	for(unsigned int str_sz = 1; str_sz <= s.length(); str_sz++)
 	{
 		if(str_sz == 1) continue;
 		for(int curr_len = str_sz - 1; curr_len > 0; curr_len--)
