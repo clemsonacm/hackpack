@@ -1,10 +1,9 @@
 \section{Knuth-Morris-Pratt String Matching}\index{string matching}
-This algorithm is a method that improves upon string searches by using information about the keyword to determine where a failed search should continue.
+This algorithm is a method that improves upon string searches by using information about the keyword itself to determine where a failed search should continue.
 Prior to beginning a search, a table of values is computed.
 In this table (called the partial match table) are the lengths of the longest proper prefixes that match the longest proper suffixes up to the given permutation of characters.
-They are also the number of indices the algorithm should fall back should the very \textbf{next} character match fail
-Soon, during the actual matching sequence, these values become useful.
-Because the longest prefixes and suffixes match and the prefix is always the beginning of the keyword being sought out, we can find where other matches could occur while we are looking at a possible match.
+They are also the number of indices the algorithm should fall back should the very \textbf{next} character match fail.
+Because these prefixes and suffixes match, and the prefix is always the first characters of the keyword, the positions of the suffixes are where the algorithm can begin yet another matching sequence.
 
 For example, let us consider the string 'abababcd'.
 Throughout the construction of the table, we consider the first N characters of the string to yield the substring we want to analyze.
