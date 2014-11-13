@@ -1,5 +1,5 @@
 \section{Computational Geometry}
-Basic geometric algorithms are an essential part of many programs. While they are relatively simple, they can be difficult to remember under pressure and can be error-prone in coding. Problems that are based on computational geometry ...
+Basic geometric algorithms are an essential part of many programs. These algorithms are provided for quick transcription to code.
 
 \subsection{Cross Product}
 The cross product is an operation on 3-dimensional vectors that finds a perpendicular vector.
@@ -23,4 +23,8 @@ This function returns the area of the polygon defined by the input list of point
 
 \subsection{Side of a Line}
 This function returns true or false based on whether two points are both above or both below a line. To calculate which side of a line a point is on, take the value of the line at the x-value of the point and compare it to the y-value of the point, as is done in the function. This function takes in two points in double[2] format, as well as doubles for the slope and y-intercept of the line.
+\lstinputlisting[language=c++]{./general/computational-geometry/line-sides.cpp}
+
+\subsection{Distance from point to line in 3 Dimensions}
+This function will resturn the distance between a point and a line as defined by any two points on the line. Input format is 3 3-element double arrays, the first two being points on the line and the third the point from which to measure the distance.
 \lstinputlisting[language=c++]{./general/computational-geometry/line-sides.cpp}
