@@ -1,5 +1,7 @@
-all:
-	latexmk -pdf 
+hotfix:
+	-rm -rf build
+	-mkdir build
+	latexmk -pdf
 	-mv *.aux build
 	-mv *.blg build
 	-mv *.fdb_latexmk build
@@ -10,9 +12,10 @@ all:
 	-mv *.out build
 	-mv *.pdf build
 	-mv *.toc build
+	-mv *.fls build
 
-
-	
+all:
+	latexmk -pdf -auxdir=build -outdir=build
 
 clean:
-	-rm build/*
+	-latexmk -c -outdir=build
