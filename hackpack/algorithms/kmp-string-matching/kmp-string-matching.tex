@@ -145,9 +145,9 @@ Because the rest of the text is shorter than the search query, we stop searching
 We have determined that the keyword is not present.
 
 The KMP algorithm (as it is commonly known as) has two distinct parts.
-The first, constructing the partial match table, requires $O(k)$ time.
+The first, constructing the partial match table, as exemplified above, requires $O(m)$ time.
 The second, the actual string matching portion, takes $O(n)$ time.
-Therefore, the running time of the algorithm can be described as $O(k + n)$.
+Therefore, the running time of the algorithm can be described as $O(m + n)$.
 
 \subsection{Applications}
 \begin{itemize}
@@ -185,7 +185,7 @@ To save Farmer John from a long night (he works early mornings) find out if anyt
 
 \subsubsection{Lessons Learned}
 \begin{itemize}
-	\item A time penalty, $O(k)$, is incurred to build the partial match table.
+	\item A time penalty, $O(m)$, is incurred to build the partial match table.
 	\item Just the partial match table can be a useful addition when solving problems that involve finding partial matches themselves.
 \end{itemize}
 
