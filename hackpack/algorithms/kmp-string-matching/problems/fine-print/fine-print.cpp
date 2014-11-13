@@ -37,12 +37,12 @@ int main()
 	// KMP algorithm to find keyword.
 	const string keyword = "pool";
 	int* pm_table = build_table(keyword);
-	for(unsigned int i = 0; i < text.length(); i++)
+	for(unsigned int i = 0; i < text.length() - keyword.length(); i++)
 	{
 		// Consider a possible match
 		if(text[i] == keyword[0])
 		{
-			for(unsigned int m = 1; m <= keyword.length() && i + m < text.length(); m++)
+			for(unsigned int m = 1; m <= keyword.length(); m++)
 			{
 				// Complete match
 				if(m == keyword.length()) { match_idxs.push_back(i); break; }
