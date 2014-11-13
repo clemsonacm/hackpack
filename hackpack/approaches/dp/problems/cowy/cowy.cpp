@@ -5,27 +5,35 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	int val;
-	vector<int> A;
-	vector<int> L;
-	while(cin >> val) {
-		A.push_back(val);
-		L.push_back(1);
+	int vote;
+	vector<int> votes; // the votes of the cows
+	vector<int> lenght; // the lenght of the longest sequence
+	//Read in the votes of the cows
+	while(cin >> vote) {
+		votes.push_back(vote);
+		lenght.push_back(1);
 	}
 
 	//solve the problem
-	for(int j=0; j<A.size(); j++){
-		for(int i=0; i<j; i++){
-			if (A[i] < A[j]) L[j] = max(L[j],L[i]+1);
+	//for each stopping place
+	for(int i=0; i<votes.size(); i++){
+		//extend the sequence if possible
+		for(int j=0; j<i; j++){
+			if (votes[j] < votes[i]) lenght[i] = max(lenght[i],lenght[j]+1);
 		}
 	}
 
+	//The largest increasing subsequence could end with any vote
 	int k =0;
-	for(int i=0; i< A.size(); i++){
-		k = max(k,L[i]);
+	for(int i=0; i< votes.size(); i++){
+		k = max(k,lenght[i]);
 	}
 
-	cout << ((k > A.size()/2)?1:0) << endl;
+	//if the length of the largest increasing subsequence is 
+	//greater than the number of votes/2 then the cows bake a
+	//cake else they do not
+	if (k > votes.size()/2) cout << "1" << endl;
+	else cout << "0" << endl;
 
 
 	return 0;
