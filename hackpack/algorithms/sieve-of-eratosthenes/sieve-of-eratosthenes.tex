@@ -60,16 +60,20 @@ You don't have enough information to report about these satellites.
 Just report about the ones with an interval short enough to be in the sequence of pings.
 
 \subsubsection{Input}
-There will be several test cases in the input.
-Each test case will consist of a single string on its own line, with from 2 to 1,000 characters.
-The first character represents time 0, the next represents time 1, and so on.
-Each character will either be a 0 or a 1, indicating whether or not a ping can be heard at that time (0 = No, 1 = Yes).
-Each input is guaranteed to have at least one satellite that can be heard.
-The input will end with a line with a single 0.
+\begin{itemize}
+	\item There will be several test cases in the input.
+	\item Each test case will consist of a single string on its own line, with from 2 to 1,000 characters.
+	The first character represents time 0, the next represents time 1, and so on.
+	\item Each character will either be a 0 or a 1, indicating whether or not a ping can be heard at that time (0 = No, 1 = Yes).
+	\item Each input is guaranteed to have at least one satellite that can be heard.
+	\item The input will end with a line with a single 0.
+\end{itemize}
 \lstinputlisting[label=Ping! Sample Input, caption=Ping! Sample Input]{./algorithms/sieve-of-eratosthenes/problems/ping/ping.in}
 
 \subsubsection{Output}
-For each test case, output a list of integers on a single line, indicating the intervals of the satellites that you know you can hear.
-Output the intervals in order from smallest to largest, with a single space between them.
-Output no extra spaces, and do not separate answers with blank lines.
+\begin{itemize}
+	\item For each test case, output a list of integers on a single line, indicating the intervals of the satellites that you know you can hear.
+	\item Output the intervals in order from smallest to largest, with a single space between them.
+	\item Output no extra spaces, and do not separate answers with blank lines.
+\end{itemize}
 \lstinputlisting[label=Ping! Sample Output, caption=Ping! Sample Output]{./algorithms/sieve-of-eratosthenes/problems/ping/ping.out}
