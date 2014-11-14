@@ -7,15 +7,15 @@ typedef unordered_map< int , umii > umiumii;
 class sparse_graph{
 	unordered_map < int, unordered_map< int, int> > graph;
 	public:
-		//inserts into the graphraph in O(1) am ex time
+		//inserts into the graph in O(1) am ex time
 		void insert(int source, int destination, int edge){graph[source][destination] = edge;graph[destination];}
 
-		//graphets a specific edgraphe in O(1) am ex time
+		//inserts a specific edge in O(1) am ex time
 		umii::iterator find(int source, int destination){
 			return graph.find(source)->second.find(destination); 
 		}
 
-		//returns an begraphin iterator for all edges leaving source; O(K) time to traverse
+		//returns an begin iterator for all edges leaving source; O(K) time to traverse
 		umii::iterator begin(int source){ return graph.find(source)->second.begin(); }
 		
 		//returns an end iterator for all edges leaving source; O(K) time to traverse

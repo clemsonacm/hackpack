@@ -1,8 +1,10 @@
 CXX=g++
 CPPFLAGS=-g -Wall -std=gnu++0x
-test: graph.o graph-test.o
-	$(CXX) $(CPPFLAGS) $^ -o graph-test.exe
-	./graph-test.exe
+all: graph-test.exe
+%.exe: %.cpp
+	$(CXX) $(CPPFLAGS) -o $@ $^
+test: all
+	./graph-test.exe < graph-test.in
 clean:
 	-rm *.o graph-test.exe
 
