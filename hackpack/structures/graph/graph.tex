@@ -47,3 +47,40 @@ For all run times, $N$ is the number of nodes, and $M$ is the number of edges.
     \item Clustering
     \item Centrality
 \end{itemize}
+
+\subsection{Sample Contest Problem, The Cows Escape}
+Farmer John's Farm has become infested with Zombies!
+Farmer John being slightly out of shape wants to take the shortest amount of time to escape the zombies.
+
+Farmer John's Farm is laid out in squares.
+Being prepared, Farmer John has his Early Zombie Detection System that will alert him to the rating of the zombies in these squares.
+Based off his research into the topic, Farmer John knows based on the rating how long it will take to evade the zombies in that sector.
+
+Help Farmer John find the shortest time it will take Farmer John to escape his farm with his cows.
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line 1:One integer $T$ indicating the number of test cases to evaluate
+	\item Line 2:Three integers $k,w,h$ representing the number zombie classes to follow and the width and height of Farmer John's Farm
+	\item Lines 3..$(3+k)$: The letter representing the zombie class, it will not be `F' and the time it will take to evade them, $t$
+	\item Lines $(4+k)$..$(4+k+h)$: $W$ capital letters representing the zombie classes in each sector of farmer John's farm.  Farmer John's initial position is designated by `F'.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[caption=The Cows Escape Sample Input, label= The Cows Escape Sample Input]{./structures/graph/problems/escape/escape.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1:  1 integer per line for each test case representing the minimum time it takes to escape the farm.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[caption=The Cows Escape Sample Output, label= The Cows Escape Sample Output]{./structures/graph/problems/escape/escape.out}
+
+\subsubsection{Sample Solution}
+\acmlisting[caption=The Cows Escape Sample Solution, label= The Cows Escape Sample Solution]{./structures/graph/problems/escape/escape.cpp}
+
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item Dijkstra can be solved using a priority queue using $O(N \log N)$ time.
+\end{itemize}
