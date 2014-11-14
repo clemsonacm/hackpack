@@ -7,7 +7,7 @@ The basic idea is to save the results of smaller problems and use the results to
 	\item	Improving runtimes of some other algorithms
 	\item	Solving the knapsack in $O(nm)$ time
 	\item	Solving the integer knapsack in $O(nm)$ time
-	\item	Solving the largest increasing subsequece in $O(n \log n)$ time
+	\item	Solving the largest increasing subsequence in $O(n \log n)$ time
 	\item	Solving the maximum value sub-array problem in $O(n)$
 	\item	Solving the maximum value continuous sub-array problem
 \end{itemize}
@@ -29,17 +29,17 @@ Please help the cows determine the maximum "wow factor" they can get for their l
 \end{itemize}
 
 \subsubsection{Sample Input}
-\lstinputlisting{./approaches/dp/problems/knapsack/knapsack.in}
+\acmlisting[caption=Knapsack Input, label=Knapsack Input]{./approaches/dp/problems/knapsack/knapsack.in}
 
 \subsubsection{Output Format}
 \begin{itemize}
-	\item Line 1: A single integer representing the maximum wow factor
+	\item Line 1: A single integer representing the maximum wow factor.
 \end{itemize}
 \subsubsection{Sample Output}
-\lstinputlisting{./approaches/dp/problems/knapsack/knapsack.out}
+\acmlisting[caption=Knapsack Output, label=Knapsack Output]{./approaches/dp/problems/knapsack/knapsack.out}
 
 \subsubsection{Sample Solution}
-\lstinputlisting{./approaches/dp/problems/knapsack/knapsack.cpp}
+\acmlisting[caption=Knapsack Solution, label=Knapsack Solution]{./approaches/dp/problems/knapsack/knapsack.cpp}
 
 \subsubsection{Lessons Learned}
 The optimal solution is of the form:
@@ -60,17 +60,17 @@ Please help the cows determine the maximum "wow factor" they can get for their l
 \end{itemize}
 
 \subsubsection{Sample Input}
-\lstinputlisting{./approaches/dp/problems/one-zero/one-zero.in}
+\acmlisting[caption=A Few Fireworks More Input, label=A Few Fireworks More Input]{./approaches/dp/problems/one-zero/one-zero.in}
 
 \subsubsection{Output Format}
 \begin{itemize}
 	\item Line 1: A single integer representing the maximum wow factor using each firework at most once
 \end{itemize}
 \subsubsection{Sample Output}
-\lstinputlisting{./approaches/dp/problems/one-zero/one-zero.out}
+\acmlisting[caption=A Few Fireworks More Output, label=A Few Fireworks More Output]{./approaches/dp/problems/one-zero/one-zero.out}
 
 \subsubsection{Sample Solution}
-\lstinputlisting{./approaches/dp/problems/one-zero/one-zero.cpp}
+\acmlisting[caption=A Few Fireworks More Solution, label=A Few Fireworks More Solution]{./approaches/dp/problems/one-zero/one-zero.cpp}
 
 \subsubsection{Lesson Learned}
 A similar problem to the knapsack, except each item can be used at most once.  The solution here is to expand the state space.  The optimal solution is of the form
@@ -78,7 +78,7 @@ $$M(i,j) = \max \left\{ M(i-1, j) , M(i-1, j- s_i) + v_i \right\}$$
 Where $M(0,j) = 0$ and $M(i,0) = 0$
 
 \subsection{Example Contest Problem: The Good, the Bad, the Cowy}\index{Largest Increasing Subsequence}
-Farmer John's birthday party went off without a hitch, but the cows are worried that Farmer John isn't yet convinced that he should build the cows a new barn: just in case, they have decided to put it to a vote whether or not they should bake him a cake as well.
+Farmer John's birthday party went off without a hitch, but the cows are worried that Farmer John isn't yet convinced that he should build the cows a new barn. Just in case, they have decided to put it to a vote whether or not they should bake him a cake as well.
 Unfortunately, the cows are all experts in the school of bovine politics, and think that a simple majority vote will simply not do because of the dangers of vote rigging.
 
 Instead, the cows have resorted to a rather odd voting system: each cow votes in some arbitrary order with an integer value, and if the length of largest increasing subsequence of all the votes is greater than half the number of cows, then the cows will bake Farmer John a cake.
@@ -91,17 +91,17 @@ Help the cows determine the results of their vote.
 \end{itemize}
 
 \subsubsection{Sample Input}
-\lstinputlisting{./approaches/dp/problems/cowy/cowy.in}
+\acmlisting[caption=Cowy Input, label=Cowy Input]{./approaches/dp/problems/cowy/cowy.in}
 
 \subsubsection{Output Format}
 \begin{itemize}
-	\item Line 1: ``1'' if the cows have decided to buy a cake, and ``0'' otherwise.
+	\item Line 1: ``1'' if the cows have decided to bake a cake, and ``0'' otherwise.
 \end{itemize}
 \subsubsection{Sample Output}
-\lstinputlisting{./approaches/dp/problems/cowy/cowy.out}
+\acmlisting[caption=Cowy Output, label=Cowy Output]{./approaches/dp/problems/cowy/cowy.out}
 
 \subsubsection{Sample Solution}
-\lstinputlisting{./approaches/dp/problems/cowy/cowy.cpp}
+\acmlisting[caption=Cowy Solution, label=Cowy Solution]{./approaches/dp/problems/cowy/cowy.cpp}
 
 \subsubsection{Lesson Learned}
 \begin{itemize}

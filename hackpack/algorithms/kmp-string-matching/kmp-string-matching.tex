@@ -22,28 +22,28 @@ So, this time, we can set the value to 1, because that is the length of the long
 Now, upon failing to match the next character, the algorithm will refer to this value and jump to matching this character by simply subtracting this number from the sum of the length of the partial match and the starting index of the partial match.
 
 \item[$N = 4$ 'abab']
-Suffixes: 'a', 'ab', and 'aba'.
-Prefixes: 'b', 'ab', and 'bab'.
+Prefixes: 'a', 'ab', and 'aba'.
+Suffixes: 'b', 'ab', and 'bab'.
 Perusing the substrings in decreasing length, 'ab' provides a match. The value is set to 2.
 
 \item[$N = 5$ 'ababa']
-Suffixes: 'a', 'ab', 'aba', and 'abab'.
-Prefixes: 'a', 'ba', 'aba', and 'baba'.
+Prefixes: 'a', 'ab', 'aba', and 'abab'.
+Suffixes: 'a', 'ba', 'aba', and 'baba'.
 The longest match here is 'aba', with a length of 3.
 
 \item[$N = 6$ 'ababab']
-Suffixes: 'a', 'ab', 'aba', 'abab', and, 'ababa'.
-Prefixes: 'b', 'ab', 'bab', 'abab', and, 'babab'.
+Prefixes: 'a', 'ab', 'aba', 'abab', and, 'ababa'.
+Suffixes: 'b', 'ab', 'bab', 'abab', and, 'babab'.
 This time, the longest match is 'abab', so we set a value of 4.
 
 \item[$N = 7$ 'abababc']
-Suffixes: 'a', 'ab', 'aba', 'abab', 'ababa', and 'ababab'.
-Prefixes: 'c', 'bc', 'abc', 'babc', 'ababc', and 'bababc'.
+Prefixes: 'a', 'ab', 'aba', 'abab', 'ababa', and 'ababab'.
+Suffixes: 'c', 'bc', 'abc', 'babc', 'ababc', and 'bababc'.
 In this case, there are no matches, so the value is zero.
 
 \item[$N = 8$ 'abababcd']
-Suffixes: 'a', 'ab', 'aba', 'abab', 'ababa', 'ababab', and 'abababc'
-Prefixes: 'd', 'cd', 'bcd', 'abcd', 'babcd', 'ababcd', and 'bababcd'
+Prefixes: 'a', 'ab', 'aba', 'abab', 'ababa', 'ababab', and 'abababc'
+Suffixes: 'd', 'cd', 'bcd', 'abcd', 'babcd', 'ababcd', and 'bababcd'
 There are no matching substrings; the value here is zero.
 \end{description}
 
@@ -154,7 +154,7 @@ Therefore, the running time of the algorithm can be described as $O(m + n)$.
 	\item More efficient string searches.
 \end{itemize}
 
-\subsection{Contest Problem, The Fine Print}
+\subsection{Example Contest Problem: The Fine Print}
 Due to his excessive milking of the cows without appropriate compensation, Farmer John has, unsurprisingly, received an ultimatum from the cows.
 If the two parties cannot come to an agreement, Farmer John risks internal insurgency.
 Though he is willing to reduce his demands and compensate them with more grazing time, the document he has received is unbearably lengthy.
@@ -168,7 +168,9 @@ To save Farmer John from a long night (he works early mornings) find out if anyt
 \begin{itemize}
 	\item Line 1: Text from standard input representing the legal document terminated with an EOF.
 \end{itemize}
-\lstinputlisting[label=The Fine Print Sample Input, caption=The Fine Print Sample Input, linerange={1-2,1026-1032,1374-1377}]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.in}
+
+\subsubsection{Sample Input}
+\acmlisting[label=The Fine Print Input, caption=The Fine Print Input, linerange={1-2,1026-1032,1374-1377}]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.in}
 
 \subsubsection{Output}
 \begin{itemize}
@@ -178,18 +180,20 @@ To save Farmer John from a long night (he works early mornings) find out if anyt
 		\item The string ''The agreement does not mention a pool.'' if a sentence containing 'pool' doesn't exist.
 	\end{itemize}
 \end{itemize}
-\lstinputlisting[label=The Fine Print Sample Output, caption=The Fine Print Sample Output]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.out}
+
+\subsubsection{Sample Output}
+\acmlisting[label=The Fine Print Output, caption=The Fine Print Output]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.out}
 
 \subsubsection{Sample Solution}
-\lstinputlisting[label=The Fine Print Sample Solution, caption=The Fine Print Sample Solution]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.cpp}
+\acmlisting[label=The Fine Print Solution, caption=The Fine Print Solution]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.cpp}
 
 \subsubsection{Lessons Learned}
 \begin{itemize}
-	\item A time penalty, $O(m)$, is incurred to build the partial match table.
+	\item $O(m)$ is needed to build the partial match table.
 	\item Just the partial match table can be a useful addition when solving problems that involve finding partial matches themselves.
 \end{itemize}
 
-\subsection{Contest Problem, DNA Splicing}
+\subsection{Example Contest Problem: DNA Splicing}
 The No-bonez alien race has descended upon Farmer John's beloved cows!
 Rather than abducting them though, they have begun experimenting on them genetically.
 By splicing Farmer John's cow's DNA with their own cows, the aliens hope to accomplish some unknown objective.
@@ -206,20 +210,24 @@ Remove the alien DNA and save all of Farmer John's cows.
 \begin{itemize}
 \item Line 1: Text from standard input representing the cow's DNA sequence spliced with the alien cow's DNA..
 \end{itemize}
-\lstinputlisting[label=DNA Splicing Sample Input, caption=DNA Splicing Sample Input]{./algorithms/kmp-string-matching/problems/dna-splice/dna-splice.in}
+
+\subsubsection{Sample Input}
+\acmlisting[label=DNA Splicing Input, caption=DNA Splicing Input]{./algorithms/kmp-string-matching/problems/dna-splice/dna-splice.in}
 
 \subsubsection{Output}
 \begin{itemize}
 \item Line 1: The cow's DNA sequence with the alien DNA removed.
 \end{itemize}
-\lstinputlisting[label=DNA Splicing Sample Output, caption=DNA Splicing Sample Output]{./algorithms/kmp-string-matching/problems/dna-splice/dna-splice.out}
+
+\subsubsection{Sample Output}
+\acmlisting[label=DNA Splicing Output, caption=DNA Splicing Output]{./algorithms/kmp-string-matching/problems/dna-splice/dna-splice.out}
 
 \subsubsection{Lessons Learned}
 \begin{itemize}
 	\item Besides using the KMP string matching algorithm, another common way of approaching string matching is hashing.
 \end{itemize}
 
-\subsection{ACM Contest Problem, Tandem Repeats\cite{acmsoutheastregional2013}}
+\subsection{ACM Contest Problem: Tandem Repeats\cite{acmsoutheastregional2013}}
 \textit{Tandem repeats} occur in DNA when a pattern of one or more nucleotides is repeated, and the repetitions are directly adjacent to each other.
 For example, consider the sequence:
 \begin{center}
@@ -246,11 +254,15 @@ Given a nucleotide sequence, how many tandem repeats occur in it?
 	\item This represents a nucleotide sequence.
 	The input will end with a line with a single 0.
 \end{itemize}
-\lstinputlisting[label=Tandem Repeats Sample Input, caption=Tandem Repeats Sample Input]{./algorithms/kmp-string-matching/problems/tandem-repeats/tandem-repeats.in}
+
+\subsubsection{Sample Input}
+\acmlisting[label=Tandem Repeats Input, caption=Tandem Repeats Input]{./algorithms/kmp-string-matching/problems/tandem-repeats/tandem-repeats.in}
 
 \subsubsection{Output}
 \begin{itemize}
 	\item For each test case, output a single integer on its own line, indicating the number of tandem repeats in the nucleotide sequence.
 	\item Output no spaces, and do not separate answers with blank lines.
 \end{itemize}
-\lstinputlisting[label=Tandem Repeats Sample Output, caption=Tandem Repeats Sample Output]{./algorithms/kmp-string-matching/problems/tandem-repeats/tandem-repeats.out}
+
+\subsubsection{Sample Output}
+\acmlisting[label=Tandem Repeats Output, caption=Tandem Repeats Output]{./algorithms/kmp-string-matching/problems/tandem-repeats/tandem-repeats.out}
