@@ -18,54 +18,63 @@ class graph{
     unordered_map<int,int>::iterator end (int s) {return g.find(s)->second.end();}
     graph(): g(){};
 };
-int dist[1000*1000+1];
-int C[1001][1001];
+int dist[1000*1000+1]; //Array to hold the minimum distance to each grid
+int farmMap[1001][1001]; //Buffer to hold the zombie locations while graph is built
 
 int main(){
     int t;
     cin >> t;
     while(t--){
-        int X,Y;
-        int k,w,h;
+        int X,Y; //Used to hold farmer John's location
+        int k,w,h; //hold number of zombie classes, hight and width.
+		//Read in the zombie classes
         unordered_map<char, int> zombie_classes;
         graph g;
         cin >> k >> w >> h;
         while(k--){ 
-            char s;
-            int a;
-            cin >> s >> a;
-            zombie_classes[s] = a;
+            char z; //zombie class name
+            int t; // time it will take to escape them
+            cin >> z >> t;
+            zombie_classes[z] = t;
         }
-        zombie_classes['E'] = 0;
+		//Build the farmMap
+        zombie_classes['F'] = 0; //Farmer John can escape the barn instantly
         for(int j=0; j<h; j++){
             for(int i=0; i < w; i++){
                 char s;
                 cin >> s;
-                C[i][j] =zombie_classes[s];
-                if (s == 'E')  {X=i;Y=j;}
+                farmMap[i][j] =zombie_classes[s]; //fill the buffer with the time to pass through
+                if (s == 'F')  {X=i;Y=j;} //When we find farmer john store his location
             }
         }
+		//Build the graph
         for(int i=0; i < w; i++){
             for(int j=0; j < h; j++){
                 int id = i + w*j;
+				//initialize the distance to node to the max int
                 dist[id] = numeric_limits<int>::max();
+
+				//if it does not run off the edge connect it
+				//else map it to the dummy end node
+
                 if(!(i+1 >= w) )
-                    g.insert(id,id+1,C[i+1][j]);
+                    g.insert(id,id+1,farmMap[i+1][j]);
                 else g.insert(id,w*h,0);
 
                 if(!(i-1 < 0) )
-                    g.insert(id,id-1,C[i-1][j]);
+                    g.insert(id,id-1,farmMap[i-1][j]);
                 else g.insert(id,w*h,0);
 
                 if(!(j+1 >= h))
-                    g.insert(id,id+w,C[i][j+1]);
+                    g.insert(id,id+w,farmMap[i][j+1]);
                 else g.insert(id,w*h,0);
 
                 if(!(j-1 < 0))
-                    g.insert(id,id-w,C[i][j-1]);
+                    g.insert(id,id-w,farmMap[i][j-1]);
                 else g.insert(id,w*h,0);
             }
         }
+		//initalize the dummy end node
         dist[w*h] = numeric_limits<int>::max();
 
 		//This is how you make a min-queue of pair<int,int> in C++
@@ -88,6 +97,7 @@ int main(){
                } 
             }
         } 
+		//output the answer
         cout << dist[w*h] << endl;
     }
     return 0;
