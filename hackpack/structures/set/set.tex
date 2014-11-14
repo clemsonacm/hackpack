@@ -1,30 +1,124 @@
 \section{Set}\index{Set!Ordered Set}
-Sets are a data structure that are useful for determining if an element has been seen before or not.
-Sets are Associative \index{Associative}, Ordered \index{Ordered}, Set \index{Set}, Unique Keyed \index{Unique Keyed}, and Allocator Aware\index{Allocator Aware}\cite{cplusplus}.
-Associative means that elements are referenced by some key and not by an absolute position in the data structure.
-Ordered means that internally the set follows a strict order based off the key.
-Unique key means that there cannot be two keys with the same value.
-Set means that the key is also the value.
-Allocator-aware means that the container knows who to dynamically allocate memory for itself.
-Sets are generally implemented as a binary search tree.
-See "unordered set" for a version of the set that is Unordered, but is based on hash tables.
+Sets are data structures that are useful for determining if an element has been seen before or not.
+Sets are ordered\index{Ordered} collections of elements typically implemented as a balanced binary search tree.
+They have unique keys\index{Unique Keyed}; that is to say that there are no duplicates in a set.
+However, unlike an array, elements are referenced by their ordering\index{Associative}, not their position in the data structure.
+
+%Will use LaTeX cross referencing tools as soon as these sections are written.
+See `unordered\_set' for a version of the set that does not have an order, but is based on hash tables.
+See `multiset' for a version of the set that is not uniquely keyed.
+See `unordered\_multiset' for a version of the set that does not have an order and is also not uniquely keyed.
 
 \subsection{Reference}
-\lstinputlisting[language=c++]{./structures/set/set.cpp}
+\acmlisting[caption=Set Reference, label=Set Reference]{./structures/set/set.cpp}
 
 \subsection{Applications}
+
 \begin{itemize}
-    \item   Determining how many and what items are in one set are also in another
-    \item   Determining how many and what items are in one set but \emph{not} in another
-    \item   Filtering out non-unique inputs
+	\item Determining how many and what items are in one set and also in another (intersection).
+	\item Determining how many and what items are in one set but \emph{not} in another (difference).
+	\item Determining how many and what items are in either sets (union).
+	\item Filtering out non-unique inputs.
+    %Will cross reference when possible
+    \item Can be useful for sweep line approaches
 \end{itemize}
 
-\subsection{Contest Problem, The Building of Cowpens!}
-Farmer John is building fences to contain his cows on his property.
-However being both obsessed with right angles and not killing trees, Farmer John must construct his fence as a rectangle and not cut down any trees.
-Also not wanting for his cows to thirsty, he builds will build the fence along side the river on the southern side of his property.
-You can assume that the river has the positon $Y=0$ and farmer John's property lies north of the river.
-Farmer John wants to know the area of the largest such section of his property.\\
-Input: You will be first given the number of trees, $N<1000000$, followed by the positions, $0<=(X,Y) <= 1000000$, of the trees in the field. \\
-Output: The area of the largest fenced area.
-\lstinputlisting{./structures/set/problems/cowpens/cowpens.cpp}
+\subsection{Example Contest Problem: Cow Pens}
+Farmer John's cows keep wandering off into the hills to learn cowculus from nomadic mathematicians.
+Unappreciative of refined bovine arithmetic, Farmer John decides to fence in his cows to keep them from escaping.
+
+He wants to build the fence without crossing over any of the trees on his property (which the cows claim are valuable for studying graph theory), and he'd like the fence to be rectangular (a perfect shape, the cows say).
+One side of the rectangle should be formed by the river at the southern edge of Farmer John's property, so that the cows can contemplate wave-based trigonometric functions (and stay hydrated).
+
+Please compute the maximum area that Farmer John can enclose with a fence that meets the above requirements.
+You can assume that the river has the position $Y=0$ and Farmer John's property lies north of the river.
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line 1: One integer, $N$, $(N < 1000000)$, specifying the number of trees in the field.
+	\item Lines 2..$(N+1)$: Each line contains two integers $X$ and $Y$ $(0 <= X,Y <= 1000000)$.
+		Each pair corresponds to the location of one tree in Farmer John's field.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[caption=Cow Pens Input, label=Cow Pens Input]{./structures/set/problems/cowpens/cowpens.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+  \item Line 1: One integer that represents the area of the largest possible rectangle that Farmer John can build.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[caption=Cow Pens Output, label=Cow Pens Output]{./structures/set/problems/cowpens/cowpens.out}
+
+\subsubsection{Example Solution}
+\acmlisting[caption=Cow Pens Solution, label=Cow Pens Solution]{./structures/set/problems/cowpens/cowpens.cpp}
+
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item The STL Set can be used as a basic binary search tree.
+	\item Write comparison functions to change orderings of Sets, Maps, and the \code{sort()} function.
+	\item \code{typedef} long type names to something shorter for ease of use.
+	\item Sometimes it is better to \emph{modify} the input than to code edge cases.
+	\item \code{lower\_bound} returns an iterator pointing to the first element $\leq$ the searched element.
+\end{itemize}
+
+\subsection{Example Contest Problem: The Cows Form a Union}
+The cows have formed a union, and have gone on strike to protest Farmer John's new cow pen.
+
+Each cow has been given a unique union ID number, painted on its side.
+The three cows with the smallest, closest ID numbers just so happen to be the union bosses.
+
+Farmer John, in an effort to track union activity, took two photographs of cow rallies that he's sure the bosses attended, but he's not sure which cows are the bosses.
+Using the ID numbers of all the cows in the photographs, please determine the three cows that have the closest ID numbers so that Farmer John can attempt to negotiate with them.
+In case several sets of cows have equally close ID numbers, choose the set that contains the lowest ID number.
+You can assume that there are at least three cows between the two pictures.
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line 1: A space-delimited list, ending with $0$, of $N$ ID numbers $(0 \leq N \leq 1000000)$. 
+		Each number $i_n$ $(0 < i_{0..N-1} \leq 1000000)$ indicates that a cow with that ID number is present in the \emph{first} photograph.
+	\item Line 2: A space-delimited list, ending with $0$, of $N$ ID numbers $(0 \leq N \leq 1000000)$. 
+		Each number $i_n$ $(0 < i_{0..N-1} \leq 1000000)$ indicates that a cow with that ID number is present in the \emph{second} photograph.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[caption=Union Input, label=Union Input]{./structures/set/problems/union/union.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: Three space-delimited integers in ascending order, indicating the three cows who lead the union.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[caption=Union Output, label=Union Output]{./structures/set/problems/union/union.out}
+
+\subsubsection{Example Solution}
+\acmlisting[caption=Union Solution, label=Union Solution]{./structures/set/problems/union/union.cpp}
+
+\subsection{Example Contest Problem: Cow Distances}
+As a result of the cows' lobbying efforts, the federal government is investigating Farmer John for possible violations of the Magnanimous Agricultural Defense of Cloven Ochlophobic Workers Statute, which states that any two cows of differing breeds (Farmer John owns Guernseys and Holsteins) must be given an inter-breed comfort zone of at least 1.000 meters.
+Cows of the same breed are allowed to mingle as cozily as they wish.
+
+Assuming the regulators know the precise location of every cow in Farmer John's field, please help the federal government determine whether or not to crack down on Farmer John's gross oppression of his herd.
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line 1: One integer $G$, $(G < 500000)$, specifying the number of Guernseys to follow.
+	\item Line 2..$(G+1)$: Two integers $X$ and $Y$, $0 \leq X,Y \leq 1000000$.
+		Each pair corresponds to the location of one Guernsey in the field.
+	\item Line $(G+2)$: One integer, $H$, $(H < 500000)$, specifying the number of Holsteins to follow. 
+	\item Line $(G+3)$..$(G+H+2)$: Two integers $X$ and $Y$, $0 \leq X,Y \leq 1000000$.
+		Each pair corresponds to the location of one Holstein in the field.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[caption=Closest Input, label=Closest Input]{./structures/set/problems/closest/closest.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: the number $1$ if Farmer John is breaking the law or $0$ if he is not.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[caption=Closest Output, label=Closest Output]{./structures/set/problems/closest/closest.out}
