@@ -1,0 +1,111 @@
+\section{Dynamic Programming}\index{Dynamic Programming}
+Dynamic Programming is a powerful tool that can be applied to several different types of algorithms.\cite{dppractice}
+The basic idea is to save the results of smaller problems and use the results to solve larger problems.
+
+\subsection{Applications}
+\begin{itemize}
+	\item	Improving runtimes of some other algorithms
+	\item	Solving the knapsack in $O(nm)$ time
+	\item	Solving the integer knapsack in $O(nm)$ time
+	\item	Solving the largest increasing subsequece in $O(n \log n)$ time
+	\item	Solving the maximum value sub-array problem in $O(n)$
+	\item	Solving the maximum value continuous sub-array problem
+\end{itemize}
+
+\subsection{Example Contest Problem: A Knapsack Full of Fireworks}\index{Knapsack}
+The cows on Farmer John's Farm are planning on putting on a fireworks show for Farmer John's birthday.
+
+They have pooled all of their loose change, and hope to purchase a collection of fireworks that will maximize  Farmer John's amazement during the show so that he will be more likely to build them a new barn.
+Each firework's label helpfully includes a "wow factor" rating explicitly for this purpose.
+A high "wow factor" is more desirable than a low one.
+
+Please help the cows determine the maximum "wow factor" they can get for their loose change.
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line 1: One integer, $N$ $(1 \leq N \leq 100)$, the number of fireworks in the catalog.
+   \item Line 2: One integer, $C$ $(1 \leq C \leq 10000)$, the total amount of change that the cows have to spend.
+	\item Lines 3..$(N+2)$ Two integers $P,W$ representing the price and wow factor for the fireworks.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\lstinputlisting{./approaches/dp/problems/knapsack/knapsack.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: A single integer representing the maximum wow factor
+\end{itemize}
+\subsubsection{Sample Output}
+\lstinputlisting{./approaches/dp/problems/knapsack/knapsack.out}
+
+\subsubsection{Sample Solution}
+\lstinputlisting{./approaches/dp/problems/knapsack/knapsack.cpp}
+
+\subsubsection{Lessons Learned}
+The optimal solution is of the form:
+$$W(j) = \max \left\{W(j-1), \max \left\{W(j - p_i) + v_i \right\}\right\}$$
+Where $W(0) = 0$
+
+\subsection{Example Contest Problem: A Few Fireworks More}\index{Knapsack!Integer}
+The cows have reconsidered their original plan of buying just the fireworks with the greatest total "wow factor".
+Instead, they want to incorporate "wow factor" \emph{and} diversity, so the cows have decided to purchase a collection of fireworks that optimizes "wow factor" and includes no more than one of each kind of firework in the catalog.
+
+Please help the cows determine the maximum "wow factor" they can get for their loose change, on the condition that they purchase no more than one of each kind of firework in the catalog.
+
+\subsubsection{Input}
+\begin{itemize}
+	\item Line 1: One integer, $N$, $(1 \leq N \leq 100)$ the number of fireworks in the catalog.
+	\item Line 2: One integer, $C$, $(1 \leq C \leq 10000)$ the number of cents that the cows found.
+	\item Lines 3..$(N+2)$ Two integers $P,W$ representing the price and wow factor for the fireworks.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\lstinputlisting{./approaches/dp/problems/one-zero/one-zero.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: A single integer representing the maximum wow factor using each firework at most once
+\end{itemize}
+\subsubsection{Sample Output}
+\lstinputlisting{./approaches/dp/problems/one-zero/one-zero.out}
+
+\subsubsection{Sample Solution}
+\lstinputlisting{./approaches/dp/problems/one-zero/one-zero.cpp}
+
+\subsubsection{Lesson Learned}
+A similar problem to the knapsack, except each item can be used at most once.  The solution here is to expand the state space.  The optimal solution is of the form
+$$M(i,j) = \max \left\{ M(i-1, j) , M(i-1, j- s_i) + v_i \right\}$$
+Where $M(0,j) = 0$ and $M(i,0) = 0$
+
+\subsection{Example Contest Problem: The Good, the Bad, the Cowy}\index{Largest Increasing Subsequence}
+Farmer John's birthday party went off without a hitch, but the cows are worried that Farmer John isn't yet convinced that he should build the cows a new barn: just in case, they have decided to put it to a vote whether or not they should bake him a cake as well.
+Unfortunately, the cows are all experts in the school of bovine politics, and think that a simple majority vote will simply not do because of the dangers of vote rigging.
+
+Instead, the cows have resorted to a rather odd voting system: each cow votes in some arbitrary order with an integer value, and if the length of largest increasing subsequence of all the votes is greater than half the number of cows, then the cows will bake Farmer John a cake.
+
+Help the cows determine the results of their vote.
+
+\subsubsection{Input}
+\begin{itemize}
+	\item Line 1: Several integers, separated by spaces, representing the votes of the cows.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\lstinputlisting{./approaches/dp/problems/cowy/cowy.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: ``1'' if the cows have decided to buy a cake, and ``0'' otherwise.
+\end{itemize}
+\subsubsection{Sample Output}
+\lstinputlisting{./approaches/dp/problems/cowy/cowy.out}
+
+\subsubsection{Sample Solution}
+\lstinputlisting{./approaches/dp/problems/cowy/cowy.cpp}
+
+\subsubsection{Lesson Learned}
+\begin{itemize}
+	\item This problem can be solved in $O(n \log n)$ time.
+	\item Sometimes you have to check the entire array to find the solution.
+	\item $while(cin >> val)$ can be used to read in an uncertain number of values.
+\end{itemize}
