@@ -22,28 +22,28 @@ So, this time, we can set the value to 1, because that is the length of the long
 Now, upon failing to match the next character, the algorithm will refer to this value and jump to matching this character by simply subtracting this number from the sum of the length of the partial match and the starting index of the partial match.
 
 \item[$N = 4$ 'abab']
-Suffixes: 'a', 'ab', and 'aba'.
-Prefixes: 'b', 'ab', and 'bab'.
+Prefixes: 'a', 'ab', and 'aba'.
+Suffixes: 'b', 'ab', and 'bab'.
 Perusing the substrings in decreasing length, 'ab' provides a match. The value is set to 2.
 
 \item[$N = 5$ 'ababa']
-Suffixes: 'a', 'ab', 'aba', and 'abab'.
-Prefixes: 'a', 'ba', 'aba', and 'baba'.
+Prefixes: 'a', 'ab', 'aba', and 'abab'.
+Suffixes: 'a', 'ba', 'aba', and 'baba'.
 The longest match here is 'aba', with a length of 3.
 
 \item[$N = 6$ 'ababab']
-Suffixes: 'a', 'ab', 'aba', 'abab', and, 'ababa'.
-Prefixes: 'b', 'ab', 'bab', 'abab', and, 'babab'.
+Prefixes: 'a', 'ab', 'aba', 'abab', and, 'ababa'.
+Suffixes: 'b', 'ab', 'bab', 'abab', and, 'babab'.
 This time, the longest match is 'abab', so we set a value of 4.
 
 \item[$N = 7$ 'abababc']
-Suffixes: 'a', 'ab', 'aba', 'abab', 'ababa', and 'ababab'.
-Prefixes: 'c', 'bc', 'abc', 'babc', 'ababc', and 'bababc'.
+Prefixes: 'a', 'ab', 'aba', 'abab', 'ababa', and 'ababab'.
+Suffixes: 'c', 'bc', 'abc', 'babc', 'ababc', and 'bababc'.
 In this case, there are no matches, so the value is zero.
 
 \item[$N = 8$ 'abababcd']
-Suffixes: 'a', 'ab', 'aba', 'abab', 'ababa', 'ababab', and 'abababc'
-Prefixes: 'd', 'cd', 'bcd', 'abcd', 'babcd', 'ababcd', and 'bababcd'
+Prefixes: 'a', 'ab', 'aba', 'abab', 'ababa', 'ababab', and 'abababc'
+Suffixes: 'd', 'cd', 'bcd', 'abcd', 'babcd', 'ababcd', and 'bababcd'
 There are no matching substrings; the value here is zero.
 \end{description}
 
