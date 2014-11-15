@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstdlib>
 
 double poly_area(double x[], double y[], int size){
 	int i=0, j=size-1;	//Set J to next-to-last point
@@ -9,5 +10,6 @@ double poly_area(double x[], double y[], int size){
 		j = i;
 	}
 
-	return abs(area/2);
+	if(area>0) return area * 0.5;
+	else return area * -0.5;
 }
