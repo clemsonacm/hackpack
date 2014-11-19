@@ -1,0 +1,97 @@
+\section{Dijkstra's Algorithm}\index{Shortest Path!Dijkstra}
+Dijkstra’s Algorithm solves the single-source shortest path problem of finding the shortest paths between the source node and all other nodes in a connected graph with non-negative edge path costs.  
+The graph can be both directed and undirected.  
+It is commonly used to find the shortest path between a source and destination node.  
+For graphs with negative weights, see Bellman-Ford Algorithm.
+It is commonly inplemented using a priority queue.
+
+\subsection{Applications}
+
+\begin{itemize}
+	\item  Finding the shortest paths between a source node and all other nodes in a graph
+\end{itemize}
+
+\subsection{Example Contest Problem: Milk Routing}
+Farmer John's farm has an outdated network of M pipes (1 <= M <= 500) for pumping milk from the barn to his milk storage tank.  
+He wants to remove and update most of these over the next year, but he wants to leave exactly one path worth of pipes intact, 
+so that he can still pump milk from the barn to the storage tank.
+
+The pipe network is described by N junction points (1 <= N <= 500), each of which can serve as the endpoint of a set of pipes.  
+Junction point 1 is the barn, and junction point N is the storage tank.  
+Each of the M bi-directional pipes runs between a pair of junction points, and has an associated latency 
+(the amount of time it takes milk to reach one end of the pipe from the other) and capacity (the amount of milk per unit time
+that can be pumped through the pipe in steady state).  
+Multiple pipes can connect between the same pair of junction points.
+
+For a path of pipes connecting from the barn to the tank, the latency of the path is the sum of the latencies of the pipes along 
+the path, and the capacity of the path is the minimum of the capacities of the pipes along the path (since this is the "bottleneck" 
+constraining the overall rate at which milk can be pumped through the path).  
+If FJ wants to send a total of X units of milk through a path of pipes with latency L and capacity C, the time this takes is therefore L + X/C.
+
+Given the structure of FJ's pipe network, please help him select a single path from the barn to the storage tank that will allow him to pump X units
+of milk in a minimum amount of total time.
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line 1: Three space-seperated integers: N M X (1 <= X <= 1,000,000).
+	\item Line 2..1+M: Each line describes a pipe using 4 integers: I J L C.
+			I and J (1 <= I,J <= N) are the juntion points at both ends of the pipe.
+			L and C (1 <= L,C <= 1,000,000) give the latency and capacity of the pipe.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[caption=Milk Routing Input, label=Milk Routing Input]{./algorithms/dijkstra/problems/milk-routing/milkrouting.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: The minimum amount of time it will take FJ to send milk along a single path, 
+			rounded down to the nearest integer.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlistingp[caption=Milk Routing Output, label=Milk Routing Output]{./algorithms/dijkstra/problems/milk-routing/milkrouting.out}
+
+\subsubsection{Example Solution}
+\acmlisting[caption=Milk Routing Solution, label=Milk Routing Solution]{./algorithms/dijkstra/problems/milk-routing/milkrouting.cpp}
+
+\subsection{Example Contest Problem: Farm Tour}
+When FJ's friends visit him on the farm, he likes to show them around. 
+His farm comprises N (1 <= N <= 1000) fields numbered 1..N, the first of which contains his house and the Nth of which contains the big barn. 
+A total M (1 <= M <= 10000) paths that connect the fields in various ways. 
+Each path connects two different fields and has a nonzero length smaller than 35,000. 
+
+To show off his farm in the best way, he walks a tour that starts at his house, potentially travels through some fields, and ends at the barn. 
+Later, he returns (potentially through some fields) back to his house again. 
+
+He wants his tour to be as short as possible, however he doesn't want to walk on any given path more than once. 
+Calculate the shortest tour possible. 
+FJ is sure that some tour exists for any given farm.
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line 1: Two space-separated integers: N and M. 
+	\item Lines 2..M+1: Three space-separated integers that define a path: The starting field, the end field, and the path's length. 
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[caption=Farm Tour Input, label=Farm Tour Input]{./algorithms/dijkstra/problems/farm-tour/farmtour.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: A single line containing the length of the shortest tour. 
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlistingp[caption=Milk Routing Output, label=Milk Routing Output]{./algorithms/dijkstra/problems/farm-tour/farmtour.out}
+
+
+
+
+
+
+
+
+
+
+
+
