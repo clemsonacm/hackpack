@@ -33,9 +33,10 @@
 \usepackage[T1]{fontenc}
 
 % Use the listings package for pretty source code inclusions.
-\usepackage{listings}
 \usepackage{color}
 \usepackage{xcolor}
+\usepackage{soul}
+\usepackage{listings}
 \lstset{
   basicstyle=\footnotesize\ttfamily, % Use a truetype, footnote-sized font.
   numbers=left,                      % line numbers go on the left
@@ -67,7 +68,7 @@
 
 % Defines a tikz frame for page-broken listing hints.
 % Shamelessly stolen from https://tex.stackexchange.com/questions/77996/how-to-show-a-hint-when-lstlisting-is-breaking-page
-\usepackage[framemethod=tikz]{mdframed}
+\usepackage[framemethod=tikz]{./formatting/mdframed}
 \mdfdefinestyle{note}
   {
     hidealllines = true ,
