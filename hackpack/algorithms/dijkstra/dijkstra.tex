@@ -1,5 +1,3 @@
-*** Site problems and solutions and lessons learned 
-
 \section{Dijkstra's Algorithm}\index{Shortest Path!Dijkstra}
 Dijkstra's Algorithm solves the single-source shortest path problem of finding the shortest paths between the source 
 node and all other nodes in a connected graph with non-negative edge path costs.  
@@ -86,6 +84,15 @@ If both GPS units complain when Farmer John follows a road, this counts as $+2$ 
 \subsubsection{Sample Output}
 \acmlisting[caption=Milk Routing Output, label=Milk Routing Output]{./algorithms/dijkstra/problems/dueling-gps/gpsduel.out}
 
+\subsubsection{Example Solution}
+\acmlisting[caption=Dueling GPSs Solution, label=Dueling GPSs Solution]{./algorithms/dijkstra/problems/dueling-gps/gpsduel.cpp}
+
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item Trickier problems may require adjusting the graph or, in this case, creating a new one
+	\item Numbering the nodes starting with 0 instead of 1 allows for mapping with vector indeces
+\end{itemize}
+
 \subsection{Example Contest Problem: Milk Routing\cite{milkroute}}
 Farmer John's farm has an outdated network of $M$ pipes $(1 \leq M \leq 500)$ for pumping milk from the barn to his milk storage tank.  
 He wants to remove and update most of these over the next year, but he wants to leave exactly one path worth of pipes intact, 
@@ -125,6 +132,3 @@ of milk in a minimum amount of total time.
 
 \subsubsection{Sample Output}
 \acmlisting[caption=Milk Routing Output, label=Milk Routing Output]{./algorithms/dijkstra/problems/milk-routing/milkrouting.out}
-
-\subsubsection{Example Solution}
-\acmlisting[caption=Milk Routing Solution, label=Milk Routing Solution]{./algorithms/dijkstra/problems/milk-routing/milkrouting.cpp}
