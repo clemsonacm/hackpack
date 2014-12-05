@@ -1,5 +1,3 @@
-// solution is based on official analysis and solution by Allen Chen
-
 #include<iostream>
 #include<cstdio>
 #include<algorithm>
