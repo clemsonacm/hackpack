@@ -1,21 +1,13 @@
-hotfix:
-	-rm -rf build
-	-mkdir build
-	latexmk -pdf
-	-mv *.aux build
-	-mv *.blg build
-	-mv *.fdb_latexmk build
-	-mv *.idx build
-	-mv *.ilg build
-	-mv *.ind build
-	-mv *.log build
-	-mv *.out build
-	-mv *.pdf build
-	-mv *.toc build
-	-mv *.fls build
+OUTDIR = build
+AUXFILES = *.aux *.blg *.fdb_latexmk *.fls *.idx *.ilg *.ind *.log *.out *.pdf *.toc
+HAS_COAN = $(shell hash coan 2>&- && echo "1" || echo "0")
+HAS_OUTDIR = $(shell latexmk --help | grep -- "-output-directory" | wc -l)
 
-HAS_COAN := $(shell hash hatnsoehu 2>&- && echo "1" || echo "0")
-HAS_OUTDIR := $(shell latexmk --help | grep -- "-output-directory" | wc -l)
+hotfix:
+	-rm -rf $(OUTDIR)
+	-mkdir $(OUTDIR)
+	latexmk -pdf hackpack.tex
+	-mv $(AUXFILES) $(OUTDIR)
 
 hackpack hackpackpp:
 ifeq ($(HAS_COAN), 1)
