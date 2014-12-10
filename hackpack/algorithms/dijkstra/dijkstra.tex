@@ -4,12 +4,12 @@ node and all other nodes in a connected graph with non-negative edge path costs.
 The graph can be both directed and undirected.  
 It is commonly used to find the shortest path between a source and destination node.  
 For graphs with negative weights, see Bellman-Ford Algorithm.
-It is commonly inplemented using a priority queue and runs in $O(E lg V)$.
+It is commonly inplemented using a priority queue and runs in $O(E \log V)$.
 
 \subsection{Applications}
 
 \begin{itemize}
-	\item  Finding the shortest paths between a source node and all other nodes in a graph
+	\item  Finding the shortest paths between a source node and all other nodes in a connected graph with non-negative edge path costs.
 \end{itemize}
 
 \subsection{Example Contest Problem: Farm Tour\cite{farmtour}}
@@ -40,7 +40,47 @@ Farmer John is sure that some tour exists for any given farm.
 \end{itemize}
 
 \subsubsection{Sample Output}
-\acmlisting[caption=Milk Routing Output, label=Milk Routing Output]{./algorithms/dijkstra/problems/farm-tour/farmtour.out}
+\acmlisting[caption=Farm Tour Output, label= Farm Tour Output]{./algorithms/dijkstra/problems/farm-tour/farmtour.out}
+
+\subsection{Example Contest Problem: Milk Routing\cite{milkroute}}
+Farmer John's farm has an outdated network of $M$ pipes $(1 \leq M \leq 500)$ for pumping milk from the barn to his milk storage tank.  
+He wants to remove and update most of these over the next year, but he wants to leave exactly one path worth of pipes intact, 
+so that he can still pump milk from the barn to the storage tank.
+
+The pipe network is described by N junction points $(1 \leq N \leq 500)$, each of which can serve as the endpoint of a set of pipes.  
+Junction point 1 is the barn, and junction point N is the storage tank.  
+Each of the M bi-directional pipes runs between a pair of junction points, and has an associated latency 
+(the amount of time it takes milk to reach one end of the pipe from the other) and capacity (the amount of milk per unit time
+that can be pumped through the pipe in steady state).  
+Multiple pipes can connect between the same pair of junction points.
+
+For a path of pipes connecting from the barn to the tank, the latency of the path is the sum of the latencies of the pipes along 
+the path, and the capacity of the path is the minimum of the capacities of the pipes along the path (since this is the "bottleneck" 
+constraining the overall rate at which milk can be pumped through the path).  
+If Farmer John wants to send a total of $X$ units of milk through a path of pipes with latency $L$ and capacity $C$, the time this takes is therefore $L + X/C$.
+
+Given the structure of Farmer John's pipe network, please help him select a single path from the barn to the storage tank that will allow him to pump $X$ units
+of milk in a minimum amount of total time.
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line $1$: Three space-seperated integers: $N$ $M$ $X$ $(1 \leq X \leq 1,000,000)$.
+	\item Line $2..1+M$: Each line describes a pipe using 4 integers: $I$ $J$ $L$ $C$.
+			$I$ and $J$ $(1 \leq I,J \leq N)$ are the juntion points at both ends of the pipe.
+			$L$ and $C$ $(1 \leq L,C \leq 1,000,000)$ give the latency and capacity of the pipe.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[caption=Milk Routing Input, label=Milk Routing Input]{./algorithms/dijkstra/problems/milk-routing/milkrouting.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: The minimum amount of time it will take Farmer John to send milk along a single path, 
+			rounded down to the nearest integer.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[caption=Milk Routing Output, label=Milk Routing Output]{./algorithms/dijkstra/problems/milk-routing/milkrouting.out}
 
 \subsection{Example Contest Problem: Dueling GPS's\cite{gpsduel}}
 Farmer John has recently purchased a new car online, but in his haste he accidentally clicked the "Submit" button twice when selecting extra
@@ -92,43 +132,3 @@ If both GPS units complain when Farmer John follows a road, this counts as $+2$ 
 	\item Trickier problems may require adjusting the graph or, in this case, creating a new one
 	\item Numbering the nodes starting with 0 instead of 1 allows for mapping with vector indeces
 \end{itemize}
-
-\subsection{Example Contest Problem: Milk Routing\cite{milkroute}}
-Farmer John's farm has an outdated network of $M$ pipes $(1 \leq M \leq 500)$ for pumping milk from the barn to his milk storage tank.  
-He wants to remove and update most of these over the next year, but he wants to leave exactly one path worth of pipes intact, 
-so that he can still pump milk from the barn to the storage tank.
-
-The pipe network is described by N junction points $(1 \leq N \leq 500)$, each of which can serve as the endpoint of a set of pipes.  
-Junction point 1 is the barn, and junction point N is the storage tank.  
-Each of the M bi-directional pipes runs between a pair of junction points, and has an associated latency 
-(the amount of time it takes milk to reach one end of the pipe from the other) and capacity (the amount of milk per unit time
-that can be pumped through the pipe in steady state).  
-Multiple pipes can connect between the same pair of junction points.
-
-For a path of pipes connecting from the barn to the tank, the latency of the path is the sum of the latencies of the pipes along 
-the path, and the capacity of the path is the minimum of the capacities of the pipes along the path (since this is the "bottleneck" 
-constraining the overall rate at which milk can be pumped through the path).  
-If Farmer John wants to send a total of $X$ units of milk through a path of pipes with latency $L$ and capacity $C$, the time this takes is therefore $L + X/C$.
-
-Given the structure of Farmer John's pipe network, please help him select a single path from the barn to the storage tank that will allow him to pump $X$ units
-of milk in a minimum amount of total time.
-
-\subsubsection{Input Format}
-\begin{itemize}
-	\item Line $1$: Three space-seperated integers: $N$ $M$ $X$ $(1 \leq X \leq 1,000,000)$.
-	\item Line $2..1+M$: Each line describes a pipe using 4 integers: $I$ $J$ $L$ $C$.
-			$I$ and $J$ $(1 \leq I,J \leq N)$ are the juntion points at both ends of the pipe.
-			$L$ and $C$ $(1 \leq L,C \leq 1,000,000)$ give the latency and capacity of the pipe.
-\end{itemize}
-
-\subsubsection{Sample Input}
-\acmlisting[caption=Milk Routing Input, label=Milk Routing Input]{./algorithms/dijkstra/problems/milk-routing/milkrouting.in}
-
-\subsubsection{Output Format}
-\begin{itemize}
-	\item Line 1: The minimum amount of time it will take Farmer John to send milk along a single path, 
-			rounded down to the nearest integer.
-\end{itemize}
-
-\subsubsection{Sample Output}
-\acmlisting[caption=Milk Routing Output, label=Milk Routing Output]{./algorithms/dijkstra/problems/milk-routing/milkrouting.out}
