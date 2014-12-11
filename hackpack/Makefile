@@ -10,6 +10,7 @@ TMPEXT      = tmp
 default: hackpackpp
 
 hackpack hackpackpp:
+# Back up and preprocess preprocessable files
 	find . -regex ".*\.\($(subst |,\|,$(PREPTYPES))\)" -exec cp {} {}.$(BACKUPEXT) \; \
 	-exec sh -c 'awk -v V=$@ -f $(PREPSCRIPT) {} > {}.$(TMPEXT)' \; \
 	-exec mv {}.$(TMPEXT) {} \;
@@ -24,14 +25,12 @@ else
 	-mv $(AUXFILES) $(OUTDIR)
 endif
 
+# Restore backups
 	find . -regex ".*\.\($(subst |,\|,$(PREPTYPES))\)" -delete
 	find . -iname "*.$(BACKUPEXT)" -exec rename 's/\.$(BACKUPEXT)$$//' {} \;
 
 show:
 	evince build/hackpack.pdf
-
-all:
-	latexmk -pdf -auxdir=build -outdir=build
 
 clean:
 	find . -iname "*.$(BACKUPEXT)" -delete
