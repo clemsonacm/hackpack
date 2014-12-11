@@ -1,5 +1,6 @@
-OUTDIR = build
-AUXFILES = *.aux *.blg *.fdb_latexmk *.fls *.idx *.ilg *.ind *.log *.out *.pdf *.toc
+OUTDIR     = build
+PREPTYPES  = cpp|py
+AUXFILES   = *.aux *.blg *.fdb_latexmk *.fls *.idx *.ilg *.ind *.log *.out *.pdf *.toc
 HAS_OUTDIR = $(shell latexmk --help | grep -- "-output-directory" | wc -l)
 
 hotfix:
@@ -9,6 +10,8 @@ hotfix:
 	-mv $(AUXFILES) $(OUTDIR)
 
 hackpack hackpackpp:
+	find . -regex ".*\.\($(subst |,\|,$(PREPTYPES))\)" -exec cp {} {}.backup \;
+
 # Build the PDF and auxiliary files into the OUTDIR
 ifeq ($(HAS_OUTDIR), 1)
 	@echo "Woah! You have that option!"
