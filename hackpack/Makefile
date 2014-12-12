@@ -16,19 +16,19 @@ HAS_OUTDIR = $(shell latexmk --help | grep -- "-output-directory" | wc -l)
 # Location of the preprocessing script.
 PREPSCRIPT = ./formatting/preprocessor.awk
 
-# -pdf to generate a pdf, -g to force recompilation
+# -pdf to generate a pdf, -g to force recompilation.
 LATEXMKOPTS = -pdf -g
 
-# Extension for backups of preprocessable files
+# Extension for backups of preprocessable files.
 BACKUPEXT = tmpbackup
 
-# Extension for temporary location for preprocessed files
+# Extension for temporary location for preprocessed files.
 TMPEXT = tmp
 
 # Build the Hackpack++ by default.
 default: hackpackpp
 
-# Use `make hackpack` or `make hackpackpp` to build the hackpack or hackpack++
+# Use `make hackpack` or `make hackpackpp` to build the hackpack or hackpack++.
 hackpack hackpackpp:
 	# Back up and preprocess preprocessable files.
 	find . -regex $(PREPREGEX) -exec cp {} {}.$(BACKUPEXT) \; \
@@ -54,7 +54,7 @@ endif
 show:
 	evince $(OUTDIR)/hackpack.pdf
 
-# Delete temporary files that might exist and clean the OUTDIR
+# Delete temporary files that might exist and clean the OUTDIR.
 clean:
 	find . -iname "*.$(BACKUPEXT)" -delete
 	find . -iname "*.$(TMPEXT)" -delete
