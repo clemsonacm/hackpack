@@ -37,18 +37,18 @@ hackpack hackpackpp:
 
 	# Build the PDF and auxiliary files into the OUTDIR.
 ifeq ($(HAS_OUTDIR), 1)
-	latexmk $(LATEXMKOPTS) -auxdir=$(OUTDIR) -outdir=$(OUTDIR)
+	-latexmk $(LATEXMKOPTS) -auxdir=$(OUTDIR) -outdir=$(OUTDIR)
 else
-	rm -rf $(OUTDIR)
-	mkdir $(OUTDIR)
-	latexmk $(LATEXMKOPTS)
-	mv $(AUXFILES) $(OUTDIR)
+	-rm -rf $(OUTDIR)
+	-mkdir $(OUTDIR)
+	-latexmk $(LATEXMKOPTS)
+	-mv $(AUXFILES) $(OUTDIR)
 endif
 
 	# Delete preprocessed files.
-	find . -regex $(PREPREGEX) -delete
+	-find . -regex $(PREPREGEX) -delete
 	# Restore backups of preprocessed files.
-	find . -iname "*.$(BACKUPEXT)" -exec rename 's/\.$(BACKUPEXT)$$//' {} \;
+	-find . -iname "*.$(BACKUPEXT)" -exec rename 's/\.$(BACKUPEXT)$$//' {} \;
 
 # Display the hack pack, if it exists.
 show:
@@ -56,11 +56,11 @@ show:
 
 # Delete temporary files that might exist and clean the OUTDIR.
 clean:
-	find . -iname "*.$(BACKUPEXT)" -delete
-	find . -iname "*.$(TMPEXT)" -delete
+	-find . -iname "*.$(BACKUPEXT)" -delete
+	-find . -iname "*.$(TMPEXT)" -delete
 ifeq ($(HAS_OUTDIR), 1)
-	latexmk -c -outdir=$(OUTDIR) -auxdir=$(OUTDIR)
+	-latexmk -c -outdir=$(OUTDIR) -auxdir=$(OUTDIR)
 else
-	rm -rf $(OUTDIR)
-	mkdir $(OUTDIR)
+	-rm -rf $(OUTDIR)
+	-mkdir $(OUTDIR)
 endif
