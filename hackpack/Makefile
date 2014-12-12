@@ -1,5 +1,6 @@
 OUTDIR      = build
-PREPTYPES   = cpp|py
+PREPTYPES   = cpp|py|tex
+PREPREGEX   = ".*\.\($(subst |,\|,$(PREPTYPES))\)"
 AUXFILES    = *.aux *.blg *.fdb_latexmk *.fls *.idx *.ilg *.ind *.log *.out *.pdf *.toc
 HAS_OUTDIR  = $(shell latexmk --help | grep -- "-output-directory" | wc -l)
 PREPSCRIPT  = ./formatting/preprocessor.awk
@@ -11,7 +12,7 @@ default: hackpackpp
 
 hackpack hackpackpp:
 # Back up and preprocess preprocessable files
-	find . -regex ".*\.\($(subst |,\|,$(PREPTYPES))\)" -exec cp {} {}.$(BACKUPEXT) \; \
+	find . -regex $(PREPREGEX) -exec cp {} {}.$(BACKUPEXT) \; \
 	-exec sh -c 'awk -v V=$@ -f $(PREPSCRIPT) {} > {}.$(TMPEXT)' \; \
 	-exec mv {}.$(TMPEXT) {} \;
 
@@ -26,7 +27,7 @@ else
 endif
 
 # Restore backups
-	find . -regex ".*\.\($(subst |,\|,$(PREPTYPES))\)" -delete
+	find . -regex $(PREPREGEX) -delete
 	find . -iname "*.$(BACKUPEXT)" -exec rename 's/\.$(BACKUPEXT)$$//' {} \;
 
 show:
@@ -35,4 +36,9 @@ show:
 clean:
 	find . -iname "*.$(BACKUPEXT)" -delete
 	find . -iname "*.$(TMPEXT)" -delete
-	-latexmk -c -outdir=build
+ifeq ($(HAS_OUTDIR), 1)
+	latexmk -c -outdir=$(OUTDIR) -auxdir=$(OUTDIR)
+else
+	rm -rf $(OUTDIR)
+	mkdir $(OUTDIR)
+endif
