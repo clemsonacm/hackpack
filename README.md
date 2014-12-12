@@ -157,7 +157,8 @@ of text or code as part of one version or the other. Here's an example:
 The first cout will only appear in the hackpack++'s code listing, and the
 second will only appear in the normal hackpack. Note that the `#ifdefs` are
 commented out: as long as the line _ends with the if directive_, they'll work
-properly. No trailing spaces!
+properly. You might want to comment them out so that they don't break the compilers.
+Make sure there are no trailing spaces!
 
 Here's a list of filetypes where the if directives will work:
 
