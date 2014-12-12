@@ -18,7 +18,7 @@
 # ...would parse to just one of the two inner lines, depending on which option you
 # pass in to the variable V.
 #
-# Written by Austin Anderson (@ProtractorNinja)
+# Written by Austin Anderson (@ProtractorNinja) with help from Stack Overflow.
 
 BEGIN { doPrint = 1; }
 /#ifdef hackpack$/    { getline; doPrint = (V == "hackpack"); }
