@@ -158,7 +158,7 @@ The first cout will only appear in the hackpack++'s code listing, and the
 second will only appear in the normal hackpack. Note that the `#ifdefs` are
 commented out: as long as the line _ends with the if directive_, they'll work
 properly. You might want to comment them out so that they don't break the compilers.
-Make sure there are no trailing spaces!
+Make sure you have a new line after each directive somewhere!
 
 Here's a list of filetypes where the if directives will work:
 
