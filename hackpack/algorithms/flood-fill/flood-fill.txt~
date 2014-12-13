@@ -1,0 +1,52 @@
+
+Mike Dozier 
+CS 481 
+Dr. Dean 
+
+Flood_Fill.odt
+   and word processing document explaing Flood_Fill
+
+ffa.cpp
+   flood fill by passing an array created in main for specific memory allication 
+   
+ff.cpp 
+   flood fill recursivly executed and reads in text data to a graph
+
+fftarget.cpp
+   flood fill using a target node to search for and terminate when found
+
+ffs.cpp 
+   flood fill recursivly executed with a stack and reads in text data to a graph
+
+Flood_Fill.cpp 
+   flood fill recursivly executed with a generated graph 
+
+Flood_Fill_Stack.cpp  
+	flood fill recursivly executed with a stack and a generated graph 
+
+How_Many_Islands.cpp
+   example problem with flood fill used to solve
+   
+map.txt
+   input text for the example problem
+   
+      
+g++ -g -O2 -std=gnu++0x -static $*
+
+For each item in the Hackpack, please include the following in clearly delineated subsections:
+Name and Brief Description of the topic
+Data structures should have a "Reference" section with a code sample of only commonly used functions
+A list of possible uses and applications
+2-3 possible contest problems; preferably of varying difficulty
+Sample code that answers one of the contest problems
+Please use the \acmlisting for code listings. A caption and label should be specified. If applicable, line ranges should be specified to limit the amount of text displayed.
+It would be preferred if each set of sample code had some lessons learned to point out some key elements of the implementation
+References using BibTeX where applicable
+Should be "compiled" properly by pdflatex and the make
+Each sentence must be on a separate line.
+
+
+
+
+
+

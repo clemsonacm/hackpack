@@ -1,0 +1,32 @@
+\section{Flood Fill}\index{flood fill}
+This algorithm is a four or eight way recursive method that checks a start node on a graph for and old value, then updates the start node value with a new value and recursively calls in four or eight directions.
+When the method is called a start node location, the current node value to be changed, and the new value to update the current node value are all passed.
+Inside the flood fill method the start node value is checked via if statement to not equal the old value.
+Passing the if statement executes a return call ending the iteration of the method.
+When the if statement is failed the start node value is updated to the new value.     
+Next a series of four recursive flood fill method calls are executed in north south west and east directions from the start node location. 
+The flood fill method can have eight recursive flood fill method calls to execute in all eight directions from the start node. 
+The flood fill method can be implemented with both and array or a stack, as shown in the example code.
+It should be noted that a target node location can also be passed to the method to have the method return located. 
+This implementation creates and execution closely relating breath first search on a graph. 
+
+\subsection{Flood Fill}
+Flood Fill 
+\acmlisting[caption = Flood Fill, label = Flood Fill]{./algorithms/flood-fill/examples/flood-fill.cpp}
+
+\subsection{Flood Fill with Stack}
+Flood Fill with a stack
+\acmlisting[caption = Flood Fill with Stack, label = Flood Fill with Stack]{./algorithms/flood-fill/examples/flood-fill-stack.cpp}
+
+\subsection{Flood Fill with Target Node}
+Flood Fill with a target node
+\acmlisting[caption = Flood Fill with Target Node, label = Flood Fill with Stack]{./algorithms/flood-fill/examples/flood-fill-target.cpp}
+
+\subsection{Input Example}
+Flood Fill input center = '2'
+\acmlisting[caption = Input Example, label = Input Example]{./algorithms/flood-fill/examples/input.in}
+
+\subsection{Output Example}
+Flood Fill output center = '1'
+\acmlisting[caption = Output Example, label = Output Example]{./algorithms/flood-fill/examples/output.out}
+

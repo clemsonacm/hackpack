@@ -1,0 +1,18 @@
+\section{Depth First Search}\index{depth first search}
+This algorithm is a search method for a graph or tree with the maximum length or depth between connecting data nodes is needed, and the connected nodes identified. 
+A real world example of this is ping data from computer networks. 
+The first operation of the method is to visit and inspect a root node on a graph or tree and track the node as visited.
+The second operation is to add the rood or currently visited node to the to a stack.
+The third operation is to access the neighboring nodes of the root or currently visted node.
+The fourth operation is to travers to the unvisited child nodes of the root or currently visited node and check for unvisited nodes. 
+Finally the fith operation is to pop visited nodes from the stack that no longer have unvisited child nodes to travers, the only exception being the deepest node.
+Upon which the search is complete.
+Unlike breath first search, the use of a stack or queue with depth first search allows the order of the nodes traversed be to be specified.
+The traversal orders are preorder, postorder, inorder.    
+ 
+
+
+\subsection{Applications}
+\begin{itemize}
+	\item More efficient graph and tree search.
+\end{itemize}

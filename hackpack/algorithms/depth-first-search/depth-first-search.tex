@@ -1,0 +1,38 @@
+\section{Depth First Search}\index{depth first search}
+This algorithm is a search method for a graph or tree with the maximum length or depth between connecting data nodes is needed, and the connected nodes identified. 
+A real world example of this is ping data from computer networks. 
+The first operation of the method is to visit and inspect a root node on a graph or tree and track the node as visited.
+The second operation is to add the rood or currently visited node to the to a stack.
+The third operation is to access the neighbouring nodes of the root or currently visited node.
+The fourth operation is to traverse to the unvisited child nodes of the root or currently visited node and check for unvisited nodes. 
+Finally the fifth operation is to pop visited nodes from the stack that no longer have unvisited child nodes to traverse, the only exception being the deepest node.
+Upon which the search is complete.
+Unlike breath first search, the use of a stack or queue with depth first search allows the order of the nodes traversed be to be specified.
+The traversal orders are pre-order, post-order, in-order.    
+ 
+\subsection{DFS Graph}
+DFS Graph 
+\acmlisting[caption = DFS Graph, label = DFS Graph]{./algorithms/depth-first-search/examples/dfs-graph/graph-traversals.h}
+
+\subsection{DFS Graph Input}
+DFS Input
+\acmlisting[caption = DFS Input, label = DFS Input]{./algorithms/depth-first-search/examples/dfs-graph/depth-first-search.in}
+
+\subsection{DFS Graph Output}
+DFS Output
+\acmlisting[caption = DFS Output, label = DFS Output]{./algorithms/depth-first-search/examples/dfs-graph/depth-first-search.out}
+
+\subsection{DFS Tree}
+DFS Tree with all traversals 
+\acmlisting[caption = DFS Tree, label = DFS Tree]{./algorithms/depth-first-search/examples/dfs-tree/tree-search.h}
+
+\subsection{DFS Tree Input}
+DFS Input
+\acmlisting[caption = DFS Input, label = DFS Input]{./algorithms/depth-first-search/examples/dfs-tree/input.in}
+
+\subsection{DFS Tree Output}
+DFS Output
+\acmlisting[caption = DFS Output, label = DFS Output]{./algorithms/depth-first-search/examples/dfs-tree/output.out}
+
+
+
