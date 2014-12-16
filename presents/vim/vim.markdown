@@ -46,7 +46,7 @@ Vim is NOT
 +   All of the tools in you tool box
 +   A Word Processor
 
-Composability
+Comparability
 =============
 +   To take elements to make up a whole
 +   Actions and Motions
@@ -54,7 +54,7 @@ Composability
     +   Actions do something
 +   combinations of Action and Motion 
 
-Antipaterns
+Antipatterns
 ============
 +   A bad way of doing something that becomes habit
     +   llllllll instead of e
@@ -87,7 +87,6 @@ Common registers
 
 Important registers
 =========================
-+   `"+` The "global" register
 +   `"/` current search pattern
 +   `"-` small delete
 +   `"=` expression register  
@@ -104,9 +103,10 @@ Read-only registers
 
 Multiple Files
 ==============
-+   Use buffers and windows
++   Use buffers, windows, and tabs
 +   `^w` is prefixes most "window" commands
 +   very handy for viewing multiple files
++	argdo, bufdo, tabdo
 +   :vsp, :sp, :res :bn :bd :bp
 +   :b will change the buffer
 
@@ -165,6 +165,7 @@ Using vim to Test faster
 +   `:make <make_target>`
 +   `:set makeprg`
 +   `:cn` `:cw` `:cp` `]c` `[c`
++	`:copen`
 +   `:shell`
 
 But Vim does have X feature
@@ -175,15 +176,13 @@ But Vim does have X feature
     +   Uses Ctags for tag management
 +   Try Emacs
 
-Wrap-Up
-=======
-
-Summary
-=======
 
 Further Resources
 =================
-
++	Practical Vim by Drew Neil
++	Vimcasts by Drew Neil
++	vimtips wiki
++	`:help`
 
 Questions
 =========
