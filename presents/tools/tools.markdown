@@ -45,11 +45,17 @@ gluing programs together
 +	`|` pipelining
 +	`&> dest` redirect stderr and stdout to dest
 +	`word` executes word in a subshell first
++	support `for` and `while` loops
 
 example bash script
 ===================
 
-
+	for i in `ls`
+	do
+	cd $i
+	git pull
+	cd ..
+	done
 
 
 cron
@@ -63,17 +69,13 @@ running jobs at fixed times
 +	_warning_ cron ignores _all_ environment variables
 
 example crontab
-=====
+===============
 
 	PATH=/usr/bin
 	SHELL=/bin/bash
 	MAILTO=acm
 	# minute hour dayOfMonth month dayOfWeek cmd
 	0 0 0 * * echo "Cron Example"
-
-curl
-====
-download files from the Internet
 
 find
 ====
@@ -133,6 +135,15 @@ A debugger that detects memory leaks
 watch
 ======
 repeatedly print the output of a command
+
+wget
+====
+Download file from the Internet
+
+
+wget example
+============
+
 
 xargs
 ======
