@@ -241,7 +241,11 @@ time how long it takes a program to execute
 
 valgrind
 ========
-A debugger that detects memory leaks
+A debugger that detects memory leaks and other profiling
+
+	valgrind --leak-check=yes program-name
+	valgrind --tool=callgrind program-name
+	valgrind --tool=cachegrind program-name
 
 watch
 ======
