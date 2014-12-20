@@ -18,6 +18,8 @@ Computer Science.  The main projects are as follows:
 *   The Hackpack++ is an extensive guide that includes all of the great info
     from the hackpack, but also includes a bit more detail so that you could
     use it as a learning tool for the different techniques.
+*   We compile the two different versions of the hack pack from the same code
+    base. Check the hack pack section for an explanation.
 
 ###   Presentations 
 In addition to the Hackpack, we put on a series of educational seminars
@@ -131,11 +133,50 @@ Code Must meet the following standards:
 #### Writing Tests
 All code must have tests that meet the following requirements
 
-1.  Test at least the upper and lower boundaries of the allowed inputs.  
+1.  Test at least the upper and lower boundaries of the allowed inputs.
 2.  Testing files should be postfixed by `-test` prior to the extension.  For
-	example,  `foo.cpp` test files should be called `foo-test.cpp` and
-	`foo-test.in` respectively
+    example,  `foo.cpp` test files should be called `foo-test.cpp` and
+    `foo-test.in` respectively
 3.  Tests should be runnable by calling `make test` in the directory of the source
+
+#### Different Versions of the Hack Pack
+
+The hack pack is from one source built into two versions: one slim (`hackpack`)
+and one tome-like (`hackpack++`, or as denoted in the build scripts,
+`hackpackpp`). But how? By a combination of `awk` and dark magicks, authors can
+use an extremely limited set of C-preprocessor-like `#ifdef`s to denote a block
+of text or code as part of one version or the other. Here's an example:
+
+	// #ifdef hackpackpp
+	cout << "This is the Hack Pack: plusplus edition!" << endl;
+	// #endif
+	// #ifdef hackpack
+	cout << "This is just the regular hack pack." << endl;
+	// #endif
+
+The first cout will only appear in the hackpack++'s code listing, and the
+second will only appear in the normal hackpack. Note that the `#ifdefs` are
+commented out: as long as the line _ends with the if directive_, they'll work
+properly. You might want to comment them out so that they don't break the compilers.
+Make sure you have a new line after each directive somewhere!
+
+Here's a list of filetypes where the if directives will work:
+
+*   .tex
+*   .cpp
+*   .py
+
+#### Building the Hack Pack
+
+The hack pack uses a Makefile for building our PDF output. Here's a rundown of
+the make rules you'll probably be using:
+
+*   `make clean` wipes out the build directory if you don't have a version of
+    `latexmk` that supports the `-outdir` flag, and cleans it up with `latexmk -c`
+    if you do.
+*   `make hackpack` builds the slim version of the hackpack into `build/hackpack.pdf`.
+*   `make hackpackpp` builds the bulky version of the hackpack into `build/hackpack.pdf`.
+*   `make show` launches `evince` (a pdf viewer) to preview the hackpack.
 
 ### Presentations
 
@@ -144,4 +185,5 @@ for presentations.  If you have an improvement, follow the procedure above.
 
 Who do I talk to?
 -----------------
-Contact <acm@cs.clemson.edu> with any questions
+Contact <acm@cs.clemson.edu> with any questions.
+
