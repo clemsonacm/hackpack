@@ -120,9 +120,32 @@ grep
 ====
 Find pattern in a text
 
++	uses `re_format` style regex
++	`-C3` print 3 lines of context around match	
++	`-c` print number of matches
++	`-e` specify multiple patterns
++	`--exclude` ignore file paths
+
 make
 ====
-Intelligently compile, test, and test
+Intelligently compile, test, and install
+
++	variables and functions
++	targets - what is to be built
++	dependencies - what must be built first
++	rules - how to build it	
++	tabs only before rules
+
+makefile example
+================
+
+	SRCS=$(wildcard *.cpp)
+	all: $(SRCS)
+		g++ $(SRCS) -g -Wall
+	clean:
+		-rm a.out
+	test: all
+		./a.out
 
 ssh
 ====
@@ -176,6 +199,28 @@ sudoers file
 systemctl
 =========
 Control system processes
+
++	`start` start a service
++	`stop` stop a service
++	`reload` reload a service
++	`status` get the status of a process
++	`isolate` change target
+
+Systemctl unitfile
+==================
+
+	[unit]
+		Description=Sample Systemd Unitfile
+		Requires=network.target
+		After=network.target
+	[service]
+		Type=oneshot
+		RemainAfterExit=yes
+		ExecStart=/usr/bin/wpa-supplicant
+	[install]
+		WantedBy=network.target
+		
+		
 
 tar
 ====
