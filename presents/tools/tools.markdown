@@ -51,10 +51,10 @@ example bash script
 ===================
 
 	for i in `ls`
-	do
-	cd $i
-	git pull
-	cd ..
+		do
+		cd $i
+		git pull
+		cd ..
 	done
 
 
@@ -181,9 +181,18 @@ tar
 ====
 Create and extract archives
 
++	`-c` create archive
++	`-x` extract archive
++	`-j` use bzip2 compression _smaller_
++	`-z` use gzip compressed _faster_
++	`-v` list files as stored/extracted
++	`-f` output file
+
 time
 ====
 time how long it takes a program to execute
+
++	`time tar -czf foobar`
 
 valgrind
 ========
@@ -193,17 +202,28 @@ watch
 ======
 repeatedly print the output of a command
 
++	`-n` Change the update interval
++	`-d` highlight differences
++	`watch -n 1 ls -r`
+
 wget
 ====
 Download file from the Internet
 
-
-wget example
-============
-
++	`-c` continue the download
++	`-r` recursively download files
++	`-N` only download _new_ files
++	`wget -N www.google.com`
 
 xargs
 ======
+Construct argument lists
+
++	`-P maxprocs` run commands in parallel	
++	`-s size` limits argument size; default size 4096 bytes
++	`-n number` max number of arguments
+
+	find src/215 -name "*.java"|xargs wc -l
 
 Further Resources
 =================
