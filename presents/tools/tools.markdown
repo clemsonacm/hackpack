@@ -124,24 +124,57 @@ make
 ====
 Intelligently compile, test, and test
 
+ssh
+====
+Connect to a remote computer
+	
++	`ssh-keygen` create ssh keys
++	`ssh-copy-id user@host` send them to remote machines
++	`-YC` forward X11 compressed
++	takes an optional command argument last
+
+	ssh acm@joey1.cs.clemson.edu ls 
+
 scp
 ====
 Copy files to and from remote locations
+
++	`-r` recursive
++	`user@location:path`
+
+	scp -r acm@access.cs.clemson.edu:/repos/clemson-acm .
+
 
 tmux
 ====
 Terminal Multiplexer
 
-ssh
-====
-Connect to a remote computer
 
 sudo
 ====
 Request root privileges
 
++	`-e filename` edit the file with `$EDITOR`
++	`-g group` run command as group
++	`-u user` run command as user
++	`visudo` edit the sudoers file
++	`user host = (useralias) commandspec`
+
+sudoers file
+=============
+
+	#allow root to run all commands
+	root ALL=(ALL) ALL
+	#allow the admin group to run all commands
+	%admin ALL=(ALL) ALL
+	#allow acm to reset passwords for all except root
+    acm    ALL  = /usr/bin/passwd [A-Za-z]*, !/usr/bin/passwd root
+	#allow president to edit the crontab on foobar
+	president foobar= sudoedit /etc/crontab
+
+
 systemctl
-====
+=========
 Control system processes
 
 tar
