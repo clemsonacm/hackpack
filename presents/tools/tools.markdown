@@ -84,13 +84,37 @@ find files on the file system
 +	can be filtered by user, size, time, name
 +	can be used to preform batch operations
 
+	find /etc -user acm -size +2G -mtime -2w
+
 gcc
 ====
-compile C, C++, Fortran, Ada, and java (apparently)
+cross compile C, C++, Fortran, Ada, and java (apparently)
+
++	`-std=standard` adjust the standard used
++	`-c` just compile; don't link
++	`-s` just generate assembly
++	`-g` turn on debug flags
++	`-D` Conditional compilation
++	`<machine>-gcc-<version>` for cross-compilation
 
 gdb
 ====
 Debug C and C++ code
+
++	accepts format flags for print
++	use the `set` command to force a value
++	can be run in a batch mode `-batch -x script`
++	_warning_ ignores arguments in batch mode
+
+gdb script
+==========
+
+	b f
+	commands 2
+		p x
+		p y
+		continue
+	end
 
 grep
 ====
