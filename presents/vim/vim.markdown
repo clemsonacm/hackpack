@@ -25,11 +25,11 @@ Setting some Expectations
     +   Show even 10% of the power of Vim
 
 +   This discussion _will_:
-    +   Show you some of the coolest features of vim
+    +   Show you some of the coolest features of Vim
     +   Teach you enough to teach yourself
 
---TODO it is a quote from the vim guru I learned from this summer
->   Most people use only 10% of the functionality of vim
+--TODO it is a quote from the Vim guru I learned from this summer
+>   Most people use only 10% of the functionality of Vim
 >   The 10% only differs from person to person
 
 What is Vim?
@@ -197,7 +197,7 @@ Snippets
 
 Plugins and Plugin Managers
 ===========================
-+	vim is extensible via plugins
++	Vim is extensible via plugins
 +	Can be written in `vimscript` and other languages
 +	stored in `~/.vim`
 +   `vundle` great plugin manager
@@ -223,7 +223,7 @@ Navigating large code bases
     +   Much more intelligent 
     +   Can be configured otherwise, but its hacky
 
-Using vim to Test faster
+Using Vim to Test faster
 ========================
 +   `:make <make_target>`
 +   `:set makeprg`
@@ -237,7 +237,7 @@ Further Resources
 --TODO include hyperlinks
 +   Practical Vim by Drew Neil
 +   Vimcasts by Drew Neil
-+   vimtips wiki
++   Vimtips wiki
 +   `:help` -- an incredible resource!
 
 Questions
