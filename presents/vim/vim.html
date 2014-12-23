@@ -34,7 +34,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 					<h3 id="brought-to-you-by-clemson-acm">Brought to you by Clemson ACM</h3>
 					<p>We're on <a href="http://steamcommunity.com/groups/clemsonacm">Steam</a> &amp; <a href="https://www.facebook.com/groups/283823058297107/">Facebook</a>!</p>
 					<h3 id="speakers">Speakers:</h3>
-					<p>Robert Underwood - CS Major<br /> Austin Anderson - ACM President</p>
+					<p>Robert Underwood - ACM Vice-President<br /> Austin Anderson - ACM President</p>
 				</section>
 				<section id="coming-up" class="slide level1">
 					<h1>Coming Up</h1>
@@ -46,88 +46,66 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 				<section id="setting-some-expectations" class="slide level1">
 					<h1>Setting some Expectations</h1>
 					<ul>
-						<li>This discussion will not:
+						<li>This discussion will <em>not</em>:
 							<ul>
-								<li>Go over the basics in vimtutor</li>
+								<li>Cover what <code>vimtutor</code> will teach you</li>
 								<li>Make you magically a Vim guru</li>
-								<li>Show even 10% of Vim's power</li>
+								<li>Show even 10% of the power of Vim</li>
 							</ul></li>
-							<li>This discussion will:
+							<li>This discussion <em>will</em>:
 								<ul>
-									<li>Show you some of the cool and useful features</li>
+									<li>Show you some of the coolest features of Vim</li>
 									<li>Teach you enough to teach yourself</li>
 								</ul></li>
 					</ul>
-					<blockquote>
-						<p>Most people use only 10% of the functionality of vim The 10% only differs from person to person</p>
-					</blockquote>
+					<p>--TODO it is a quote from the Vim guru I learned from this summer &gt; Most people use only 10% of the functionality of Vim &gt; The 10% only differs from person to person</p>
 				</section>
 				<section id="what-is-vim" class="slide level1">
 					<h1>What is Vim?</h1>
-					<h2 id="vim-is">Vim is</h2>
-					<ul>
-						<li>a programmers text editor</li>
-						<li>Very programmable and extensible</li>
-						<li>A tool that is meant to be learned</li>
-						<li>Awesome</li>
-					</ul>
+					<p>--TODO is this less redundant? Vim is... --------- + A programmer's text editor + A tool that is meant to be learned</p>
 					<h2 id="vim-is-not">Vim is NOT</h2>
 					<ul>
 						<li>All of the tools in you tool box</li>
-						<li>A Word Processor</li>
 					</ul>
 				</section>
-				<section id="comparability" class="slide level1">
-					<h1>Comparability</h1>
+				<section id="composability" class="slide level1">
+					<h1>Composability</h1>
+					<p>--TODO helps to have the right title; I think that this is an important basic --TODO concept that makes understanding the rest of the editor easier + To take elements to make up a whole + Actions and Motions + Motions move the cursor + Actions do something + most commands are composed of Action and Motion</p>
+				</section>
+				<section id="other-common-motions" class="slide level1">
+					<h1>Other Common Motions</h1>
 					<ul>
-						<li>To take elements to make up a whole</li>
-						<li>Actions and Motions
-							<ul>
-								<li>Motions move the cursor</li>
-								<li>Actions do something</li>
-							</ul></li>
-							<li>combinations of Action and Motion</li>
+						<li>blocks <code>w</code>, <code>s</code>, <code>p</code>, <code>b</code>, <code>B</code>,</li>
+						<li><code>|</code> column</li>
+						<li><code>gj</code>, <code>gk</code> wraped up/down</li>
+						<li><code>(</code> and <code>)</code> sentensces</li>
+						<li><code>[</code> and <code>]</code> paragraphs</li>
+						<li><code>:h motion.txt</code></li>
 					</ul>
 				</section>
 				<section id="antipatterns" class="slide level1">
 					<h1>Antipatterns</h1>
-					<ul>
-						<li>A bad way of doing something that becomes habit
-							<ul>
-								<li>llllllll instead of e</li>
-								<li>ddi instead of C</li>
-							</ul></li>
-					</ul>
+					<p>--TODO maybe include some numbers on just how important it is to be efficient? --TODO I don't have any specific numbers, just a concept I wanted to introduce + A bad way of doing something that becomes habit + <code>ddo</code> instead of <code>C</code></p>
 				</section>
 				<section id="fixing-some-common-annoyances" class="slide level1">
 					<h1>Fixing Some Common Annoyances</h1>
 					<ul>
 						<li>Use .vimrc to store preferences</li>
-						<li>Turn on the mouse</li>
-						<li>Turn on Syntax Highlighting</li>
-						<li>Set your background color</li>
-						<li>I hate escape</li>
-						<li>Each annoyance has a reason</li>
+						<li>Turn on the mouse <code>set mouse=a</code></li>
+						<li>Turn on syntax highlighting <code>syntax on</code></li>
+						<li>Set your background color <code>set bg=dark</code></li>
+						<li>I hate escape --TODO I put this here as for a general introduction to key bindings</li>
 					</ul>
 				</section>
 				<section id="copy-and-paste" class="slide level1">
 					<h1>Copy and Paste</h1>
-					<ul>
-						<li>Forget Copy and Paste</li>
-						<li>Think registers
-							<ul>
-								<li>You now have 20 copy buffers</li>
-							</ul></li>
-							<li><code>&quot;+</code> register</li>
-							<li><code>:reg</code> - view the contents of registers</li>
-							<li><code>^r</code> in insert mode puts the register</li>
-					</ul>
+					<p>--TODO this slide doesn't seem to offer very practical examples --TODO there's also quite a lot of content on registers, which I actually don't use all that much. --TODO it is actually one of the features that I tend to use and is a building --TODO block for building complex macros, and it is different than what other editors --TODO use so it is worth spending some time on. Plus, I planned to breeze --TODO through these slides and put them here more as a here is whats possible instead --TODO of a here is how to do every thing. + Forget Copy and Paste + Think registers + You now have 20 copy buffers + <code>&quot;+</code> register + <code>:reg</code> - view the contents of registers + <code>&lt;C-r&gt;</code> in insert mode puts the register</p>
 				</section>
 				<section id="common-registers" class="slide level1">
 					<h1>Common registers</h1>
 					<ul>
-						<li><code>&quot;[1-9]</code> history buffers</li>
-						<li><code>&quot;0</code> the yank buffer</li>
+						<li><code>&quot;[1-9]</code> history registers</li>
+						<li><code>&quot;0</code> the yank register</li>
 						<li><code>&quot;[a-z]</code> named registers</li>
 						<li><code>&quot;[A-Z]</code> same as &quot;[a-z] but append</li>
 					</ul>
@@ -144,24 +122,55 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 				<section id="read-only-registers" class="slide level1">
 					<h1>Read-only registers</h1>
 					<ul>
-						<li><code>&quot;:</code> last Ex command</li>
+						<li><code>&quot;:</code> last <code>:</code> command</li>
 						<li><code>&quot;.</code> last inserted text</li>
-						<li><code>&quot;%</code> filename of the current buffer.<br /></li>
+						<li><code>&quot;%</code> filename of the current buffer.</li>
 						<li><code>&quot;#</code> filename of the alternate file
 							<ul>
 								<li>More on that in a minute</li>
 							</ul></li>
 					</ul>
 				</section>
+				<section id="macros" class="slide level1">
+					<h1>Macros</h1>
+					<ul>
+						<li><code>.</code> short macro operator</li>
+						<li><code>qa</code> record a macro in register <code>a</code></li>
+						<li><code>q</code> end recording a macro</li>
+						<li><code>@a</code> execute the macro in register <code>a</code></li>
+					</ul>
+				</section>
 				<section id="multiple-files" class="slide level1">
 					<h1>Multiple Files</h1>
 					<ul>
 						<li>Use buffers, windows, and tabs</li>
-						<li><code>^w</code> is prefixes most &quot;window&quot; commands</li>
-						<li>very handy for viewing multiple files</li>
-						<li>argdo, bufdo, tabdo</li>
-						<li>:vsp, :sp, :res :bn :bd :bp</li>
-						<li>:b will change the buffer</li>
+						<li><code>:argdo</code>, <code>:bufdo</code>, <code>:tabdo</code></li>
+					</ul>
+				</section>
+				<section id="windows" class="slide level1">
+					<h1>Windows</h1>
+					<ul>
+						<li>very handy for viewing multiple files at once</li>
+						<li><code>&lt;C-w&gt;</code> is prefixes most &quot;window&quot; commands</li>
+						<li><code>:vsp</code> vertical split</li>
+						<li><code>:sp</code> horizontal split</li>
+						<li><code>[vert] res</code> resize windows</li>
+					</ul>
+				</section>
+				<section id="buffers" class="slide level1">
+					<h1>Buffers</h1>
+					<ul>
+						<li><code>set hidden</code></li>
+						<li><code>:bn</code>, <code>:bd</code>, <code>:bp</code></li>
+						<li><code>:b</code> will change the buffer</li>
+					</ul>
+				</section>
+				<section id="tabs" class="slide level1">
+					<h1>Tabs</h1>
+					<ul>
+						<li>Useful for holding different sets of windows</li>
+						<li><code>gt</code> go the next tab</li>
+						<li><code>:tabnew</code> create a new tab</li>
 					</ul>
 				</section>
 				<section id="syntax-completion" class="slide level1">
@@ -169,10 +178,10 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 					<ul>
 						<li>Syntax Completion
 							<ul>
-								<li><code>^n</code> - Next default completion</li>
-								<li><code>^p</code> - Previous default completion</li>
+								<li><code>&lt;C-n&gt;</code> - Next default completion</li>
+								<li><code>&lt;C-p&gt;</code> - Previous default completion</li>
 							</ul></li>
-							<li>Omni-completion <code>^x^o</code>
+							<li>Omni-completion <code>&lt;C-x&gt;&lt;C-o&gt;</code>
 								<ul>
 									<li>C (limited C++)</li>
 									<li>CSS, HTML, XHTML, JS</li>
@@ -183,40 +192,57 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 				<section id="programming-completion" class="slide level1">
 					<h1>Programming Completion</h1>
 					<ul>
-						<li><code>^x^f</code> File paths</li>
-						<li><code>^x^d</code> Definition</li>
-						<li><code>^x^]</code> Tags</li>
-						<li><code>^x^i</code> Keywords</li>
-						<li><code>^x^l</code> lines</li>
+						<li><code>&lt;C-x&gt;&lt;C-f&gt;</code> File paths</li>
+						<li><code>&lt;C-x&gt;&lt;C-d&gt;</code> Definition</li>
+						<li><code>&lt;C-x&gt;&lt;C-]&gt;</code> Tags</li>
+						<li><code>&lt;C-x&gt;&lt;C-i&gt;</code> Keywords</li>
+						<li><code>&lt;C-x&gt;&lt;C-l&gt;</code> lines</li>
 					</ul>
 				</section>
 				<section id="other-completions" class="slide level1">
 					<h1>Other Completions</h1>
 					<ul>
-						<li><code>^x^t</code> Thesaurus</li>
-						<li><code>^x^k</code> Dictionary</li>
-						<li><code>^x^s</code> Spelling</li>
-						<li><code>^x^v</code> Vim commands</li>
+						<li><code>&lt;C-x&gt;&lt;C-t&gt;</code> Thesaurus</li>
+						<li><code>&lt;C-x&gt;&lt;C-k&gt;</code> Dictionary</li>
+						<li><code>&lt;C-x&gt;&lt;C-s&gt;</code> Spelling</li>
+						<li><code>&lt;C-x&gt;&lt;C-v&gt;</code> Vim commands</li>
 					</ul>
+				</section>
+				<section id="templates" class="slide level1">
+					<h1>Templates</h1>
+					<p>--TODO I moved this up to allow for a cleaner segue + <code>0r ~/path/to/template</code> + Reads in a template to new files + Can be blocked on file type using autocmds</p>
 				</section>
 				<section id="snippets" class="slide level1">
 					<h1>Snippets</h1>
 					<ul>
 						<li>Abbreviations will do simple snippets</li>
 						<li><code>:ab</code> create/view abbreviations</li>
-						<li>Snipmate and Ultisnips
+						<li>Snipmate and Ultisnips --TODO could use this to segue into plugins --TODO I agree I'll put it here
 							<ul>
 								<li>Better snippets support</li>
 								<li>Provide advanced completion features</li>
 							</ul></li>
 					</ul>
 				</section>
-				<section id="templates" class="slide level1">
-					<h1>Templates</h1>
+				<section id="plugins-and-plugin-managers" class="slide level1">
+					<h1>Plugins and Plugin Managers</h1>
 					<ul>
-						<li><code>0r ~/path/to/template</code></li>
-						<li>Reads in a template to new files</li>
-						<li>Can be blocked on file type</li>
+						<li>Vim is extensible via plugins</li>
+						<li>Can be written in <code>vimscript</code> and other languages</li>
+						<li>stored in <code>~/.vim</code></li>
+						<li><code>vundle</code> great plugin manager</li>
+						<li>Often prefixed by <code>&lt;LEADER&gt;</code></li>
+					</ul>
+				</section>
+				<section id="some-useful-plugins" class="slide level1">
+					<h1>Some Useful Plugins</h1>
+					<ul>
+						<li><code>scrooloose/NERDTree</code> better file manager</li>
+						<li><code>scrooloose/syntastic</code> check syntax while typing</li>
+						<li><code>tpope/vim-fugitive</code> git interaction</li>
+						<li><code>tpope/vim-surround</code> More motions</li>
+						<li><code>SirVer/ultisnips</code> Better snippets</li>
+						<li><code>honza/vim-snippets</code> Some useful standard snippets</li>
 					</ul>
 				</section>
 				<section id="navigating-large-code-bases" class="slide level1">
@@ -224,8 +250,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 					<ul>
 						<li>Ctags
 							<ul>
-								<li><code>^]</code> go to tag under cursor</li>
-								<li><code>^T</code> go back to last place</li>
+								<li><code>&lt;C-]&gt;</code> go to tag under cursor</li>
+								<li><code>&lt;C-T&gt;</code> go back to last place</li>
 								<li><code>:tags</code> show the tag stack</li>
 							</ul></li>
 							<li>Cscope
@@ -237,7 +263,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 					</ul>
 				</section>
 				<section id="using-vim-to-test-faster" class="slide level1">
-					<h1>Using vim to Test faster</h1>
+					<h1>Using Vim to Test faster</h1>
 					<ul>
 						<li><code>:make &lt;make_target&gt;</code></li>
 						<li><code>:set makeprg</code></li>
@@ -246,26 +272,9 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 						<li><code>:shell</code></li>
 					</ul>
 				</section>
-				<section id="but-vim-does-have-x-feature" class="slide level1">
-					<h1>But Vim does have X feature</h1>
-					<ul>
-						<li>It may be a feature</li>
-						<li>Separation of concerns
-							<ul>
-								<li>Uses Cindent for indenting</li>
-								<li>Uses Ctags for tag management</li>
-							</ul></li>
-							<li>Try Emacs</li>
-					</ul>
-				</section>
 				<section id="further-resources" class="slide level1">
 					<h1>Further Resources</h1>
-					<ul>
-						<li>Practical Vim by Drew Neil</li>
-						<li>Vimcasts by Drew Neil</li>
-						<li>vimtips wiki</li>
-						<li><code>:help</code></li>
-					</ul>
+					<p>--TODO include hyperlinks + Practical Vim by Drew Neil + Vimcasts by Drew Neil + Vimtips wiki + <code>:help</code> -- an incredible resource!</p>
 				</section>
 				<section id="questions" class="slide level1">
 					<h1>Questions</h1>
