@@ -7,21 +7,21 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+		<link rel="stylesheet" href="../reveal.js/css/reveal.min.css"/>
 		<style type="text/css">code{white-space: pre;}</style>
-		<link rel="stylesheet" href="reveal.js/css/theme/moon.css"/>
+		<link rel="stylesheet" href="../reveal.js/css/theme/moon.css"/>
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
 if( window.location.search.match( /print-pdf/gi ) ) {
 	var link = document.createElement( 'link' );
 	link.rel = 'stylesheet';
 	link.type = 'text/css';
-	link.href = 'reveal.js/css/print/pdf.css';
+	link.href = '../reveal.js/css/print/pdf.css';
 	document.getElementsByTagName( 'head' )[0].appendChild( link );
 }
 		</script>
 		<!--[if lt IE 9]>
-	  <script src="reveal.js/lib/js/html5shiv.js"></script>
+	  <script src="../reveal.js/lib/js/html5shiv.js"></script>
 	  <![endif]-->
 	</head>
 	<body>
@@ -80,14 +80,14 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 						<li>To take elements to make up a whole</li>
 						<li>Actions and Motions
 							<ul>
-								<li>Motions move the cursor</li>
 								<li>Actions do something</li>
+								<li>Motions move the cursor</li>
 							</ul></li>
 							<li>most commands are composed of Action and Motion</li>
 					</ul>
 				</section>
-				<section id="other-common-motions" class="slide level1">
-					<h1>Other Common Motions</h1>
+				<section id="common-motions" class="slide level1">
+					<h1>Common Motions</h1>
 					<ul>
 						<li>blocks <code>w</code>, <code>s</code>, <code>p</code>, <code>b</code>, <code>B</code>,</li>
 						<li><code>|</code> column</li>
@@ -102,7 +102,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 					<ul>
 						<li>A bad way of doing something that becomes habit
 							<ul>
-								<li><code>ddo</code> instead of <code>C</code></li>
+								<li><code>ddO</code> instead of <code>S</code></li>
 							</ul></li>
 					</ul>
 				</section>
@@ -178,7 +178,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 					<h1>Windows</h1>
 					<ul>
 						<li>very handy for viewing multiple files at once</li>
-						<li><code>&lt;C-w&gt;</code> is prefixes most &quot;window&quot; commands</li>
+						<li><code>&lt;C-w&gt;</code> prefixes most &quot;window&quot; commands</li>
 						<li><code>:vsp</code> vertical split</li>
 						<li><code>:sp</code> horizontal split</li>
 						<li><code>[vert] res</code> resize windows</li>
@@ -187,16 +187,19 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 				<section id="buffers" class="slide level1">
 					<h1>Buffers</h1>
 					<ul>
+						<li><code>:ls</code></li>
 						<li><code>set hidden</code></li>
 						<li><code>:bn</code>, <code>:bd</code>, <code>:bp</code></li>
-						<li><code>:b</code> will change the buffer</li>
+						<li><code>:b&lt;num&gt;</code> change to buffer number</li>
+						<li><code>:b &lt;name&gt;</code> fuzzy match buffer change</li>
 					</ul>
 				</section>
 				<section id="tabs" class="slide level1">
 					<h1>Tabs</h1>
 					<ul>
 						<li>Useful for holding different sets of windows</li>
-						<li><code>gt</code> go the next tab</li>
+						<li><code>gt</code> go to the next tab</li>
+						<li><code>gT</code> go to the previous tab</li>
 						<li><code>:tabnew</code> create a new tab</li>
 					</ul>
 				</section>
@@ -320,8 +323,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 		</div>
 
 
-		<script src="reveal.js/lib/js/head.min.js"></script>
-		<script src="reveal.js/js/reveal.min.js"></script>
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.min.js"></script>
 
 		<script>
 
@@ -335,13 +338,13 @@ Reveal.initialize({
 	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 	transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-		// Optional libraries used to extend on reveal.js
+		// Optional libraries used to extend on ../reveal.js
 	dependencies: [
-	{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-	{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-	{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-		//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
-		//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+	{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+	{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+		//          { src: '../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+		//          { src: '../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 	]});
 		</script>
 	</body>
