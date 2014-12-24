@@ -50,11 +50,11 @@ Composability
 --TODO concept that makes understanding the rest of the editor easier
 +   To take elements to make up a whole
 +   Actions and Motions
-    +   Motions move the cursor
     +   Actions do something
+    +   Motions move the cursor
 +   most commands are composed of Action and Motion 
 
-Other Common Motions
+Common Motions
 ===================
 +	blocks `w`, `s`, `p`, `b`, `B`, 
 +	`|` column
@@ -68,7 +68,7 @@ Antipatterns
 --TODO maybe include some numbers on just how important it is to be efficient?
 --TODO I don't have any specific numbers, just a concept I wanted to introduce
 +   A bad way of doing something that becomes habit
-    +   `ddo` instead of `C`
+    +   `ddO` instead of `S`
 
 Fixing Some Common Annoyances
 =============================
@@ -133,7 +133,7 @@ Windows
 =======
 
 +	very handy for viewing multiple files at once
-+   `<C-w>` is prefixes most "window" commands
++   `<C-w>` prefixes most "window" commands
 +	`:vsp` vertical split
 +	`:sp` horizontal split
 +	`[vert] res` resize windows
@@ -142,15 +142,18 @@ Windows
 Buffers
 =======
 
++	`:ls`
 +	`set hidden` 
 +   `:bn`, `:bd`, `:bp`
-+   `:b` will change the buffer
++   `:b<num>` change to buffer number
++	`:b <name>` fuzzy match buffer change
 
 Tabs
 ====
 
 +	Useful for holding different sets of windows
-+	`gt` go the next tab
++	`gt` go to the next tab
++	`gT` go to the previous tab
 +	`:tabnew` create a new tab
 
 Syntax Completion
