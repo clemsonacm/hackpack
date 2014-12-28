@@ -69,6 +69,8 @@ Antipatterns
 --TODO I don't have any specific numbers, just a concept I wanted to introduce
 +   A bad way of doing something that becomes habit
     +   `ddO` instead of `S`
+	+	`dbx` instead of `daw`
+	+	`f<lvt>U` instead of `gUit`
 
 Fixing Some Common Annoyances
 =============================
@@ -89,7 +91,7 @@ Copy and Paste
 --TODO of a here is how to do every thing.
 +   Forget Copy and Paste
 +   Think registers
-    +   You now have 20 copy buffers
+    +   You now have 35 copy buffers
 +   `"+` register 
 +   `:reg` - view the contents of registers
 +   `<C-r>` in insert mode puts the register
@@ -134,8 +136,8 @@ Windows
 
 +	very handy for viewing multiple files at once
 +   `<C-w>` prefixes most "window" commands
-+	`:vsp` vertical split
-+	`:sp` horizontal split
++	`:vsp`, `<C-w><C-v>` vertical split
++	`:sp`, <C-w><c-s>` horizontal split
 +	`[vert] res` resize windows
 
 
@@ -144,7 +146,7 @@ Buffers
 
 +	`:ls`
 +	`set hidden` 
-+   `:bn`, `:bd`, `:bp`
++   `:bn`, `:bd`, `:bp`, `<C-^>`
 +   `:b<num>` change to buffer number
 +	`:b <name>` fuzzy match buffer change
 

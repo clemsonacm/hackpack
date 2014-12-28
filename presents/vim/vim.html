@@ -7,21 +7,21 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<link rel="stylesheet" href="../reveal.js/css/reveal.min.css"/>
+		<link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
 		<style type="text/css">code{white-space: pre;}</style>
-		<link rel="stylesheet" href="../reveal.js/css/theme/moon.css"/>
+		<link rel="stylesheet" href="reveal.js/css/theme/moon.css"/>
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
 if( window.location.search.match( /print-pdf/gi ) ) {
 	var link = document.createElement( 'link' );
 	link.rel = 'stylesheet';
 	link.type = 'text/css';
-	link.href = '../reveal.js/css/print/pdf.css';
+	link.href = 'reveal.js/css/print/pdf.css';
 	document.getElementsByTagName( 'head' )[0].appendChild( link );
 }
 		</script>
 		<!--[if lt IE 9]>
-	  <script src="../reveal.js/lib/js/html5shiv.js"></script>
+	  <script src="reveal.js/lib/js/html5shiv.js"></script>
 	  <![endif]-->
 	</head>
 	<body>
@@ -103,6 +103,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 						<li>A bad way of doing something that becomes habit
 							<ul>
 								<li><code>ddO</code> instead of <code>S</code></li>
+								<li><code>dbx</code> instead of <code>daw</code></li>
+								<li><code>f&lt;lvt&gt;U</code> instead of <code>gUit</code></li>
 							</ul></li>
 					</ul>
 				</section>
@@ -121,7 +123,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 						<li>Forget Copy and Paste</li>
 						<li>Think registers
 							<ul>
-								<li>You now have 20 copy buffers</li>
+								<li>You now have 35 copy buffers</li>
 							</ul></li>
 							<li><code>&quot;+</code> register</li>
 							<li><code>:reg</code> - view the contents of registers</li>
@@ -179,8 +181,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 					<ul>
 						<li>very handy for viewing multiple files at once</li>
 						<li><code>&lt;C-w&gt;</code> prefixes most &quot;window&quot; commands</li>
-						<li><code>:vsp</code> vertical split</li>
-						<li><code>:sp</code> horizontal split</li>
+						<li><code>:vsp</code>, <code>&lt;C-w&gt;&lt;C-v&gt;</code> vertical split</li>
+						<li><code>:sp</code>, <C-w><c-s>` horizontal split</li>
 						<li><code>[vert] res</code> resize windows</li>
 					</ul>
 				</section>
@@ -189,7 +191,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 					<ul>
 						<li><code>:ls</code></li>
 						<li><code>set hidden</code></li>
-						<li><code>:bn</code>, <code>:bd</code>, <code>:bp</code></li>
+						<li><code>:bn</code>, <code>:bd</code>, <code>:bp</code>, <code>&lt;C-^&gt;</code></li>
 						<li><code>:b&lt;num&gt;</code> change to buffer number</li>
 						<li><code>:b &lt;name&gt;</code> fuzzy match buffer change</li>
 					</ul>
@@ -323,8 +325,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 		</div>
 
 
-		<script src="../reveal.js/lib/js/head.min.js"></script>
-		<script src="../reveal.js/js/reveal.min.js"></script>
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.min.js"></script>
 
 		<script>
 
@@ -338,13 +340,13 @@ Reveal.initialize({
 	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 	transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-		// Optional libraries used to extend on ../reveal.js
+		// Optional libraries used to extend on reveal.js
 	dependencies: [
-	{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-	{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-	{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-		//          { src: '../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
-		//          { src: '../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+	{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+	{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+		//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+		//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 	]});
 		</script>
 	</body>
