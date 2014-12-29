@@ -28,6 +28,7 @@ pattern scanning and processing
 +	`END {action}` executes after the file is processed
 +	patterns are based on `re_format`
 +	missing patterns always match, missing actions always print
++	`perl` 
 
 example awk script
 ==================
@@ -46,6 +47,7 @@ gluing programs together
 +	`&> dest` redirect stderr and stdout to dest
 +	`word` executes word in a subshell first
 +	support `for` and `while` loops
++	`zsh`, `fish`
 
 example bash script
 ===================
@@ -67,6 +69,7 @@ running jobs at fixed times
 +	`crontab -e` edit user crontab
 +	persistent crontab; system dependent location
 +	_warning_ cron ignores _all_ environment variables
++	`anacron` and `systemd` timers
 
 example crontab
 ===============
@@ -83,6 +86,7 @@ find files on the file system
 
 +	can be filtered by user, size, time, name
 +	can be used to preform batch operations
++	`locate`
 
 	find /etc -user acm -size +2G -mtime -2w
 
@@ -96,6 +100,7 @@ cross compile C, C++, Fortran, Ada, and java (apparently)
 +	`-g` turn on debug flags
 +	`-D` Conditional compilation
 +	`<machine>-gcc-<version>` for cross-compilation
++	`clang`
 
 gdb
 ====
@@ -105,6 +110,7 @@ Debug C and C++ code
 +	use the `set` command to force a value
 +	can be run in a batch mode `-batch -x script`
 +	_warning_ ignores arguments in batch mode
+--TODO Does there exist a gdb like debugger?
 
 gdb script
 ==========
@@ -125,6 +131,7 @@ Find pattern in a text
 +	`-c` print number of matches
 +	`-e` specify multiple patterns
 +	`--exclude` ignore file paths
++	`ack` and `ag`
 
 make
 ====
@@ -135,6 +142,8 @@ Intelligently compile, test, and install
 +	dependencies - what must be built first
 +	rules - how to build it	
 +	tabs only before rules
+--TODO autotools really works in conjunction with make.
++	`autotools` `cmake`
 
 makefile example
 ================
@@ -155,6 +164,7 @@ Connect to a remote computer
 +	`ssh-copy-id user@host` send them to remote machines
 +	`-YC` forward X11 compressed
 +	takes an optional command argument last
+--TODO Is there a good ssh replacement? remote desktop protocal?
 
 	ssh acm@joey1.cs.clemson.edu ls 
 
@@ -164,6 +174,7 @@ Copy files to and from remote locations
 
 +	`-r` recursive
 +	`user@location:path`
++	`rsync`
 
 	scp -r acm@access.cs.clemson.edu:/repos/clemson-acm .
 
@@ -171,6 +182,13 @@ Copy files to and from remote locations
 tmux
 ====
 Terminal Multiplexer
+
++	`tmux new -s SESSION` 
++	`tmux attach [-t SESSION]`
++	`tmux detach` or `<C-b> d`
++	`tmux split-window` or `<C-b> "` or <C-b> %`
++	`tmux select-pane` or `<C-b> o`
++	`screen` 
 
 
 sudo
@@ -182,6 +200,8 @@ Request root privileges
 +	`-u user` run command as user
 +	`visudo` edit the sudoers file
 +	`user host = (useralias) commandspec`
+--TODO not really an alternative but related; also a HUGE pain
++	`selinux`
 
 sudoers file
 =============
@@ -205,6 +225,7 @@ Control system processes
 +	`reload` reload a service
 +	`status` get the status of a process
 +	`isolate` change target
++	`sysVinit`, `syslog`, `network-manager`, etc
 
 Systemctl unitfile
 ==================
@@ -232,20 +253,25 @@ Create and extract archives
 +	`-z` use gzip compressed _faster_
 +	`-v` list files as stored/extracted
 +	`-f` output file
++	`zip`
 
 time
 ====
 time how long it takes a program to execute
 
 +	`time tar -czf foobar`
+--TODO what do we do for a replacement?  we could list a better profiler.
 
 valgrind
 ========
 A debugger that detects memory leaks and other profiling
+--TODO only real replacement I know is GDB/profiling tools.
++	`gdb`
 
 	valgrind --leak-check=yes program-name
 	valgrind --tool=callgrind program-name
 	valgrind --tool=cachegrind program-name
+
 
 watch
 ======
@@ -254,6 +280,7 @@ repeatedly print the output of a command
 +	`-n` Change the update interval
 +	`-d` highlight differences
 +	`watch -n 1 ls -r`
++	`grunt`
 
 wget
 ====
@@ -262,7 +289,10 @@ Download file from the Internet
 +	`-c` continue the download
 +	`-r` recursively download files
 +	`-N` only download _new_ files
-+	`wget -N www.google.com`
++	`curl`
+
+	wget -N www.google.com
+
 
 xargs
 ======
@@ -271,12 +301,14 @@ Construct argument lists
 +	`-P maxprocs` run commands in parallel	
 +	`-s size` limits argument size; default size 4096 bytes
 +	`-n number` max number of arguments
+--TODO i don't know a good replacement other than writing a script
 
 	find src/215 -name "*.java"|xargs wc -l
 
 Further Resources
 =================
 +   [Grymoire](http://www.grymoire.com/)
++   [Archwiki](http://www.grymoire.com/)
 
 Questions
 =======
