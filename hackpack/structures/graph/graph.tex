@@ -48,6 +48,7 @@ For all run times, $N$ is the number of nodes, and $M$ is the number of edges.
     \item Centrality
 \end{itemize}
 
+#ifdef hackpackpp
 \subsection{Sample Contest Problem, The Cows Escape}
 Farmer John's Farm has become infested with Zombies!
 Farmer John being slightly out of shape wants to take the shortest amount of time to escape the zombies.
@@ -76,11 +77,18 @@ Help Farmer John find the shortest time it will take Farmer John to escape his f
 
 \subsubsection{Sample Output}
 \acmlisting[caption=The Cows Escape Sample Output, label= The Cows Escape Sample Output]{./structures/graph/problems/escape/escape.out}
-
 \subsubsection{Sample Solution}
+#endif
+
+#ifdef hackpack
+\subsection{Dijkstra in a graph}
+#endif
 \acmlisting[caption=The Cows Escape Sample Solution, label= The Cows Escape Sample Solution]{./structures/graph/problems/escape/escape.cpp}
 
+#ifdef hackpackpp
 \subsubsection{Lessons Learned}
 \begin{itemize}
 	\item Dijkstra can be solved using a priority queue using $O(N \log N)$ time.
 \end{itemize}
+#endif
+
