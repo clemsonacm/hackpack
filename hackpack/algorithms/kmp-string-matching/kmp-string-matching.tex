@@ -1,0 +1,268 @@
+\section{Knuth-Morris-Pratt String Matching}\index{string matching!Knuth-Morris-Pratt (KMP) algorithm}
+This algorithm is a method that improves upon string searches by using information about the keyword itself to determine where a failed search should continue.
+Prior to beginning a search, a table of values is computed.
+In this table (called the partial match table) are the lengths of the longest proper prefixes that match the longest proper suffixes up to the given permutation of characters.
+They also determine the number of indices the algorithm should advance should the very \textbf{next} character match fail.
+Because these prefixes and suffixes match, and the prefix is always the first characters of the keyword, the positions of the suffixes are where the algorithm can begin yet another matching sequence.
+
+For example, let us consider the string 'abababcd'.
+Throughout the construction of the table, we consider the first N characters of the string to yield the substring we want to analyze.
+
+\begin{description}
+\item[$N = 1$ 'a']
+This substring contains only one character and can contain a neither a proper prefix nor a proper suffix, therefore, we set the first index to 0.
+
+\item[$N = 2$ 'ab']
+There is only one proper prefix ('a') and one proper suffix ('b'), and they do not match, therefore, this one is set to 0 as well.
+
+\item[$N = 3$ 'aba']
+Now, we have two prefixes, 'a' and 'ab', and two suffixes, 'a' and 'ba'.
+While, 'ab' and 'ba' do not match, 'a' and 'a' do.
+So, this time, we can set the value to 1, because that is the length of the longest match.
+Now, upon failing to match the next character, the algorithm will refer to this value and jump to matching this character by simply subtracting this number from the sum of the length of the partial match and the starting index of the partial match.
+
+\item[$N = 4$ 'abab']
+Prefixes: 'a', 'ab', and 'aba'.
+Suffixes: 'b', 'ab', and 'bab'.
+Perusing the substrings in decreasing length, 'ab' provides a match. The value is set to 2.
+
+\item[$N = 5$ 'ababa']
+Prefixes: 'a', 'ab', 'aba', and 'abab'.
+Suffixes: 'a', 'ba', 'aba', and 'baba'.
+The longest match here is 'aba', with a length of 3.
+
+\item[$N = 6$ 'ababab']
+Prefixes: 'a', 'ab', 'aba', 'abab', and, 'ababa'.
+Suffixes: 'b', 'ab', 'bab', 'abab', and, 'babab'.
+This time, the longest match is 'abab', so we set a value of 4.
+
+\item[$N = 7$ 'abababc']
+Prefixes: 'a', 'ab', 'aba', 'abab', 'ababa', and 'ababab'.
+Suffixes: 'c', 'bc', 'abc', 'babc', 'ababc', and 'bababc'.
+In this case, there are no matches, so the value is zero.
+
+\item[$N = 8$ 'abababcd']
+Prefixes: 'a', 'ab', 'aba', 'abab', 'ababa', 'ababab', and 'abababc'
+Suffixes: 'd', 'cd', 'bcd', 'abcd', 'babcd', 'ababcd', and 'bababcd'
+There are no matching substrings; the value here is zero.
+\end{description}
+
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{ | c | c | c | c | c | c | c | c | c | }
+			\hline
+			i     & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+			W[i]  & a & b & a & b & a & b & c & d \\ \hline
+			T[i]  & 0 & 0 & 1 & 2 & 3 & 4 & 0 & 0 \\ \hline
+		\end{tabular}
+		\caption{The computed partial match table for the string.
+		W is the string for which the table is computed and T is the partial match table itself.}
+	\end{center}
+\end{table}
+
+As mismatches occur, and by consulting this table of values, the KMP algorithm dictates where to resume the search for the desired keyword again.
+Suppose that the algorithm is currently matching against the string 'ababaccabcdefg'.
+Immediately, it will attempt to match the first eight characters against our chosen keyword 'abababcd'.
+Of course, during this process, it will realize that this is a mismatch when matching the string's 6\textsuperscript{th} character ('c') against the keyword's (b).
+Instead of resuming the search at the second character of the string, the algorithm consults the table.
+If, during the search, the algorithm passed by the start of another possible match, the table can tell exactly where the start of that match begins at relative to what index the initial mismatch occurred.
+
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c | c | c | c | }
+			\hline
+			0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 \\ \hline
+			a & b & a & b & a & c & c & a & b & c & d & e & f & g \\ \hline
+			| & | & | & | & | & X &   &   &   &   &   &   &   &   \\ \hline
+			a & b & a & b & a & b & c & d &   &   &   &   &   &   \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+In this case, our partial match got as far as five characters before encountering a problem.
+Using the table, we discover how far the matching should backtrack with $P[l - 1]$ where $P$ is the partial match table and $l$ is the length of the partial match.
+In this case, the search resumes the matching process after moving $l - P[l - 1]$ characters from where the match started, where $l$ is the length of the partial match and $P$ is the partial match table.
+So, the algorithm will move its search $5 - P[5 - 1] = 5 - P[4] = 5 - 3 = 2$ characters from where it is currently.
+
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c | c | c | c | }
+			\hline
+			0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 \\ \hline
+			a & b & a & b & a & c & c & a & b & c & d & e & f & g \\ \hline
+			  &   & | & | & | & X &   &   &   &   &   &   &   &   \\ \hline
+			  &   & a & b & a & b & a & b & c & d &   &   &   &   \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Matching resumes at index 2 and this time fails after getting a partial match length of 3.
+Therefore, we advance by $3 - P[3 - 1] = 3 - 1 = 2$ characters.
+
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c | c | c | c | }
+			\hline
+			0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 \\ \hline
+			a & b & a & b & a & c & c & a & b & c & d & e & f & g \\ \hline
+			  &   &   &   & | & X &   &   &   &   &   &   &   &   \\ \hline
+			  &   &   &   & a & b & a & b & a & b & c & d &   &   \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+The match soon fails after only obtaining a partial match length of one.
+Because $1 - P[1 - 1] = 0$, this means we move forward only as far as the partial match extended.
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c | c | c | c | }
+			\hline
+			0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 \\ \hline
+			a & b & a & b & a & c & c & a & b & c & d & e & f & g \\ \hline
+			  &   &   &   &   & X &   &   &   &   &   &   &   &   \\ \hline
+			  &   &   &   &   & a & b & a & b & a & b & c & d &   \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+No matches here.
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c | c | c | c | }
+			\hline
+			0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 \\ \hline
+			a & b & a & b & a & c & c & a & b & c & d & e & f & g \\ \hline
+			  &   &   &   &   &   & X &   &   &   &   &   &   &   \\ \hline
+			  &   &   &   &   &   & a & b & a & b & a & b & c & d \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Finally, there is no match at this point here.
+Because the rest of the text is shorter than the search query, we stop searching.
+We have determined that the keyword is not present.
+
+The KMP algorithm (as it is commonly known as) has two distinct parts.
+The first, constructing the partial match table, as exemplified above, requires $O(m)$ time.
+The second, the actual string matching portion, takes $O(n)$ time.
+Therefore, the running time of the algorithm can be described as $O(m + n)$.
+
+\subsection{Applications}
+\begin{itemize}
+	\item More efficient string searches.
+\end{itemize}
+
+\subsection{Example Contest Problem: The Fine Print}
+Due to his excessive milking of the cows without appropriate compensation, Farmer John has, unsurprisingly, received an ultimatum from the cows.
+If the two parties cannot come to an agreement, Farmer John risks internal insurgency.
+Though he is willing to reduce his demands and compensate them with more grazing time, the document he has received is unbearably lengthy.
+
+Farmer John can recall that, lately, the cows have been nagging him to build a swimming pool.
+Therefore, it is likely that a condition has been added to force him to concede to building this pool.
+
+To save Farmer John from a long night (he works early mornings) find out if anything about a 'pool' has been added anywhere.
+
+\subsubsection{Input}
+\begin{itemize}
+	\item Line 1: Text from standard input representing the legal document terminated with an EOF.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[label=The Fine Print Input, caption=The Fine Print Input, linerange={1-2,1026-1032,1374-1377}]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.in}
+
+\subsubsection{Output}
+\begin{itemize}
+	\item Line 1:
+	\begin{itemize}
+		\item The sentence containing 'pool' if it exists. All sentences within the text end in a period.
+		\item The string ''The agreement does not mention a pool.'' if a sentence containing 'pool' doesn't exist.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[label=The Fine Print Output, caption=The Fine Print Output]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.out}
+
+\subsubsection{Example Solution}
+\acmlisting[label=The Fine Print Solution, caption=The Fine Print Solution]{./algorithms/kmp-string-matching/problems/fine-print/fine-print.cpp}
+
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item $O(m)$ is needed to build the partial match table.
+	\item Just the partial match table can be a useful addition when solving problems that involve finding partial matches themselves.
+\end{itemize}
+
+\subsection{Example Contest Problem: DNA Splicing}
+The No-bonez alien race has descended upon Farmer John's beloved cows!
+Rather than abducting them though, they have begun experimenting on them genetically.
+By splicing Farmer John's cow's DNA with their own cows, the aliens hope to accomplish some unknown objective.
+With the help of the local geneticist, Farmer John can save all of his cows.
+To do so, he must identify the alien DNA and remove it.
+
+DNA sequences are composed of different combinations of 'A', 'T', 'C', and 'G'.
+The alien DNA can be easily be identified because it always begins and ends with the inert sequence marker \mbox{'TATATTGCCGTTACG'}.
+Between the headers and footers lies the foreign DNA that must be removed.
+
+Remove the alien DNA and save all of Farmer John's cows.
+
+\subsubsection{Input}
+\begin{itemize}
+\item Line 1: Text from standard input representing the cow's DNA sequence spliced with the alien cow's DNA..
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[label=DNA Splicing Input, caption=DNA Splicing Input]{./algorithms/kmp-string-matching/problems/dna-splice/dna-splice.in}
+
+\subsubsection{Output}
+\begin{itemize}
+\item Line 1: The cow's DNA sequence with the alien DNA removed.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[label=DNA Splicing Output, caption=DNA Splicing Output]{./algorithms/kmp-string-matching/problems/dna-splice/dna-splice.out}
+
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item Besides using the KMP string matching algorithm, another common way of approaching string matching is hashing.
+\end{itemize}
+
+\subsection{ACM Contest Problem: Tandem Repeats\cite{acmsoutheastregional2013}}
+\textit{Tandem repeats} occur in DNA when a pattern of one or more nucleotides is repeated, and the repetitions are directly adjacent to each other.
+For example, consider the sequence:
+\begin{center}
+	\sethlcolor{gray}
+	ATTCGATTCGATTCG\\
+	This contains nine tandem repeats:\\
+	\hl{ATTCGATTCG}ATTCG\\
+	A\hl{TTCGATTCGA}TTCG\\
+	AT\hl{TCGATTCGAT}TCG\\
+	ATT\hl{CGATTCGATT}CG\\
+	ATTC\hl{GATTCGATTC}G\\
+	ATTCG\hl{ATTCGATTCG}\\
+	A\hl{TT}CGATTCGATTCG\\
+	ATTCGA\hl{TT}CGATTCG\\
+	ATTCGATTCGA\hl{TT}CG\\
+\end{center}
+
+Given a nucleotide sequence, how many tandem repeats occur in it?
+
+\subsubsection{Input}
+\begin{itemize}
+	\item There will be several test cases in the input.
+	Each test case will consist of a single string on its own line, with 1 to 100,000 capital letters, consisting only of A, G, T, and C.
+	\item This represents a nucleotide sequence.
+	The input will end with a line with a single 0.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[label=Tandem Repeats Input, caption=Tandem Repeats Input]{./algorithms/kmp-string-matching/problems/tandem-repeats/tandem-repeats.in}
+
+\subsubsection{Output}
+\begin{itemize}
+	\item For each test case, output a single integer on its own line, indicating the number of tandem repeats in the nucleotide sequence.
+	\item Output no spaces, and do not separate answers with blank lines.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[label=Tandem Repeats Output, caption=Tandem Repeats Output]{./algorithms/kmp-string-matching/problems/tandem-repeats/tandem-repeats.out}
