@@ -41,6 +41,7 @@ Depending on what you are doing you will need different tools:
 
 *   `git` - for tracking changes
 *   `g++` - all code samples are in C++98 with C++11 listed as noted
+*   `awk` - text processing tool needed for version directives
 *   `pdflatex` - The Hackpack body is written in LaTeX
 *   `make` - Make is to automate compilation and testing of the documents
 
@@ -116,6 +117,13 @@ For each item in the Hackpack, please include the following in clearly delineate
 8.  References using BibTeX where applicable
 9.  Should be "compiled" properly by pdflatex and the make
 10.  Each sentence must be on a separate line.
+11.  The condensed version of the hackpack should have the following removed:
+    
+    *   Introductions to the topic.
+    *   Guidelines directing the reader to different sections of the hackpack.
+    *   References to contest problems including statement, sample io, and
+        lessons learned, but solutions should remain.
+    *   As much as possible, index tags shoud __NOT__ be removed.
 
 #### Writing Code
 Code Must meet the following standards:
@@ -129,6 +137,12 @@ Code Must meet the following standards:
 6.  Source code must solve a problem:  It should solve a specific problem and
     include all relevant IO and supporting code.  The algorithm should not be in
     a vacuum.
+7.  The condensed hackpack version should have the following removed:
+
+    *   Comments that are not _critical_ to the readers understanding
+    *   All _library_ and `#include` code that can be found in other sections of the hackpack
+    *   All input and output code that is not _critical_ to the readers
+        understanding
 
 #### Writing Tests
 All code must have tests that meet the following requirements
