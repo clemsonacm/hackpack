@@ -57,6 +57,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 						<li><code>END {action}</code> executes after the file is processed</li>
 						<li>patterns are based on <code>re_format</code></li>
 						<li>missing patterns always match, missing actions always print</li>
+						<li><code>perl</code></li>
 					</ul>
 				</section>
 				<section id="example-awk-script" class="slide level1">
@@ -75,6 +76,7 @@ END {print &quot;sum is&quot;, s, &quot; average is&quot;, s/n}</code></pre>
 						<li><code>&amp;&gt; dest</code> redirect stderr and stdout to dest</li>
 						<li><code>word</code> executes word in a subshell first</li>
 						<li>support <code>for</code> and <code>while</code> loops</li>
+						<li><code>zsh</code>, <code>fish</code></li>
 					</ul>
 				</section>
 				<section id="example-bash-script" class="slide level1">
@@ -95,6 +97,7 @@ done</code></pre>
 						<li><code>crontab -e</code> edit user crontab</li>
 						<li>persistent crontab; system dependent location</li>
 						<li><em>warning</em> cron ignores <em>all</em> environment variables</li>
+						<li><code>anacron</code> and <code>systemd</code> timers</li>
 					</ul>
 				</section>
 				<section id="example-crontab" class="slide level1">
@@ -110,7 +113,8 @@ MAILTO=acm
 					<p>find files on the file system</p>
 					<ul>
 						<li>can be filtered by user, size, time, name</li>
-						<li><p>can be used to preform batch operations</p>
+						<li>can be used to preform batch operations</li>
+						<li><p><code>locate</code></p>
 							<p>find /etc -user acm -size +2G -mtime -2w</p></li>
 					</ul>
 				</section>
@@ -124,6 +128,7 @@ MAILTO=acm
 						<li><code>-g</code> turn on debug flags</li>
 						<li><code>-D</code> Conditional compilation</li>
 						<li><code>&lt;machine&gt;-gcc-&lt;version&gt;</code> for cross-compilation</li>
+						<li><code>clang</code></li>
 					</ul>
 				</section>
 				<section id="gdb" class="slide level1">
@@ -154,6 +159,7 @@ end</code></pre>
 						<li><code>-c</code> print number of matches</li>
 						<li><code>-e</code> specify multiple patterns</li>
 						<li><code>--exclude</code> ignore file paths</li>
+						<li><code>ack</code> and <code>ag</code></li>
 					</ul>
 				</section>
 				<section id="make" class="slide level1">
@@ -165,6 +171,7 @@ end</code></pre>
 						<li>dependencies - what must be built first</li>
 						<li>rules - how to build it</li>
 						<li>tabs only before rules</li>
+						<li><code>autotools</code> <code>cmake</code></li>
 					</ul>
 				</section>
 				<section id="makefile-example" class="slide level1">
@@ -193,13 +200,22 @@ test: all
 					<p>Copy files to and from remote locations</p>
 					<ul>
 						<li><code>-r</code> recursive</li>
-						<li><p><code>user@location:path</code></p>
+						<li><code>user@location:path</code></li>
+						<li><p><code>rsync</code></p>
 							<p>scp -r acm@access.cs.clemson.edu:/repos/clemson-acm .</p></li>
 					</ul>
 				</section>
 				<section id="tmux" class="slide level1">
 					<h1>tmux</h1>
 					<p>Terminal Multiplexer</p>
+					<ul>
+						<li><code>tmux new -s SESSION</code></li>
+						<li><code>tmux attach [-t SESSION]</code></li>
+						<li><code>tmux detach</code> or <code>&lt;C-b&gt; d</code></li>
+						<li><code>tmux split-window</code> or <code>&lt;C-b&gt; &quot;</code> or <C-b> %`</li>
+						<li><code>tmux select-pane</code> or <code>&lt;C-b&gt; o</code></li>
+						<li><code>screen</code></li>
+					</ul>
 				</section>
 				<section id="sudo" class="slide level1">
 					<h1>sudo</h1>
@@ -210,6 +226,7 @@ test: all
 						<li><code>-u user</code> run command as user</li>
 						<li><code>visudo</code> edit the sudoers file</li>
 						<li><code>user host = (useralias) commandspec</code></li>
+						<li><code>selinux</code></li>
 					</ul>
 				</section>
 				<section id="sudoers-file" class="slide level1">
@@ -232,6 +249,7 @@ president foobar= sudoedit /etc/crontab</code></pre>
 						<li><code>reload</code> reload a service</li>
 						<li><code>status</code> get the status of a process</li>
 						<li><code>isolate</code> change target</li>
+						<li><code>sysVinit</code>, <code>syslog</code>, <code>network-manager</code>, etc</li>
 					</ul>
 				</section>
 				<section id="systemctl-unitfile" class="slide level1">
@@ -259,6 +277,7 @@ president foobar= sudoedit /etc/crontab</code></pre>
 						<li><code>-z</code> use gzip compressed <em>faster</em></li>
 						<li><code>-v</code> list files as stored/extracted</li>
 						<li><code>-f</code> output file</li>
+						<li><code>zip</code></li>
 					</ul>
 				</section>
 				<section id="time" class="slide level1">
@@ -270,7 +289,7 @@ president foobar= sudoedit /etc/crontab</code></pre>
 				</section>
 				<section id="valgrind" class="slide level1">
 					<h1>valgrind</h1>
-					<p>A debugger that detects memory leaks and other profiling</p>
+					<p>A debugger that detects memory leaks and other profiling + <code>gdb</code></p>
 					<pre><code>valgrind --leak-check=yes program-name
 valgrind --tool=callgrind program-name
 valgrind --tool=cachegrind program-name</code></pre>
@@ -282,6 +301,7 @@ valgrind --tool=cachegrind program-name</code></pre>
 						<li><code>-n</code> Change the update interval</li>
 						<li><code>-d</code> highlight differences</li>
 						<li><code>watch -n 1 ls -r</code></li>
+						<li><code>grunt</code></li>
 					</ul>
 				</section>
 				<section id="wget" class="slide level1">
@@ -291,7 +311,8 @@ valgrind --tool=cachegrind program-name</code></pre>
 						<li><code>-c</code> continue the download</li>
 						<li><code>-r</code> recursively download files</li>
 						<li><code>-N</code> only download <em>new</em> files</li>
-						<li><code>wget -N www.google.com</code></li>
+						<li><p><code>curl</code></p>
+							<p>wget -N www.google.com</p></li>
 					</ul>
 				</section>
 				<section id="xargs" class="slide level1">
@@ -308,6 +329,7 @@ valgrind --tool=cachegrind program-name</code></pre>
 					<h1>Further Resources</h1>
 					<ul>
 						<li><a href="http://www.grymoire.com/">Grymoire</a></li>
+						<li><a href="http://www.grymoire.com/">Archwiki</a></li>
 					</ul>
 				</section>
 				<section id="questions" class="slide level1">
