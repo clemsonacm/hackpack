@@ -1,0 +1,85 @@
+\section{Sieve of Eratosthenes}\index{sieve!Eratosthenes}\index{primes}
+The sieve of Eratosthenes is a simple, yet effective algorithm for generating primes less than around 10 million.
+It works by iteratively eliminating (''sifting'') multiples of primes.
+Numbers that are left are prime.
+The algorithm runs in $O(n\log\log n)$ time and requires $O(n)$ memory to generate all primes up to $n$.
+
+\subsection{Applications}
+\begin{itemize}
+	\item	Finding prime numbers below \texttildelow10 million
+\end{itemize}
+
+\subsection{Example Contest Problem: All or Nothing}
+After many hard days and nights, Farmer John has completed the construction of a larger barn to house his cows.
+Though both parties would like to begin migration to the new barn, the cows want to perform the migration in a fair manner so that no cow gets to enjoy the new barn before another.
+
+Each day, Farmer John plans to move an equal number of cows over.
+He is not willing to do any \textit{more} work one day, nor any \textit{less} work another day, and he is \textit{certainly} not willing to move a single cow a day.
+The cows, after consulting amongst themselves, have decided to trick Farmer John into thinking that he has a prime number of cows.
+This would, in turn, force him to move all of the cows at once.
+Currently, they are exploring their options of how many different prime head counts they could give Farmer John.
+
+Find out the number of possible prime head counts the cows can give Farmer John such that he is forced to move all of the cows to the new barn early tomorrow.
+
+\subsubsection{Input}
+\begin{itemize}
+	\item Line 1: Two integers $A,B$,$(1 \leq A < B \leq 10000000)$, separated by spaces indicating head counts.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[label=All or Nothing Input, caption=All or Nothing Input]{./algorithms/sieve-of-eratosthenes/problems/all-or-nothing/all-or-nothing.in}
+
+\subsubsection{Output}
+\begin{itemize}
+	\item Line 1: One integer representing the number of head counts between A and B inclusive where Farmer John has to move all the cows at once.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[label=All or Nothing Output, caption=All or Nothing Output]{./algorithms/sieve-of-eratosthenes/problems/all-or-nothing/all-or-nothing.out}
+
+\subsubsection{Example Solution}
+\acmlisting[label=All or Nothing Solution, caption=All or Nothing Solution]{./algorithms/sieve-of-eratosthenes/problems/all-or-nothing/all-or-nothing.cpp}
+
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item The sieve is a simple tool for finding primes $<10,000,000$.
+	\item Requires a sequence of at least size N where N is equal to the upper bound (can be made more efficient by excluding even numbers).
+	\item Aligning the sequence of numbers with the array indices eliminates quite a bit of $\pm1$ confusion, leading to cleaner code
+\end{itemize}
+
+\subsection{ACM Contest Problem: Ping!\cite{acmsoutheastregional2013}}
+Suppose you are tracking some satellites.
+Each satellite broadcasts a 'ping' at a regular interval, and the intervals are unique (that is, no two satellites ping at the same interval).
+You need to know which satellites you can hear from your current position.
+The problem is that the pings cancel each other out.
+If an even number of satellites ping at a given time, you won't hear anything, and if an odd number ping at a given time, it sounds like a single ping.
+All of the satellites ping at time 0, and then each pings regularly at its unique interval.
+
+Given a sequence of pings and non-pings, starting at time 0, which satellites can you determine that you can hear from where you are?
+The sequence you're given may, or may not, be long enough to include all of the satellites' ping intervals.
+There may be satellites that ping at time 0, but the sequence isn't long enough for you to hear their next ping.
+You don't have enough information to report about these satellites.
+Just report about the ones with an interval short enough to be in the sequence of pings.
+
+\subsubsection{Input}
+\begin{itemize}
+	\item There will be several test cases in the input.
+	\item Each test case will consist of a single string on its own line, with from 2 to 1,000 characters.
+	The first character represents time 0, the next represents time 1, and so on.
+	\item Each character will either be a 0 or a 1, indicating whether or not a ping can be heard at that time (0 = No, 1 = Yes).
+	\item Each input is guaranteed to have at least one satellite that can be heard.
+	\item The input will end with a line with a single 0.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[label=Ping! Input, caption=Ping! Input]{./algorithms/sieve-of-eratosthenes/problems/ping/ping.in}
+
+\subsubsection{Output}
+\begin{itemize}
+	\item For each test case, output a list of integers on a single line, indicating the intervals of the satellites that you know you can hear.
+	\item Output the intervals in order from smallest to largest, with a single space between them.
+	\item Output no extra spaces, and do not separate answers with blank lines.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[label=Ping! Output, caption=Ping! Output]{./algorithms/sieve-of-eratosthenes/problems/ping/ping.out}

@@ -1,0 +1,136 @@
+\section{Dijkstra's Algorithm}\index{Shortest Path!Dijkstra}
+Dijkstra's Algorithm solves the single-source shortest path problem of finding the shortest paths between the source 
+node and all other nodes in a connected graph with non-negative edge path costs.  
+The graph can be both directed and undirected.  
+It is commonly used to find the shortest path between a source and destination node.  
+For graphs with negative weights, see Bellman-Ford Algorithm.
+It is commonly inplemented using a priority queue and runs in $O(E \log V)$.
+
+\subsection{Applications}
+
+\begin{itemize}
+	\item  Finding the shortest paths between a source node and all other nodes in a connected graph with non-negative edge path costs.
+\end{itemize}
+
+\subsection{Example Contest Problem: Farm Tour\cite{farmtour}}
+When Farmer John's friends visit him on the farm, he likes to show them around. 
+His farm comprises $N$ $(1 \leq N \leq 1000)$ fields numbered $1..N$, the first of which contains his house and the Nth of which contains the big barn. 
+A total $M$ $(1 \leq M \leq 10000)$ paths that connect the fields in various ways. 
+Each path connects two different fields and has a nonzero length smaller than $35,000$. 
+
+To show off his farm in the best way, he walks a tour that starts at his house, potentially travels through some fields, and ends at the barn. 
+Later, he returns (potentially through some fields) back to his house again. 
+
+He wants his tour to be as short as possible, however he doesn't want to walk on any given path more than once. 
+Calculate the shortest tour possible. 
+Farmer John is sure that some tour exists for any given farm.
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line $1$: Two space-separated integers: $N$ and $M$. 
+	\item Lines $2..M+1$: Three space-separated integers that define a path: The starting field, the end field, and the path's length. 
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[caption=Farm Tour Input, label=Farm Tour Input]{./algorithms/dijkstra/problems/farm-tour/farmtour.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: A single line containing the length of the shortest tour. 
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[caption=Farm Tour Output, label= Farm Tour Output]{./algorithms/dijkstra/problems/farm-tour/farmtour.out}
+
+\subsection{Example Contest Problem: Milk Routing\cite{milkroute}}
+Farmer John's farm has an outdated network of $M$ pipes $(1 \leq M \leq 500)$ for pumping milk from the barn to his milk storage tank.  
+He wants to remove and update most of these over the next year, but he wants to leave exactly one path worth of pipes intact, 
+so that he can still pump milk from the barn to the storage tank.
+
+The pipe network is described by N junction points $(1 \leq N \leq 500)$, each of which can serve as the endpoint of a set of pipes.  
+Junction point 1 is the barn, and junction point N is the storage tank.  
+Each of the M bi-directional pipes runs between a pair of junction points, and has an associated latency 
+(the amount of time it takes milk to reach one end of the pipe from the other) and capacity (the amount of milk per unit time
+that can be pumped through the pipe in steady state).  
+Multiple pipes can connect between the same pair of junction points.
+
+For a path of pipes connecting from the barn to the tank, the latency of the path is the sum of the latencies of the pipes along 
+the path, and the capacity of the path is the minimum of the capacities of the pipes along the path (since this is the "bottleneck" 
+constraining the overall rate at which milk can be pumped through the path).  
+If Farmer John wants to send a total of $X$ units of milk through a path of pipes with latency $L$ and capacity $C$, the time this takes is therefore $L + X/C$.
+
+Given the structure of Farmer John's pipe network, please help him select a single path from the barn to the storage tank that will allow him to pump $X$ units
+of milk in a minimum amount of total time.
+
+Official Solution: \url{http://www.usaco.org/current/current/data/sol_mroute.html}
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line $1$: Three space-seperated integers: $N$ $M$ $X$ $(1 \leq X \leq 1,000,000)$.
+	\item Line $2..1+M$: Each line describes a pipe using 4 integers: $I$ $J$ $L$ $C$.
+			$I$ and $J$ $(1 \leq I,J \leq N)$ are the juntion points at both ends of the pipe.
+			$L$ and $C$ $(1 \leq L,C \leq 1,000,000)$ give the latency and capacity of the pipe.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[caption=Milk Routing Input, label=Milk Routing Input]{./algorithms/dijkstra/problems/milk-routing/milkrouting.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: The minimum amount of time it will take Farmer John to send milk along a single path, 
+			rounded down to the nearest integer.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[caption=Milk Routing Output, label=Milk Routing Output]{./algorithms/dijkstra/problems/milk-routing/milkrouting.out}
+
+\subsection{Example Contest Problem: Dueling GPS's\cite{gpsduel}}
+Farmer John has recently purchased a new car online, but in his haste he accidentally clicked the "Submit" button twice when selecting extra
+features for the car, and as a result the car ended up equipped with two GPS navigation systems!  
+Even worse, the two systems often make conflicting decisions about the route that Farmer John should take.
+
+The map of the region in which Farmer John lives consists of N intersections $(2 \leq N \leq 10,000)$ and M directional roads $(1 \leq M \leq 50,000)$.  
+Road $i$ connects intersections $A_i$ $(1 \leq A_i \leq N)$ and $B_i$ $(1 \leq B_i \leq N)$. 
+Multiple roads could connect the same pair of intersections, and a bi-directional road (one permitting two-way travel) is represented 
+by two separate directional roads in opposite orientations.  
+Farmer John's house is located at intersection 1, and his farm is located at intersection $N$.  
+It is possible to reach the farm from his house by traveling along a series of directional roads.
+
+Both GPS units are using the same underlying map as described above; however, they have different notions for the travel time along each road. 
+Road $i$ takes $P_i$ units of time to traverse according to the first GPS unit, and $Q_i$ units of time to traverse according to the second unit 
+(each travel time is an integer in the range $1..100,000$).
+
+Farmer John wants to travel from his house to the farm.  
+However, each GPS unit complains loudly any time Farmer John follows a road (say, from intersection $X$ to intersection $Y$) that the GPS unit believes 
+not to be part of a shortest route from $X$ to the farm (it is even possible that both GPS units can complain, 
+if Farmer John takes a road that neither unit likes). 
+
+Please help Farmer John determine the minimum possible number of total complaints he can receive if he chooses his route appropriately.  
+If both GPS units complain when Farmer John follows a road, this counts as $+2$ towards the total.
+
+\subsubsection{Input Format}
+\begin{itemize}
+	\item Line 1: The integers N and M. 
+	\item Line i describes road i with four integers: $A_i$ $B_i$ $P_i$ $Q_i$. 
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[caption=Farm Tour Input, label=Farm Tour Input]{./algorithms/dijkstra/problems/dueling-gps/gpsduel.in}
+
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: The minimum total number of complaints Farmer John can receive if he
+        			routes himself from his house to the farm optimally.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[caption=Milk Routing Output, label=Milk Routing Output]{./algorithms/dijkstra/problems/dueling-gps/gpsduel.out}
+
+\subsubsection{Example Solution\cite{gpsduelsolution}}
+\acmlisting[caption=Dueling GPSs Solution, label=Dueling GPSs Solution]{./algorithms/dijkstra/problems/dueling-gps/gpsduel.cpp}
+
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item Trickier problems may require adjusting the graph or, in this case, creating a new one
+	\item Numbering the nodes starting with 0 instead of 1 allows for mapping with vector indeces
+\end{itemize}
