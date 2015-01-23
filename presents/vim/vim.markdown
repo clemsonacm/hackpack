@@ -160,7 +160,7 @@ Tabs
 
 Syntax Completion
 ==============================
-+   Syntax Completion
++   Syntax Completion in insert mode
     +   `<C-n>` - Next default completion
     +   `<C-p>` - Previous default completion
 +   Omni-completion `<C-x><C-o>` 
@@ -204,7 +204,7 @@ Plugins and Plugin Managers
 ===========================
 +	Vim is extensible via plugins
 +	Can be written in `vimscript` and other languages
-+	stored in `~/.vim`
++	Stored in `~/.vim`
 +   `vundle` great plugin manager
 +	Often prefixed by `<LEADER>`
 
