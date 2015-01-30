@@ -1,3 +1,18 @@
 \section{Bloom Filter}
 \index{Bloom filter}
 
+A Bloom filter is a probabalistic data structure that, like a set, can keep track of elements that have been seen before.
+It has the added advantage of not needing to retain the data after it has been added to the filter, thus, it is more conscientous of memory usage.
+It works by utilizing a bit array of $m$ bits and $k$ hash functions.
+The filter can return false positives, but will \textit{never} return false negatives.
+Also, with the filter alone, once a member has been added to the set, it is not possible to remove it.
+This can be worked around by implementing some form of counting.
+
+To add data to the filter, simply feed it to the $k$ hash functions, mapping it to $k$ indices in the bit array and set the bits at the $k$ indices to 1.
+To test whether some data has passed through the filter, feed it to the hash functions to compute $k$ indices.
+Check the values at these positions.
+If a 0 is encountered, it can be immediately determined that the specified data did not pass through the filter.
+If, after checking all $k$ positions in the bit array, no 0s are encountered, then the data \textbf{possibly} passed through the filter.
+
+One can never posit with 100\% accuracy that the data is a member of the set by testing the filter alone.
+Because of that fact, some additional checking is necessary to provide a definite answer to a query.
