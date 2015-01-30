@@ -33,3 +33,14 @@ The filter would appear as such:
 As seen in the above scenario, there were some collisions, which is why one can never posit with 100\% accuracy that the data is a member of the set by testing the filter alone.
 Even if 'Clemson ACM' had not been put through the filter, querying the filter for it would have still produced a positive, albeit false, answer.
 Because of that fact, some additional checking is necessary to provide a definite answer when a query returns positive.
+It is worth noting that as the filter begins to fill up, the number of false positives from queries increases.
+A good number of hash functions, $k$, for a filter of $m$ bits and $n$ members is:
+
+\Large
+\begin{center}
+	$k = \frac{m}{n}\ln 2$
+\end{center}
+\normalsize
+
+The union and intersection operation is possible with Bloom filters. A union can be performed by ORing, and an intersection by ANDing.
+However, the filters \textit{must} have the same size \textbf{and} have used the same $k$ hash functions.
