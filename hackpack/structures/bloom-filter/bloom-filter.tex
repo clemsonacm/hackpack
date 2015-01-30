@@ -15,7 +15,10 @@ If a 0 is encountered, it can be immediately determined that the specified data 
 If, after checking all $k$ positions in the bit array, no 0s are encountered, then the data \textbf{possibly} passed through the filter.
 
 To illustrate  with an example, suppose that we have a Bloom filter for a set of strings with $m = 16$ bits, and we have designed $k = 3$ hash functions to map the given strings to an integer in a range of 16 values.
-Let's add 'Clemson ACM' to the the filter. After feeding the string to the three hash functions, we get three different indices to mark: 0, 7, and 8. Also, suppose we add two more strings, 'Computer Science' and 'McAdams', and get the resulting values from the hash functions: (8, 10, 14) and (0, 7, 9), respectively. the filter would appear as such:
+Let's add 'Clemson ACM' to the the filter.
+After feeding the string to the three hash functions, we get three different indices to mark: 0, 7, and 8.
+Also, suppose we add two more strings, 'Computer Science' and 'cow', and get the resulting values from the hash functions: (8, 10, 14) and (0, 7, 9), respectively.
+The filter would appear as such:
 
 \begin{table}[h]
 	\begin{center}
