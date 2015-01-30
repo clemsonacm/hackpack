@@ -14,5 +14,19 @@ Check the values at these positions.
 If a 0 is encountered, it can be immediately determined that the specified data did not pass through the filter.
 If, after checking all $k$ positions in the bit array, no 0s are encountered, then the data \textbf{possibly} passed through the filter.
 
-One can never posit with 100\% accuracy that the data is a member of the set by testing the filter alone.
-Because of that fact, some additional checking is necessary to provide a definite answer to a query.
+To illustrate  with an example, suppose that we have a Bloom filter for a set of strings with $m = 16$ bits, and we have designed $k = 3$ hash functions to map the given strings to an integer in a range of 16 values.
+Let's add 'Clemson ACM' to the the filter. After feeding the string to the three hash functions, we get three different indices to mark: 0, 7, and 8. Also, suppose we add two more strings, 'Computer Science' and 'McAdams', and get the resulting values from the hash functions: (8, 10, 14) and (0, 7, 9), respectively. the filter would appear as such:
+
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | }
+			\hline
+			Bit		& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\ \hline
+			Value	& 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1  & 0  & 0  & 0  & 1  & 0  \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+As seen in the above scenario, there were some collisions, which is why one can never posit with 100\% accuracy that the data is a member of the set by testing the filter alone.
+Even if 'Clemson ACM' had not been put through the filter, querying the filter for it would have still produced a positive, albeit false, answer.
+Because of that fact, some additional checking is necessary to provide a definite answer when a query returns positive.
