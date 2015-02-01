@@ -42,5 +42,12 @@ A good number of hash functions, $k$, for a filter of $m$ bits and $n$ members i
 \end{center}
 \normalsize
 
-The union and intersection operation is possible with Bloom filters. A union can be performed by ORing, and an intersection by ANDing.
+The union and intersection operation is possible with Bloom filters. A union can be performed by OR-ing, and an intersection by AND-ing.
 However, the filters \textit{must} have the same size \textbf{and} have used the same $k$ hash functions.
+
+\subsection{Applications}
+
+\begin{itemize}
+	\item A Bloom filter with a low false positive rate has a significant advantage against a set.
+	\item Reduce the number of times an expensive operation must be performed by providing a preliminary test for set membership.
+\end{itemize}
