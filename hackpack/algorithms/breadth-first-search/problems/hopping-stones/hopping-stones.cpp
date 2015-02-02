@@ -50,34 +50,36 @@ int main()
 	}
 
 	// Breadth-first search from start to target.
-	bool finished = false;
 	const unsigned int Start = 0;
 	const unsigned int Target = 20;
 
 	queue<Node*> q;
 	q.push(&nodes[Start]);
-	while(!q.empty() && !finished)
+	while(!q.empty())
 	{
 		// Get current node.
 		Node* current = q.front();
 		q.pop();
 		current->visited = true;
 
-		// Update neighbors' distances.
-		for(unsigned int i = 0; i < current->neighbors.size(); i++)
+		// See if this is the target node.
+		if(current->id == Target)
 		{
-			Node* neighbor = current->neighbors[i];
-			if(neighbor->id == Target)
+			cout << "It will take " << current->dist <<
+				" hops to get to stone #" << Target << endl;
+			break;
+		}
+		else
+		{
+			// Update neighbors' distances.
+			for(unsigned int i = 0; i < current->neighbors.size(); i++)
 			{
-				cout << "It will take " << neighbor->dist <<
-					" hops to get to stone #" << neighbor->id << "." << endl;
-				finished = true;
-				break;
-			}
-			else if(!neighbor->visited)
-			{
-				q.push(neighbor);
-				neighbor->dist = current->dist + 1;
+				Node* const neighbor = current->neighbors[i];
+				if(!neighbor->visited)
+				{
+					q.push(neighbor);
+					neighbor->dist = current->dist + 1;
+				}
 			}
 		}
 	}
