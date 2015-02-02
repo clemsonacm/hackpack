@@ -45,3 +45,10 @@ Text formatted as in the sample output stating the number of hops that must be m
 
 \subsubsection{Example Solution}
 \acmlisting[label=Hopping Stones Solution, caption=Hopping Stones Solution]{./algorithms/breadth-first-search/problems/hopping-stones/hopping-stones.cpp}
+
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item If no target node is specified, the algorithm will completely propogate to all reachable nodes.
+		This will result in shortest path calculation for all nodes.
+	\item Representing the edges as a pair of unsigned integers is much quicker than using a dedicated struct.
+\end{itemize}
