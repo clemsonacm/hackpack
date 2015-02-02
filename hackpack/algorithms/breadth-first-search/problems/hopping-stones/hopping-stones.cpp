@@ -10,12 +10,11 @@ typedef pair<unsigned int, unsigned int> Puiui;
 struct Node
 {
 	unsigned int id;
-	bool visited;
 	unsigned int dist;
 	vector<Node*> neighbors;
 
-	Node() : id(0), visited(false), dist(0) {}
-	Node(const unsigned int id) : id(id), visited(false), dist(0) {}
+	Node() : id(0), dist(0) {}
+	Node(const unsigned int id) : id(id), dist(0) {}
 	~Node() {};
 };
 
@@ -23,6 +22,11 @@ int main()
 {
 	Node* nodes = nullptr;
 	vector<Puiui> edges;
+
+	unsigned int Start;
+	unsigned int Target;
+	cin >> Start;
+	cin >> Target;
 
 	// Read in all edges.
 	unsigned int a, b;
@@ -50,9 +54,6 @@ int main()
 	}
 
 	// Breadth-first search from start to target.
-	const unsigned int Start = 0;
-	const unsigned int Target = 20;
-
 	queue<Node*> q;
 	q.push(&nodes[Start]);
 	while(!q.empty())
@@ -60,7 +61,6 @@ int main()
 		// Get current node.
 		Node* current = q.front();
 		q.pop();
-		current->visited = true;
 
 		// See if this is the target node.
 		if(current->id == Target)
@@ -75,10 +75,10 @@ int main()
 			for(unsigned int i = 0; i < current->neighbors.size(); i++)
 			{
 				Node* const neighbor = current->neighbors[i];
-				if(!neighbor->visited)
+				if(neighbor->dist == 0)
 				{
-					q.push(neighbor);
 					neighbor->dist = current->dist + 1;
+					q.push(neighbor);
 				}
 			}
 		}
