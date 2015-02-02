@@ -54,7 +54,7 @@ int main()
 	const unsigned int Target = 20;
 
 	queue<Node*> q;
-	q.push(&nodes[0]);
+	q.push(&nodes[Start]);
 	while(!q.empty() && !finished)
 	{
 		// Get current node.
@@ -63,7 +63,7 @@ int main()
 		current->visited = true;
 
 		// Update neighbors' distances.
-		cout << "looking at node " << current->id << endl;;
+		cout << "looking at node " << current->id << endl;
 		for(unsigned int i = 0; i < current->neighbors.size(); i++)
 		{
 			Node* neighbor = current->neighbors[i];
