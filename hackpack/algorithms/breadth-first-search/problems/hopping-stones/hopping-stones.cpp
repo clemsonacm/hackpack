@@ -1,4 +1,3 @@
-#include <cassert>
 #include <iostream>
 #include <fstream>
 #include <queue>
@@ -30,16 +29,18 @@ int main()
 	unsigned int max_node_id = 0;
 	while(cin >> a)
 	{
-		if(a > max_node_id) max_node_id = a;
 		cin >> b;
+		if(a > max_node_id) max_node_id = a;
+		if(b > max_node_id) max_node_id = b;
 		edges.push_back(make_pair(a, b));
 	}
 
 	// Make nodes.
 	nodes = new Node[max_node_id + 1];
-	assert(nodes);
 	for(unsigned int i = 0; i <= max_node_id; i++)
+	{
 		nodes[i].id = i;
+	}
 
 	// Connect nodes by the specified edges.
 	for(unsigned int i = 0; i < edges.size(); i++)
@@ -63,11 +64,9 @@ int main()
 		current->visited = true;
 
 		// Update neighbors' distances.
-		cout << "looking at node " << current->id << endl;
 		for(unsigned int i = 0; i < current->neighbors.size(); i++)
 		{
 			Node* neighbor = current->neighbors[i];
-			cout << "looking at node neighbor " << neighbor->id << endl;
 			if(neighbor->id == Target)
 			{
 				cout << "It will take " << neighbor->dist <<
