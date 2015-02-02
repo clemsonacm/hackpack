@@ -2,16 +2,11 @@
 #include <iostream>
 #include <fstream>
 #include <queue>
+#include <utility>
 #include <vector>
 using namespace std;
 
-struct Edge
-{
-	unsigned int a, b;
-
-	Edge() : a(0), b(0) {}
-	Edge(const unsigned int a, const unsigned int b) : a(a), b(b) {}
-};
+typedef pair<unsigned int, unsigned int> Puiui;
 
 struct Node
 {
@@ -28,17 +23,16 @@ struct Node
 int main()
 {
 	Node* nodes = nullptr;
-	vector<Edge> edges;
+	vector<Puiui> edges;
 
 	// Read in all edges.
-	Edge e;
 	unsigned int a, b;
 	unsigned int max_node_id = 0;
-	while(cin >> e.a)
+	while(cin >> a)
 	{
-		if(e.a > max_node_id) max_node_id = e.a;
-		cin >> e.b;
-		edges.push_back(e);
+		if(a > max_node_id) max_node_id = a;
+		cin >> b;
+		edges.push_back(make_pair(a, b));
 	}
 
 	// Make nodes.
@@ -50,9 +44,8 @@ int main()
 	// Connect nodes by the specified edges.
 	for(unsigned int i = 0; i < edges.size(); i++)
 	{
-		// Graph is undirected. Link back the other way as well.
-		nodes[edges[i].a].neighbors.push_back(&nodes[edges[i].b]);
-		nodes[edges[i].b].neighbors.push_back(&nodes[edges[i].a]);
+		nodes[edges[i].first].neighbors.push_back(&nodes[edges[i].second]);
+		nodes[edges[i].second].neighbors.push_back(&nodes[edges[i].first]);
 	}
 
 	// Breadth-first search from start to target.
