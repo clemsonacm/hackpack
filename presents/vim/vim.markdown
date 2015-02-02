@@ -1,4 +1,4 @@
-Introduction to Vim
+Intermediate Vim
 ====================
 
 ### Brought to you by Clemson ACM
@@ -28,13 +28,12 @@ Setting some Expectations
     +   Show you some of the coolest features of Vim
     +   Teach you enough to teach yourself
 
---TODO it is a quote from the Vim guru I learned from this summer
 >   Most people use only 10% of the functionality of Vim
 >   The 10% only differs from person to person
 
 What is Vim?
 ============
---TODO is this less redundant?
+
 Vim is...
 ---------
 +   A programmer's text editor
@@ -42,17 +41,15 @@ Vim is...
 
 Vim is NOT
 ----------
-+   All of the tools in you tool box
++   All of the tools in your tool box
 
 Composability
 =============
---TODO helps to have the right title;  I think that this is an important basic
---TODO concept that makes understanding the rest of the editor easier
 +   To take elements to make up a whole
 +   Actions and Motions
     +   Actions do something
     +   Motions move the cursor
-+   most commands are composed of Action and Motion 
++   Most commands are composed of Action and Motion 
 
 Common Motions
 ===================
@@ -65,8 +62,6 @@ Common Motions
 
 Antipatterns
 ============
---TODO maybe include some numbers on just how important it is to be efficient?
---TODO I don't have any specific numbers, just a concept I wanted to introduce
 +   A bad way of doing something that becomes habit
     +   `ddO` instead of `S`
 	+	`dbx` instead of `daw`
@@ -78,17 +73,9 @@ Fixing Some Common Annoyances
 +   Turn on the mouse `set mouse=a`
 +   Turn on syntax highlighting `syntax on`
 +   Set your background color `set bg=dark`
-+   I hate escape --TODO I put this here as for a general introduction to key bindings
 
 Copy and Paste
 ==============
---TODO this slide doesn't seem to offer very practical examples
---TODO there's also quite a lot of content on registers, which I actually don't use all that much.
---TODO it is actually one of the features that I tend to use and is a building
---TODO block for building complex macros, and it is different than what other editors
---TODO use so it is worth spending some time on.  Plus, I planned to breeze
---TODO through these slides and put them here more as a here is whats possible instead
---TODO of a here is how to do every thing.
 +   Forget Copy and Paste
 +   Think registers
     +   You now have 35 copy buffers
@@ -183,9 +170,13 @@ Other Completions
 +   `<C-x><C-s>` Spelling
 +   `<C-x><C-v>` Vim commands 
 
+Digraphs
+========
++	`<C-v>` in insert mode
++	see `:h digraph` 
+
 Templates
 ==============================
---TODO I moved this up to allow for a cleaner segue
 +   `0r ~/path/to/template`
 +   Reads in a template to new files
 +   Can be blocked on file type using autocmds
@@ -195,8 +186,6 @@ Snippets
 +   Abbreviations will do simple snippets
 +   `:ab` create/view abbreviations
 +   Snipmate and Ultisnips
-    --TODO could use this to segue into plugins
-	--TODO I agree I'll put it here
     +   Better snippets support
     +   Provide advanced completion features
 
@@ -239,10 +228,10 @@ Using Vim to Test faster
 
 Further Resources
 =================
---TODO include hyperlinks
-+   Practical Vim by Drew Neil
-+   Vimcasts by Drew Neil
-+   Vimtips wiki
++   [Practical Vim by Drew Neil](https://pragprog.com/book/dnvim/practical-vim)
++   [Vimcasts by Drew Neil](http://vimcasts.org/)
++   [Vimtips wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki)
++	[Vim Awesome](http://vimawesome.com/)
 +   `:help` -- an incredible resource!
 
 Questions
