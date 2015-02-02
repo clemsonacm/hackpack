@@ -65,8 +65,7 @@ int main()
 		// See if this is the target node.
 		if(current->id == Target)
 		{
-			cout << "It will take " << current->dist <<
-				" hops to get to stone #" << Target << endl;
+			cout << "It will take " << current->dist << " hops." << endl;
 			break;
 		}
 		else
