@@ -4,8 +4,10 @@
 \index{BFS}
 
 Breadth-first search is a method of searching a graph of nodes with edges of equal weight.
-Ultimately, the search is implemented using a queue to visit nodes in the immediate neighborhood of the current node (nodes that are separated by only one edge).
-Using this technique, the algorithm can find the shortest path from a given node to another node.
+Ultimately, the search is implemented using a queue to visit nodes in the immediate neighborhood of the current node (nodes that are separated by only one edge) before branching out to explore nodes further away.
+As each node is seen, it is marked as visited.
+Only nodes that have not been marked as visited are added to the queue.
+Using this technique, one can find the shortest path from a given node to another node.
 The running time of the algorithm can be described as $O(m + n)$ for a given graph containing $m$ nodes and $n$ edges.
 
 \subsection{Applications}
