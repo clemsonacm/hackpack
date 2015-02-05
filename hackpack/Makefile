@@ -17,7 +17,7 @@ HAS_OUTDIR = $(shell latexmk --help | grep -- "-output-directory" | wc -l)
 PREPSCRIPT = ./formatting/preprocessor.awk
 
 # -pdf to generate a pdf, -g to force recompilation.
-LATEXMKOPTS = -pdf -g
+LATEXMKOPTS = -pdf -g -pdflatex='pdflatex --shell-escape'
 
 # Extension for backups of preprocessable files.
 BACKUPEXT = tmpbackup
