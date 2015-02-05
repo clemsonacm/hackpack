@@ -16,11 +16,7 @@ struct Node
 bool bfs(Node& n, const unsigned int target)
 {
 	n.visited = true;
-	if(n.hops_left > 0)
-	{
-		n.hops_left--;
-		cout << "Node " << n.id << " has " << n.hops_left << " hops left." << endl;
-	}
+	if(n.hops_left > 0) n.hops_left--;
 
 	if(n.id == target) return true;
 	else
@@ -77,7 +73,7 @@ int main()
 	{
 		if(!bfs(nodes[Start], nodes[Target].id))
 		{
-			cout << "It is not possible." << endl;
+			cout << "It is not possible. Only " << crossings - i << " can cross." << endl;
 			return 0;
 		}
 
