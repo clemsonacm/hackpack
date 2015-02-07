@@ -29,6 +29,9 @@ bool bfs(Node& n, const unsigned int target)
 		}
 	}
 
+	// Reset the state back to what it was to 'undo' the step.
+	if(n.hops_left != -1) n.hops_left++;
+
 	return false;
 }
 
