@@ -14,3 +14,39 @@ Traversing an entire graph takes $\Theta (m + n)$ for a graph of $m$ vertices an
 	\item Testing if two graphs are connected by some common node.
 	\item Discovering whether a specified state is possible with certain steps.
 \end{itemize}
+
+\subsection{Example Contest Problem: Shaky Stones}
+For a while now, the cows have been circumventing the new fence Farmer John built by traversing large rocks that are embedded in the river by the farm.
+Some of the stones have become unstable after the cows have used them a number of times.
+The ones that are likely to move or sink away have been pointed out by the perceptive cows and given an estimate of the number of times left the stones can be used.
+
+Once again, it's time for the cows to meet their mathematics mentors, and, to do so this time, they need to use the large rocks to get around the fencing.
+The cows know which rocks should not be used after a number of times.
+
+Inform the cows of whether they'll all be able to make it, or whether a few need will need to stay behind and be tutored later.
+
+\subsubsection{Input}
+\begin{itemize}
+	\item Line 1: The number of cows needing to cross.
+	\item Line 2: The number of stones that can be used for crossing.
+	\item Line 3: The assigned number of the stone the cows start at.
+	\item Line 4: The assigned number of the stone the cows finish at.
+	\item Line 5: The number of stones, $r$, that have restrictions on them.
+	\item Line 6 to $6 + r - 1$: Two integers, the first representing the assigned number of the stone with the restriction on it, and the second representing the number of hops that are deemed safe for it.
+	\item Line $6 + r$ to EOF: Two integers representing stones that can be safely hopped between.
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[label=Shaky Stones Input, caption=Shaky Stones Input]{./algorithms/depth-first-search/problems/shaky-stones/shaky-stones.in}
+
+\subsubsection{Output}
+\begin{itemize}
+	\item Line 1: Print the text 'It is possible.' followed by a newline if the specified number of cows can cross.
+		Otherwise, print the text 'It is not possible. Only $x$ can cross' where $x$ is the number of cows that can cross.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[label=Shaky Stones Output, caption=Shaky Stones Output]{./algorithms/depth-first-search/problems/shaky-stones/shaky-stones.out}
+
+\subsubsection{Example Solution}
+\acmlisting[label=Shaky Stones Solution, caption=Shaky Stones Solution]{./algorithms/depth-first-search/problems/shaky-stones/shaky-stones.cpp}
