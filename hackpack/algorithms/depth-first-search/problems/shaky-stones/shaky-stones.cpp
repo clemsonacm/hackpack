@@ -15,23 +15,31 @@ struct Node
 
 bool bfs(Node& n, const unsigned int target)
 {
+	// Mark this node as visited.
 	n.visited = true;
 	if(n.hops_left > 0) n.hops_left--;
 
+	// If we are currently visiting the node we have been looking
+	// for, then the search is finished.
 	if(n.id == target) return true;
 	else
 	{
+		// Iterate through all neighbors of the current node and launch
+		// a recursive search on each of them given that they haven't
+		// been visited and, for this problem, are still traversable.
 		for(vector<Node*>::iterator it = n.neighbors.begin();
 				it != n.neighbors.end(); it++)
 		{
 			if(((*it)->hops_left < 0 || (*it)->hops_left > 0) && !(*it)->visited)
-				if(bfs(**it, target)) return true;
+				if(bfs(**it, target)) return true; // A return value of true means the algorithm is complete.
 		}
 	}
 
 	// Reset the state back to what it was to 'undo' the step.
 	if(n.hops_left != -1) n.hops_left++;
 
+	// Returns false if the node that's being search for cannot be
+	// reached from this node.
 	return false;
 }
 
@@ -72,6 +80,7 @@ int main()
 		nodes[b].neighbors.push_back(&nodes[a]);
 	}
 
+	// Simulate the crossing of 'crossings' cows.
 	for(unsigned int i = crossings; i > 0; i--)
 	{
 		if(!bfs(nodes[Start], nodes[Target].id))
