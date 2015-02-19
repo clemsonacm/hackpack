@@ -55,8 +55,8 @@ Common Motions
 ===================
 +	blocks `w`, `s`, `p`, `b`, `B`, 
 +	`|` column
-+	`gj`, `gk` wraped up/down
-+	`(` and `)` sentensces
++	`gj`, `gk` wrapped up/down
++	`(` and `)` sentences
 +	`[` and `]` paragraphs
 +	`:h motion.txt`
 
@@ -121,10 +121,10 @@ Multiple Files
 Windows
 =======
 
-+	very handy for viewing multiple files at once
++	Very handy for viewing multiple files at once
 +   `<C-w>` prefixes most "window" commands
 +	`:vsp`, `<C-w><C-v>` vertical split
-+	`:sp`, <C-w><c-s>` horizontal split
++	`:sp`, `<C-w><c-s>` horizontal split
 +	`[vert] res` resize windows
 
 
@@ -215,7 +215,7 @@ Navigating large code bases
 +   Cscope
     +   More powerful but confined to C/C++
     +   Much more intelligent 
-    +   Can be configured otherwise, but its hacky
+    +   Can be configured otherwise, but it's hacky
 
 Using Vim to Test faster
 ========================
