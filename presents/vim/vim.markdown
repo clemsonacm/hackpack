@@ -57,6 +57,9 @@ Uncommon Motions
     + Pneumonic? 
         + "a word" -> `aw`
         + "inner block" -> `ib`
+
+More Uncommon Motions
+==========================
 + Next character: 
     + `f<char>` (inclusive)
     + `t<char>` (exclusive)
@@ -117,7 +120,7 @@ Read-only registers
 Macros
 ======
 
-+	`.`: the short macro operator
++	`.` the short macro operator
     + `.` repeats the last change
 +	`qa` record a macro in register `a`
 +	`q` to finish recording
@@ -138,14 +141,17 @@ Buffers
 
 + Just a window into a file on disk.
 + Vim remembers a lot of them.
-+	`:ls` - check out the buffer list
-+	`set hidden` - don't unload buffers when they're not being looked at.
-  + `:bn` - Next buffer in the list.
-  + `:bp` - Previous buffer in the list.
-  + `:bd` - Unload and delete the buffer from the buffer list
-  + `<C-^>` - Toggle between this and the "alternate" file (usually the last edited)
-+   `:b<num>` change to buffer number <num>
-+	`:b <name>` fuzzy match buffer change (use tab complete!)
++ `:ls` - check out the buffer list
++ `set hidden` - don't unload buffers when they're not being looked at.
+
+Using Buffers
+==============
++ `:bn` - Next buffer in the list.
++ `:bp` - Previous buffer in the list.
++ `:bd` - Unload and delete the buffer from the buffer list
++ `<C-^>` - Toggle between this and the "alternate" file (usually the last edited)
++ `:b<num>` change to buffer number <num>
++ `:b <name>` fuzzy match buffer change (use tab complete!)
 
 
 Windows
@@ -218,24 +224,23 @@ Snippets
 
 Plugins and Plugin Managers
 ===========================
-+	Vim is extensible via plugins
-+	Can be written in `vimscript`, a.k.a. VimL, and other languages
-+	Stored in `~/.vim`
-+   [`vundle`](https://github.com/gmarik/Vundle.vim) is a plugin that can
-    manage your plugins
-+	Commands often prefixed by `<LEADER>` to avoid overwriting other commands
-  +	You'll sometimes need to set them up yourself in `.vimrc`
-  +	The `<LEADER>` key is `\\` by default, some people like space or comma
++ Vim is extensible via plugins 
++ Can be written in `vimscript` (VimL), and other languages 
++ Stored in `~/.vim` 
++ [`vundle`](https://github.com/gmarik/Vundle.vim) is a plugin that can manage your plugins 
++ Plugin commands can use `<LEADER>` keybind for uniqueness 
+	+ You might need to set them up in `.vimrc` 
+	+ `<LEADER>` is `\\` by default, some like space or comma
 
 Some Useful Plugins
 ===================
-+	`scrooloose/NERDTree` - Tree-style file listing sidebar
-+	`scrooloose/syntastic` - Check syntax while typing
-+	`tpope/vim-fugitive` - Git interaction
-+	`tpope/vim-surround` - Edit surroundings (like quickly quoting things)
-+	`SirVer/ultisnips` - Better snippet system
-+	`honza/vim-snippets` - Some useful standard snippets
-+	Anything by Tim Pope (`tpope`) is going to be useful.
++ `scrooloose/NERDTree` - Tree-style file listing sidebar 
++ `scrooloose/syntastic` - Check syntax while typing 
++ `tpope/vim-fugitive` - Git interaction 
++ `tpope/vim-surround` - Change surrounding characters
++ `SirVer/ultisnips` - Better snippet system 
++ `honza/vim-snippets` - Useful standard snippets 
++ Anything by Tim Pope (`tpope`) is going to be useful.
 
 Navigating large code bases
 ==========================
@@ -261,7 +266,7 @@ Other Cool Commands
 +   `gq<motion>`: hard word wrap a line, paragraph, etc.
 +   `v` and `V`: visual and linewise visual modes.
     +   Check `:h visual-mode`: super useful!
-+   `:`: command line - substitute text, run commands, and more! `:h :`
++   `:` command line - substitute text, run commands, and more! `:h :`
 
 Further Resources
 =================
