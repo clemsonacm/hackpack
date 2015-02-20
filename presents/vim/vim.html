@@ -49,7 +49,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 						<li>This discussion will <em>not</em>:
 							<ul>
 								<li>Cover what <code>vimtutor</code> will teach you</li>
-								<li>Make you magically a Vim guru</li>
+								<li>Magically make you a Vim guru</li>
 								<li>Show even 10% of the power of Vim</li>
 							</ul></li>
 							<li>This discussion <em>will</em>:
@@ -59,7 +59,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 								</ul></li>
 					</ul>
 					<blockquote>
-						<p>Most people use only 10% of the functionality of Vim The 10% only differs from person to person</p>
+						<p>Most people use only 10% of the functionality of Vim. The 10% only differs from person to person</p>
 					</blockquote>
 				</section>
 				<section id="what-is-vim" class="slide level1">
@@ -67,54 +67,67 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 					<h2 id="vim-is...">Vim is...</h2>
 					<ul>
 						<li>A programmer's text editor</li>
-						<li>A tool that is meant to be learned</li>
+						<li>An extremely valuable tool to master</li>
 					</ul>
 					<h2 id="vim-is-not">Vim is NOT</h2>
 					<ul>
-						<li>All of the tools in your tool box</li>
+						<li>A replacement for <strong>all</strong> of the tools in your tool box</li>
 					</ul>
 				</section>
 				<section id="composability" class="slide level1">
 					<h1>Composability</h1>
 					<ul>
-						<li>To take elements to make up a whole</li>
-						<li>Actions and Motions
+						<li>Most commands are composed of an action and a motion
 							<ul>
 								<li>Actions do something</li>
 								<li>Motions move the cursor</li>
 							</ul></li>
-							<li>Most commands are composed of Action and Motion</li>
+							<li>Most editors don't have anything like this!</li>
 					</ul>
 				</section>
-				<section id="common-motions" class="slide level1">
-					<h1>Common Motions</h1>
+				<section id="uncommon-motions" class="slide level1">
+					<h1>Uncommon Motions</h1>
 					<ul>
-						<li>blocks <code>w</code>, <code>s</code>, <code>p</code>, <code>b</code>, <code>B</code>,</li>
-						<li><code>|</code> column</li>
-						<li><code>gj</code>, <code>gk</code> wraped up/down</li>
-						<li><code>(</code> and <code>)</code> sentensces</li>
-						<li><code>[</code> and <code>]</code> paragraphs</li>
-						<li><code>:h motion.txt</code></li>
+						<li>Last point in the change list: <code>g;</code> (<code>g,</code> to go back)</li>
+						<li>Text objects: <code>w</code>, <code>s</code>, <code>p</code>, <code>b</code>, <code>B</code>, etc.
+							<ul>
+								<li>Pneumonic?
+									<ul>
+										<li>&quot;a word&quot; -&gt; <code>aw</code></li>
+										<li>&quot;inner block&quot; -&gt; <code>ib</code></li>
+									</ul></li>
+							</ul></li>
+							<li>Next character:
+								<ul>
+									<li><code>f&lt;char&gt;</code> (inclusive)</li>
+									<li><code>t&lt;char&gt;</code> (exclusive)</li>
+								</ul></li>
+								<li><code>{number}|</code>: to a certain column</li>
+								<li><code>gj</code>, <code>gk</code> move up and down over window-wrapped lines</li>
+								<li><code>(</code> and <code>)</code>: sentences</li>
+								<li><code>[</code> and <code>]</code>: paragraphs</li>
+								<li>More: see <code>:h motion.txt</code></li>
 					</ul>
 				</section>
 				<section id="antipatterns" class="slide level1">
 					<h1>Antipatterns</h1>
 					<ul>
-						<li>A bad way of doing something that becomes habit
+						<li>A less efficient way of doing something that becomes a bad habit
 							<ul>
 								<li><code>ddO</code> instead of <code>S</code></li>
 								<li><code>dbx</code> instead of <code>daw</code></li>
 								<li><code>f&lt;lvt&gt;U</code> instead of <code>gUit</code></li>
 							</ul></li>
+							<li>Be careful not to worry about optimization more than working, though</li>
 					</ul>
 				</section>
 				<section id="fixing-some-common-annoyances" class="slide level1">
 					<h1>Fixing Some Common Annoyances</h1>
 					<ul>
 						<li>Use .vimrc to store preferences</li>
-						<li>Turn on the mouse <code>set mouse=a</code></li>
-						<li>Turn on syntax highlighting <code>syntax on</code></li>
-						<li>Set your background color <code>set bg=dark</code></li>
+						<li>Turn on the mouse: <code>set mouse=a</code></li>
+						<li>Turn on syntax highlighting: <code>syntax on</code></li>
+						<li>Set your background color: <code>set bg=dark</code></li>
 					</ul>
 				</section>
 				<section id="copy-and-paste" class="slide level1">
@@ -125,7 +138,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 							<ul>
 								<li>You now have 35 copy buffers</li>
 							</ul></li>
-							<li><code>&quot;+</code> register</li>
+							<li><code>&quot;+</code> is the X server (i.e. system) copy/paste register, copy to here to copy out of Vim</li>
 							<li><code>:reg</code> - view the contents of registers</li>
 							<li><code>&lt;C-r&gt;</code> in insert mode puts the register</li>
 					</ul>
@@ -135,7 +148,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 					<ul>
 						<li><code>&quot;[1-9]</code> history registers</li>
 						<li><code>&quot;0</code> the yank register</li>
-						<li><code>&quot;[a-z]</code> named registers</li>
+						<li><code>&quot;[a-z]</code> are named registers</li>
 						<li><code>&quot;[A-Z]</code> same as &quot;[a-z] but append</li>
 					</ul>
 				</section>
@@ -145,7 +158,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 						<li><code>&quot;/</code> current search pattern</li>
 						<li><code>&quot;-</code> small delete</li>
 						<li><code>&quot;=</code> expression register<br /></li>
-						<li><code>&quot;_</code> the blackhole register</li>
+						<li><code>&quot;_</code> the black hole register</li>
 					</ul>
 				</section>
 				<section id="read-only-registers" class="slide level1">
@@ -158,47 +171,64 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 							<ul>
 								<li>More on that in a minute</li>
 							</ul></li>
+							<li><code>:h registers</code></li>
 					</ul>
 				</section>
 				<section id="macros" class="slide level1">
 					<h1>Macros</h1>
 					<ul>
-						<li><code>.</code> short macro operator</li>
-						<li><code>qa</code> record a macro in register <code>a</code></li>
-						<li><code>q</code> end recording a macro</li>
-						<li><code>@a</code> execute the macro in register <code>a</code></li>
+						<li><code>.</code>: the short macro operator
+							<ul>
+								<li><code>.</code> repeats the last change</li>
+							</ul></li>
+							<li><code>qa</code> record a macro in register <code>a</code></li>
+							<li><code>q</code> to finish recording</li>
+							<li><code>@a</code> execute the macro in register <code>a</code></li>
+							<li>Macros are saved as text, so you can edit them manually!</li>
 					</ul>
 				</section>
 				<section id="multiple-files" class="slide level1">
 					<h1>Multiple Files</h1>
 					<ul>
+						<li>From <code>:h windows</code>:</li>
+						<li>A buffer is the in-memory text of a file.</li>
+						<li>A window is a viewport on a buffer.</li>
+						<li>A tab page is a collection of windows.</li>
 						<li>Use buffers, windows, and tabs</li>
 						<li><code>:argdo</code>, <code>:bufdo</code>, <code>:tabdo</code></li>
-					</ul>
-				</section>
-				<section id="windows" class="slide level1">
-					<h1>Windows</h1>
-					<ul>
-						<li>very handy for viewing multiple files at once</li>
-						<li><code>&lt;C-w&gt;</code> prefixes most &quot;window&quot; commands</li>
-						<li><code>:vsp</code>, <code>&lt;C-w&gt;&lt;C-v&gt;</code> vertical split</li>
-						<li><code>:sp</code>, <C-w><c-s>` horizontal split</li>
-						<li><code>[vert] res</code> resize windows</li>
 					</ul>
 				</section>
 				<section id="buffers" class="slide level1">
 					<h1>Buffers</h1>
 					<ul>
-						<li><code>:ls</code></li>
-						<li><code>set hidden</code></li>
-						<li><code>:bn</code>, <code>:bd</code>, <code>:bp</code>, <code>&lt;C-^&gt;</code></li>
-						<li><code>:b&lt;num&gt;</code> change to buffer number</li>
-						<li><code>:b &lt;name&gt;</code> fuzzy match buffer change</li>
+						<li>Just a window into a file on disk.</li>
+						<li>Vim remembers a lot of them.</li>
+						<li><code>:ls</code> - check out the buffer list</li>
+						<li><code>set hidden</code> - don't unload buffers when they're not being looked at.</li>
+						<li><code>:bn</code> - Next buffer in the list.</li>
+						<li><code>:bp</code> - Previous buffer in the list.</li>
+						<li><code>:bd</code> - Unload and delete the buffer from the buffer list</li>
+						<li><code>&lt;C-^&gt;</code> - Toggle between this and the &quot;alternate&quot; file (usually the last edited)</li>
+						<li><code>:b&lt;num&gt;</code> change to buffer number <num></li>
+						<li><code>:b &lt;name&gt;</code> fuzzy match buffer change (use tab complete!)</li>
+					</ul>
+				</section>
+				<section id="windows" class="slide level1">
+					<h1>Windows</h1>
+					<ul>
+						<li>Very handy for viewing multiple files at once</li>
+						<li><code>&lt;C-w&gt;</code> prefixes most window commands</li>
+						<li><code>&lt;C-w&gt;v</code> vertical split</li>
+						<li><code>&lt;C-w&gt;s</code> horizontal split</li>
+						<li><code>&lt;C-w&gt;n</code> new buffer in a horizontal split window</li>
+						<li><code>&lt;C-w&gt;c</code> close the window -- useful for escaping from <code>:h &lt;anything&gt;</code>.</li>
+						<li>Tons of window commands! Check <code>:h windows</code></li>
 					</ul>
 				</section>
 				<section id="tabs" class="slide level1">
 					<h1>Tabs</h1>
 					<ul>
+						<li>Not quite the tabs you're used to in, say, Gedit</li>
 						<li>Useful for holding different sets of windows</li>
 						<li><code>gt</code> go to the next tab</li>
 						<li><code>gT</code> go to the previous tab</li>
@@ -240,11 +270,15 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 						<li><code>&lt;C-x&gt;&lt;C-v&gt;</code> Vim commands</li>
 					</ul>
 				</section>
-				<section id="digraphs" class="slide level1">
-					<h1>Digraphs</h1>
+				<section id="digraphs-special-characters" class="slide level1">
+					<h1>Digraphs &amp; Special Characters</h1>
 					<ul>
-						<li><code>&lt;C-v&gt;</code> in insert mode</li>
-						<li>see <code>:h digraph</code></li>
+						<li>Digraphs: insert weird characters like ë, Ω, etc.</li>
+						<li>In insert mode: <code>&lt;c-k&gt;</code>, followed by one or two characters</li>
+						<li>Example: <code>i&lt;c-k&gt;a:</code> yields ä.</li>
+						<li>Check <code>:h digraphs</code> for a list of them all!</li>
+						<li><code>&lt;c-v&gt;</code> in insert mode: insert the next character literally</li>
+						<li>Tab key doesn't insert a tab character? <code>&lt;c-v&gt;&lt;tab&gt;</code></li>
 					</ul>
 				</section>
 				<section id="templates" class="slide level1">
@@ -271,21 +305,24 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 					<h1>Plugins and Plugin Managers</h1>
 					<ul>
 						<li>Vim is extensible via plugins</li>
-						<li>Can be written in <code>vimscript</code> and other languages</li>
+						<li>Can be written in <code>vimscript</code>, a.k.a. VimL, and other languages</li>
 						<li>Stored in <code>~/.vim</code></li>
-						<li><code>vundle</code> great plugin manager</li>
-						<li>Often prefixed by <code>&lt;LEADER&gt;</code></li>
+						<li><a href="https://github.com/gmarik/Vundle.vim"><code>vundle</code></a> is a plugin that can manage your plugins</li>
+						<li>Commands often prefixed by <code>&lt;LEADER&gt;</code> to avoid overwriting other commands</li>
+						<li>You'll sometimes need to set them up yourself in <code>.vimrc</code></li>
+						<li>The <code>&lt;LEADER&gt;</code> key is <code>\\</code> by default, some people like space or comma</li>
 					</ul>
 				</section>
 				<section id="some-useful-plugins" class="slide level1">
 					<h1>Some Useful Plugins</h1>
 					<ul>
-						<li><code>scrooloose/NERDTree</code> better file manager</li>
-						<li><code>scrooloose/syntastic</code> check syntax while typing</li>
-						<li><code>tpope/vim-fugitive</code> git interaction</li>
-						<li><code>tpope/vim-surround</code> More motions</li>
-						<li><code>SirVer/ultisnips</code> Better snippets</li>
-						<li><code>honza/vim-snippets</code> Some useful standard snippets</li>
+						<li><code>scrooloose/NERDTree</code> - Tree-style file listing sidebar</li>
+						<li><code>scrooloose/syntastic</code> - Check syntax while typing</li>
+						<li><code>tpope/vim-fugitive</code> - Git interaction</li>
+						<li><code>tpope/vim-surround</code> - Edit surroundings (like quickly quoting things)</li>
+						<li><code>SirVer/ultisnips</code> - Better snippet system</li>
+						<li><code>honza/vim-snippets</code> - Some useful standard snippets</li>
+						<li>Anything by Tim Pope (<code>tpope</code>) is going to be useful.</li>
 					</ul>
 				</section>
 				<section id="navigating-large-code-bases" class="slide level1">
@@ -301,7 +338,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 								<ul>
 									<li>More powerful but confined to C/C++</li>
 									<li>Much more intelligent</li>
-									<li>Can be configured otherwise, but its hacky</li>
+									<li>Can be configured otherwise, but it's hacky</li>
 								</ul></li>
 					</ul>
 				</section>
@@ -315,18 +352,30 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 						<li><code>:shell</code></li>
 					</ul>
 				</section>
+				<section id="other-cool-commands" class="slide level1">
+					<h1>Other Cool Commands</h1>
+					<ul>
+						<li><code>gq&lt;motion&gt;</code>: hard word wrap a line, paragraph, etc.</li>
+						<li><code>v</code> and <code>V</code>: visual and linewise visual modes.
+							<ul>
+								<li>Check <code>:h visual-mode</code>: super useful!</li>
+							</ul></li>
+							<li><code>:</code>: command line - substitute text, run commands, and more! <code>:h :</code></li>
+					</ul>
+				</section>
 				<section id="further-resources" class="slide level1">
 					<h1>Further Resources</h1>
 					<ul>
 						<li><a href="https://pragprog.com/book/dnvim/practical-vim">Practical Vim by Drew Neil</a></li>
 						<li><a href="http://vimcasts.org/">Vimcasts by Drew Neil</a></li>
 						<li><a href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">Vimtips wiki</a></li>
-						<li><a href="http://vimawesome.com/">Vim Awesome</a></li>
+						<li><a href="https://github.com/gmarik/Vundle.vim">Vundle</a></li>
+						<li><a href="http://vimawesome.com/">Vim Awesome</a> - tons of plugins!</li>
 						<li><code>:help</code> -- an incredible resource!</li>
 					</ul>
 				</section>
 				<section id="questions" class="slide level1">
-					<h1>Questions</h1>
+					<h1>Questions?</h1>
 					<p>Send us feedback at <code>acm@cs.clemson.edu</code>!</p>
 				</section>
 			</div>
