@@ -66,7 +66,7 @@ More Uncommon Motions
 +	`{number}|`: to a certain column
 +	`gj`, `gk` move up and down over window-wrapped lines
 +	`(` and `)`: sentences
-+	`[` and `]`: paragraphs
++	`{` and `}`: paragraphs
 +	More: see `:h motion.txt`
 
 Antipatterns
