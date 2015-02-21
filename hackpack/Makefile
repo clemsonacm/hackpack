@@ -19,6 +19,9 @@ PREPSCRIPT = ./formatting/preprocessor.awk
 # -pdf to generate a pdf, -g to force recompilation.
 LATEXMKOPTS = -pdf -g -pdflatex='pdflatex --shell-escape'
 
+# Exclude directory from find commands
+EXCLUDEDIR=-not -path './util/*'
+
 # Extension for backups of preprocessable files.
 BACKUPEXT = tmpbackup
 
@@ -31,7 +34,7 @@ default: hackpackpp
 # Use `make hackpack` or `make hackpackpp` to build the hackpack or hackpack++.
 hackpack hackpackpp:
 	# Back up and preprocess preprocessable files.
-	find . -regex $(PREPREGEX) -exec cp {} {}.$(BACKUPEXT) \; \
+	find . -regex $(PREPREGEX) $(EXCLUDEDIR) -exec cp {} {}.$(BACKUPEXT) \; \
 	-exec sh -c 'awk -v V=$@ -f $(PREPSCRIPT) {} > {}.$(TMPEXT)' \; \
 	-exec mv {}.$(TMPEXT) {} \;
 
@@ -46,9 +49,9 @@ else
 endif
 
 	# Delete preprocessed files.
-	-find . -regex $(PREPREGEX) -delete
+	-find . -regex $(PREPREGEX) $(EXCLUDEDIR) -delete
 	# Restore backups of preprocessed files.
-	-find . -iname "*.$(BACKUPEXT)" -exec rename 's/\.$(BACKUPEXT)$$//' {} \;
+	-find . -iname "*.$(BACKUPEXT)" $(EXCLUDEDIR) -exec rename 's/\.$(BACKUPEXT)$$//' {} \;
 
 # Display the hack pack, if it exists.
 show:
@@ -56,8 +59,8 @@ show:
 
 # Delete temporary files that might exist and clean the OUTDIR.
 clean:
-	-find . -iname "*.$(BACKUPEXT)" -delete
-	-find . -iname "*.$(TMPEXT)" -delete
+	-find . -iname "*.$(BACKUPEXT)" $(EXCLUDEDIR) -delete
+	-find . -iname "*.$(TMPEXT)" $(EXCLUDEDIR) -delete
 ifeq ($(HAS_OUTDIR), 1)
 	-latexmk -c -outdir=$(OUTDIR) -auxdir=$(OUTDIR)
 else
