@@ -5,7 +5,8 @@ N Unix tools in O(N) minutes
 ### Brought to you by Clemson ACM
 
 We're on [Steam](http://steamcommunity.com/groups/clemsonacm) &
-[Facebook](https://www.facebook.com/groups/283823058297107/)!
+[Facebook](https://www.facebook.com/groups/283823058297107/)! Join
+#clemsonacm on chat.freenode.net!
 
 ### Speakers:
 
@@ -42,10 +43,21 @@ Example awk Script
     $2%2 == 0 {s += $1; n++}
     END {print "sum is", s, " average is", s/n}
 
+sed
+===
+
+Command line text manipulation
+
+-   `sed 's/hello/goodbye/g [file]'` replaces "hello" with "goodbye"
+    -    Prints to stdout, redirect it!
+-   `sed /bad/d` deletes lines containing "bad"
+-   `sed 1d;$d` deletes first and last line
+-   Can use `/regexes/` or other rules, check `man sed`
+
 bash
 ====
 
-gluing programs together
+Gluing programs together
 
 -   `|` pipelining
 -   `&> dest` redirect stderr and stdout to dest
@@ -67,7 +79,7 @@ Example bash script
 cron
 ====
 
-running jobs at fixed times
+Running jobs at fixed times
 
 -   Probably the least standardized tool on this list
 -   On most modern Linux boxes replaced by systemd
@@ -99,7 +111,7 @@ Find files on the file system
 gcc
 ===
 
-cross compile C, C++, Fortran, Ada, and java (apparently)
+Cross compile C, C++, Fortran, Ada, and java (apparently)
 
 -   `-std=standard` adjust the standard used
 -   `-c` just compile; don't link
@@ -272,7 +284,7 @@ Create and extract archives
 time
 ====
 
-time how long it takes a program to execute
+Time how long it takes a program to execute
 
 -   `time tar -czf foobar`
 
@@ -288,7 +300,7 @@ A debugger that detects memory leaks and other profiling + `gdb`
 watch
 =====
 
-repeatedly print the output of a command
+Repeatedly print the output of a command
 
 -   `-n` Change the update interval
 -   `-d` highlight differences
@@ -322,7 +334,7 @@ Further Resources
 =================
 
 -   [Grymoire](http://www.grymoire.com/)
--   [Archwiki](http://www.grymoire.com/)
+-   [Archwiki](https://wiki.archlinux.org/index.php/Main_Page)
 
 Questions
 =========
