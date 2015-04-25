@@ -156,8 +156,12 @@ All code must have tests that meet the following requirements
     +   The tests should return 0 in the case that all testcases passed
     +   The tests should return the number of failed tests up to 124 if one or
         more test cases failed
-    +   If a test prints text to the console, it should print XUnit compatible
-        output.
+    +   If a test prints text to the console, it should print JSON output using
+		the following pattern:
+
+```json
+
+```
 
 #### Different Versions of the Hack Pack
 
