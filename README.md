@@ -44,6 +44,10 @@ Depending on what you are doing you will need different tools:
 *   `awk` - text processing tool needed for version directives
 *   `pdflatex` - The Hackpack body is written in LaTeX
 *   `make` - Make is to automate compilation and testing of the documents
+*	`perl` - required to support renaming in version directives
+*	`find` - the gnu version of find is required supporting extended posix
+	regular expressions for supporting version directives.  On OSX the
+	`findutils` package from homebrew can be used
 
 ### Presentations 
 
@@ -179,9 +183,10 @@ Make sure you have a new line after each directive somewhere!
 
 Here's a list of filetypes where the if directives will work:
 
-*   .tex
-*   .cpp
-*   .py
+*   `.tex`
+*   `.cpp`
+*   `.py`
+*	`example`
 
 #### Building the Hack Pack
 

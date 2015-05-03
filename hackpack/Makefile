@@ -28,8 +28,8 @@ BACKUPEXT = tmpbackup
 # Extension for temporary location for preprocessed files.
 TMPEXT = tmp
 
-GNUFIND= $(shell uname -a| grep linux | wc -l)
-ifeq ($(GNU_FIND), 1)
+GNUFIND= $(shell uname -a| grep -- "Linux" | wc -l)
+ifeq ($(GNUFIND), 1)
 FIND = find
 else
 FIND = gfind
