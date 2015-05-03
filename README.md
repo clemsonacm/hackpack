@@ -153,15 +153,8 @@ All code must have tests that meet the following requirements
     `foo-test.in` respectively
 3.  Tests should be runnable by calling `make test` in the directory of the source
 
-    +   The tests should return 0 in the case that all testcases passed
-    +   The tests should return the number of failed tests up to 124 if one or
-        more test cases failed
-    +   If a test prints text to the console, it should print JSON output using
-		the following pattern:
-
-```json
-
-```
+    +   The tests should return 0 in the case that all test cases passed
+    +   The tests should return 2 in the case that any test cases failed
 
 #### Different Versions of the Hack Pack
 
