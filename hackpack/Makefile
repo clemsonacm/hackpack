@@ -28,13 +28,20 @@ BACKUPEXT = tmpbackup
 # Extension for temporary location for preprocessed files.
 TMPEXT = tmp
 
+GNUFIND= $(shell uname -a| grep linux | wc -l)
+ifeq ($(GNU_FIND), 1)
+FIND = find
+else
+FIND = gfind
+endif
+
 # Build the Hackpack++ by default.
 default: hackpackpp
 
 # Use `make hackpack` or `make hackpackpp` to build the hackpack or hackpack++.
 hackpack hackpackpp:
 	# Back up and preprocess preprocessable files.
-	find . -regex $(PREPREGEX) $(EXCLUDEDIR) -exec cp {} {}.$(BACKUPEXT) \; \
+	$(FIND) . -regex $(PREPREGEX) $(EXCLUDEDIR) -exec cp {} {}.$(BACKUPEXT) \; \
 	-exec sh -c 'awk -v V=$@ -f $(PREPSCRIPT) {} > {}.$(TMPEXT)' \; \
 	-exec mv {}.$(TMPEXT) {} \;
 
@@ -49,9 +56,9 @@ else
 endif
 
 	# Delete preprocessed files.
-	-find . -regex $(PREPREGEX) $(EXCLUDEDIR) -delete
+	-$(FIND) . -regex $(PREPREGEX) $(EXCLUDEDIR) -delete
 	# Restore backups of preprocessed files.
-	-find . -iname "*.$(BACKUPEXT)" $(EXCLUDEDIR) -exec rename 's/\.$(BACKUPEXT)$$//' {} \;
+	-$(FIND) . -iname "*.$(BACKUPEXT)" $(EXCLUDEDIR) -exec ./util/rename 's/\.$(BACKUPEXT)$$//' {} \;
 
 .PHONY: clean show test
 # Display the hack pack, if it exists.
@@ -60,8 +67,8 @@ show:
 
 # Delete temporary files that might exist and clean the OUTDIR.
 clean:
-	-find . -iname "*.$(BACKUPEXT)" $(EXCLUDEDIR) -delete
-	-find . -iname "*.$(TMPEXT)" $(EXCLUDEDIR) -delete
+	-$(FIND) . -iname "*.$(BACKUPEXT)" $(EXCLUDEDIR) -delete
+	-$(find) . -iname "*.$(TMPEXT)" $(EXCLUDEDIR) -delete
 	-./modules.sh clean
 ifeq ($(HAS_OUTDIR), 1)
 	-latexmk -c -outdir=$(OUTDIR) -auxdir=$(OUTDIR)
