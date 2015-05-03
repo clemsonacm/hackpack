@@ -5,6 +5,6 @@ toplevel=$(pwd)
 for module in $(find . -name Makefile  -not -path ./Makefile)
 do
     cd $(dirname $module)
-    make $1 2>&1 |grep -v "make"|grep -v "g\+\+"
+    make $1 2>&1 |grep -v "make"|grep -v "g++"
     cd $toplevel
 done
