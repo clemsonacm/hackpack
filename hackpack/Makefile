@@ -50,6 +50,7 @@ endif
 	# Restore backups of preprocessed files.
 	-find . -iname "*.$(BACKUPEXT)" -exec rename 's/\.$(BACKUPEXT)$$//' {} \;
 
+.PHONY: clean show test
 # Display the hack pack, if it exists.
 show:
 	evince $(OUTDIR)/hackpack.pdf
@@ -58,9 +59,13 @@ show:
 clean:
 	-find . -iname "*.$(BACKUPEXT)" -delete
 	-find . -iname "*.$(TMPEXT)" -delete
+	-./modules.sh clean
 ifeq ($(HAS_OUTDIR), 1)
 	-latexmk -c -outdir=$(OUTDIR) -auxdir=$(OUTDIR)
 else
 	-rm -rf $(OUTDIR)
 	-mkdir $(OUTDIR)
 endif
+
+test:
+	./modules.sh test
