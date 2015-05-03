@@ -123,7 +123,7 @@ For each item in the Hackpack, please include the following in clearly delineate
     *   Guidelines directing the reader to different sections of the hackpack.
     *   References to contest problems including statement, sample io, and
         lessons learned, but solutions should remain.
-    *   As much as possible, index tags shoud __NOT__ be removed.
+    *   As much as possible, index tags should __NOT__ be removed.
 
 #### Writing Code
 Code Must meet the following standards:
@@ -171,7 +171,7 @@ of text or code as part of one version or the other. Here's an example:
 	cout << "This is just the regular hack pack." << endl;
 	// #endif
 
-The first cout will only appear in the hackpack++'s code listing, and the
+The first `cout` will only appear in the hackpack++'s code listing, and the
 second will only appear in the normal hackpack. Note that the `#ifdefs` are
 commented out: as long as the line _ends with the if directive_, they'll work
 properly. You might want to comment them out so that they don't break the compilers.
