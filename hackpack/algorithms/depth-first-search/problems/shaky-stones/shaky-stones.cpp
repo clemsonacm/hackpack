@@ -13,7 +13,7 @@ struct Node
 	Node() : visited(false), id(0), hops_left(-1) {}
 };
 
-bool bfs(Node& n, const unsigned int target)
+bool dfs(Node& n, const unsigned int target)
 {
 	// Mark this node as visited.
 	n.visited = true;
@@ -31,7 +31,7 @@ bool bfs(Node& n, const unsigned int target)
 				it != n.neighbors.end(); it++)
 		{
 			if(((*it)->hops_left < 0 || (*it)->hops_left > 0) && !(*it)->visited)
-				if(bfs(**it, target)) return true; // A return value of true means the algorithm is complete.
+				if(dfs(**it, target)) return true; // A return value of true means the algorithm is complete.
 		}
 	}
 
@@ -83,7 +83,7 @@ int main()
 	// Simulate the crossing of 'crossings' cows.
 	for(unsigned int i = crossings; i > 0; i--)
 	{
-		if(!bfs(nodes[Start], nodes[Target].id))
+		if(!dfs(nodes[Start], nodes[Target].id))
 		{
 			cout << "It is not possible. Only " << crossings - i << " can cross." << endl;
 			return 0;
