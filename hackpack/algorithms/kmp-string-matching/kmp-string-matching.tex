@@ -194,21 +194,21 @@ To save Farmer John from a long night (he works early mornings) find out if anyt
 \end{itemize}
 
 \subsection{Example Contest Problem: DNA Splicing}
-The No-bonez alien race has descended upon Farmer John's beloved cows!
-Rather than abducting them though, they have begun experimenting on them genetically.
-By splicing Farmer John's cow's DNA with their own cows, the aliens hope to accomplish some unknown objective.
+The Nobonez alien race has descended upon Farmer John's beloved cows!
+Rather than abducting them though, they have begun to experiment on them genetically, dabbling with their DNA.
 With the help of the local geneticist, Farmer John can save all of his cows.
-To do so, he must identify the alien DNA and remove it.
+To do so, he must locate all occurrences of changed DNA.
 
-DNA sequences are composed of different combinations of 'A', 'T', 'C', and 'G'.
-The alien DNA can be easily be identified because it always begins and ends with the inert sequence marker \mbox{'TATATTGCCGTTACG'}.
-Between the headers and footers lies the foreign DNA that must be removed.
+DNA sequences are composed of different combinations of nucleotides, abbreviated as 'A', 'T', 'C', and 'G'.
+After careful analysis, the geneticist has concluded that only one specific pattern of DNA has been changed from its original sequence.
+And, fortunately, the Nobonez have only experimented with changing no more than two nucleotides at a time.
 
-Remove the alien DNA and save all of Farmer John's cows.
+Find this corrupted DNA to successfully save all of Farmer John's cows.
 
 \subsubsection{Input}
 \begin{itemize}
-\item Line 1: Text from standard input representing the cow's DNA sequence spliced with the alien cow's DNA..
+\item Line 1: Text from standard input representing the original subsequence of DNA that was targeted.
+\item Line 2: Text from standard input representing the cow's DNA sequence after the modification.
 \end{itemize}
 
 \subsubsection{Sample Input}
@@ -216,7 +216,8 @@ Remove the alien DNA and save all of Farmer John's cows.
 
 \subsubsection{Output}
 \begin{itemize}
-\item Line 1: The cow's DNA sequence with the alien DNA removed.
+\item With each occurrence on its own line, in the following order:
+	the index of the modification in the string representation, what it should be, and what the nucleotide was changed to, as formatted below.
 \end{itemize}
 
 \subsubsection{Sample Output}
