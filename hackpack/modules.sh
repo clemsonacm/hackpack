@@ -1,10 +1,9 @@
 #!/bin/bash
 #A test harness that runs all the test cases for the modules
 
-toplevel=$(pwd)
 for module in $(find . -name Makefile  -not -path ./Makefile)
 do
-    cd $(dirname $module)
+    pushd $(dirname $module) &> /dev/null
     make $1 2>&1 |grep -v "make"|grep -v "g++"
-    cd $toplevel
+    popd &> /dev/null
 done
