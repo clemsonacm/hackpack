@@ -100,6 +100,7 @@ All examples assume a topic called `foo` and a sample problem `bar`:
 	versions of algorithms in languages other than C++ should be written after
 	the C++ code is written_
 +	`bar.example` files such as `.vimrc` that do not have an extension normally
++	`bar.bats` Automated test case written in bats
 +	`bar-test.cpp` An automated unit test written in cpp
 +	`bar-test.in`  Data for the automated unit test
 +	`bar-test.out` Expected output for the automated unit test
@@ -151,11 +152,12 @@ Code Must meet the following standards:
 #### Writing Tests
 All code must have tests that meet the following requirements
 
-1.  Test at least the upper and lower boundaries of the allowed inputs.
-2.  Testing files should be postfixed by `-test` prior to the extension.  For
+1.	All tests should be written using the [bats framework](https://github.com/sstephenson/bats)  See the `structures/set` section for an example.
+2.  Test at least the upper and lower boundaries of the allowed inputs.
+3.  Testing files should be postfixed by `-test` prior to the extension.  For
     example,  `foo.cpp` test files should be called `foo-test.cpp` and
     `foo-test.in` respectively
-3.  Tests should be runnable by calling `make test` in the directory of the source
+4.  Tests should be runnable by calling `make test` in the directory of the source
 
     +   The tests should return 0 in the case that all test cases passed
     +   The tests should return 2 in the case that any test cases failed
