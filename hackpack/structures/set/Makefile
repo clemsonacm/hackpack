@@ -5,5 +5,4 @@ set: set.cpp
 clean:
 	-rm set.exe
 test: set
-	./set.exe
-	cat set.in
+	bats --tap ./set.bats 
