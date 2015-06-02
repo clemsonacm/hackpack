@@ -282,3 +282,4 @@ Questions?
 
 Send us feedback at `acm@cs.clemson.edu`!
 
+This material available under [CC By-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)

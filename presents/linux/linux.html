@@ -438,7 +438,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 						<li>Contents are in <code>~/.snapshot</code></li>
 						<li>Keeps hourly, nightly, and weekly backups of files in <code>~</code></li>
 						<li><p>Especially useful when you accidentally overwrite a project at 2 am</p>
-							<h2>SNAPSHOTS ARE UNIQUE TO CLEMSON. DON'T RELY ON IT!</h2></li>
+							<h2 id="snapshots-are-unique-to-clemson.-dont-rely-on-it">SNAPSHOTS ARE UNIQUE TO CLEMSON. DON'T RELY ON IT!</h2></li>
 					</ul>
 				</section>
 				<section id="further-resources" class="slide level1">
@@ -458,6 +458,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 				<section id="questions" class="slide level1">
 					<h1>Questions</h1>
 					<p>Send us feedback at <code>acm@cs.clemson.edu</code>!</p>
+					<p>This material available under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC By-SA 4.0</a></p>
 				</section>
 			</div>
 		</div>
@@ -478,13 +479,13 @@ Reveal.initialize({
 	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 	transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-		// Optional libraries used to extend on reveal.js
+	// Optional libraries used to extend on reveal.js
 	dependencies: [
 	{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
 	{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 	{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-		//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
-		//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+	//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+	//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 	]});
 		</script>
 	</body>
