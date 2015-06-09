@@ -41,9 +41,9 @@ default: hackpackpp
 # Use `make hackpack` or `make hackpackpp` to build the hackpack or hackpack++.
 hackpack hackpackpp:
 	# Back up and preprocess preprocessable files.
-	$(FIND) . -regex $(PREPREGEX) $(EXCLUDEDIR) -exec cp {} {}.$(BACKUPEXT) \; \
-	-exec sh -c 'awk -v V=$@ -f $(PREPSCRIPT) {} > {}.$(TMPEXT)' \; \
-	-exec mv {}.$(TMPEXT) {} \;
+	$(FIND) . -regex $(PREPREGEX) $(EXCLUDEDIR) -exec cp "{}" "{}.$(BACKUPEXT)" \; \
+	-exec sh -c 'awk -v V=$@ -f $(PREPSCRIPT) "{}" > "{}.$(TMPEXT)"' \; \
+	-exec mv "{}.$(TMPEXT)" "{}" \;
 
 	# Build the PDF and auxiliary files into the OUTDIR.
 ifeq ($(HAS_OUTDIR), 1)
@@ -58,7 +58,7 @@ endif
 	# Delete preprocessed files.
 	-$(FIND) . -regex $(PREPREGEX) $(EXCLUDEDIR) -delete
 	# Restore backups of preprocessed files.
-	-$(FIND) . -iname "*.$(BACKUPEXT)" $(EXCLUDEDIR) -exec ./util/rename 's/\.$(BACKUPEXT)$$//' {} \;
+	-$(FIND) . -iname "*.$(BACKUPEXT)" $(EXCLUDEDIR) -exec ./util/rename 's/\.$(BACKUPEXT)$$//' "{}" \;
 
 .PHONY: clean show test
 # Display the hack pack, if it exists.
