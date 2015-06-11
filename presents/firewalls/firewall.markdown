@@ -27,6 +27,8 @@ What is a firewall, how do I secure it?
 -   Firewall is a set of rules that control traffic
 -   Try to use a default reject policy
 -   Only open up the required ports
+	-   Not using ssh? Block it
+	-   Not using IPv6? Block it
 -   Log unusual traffic
 
 How are they different?
@@ -38,57 +40,63 @@ iptables
 -   Legacy firewall for Linux
 -   Very simple, very powerful
 -   Uses a series of chains based on traffic
+-   Use on Linux and need fine control 
 
 Important files
 ===============
 
--   `/etc/sysconfig/iptables` permanent rules
--   `/etc/services` list of services
+-   `/etc/sysconfig/iptables` \# Permanent rules
+-   `/etc/services` \# List of services
 
 Important commands
 ==================
 
--   `iptables` View and modify the firewall
--   `iptables-save > /etc/sysconfig/iptables` save running config 
--   `iptables-restore /etc/sysconfig/iptables` load config
+-   `iptables` \# View and modify the firewall
+-   `service iptables {start,stop,status}` \# Manage on older systems
+-   `systemctl {start,stop,status} iptables` \# Manage on newer systems
+-   `iptables-save > /etc/sysconfig/iptables`  \# Save running config 
+-   `iptables-restore /etc/sysconfig/iptables` \# Load config
 
 firewalld
 =========
 
--   Part of systemd project for Linux
+-   Part of `systemd` project for Linux
 -   Provides a ease of use layer for `iptables`
 -   Puts the focus on "zones" and "services"
 -   Controls to what apps may change the firewall
+-   Use on newer Linux where clarity is important
 
 Important Files
 ================
 
--   definitions in `/usr/lib/firewalld/`
--   overrides in `/etc/firewalld/`
+-   `/usr/lib/firewalld/` \# Definitions 
+-   `/etc/firewalld/` \# Overrides 
 
 Important commands
 ==================
 
--   `firewall-cmd` view and modify the firewall
+-   `systemctl {start,stop,status} firewalld` \# Manage on newer systems
+-   `firewall-cmd` \# View and modify the firewall
 
 pf
 ==
 
 -   Standard firewall for BSD
 -   The last rule in the list wins
+-   Use on BSD and on your router if possible
 
 Important Files
 ================
 
--   `/etc/rc.conf` - Enable pf here
--   `/etc/pf.conf` - Actual firewall configuration
+-   `/etc/rc.conf` \# Enable pf here
+-   `/etc/pf.conf` \# Actual firewall configuration
 
 Important commands
 ==================
 
--   `pfctl -f /etc/pf.conf` load the firewall config
--   `pfctl -sa` see configuration status
--   `kldload pf` load the pf kernel module
+-   `pfctl -f /etc/pf.conf` \# Load the firewall config
+-   `pfctl -sa` \# See configuration status
+-   `kldload pf` \# Load the pf kernel module
 
 Example firewalls
 =====================
@@ -148,13 +156,45 @@ Exceptions for applications
 firewalld
 =========
 
+Zone
+====
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<zone>
+		<short>Public</public>
+		<description>This is our external interface</description>
+		<interface name="enp0s3"/>
+		<service name="https"/>
+		<rule family="ipv4">
+			<source address="10.0.0.0/8"/>
+			<log>
+				<limit address="5/m"/>
+			</log>
+			<drop/>
+		</rule>
+	</zone>
+
+Services
+========
+	
+	<?xml version="1.0" encoding="utf-8"?>
+	<service>
+		<short>FOO</short>
+		<description>Foo is a program that allows bar</description>
+		<port protocol="tcp" port="21"/>
+		<module name="nf_conntrack_foo"/>
+	</service>
+
+Configuration
+=============
+
 	firewall-cmd --zone=public --add-interface=$ext_if
 	for addr in $broken; do
 		firewall-cmd --zone=public  \
-			--add-rich-rule='rule family="ipv4" source=$addr log limit value="5/m"drop'
+			--add-rich-rule="rule family='ipv4' source address=\"$addr\" log limit value='5/m' drop"
 	done
 	firewall-cmd --zone=public --add-service=ssh
-	firewall-cmd --zone=public --add-service=http
+	firewall-cmd --zone=public --add-service=https
 	firewall-cmd --runtime-to-permanent
 
 pf
