@@ -51,11 +51,11 @@ Important files
 Important commands
 ==================
 
--   `iptables` \# View and modify the firewall
--   `service iptables {start,stop,status}` \# Manage on older systems
--   `systemctl {start,stop,status} iptables` \# Manage on newer systems
--   `iptables-save > /etc/sysconfig/iptables`  \# Save running config 
--   `iptables-restore /etc/sysconfig/iptables` \# Load config
+-   `iptables` 
+-   `service iptables {start,stop,status}` 
+-   `systemctl {start,stop,status} iptables` 
+-   `iptables-save > /etc/sysconfig/iptables` 
+-   `iptables-restore /etc/sysconfig/iptables`
 
 firewalld
 =========
@@ -75,8 +75,8 @@ Important Files
 Important commands
 ==================
 
--   `systemctl {start,stop,status} firewalld` \# Manage on newer systems
--   `firewall-cmd` \# View and modify the firewall
+-   `firewall-cmd` 
+-   `systemctl {start,stop,status} firewalld`
 
 pf
 ==
@@ -95,6 +95,7 @@ Important commands
 ==================
 
 -   `pfctl -f /etc/pf.conf` \# Load the firewall config
+	-   This is the only way to change the running config!
 -   `pfctl -sa` \# See configuration status
 -   `kldload pf` \# Load the pf kernel module
 
@@ -193,6 +194,7 @@ Configuration
 		firewall-cmd --zone=public  \
 			--add-rich-rule="rule family='ipv4' source address=\"$addr\" log limit value='5/m' drop"
 	done
+	firewall-cmd --permanent --zone=public --add-service=ssh
 	firewall-cmd --zone=public --add-service=ssh
 	firewall-cmd --zone=public --add-service=https
 	firewall-cmd --runtime-to-permanent
