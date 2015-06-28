@@ -1,0 +1,44 @@
+\section{Hash Window Approaches}\index{hashing}\index{hash windows}
+Hashing is a mapping of objects to bytes.
+These bytes are often stored in Strings or numeric data types.
+Normally, hash functions attempt to map each object to a \textit{unique} set of bytes.
+Also a \textit{slight} change in the object should cause a \textit{large} change in the output.
+When two objects map to the same set of bytes, it is referred to as a hash collision.
+
+\subsection{Approaches}
+\begin{itemize}
+	\item Identify substrings quickly and cleanly.
+	\item Hash collisions to detect certain features of the input.
+\end{itemize}
+
+\subsection{Fine Print Returns!}
+The cows have prepared another legal document for Farmer John to review.
+
+The Cows are still championing the installation of an Olympic style swimming pool.
+However, this time Farmer John only cares about how many times, `pool' appears in the text.
+
+Help Farmer John determine how many times the text `pool' appears in the document.
+
+\subsubsection{Input}
+\begin{itemize}
+	\item A stream of text terminated by an EOF representing the legal agreement
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[label=Fine Print Sample Input, caption=Fine Print Sample Input]{./approaches/hashing/problems/fine-print/fine-print.in}
+
+\subsubsection{Output}
+\begin{itemize}
+	\item 1 integer representing the number of references to the word pool in the text.
+\end{itemize}
+
+\subsubsection{Sample Output}
+\acmlisting[label=Fine Print Sample Output, caption=Fine Print Sample Output]{./approaches/hashing/problems/fine-print/fine-print.out}
+
+\subsubsection{Sample Solution}
+\acmlisting[label=Fine Print Sample Solution, caption=Fine Print Sample Solution]{./approaches/hashing/problems/fine-print/fine-print.cpp}
+
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item There is often more than one way to solve a problem,  checkout the KMP string matching algorithm for another way to solve this problem.
+\end{itemize}

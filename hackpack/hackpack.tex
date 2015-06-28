@@ -16,14 +16,31 @@
 \input{./structures/set/set}
 \input{./structures/map/map}
 \input{./structures/heap/heap}
+\input{./structures/graph/graph}
 
 \chapter{Algorithms}
+\input{./algorithms/dijkstra/dijkstra}
+\input{./algorithms/sieve-of-eratosthenes/sieve-of-eratosthenes}
+\input{./algorithms/kmp-string-matching/kmp-string-matching}
+\input{./algorithms/computational-geometry/comp-geom}
+\input{./algorithms/flood-fill/flood-fill}
+\input{./algorithms/breadth-first-search/breadth-first-search}
+\input{./algorithms/depth-first-search/depth-first-search}
 
+\chapter{Approaches}
+\input{./approaches/hashing/hashing.tex}
+\input{./approaches/dp/dp.tex}
 
 \chapter{Appendix}
 \input{./general/ciofunctions/ciofunctions}
 \input{./general/vimrc/vimrc}
 \input{./general/makefile/makefile}
+
+#ifdef hackpackpp
+\chapter{C++ Standard Library}
+This chapter was pulled from cppreference.com\cite{cppreference}.
+\input{./util/cppstdlib.tex}
+#endif 
 
 \bibliographystyle{plain}
 \bibliography{hackpack}

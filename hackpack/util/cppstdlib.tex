@@ -1,0 +1,3751 @@
+\section{Utilities library}
+
+\subsection{std::pair}
+
+\subsubsection{NAME}
+std::pair - std::pair is a struct template that provides a way to store two heterogeneous objects as a single unit. A pair is a specific case of a std::tuple with two elements.
+
+\subsubsection{SYNOPSIS}
+\#include <utility>
+
+\begin{lstlisting}
+ template<
+    class T1,
+    class T2
+> struct pair;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::pair::pair(3) - constructs new pair  (public member function)
+std::pair::operator=(3) - assigns the contents  (public member function)
+std::pair::swap(3) [C++11] - swaps the contents   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+make\_pair(3) - creates a pair object of type, defined by the argument types  (function template)
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the pair   (function template)
+std::swap(std::pair)(3) [C++11] - specializes the std::swap algorithm   (function template)
+std::get(std::pair)(3) [C++11] - accesses an element of a pair   (function template)
+
+
+\subsection{std::tuple}
+
+\subsubsection{NAME}
+std::tuple - Class template std::tuple is a fixed-size collection of heterogeneous values. It is a generalization of std::pair.
+
+\subsubsection{SYNOPSIS}
+\#include <tuple>
+
+\begin{lstlisting}
+ template< class... Types >
+class tuple; [since C++11]
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::tuple::tuple(3) - constructs a new tuple  (public member function)
+std::tuple::operator=(3) - assigns the contents of one tuple to another  (public member function)
+std::tuple::swap(3) - swaps the contents of two tuples   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+make\_tuple(3) - creates a tuple object of the type defined by the argument types  (function template)
+tie(3) - creates a tuple of lvalue references or unpacks a tuple into individual objects  (function template)
+forward\_as\_tuple(3) - creates a tuple of rvalue references  (function template)
+tuple\_cat(3) - creates a tuple by concatenating any number of tuples  (function template)
+std::get(std::tuple)(3) - tuple accesses specified element  (function template)
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the tuple   (function template)
+std::swap(std::tuple)(3) [C++11] - specializes the std::swap algorithm   (function template)
+
+
+\section{Strings library}
+
+\subsection{std::basic\_string}
+
+\subsubsection{NAME}
+std::basic\_string - The class template basic\_string stores and manipulates sequences of char-like objects. The class is dependent neither on the character type nor on the nature of operations on that type. The definitions of the operations are supplied via the Traits template parameter - a specialization of std::char\_traits or a compatible traits class.
+
+\subsubsection{SYNOPSIS}
+\#include <string>
+
+\begin{lstlisting}
+ template<
+    class CharT,
+    class Traits = std::char\_traits<CharT>,
+    class Allocator = std::allocator<CharT>
+> class basic\_string;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::basic\_string::basic\_string(3) - constructs a basic\_string  (public member function)
+std::basic\_string::operator=(3) - assigns values to the string   (public member function)
+std::basic\_string::assign(3) - assign characters to a string  (public member function)
+std::basic\_string::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Element access}
+std::basic\_string::at(3) - access specified character with bounds checking  (public member function)
+std::basic\_string::operator[](3) - access specified character  (public member function)
+std::basic\_string::front(3) [C++11] - accesses the first character  (public member function)
+std::basic\_string::back(3) [C++11] - accesses the last character  (public member function)
+std::basic\_string::data(3) - returns a pointer to the first character of a string  (public member function)
+std::basic\_string::c\_str(3) - returns a non-modifiable standard C character array version of the string  (public member function)
+\paragraph{Iterators}
+std::basic\_string::begin(3), std::basic\_string::cbegin(3) [C++11] - returns an iterator to the beginning   (public member function)
+std::basic\_string::end(3), std::basic\_string::cend(3) [C++11] - returns an iterator to the end   (public member function)
+std::basic\_string::rbegin(3), std::basic\_string::crbegin(3) [C++11] - returns a reverse iterator to the beginning   (public member function)
+std::basic\_string::rend(3), std::basic\_string::crend(3) [C++11] - returns a reverse iterator to the end   (public member function)
+\paragraph{Capacity}
+std::basic\_string::empty(3) - checks whether the string is empty   (public member function)
+std::basic\_string::size(3), std::basic\_string::length(3) - returns the number of characters   (public member function)
+std::basic\_string::max\_size(3) - returns the maximum number of characters   (public member function)
+std::basic\_string::reserve(3) - reserves storage   (public member function)
+std::basic\_string::capacity(3) - returns the number of characters that can be held in currently allocated storage   (public member function)
+std::basic\_string::shrink\_to\_fit(3) [C++11] - reduces memory usage by freeing unused memory   (public member function)
+\paragraph{Operations}
+std::basic\_string::clear(3) - clears the contents  (public member function)
+std::basic\_string::insert(3) - inserts characters  (public member function)
+std::basic\_string::erase(3) - removes characters   (public member function)
+std::basic\_string::push\_back(3) - appends a character to the end  (public member function)
+std::basic\_string::pop\_back(3) [C++11] - removes the last character   (public member function)
+std::basic\_string::append(3) - appends characters to the end  (public member function)
+std::basic\_string::operator+=(3) - appends characters to the end  (public member function)
+std::basic\_string::compare(3) - compares two strings  (public member function)
+std::basic\_string::replace(3) - replaces specified portion of a string  (public member function)
+std::basic\_string::substr(3) - returns a substring  (public member function)
+std::basic\_string::copy(3) - copies characters  (public member function)
+std::basic\_string::resize(3) - changes the number of characters stored   (public member function)
+std::basic\_string::swap(3) - swaps the contents   (public member function)
+\paragraph{Search}
+std::basic\_string::find(3) - find characters in the string  (public member function)
+std::basic\_string::rfind(3) - find the last occurrence of a substring  (public member function)
+std::basic\_string::find\_first\_of(3) - find first occurrence of characters  (public member function)
+std::basic\_string::find\_first\_not\_of(3) - find first absence of characters  (public member function)
+std::basic\_string::find\_last\_of(3) - find last occurrence of characters  (public member function)
+std::basic\_string::find\_last\_not\_of(3) - find last absence of characters  (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator+(3) - concatenates two strings or a string and a char   (function template)
+operator==(3), operator!=(3), operator<(3), operator>(3), operator<=(3), operator>=(3) - lexicographically compares two strings   (function template)
+std::swap(std::basic\_string)(3) - specializes the std::swap algorithm  (function template)
+\paragraph{Input/output}
+operator<<(3), operator>>(3) - performs stream input and output on strings   (function template)
+getline(3) - read data from an I/O stream into a string  (function)
+\paragraph{Numeric conversions}
+stoi(3), stol(3), stoll [C++11] [C++11](3) [C++11] - converts a string to a signed integer   (function)
+stoul(3), stoull [C++11](3) [C++11] - converts a string to an unsigned integer   (function)
+stof(3), stod(3), stold [C++11] [C++11](3) [C++11] - converts a string to a floating point value   (function)
+to\_string(3) [C++11] - converts an integral or floating point value to string   (function)
+to\_wstring(3) [C++11] - converts an integral or floating point value to wstring   (function)
+
+
+\section{Containers library}
+
+\subsection{std::array}
+
+\subsubsection{NAME}
+std::array - std::array is a container that encapsulates fixed size arrays.
+
+\subsubsection{SYNOPSIS}
+\#include <array>
+
+\begin{lstlisting}
+ template<
+    class T,
+    std::size\_t N
+
+> struct array; [since C++11]
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+\paragraph{Implicitly-defined member functions}
+std::array::array(implicitly declared)(3) - default-initializes or copy-initializes every element of the array  (public member function)
+std::array::~array(implicitly declared)(3) - destroys every element of the array  (public member function)
+std::array::operator=(implicitly declared)(3) - overwrites every element of the array with the corresponding element of another array  (public member function)
+\paragraph{Element access}
+std::array::at(3) - access specified element with bounds checking   (public member function)
+std::array::operator[](3) - access specified element   (public member function)
+std::array::front(3) - access the first element   (public member function)
+std::array::back(3) - access the last element   (public member function)
+std::array::data(3) - direct access to the underlying array   (public member function)
+\paragraph{Iterators}
+std::array::begin(3), std::array::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::array::end(3), std::array::cend(3) - returns an iterator to the end   (public member function)
+std::array::rbegin(3), std::array::crbegin(3) - returns a reverse iterator to the beginning   (public member function)
+std::array::rend(3), std::array::crend(3) - returns a reverse iterator to the end   (public member function)
+\paragraph{Capacity}
+std::array::empty(3) - checks whether the container is empty   (public member function)
+std::array::size(3) - returns the number of elements   (public member function)
+std::array::max\_size(3) - returns the maximum possible number of elements   (public member function)
+\paragraph{Operations}
+std::array::fill(3) - fill the container with specified value   (public member function)
+std::array::swap(3) - swaps the contents   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the array   (function template)
+std::get(std::array)(3) - accesses an element of an array   (function template)
+std::swap(std::array)(3) [C++11] - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::vector}
+
+\subsubsection{NAME}
+std::vector - std::vector is a sequence container that encapsulates dynamic size arrays.
+
+\subsubsection{SYNOPSIS}
+\#include <vector>
+
+\begin{lstlisting}
+ template<
+    class T,
+    class Allocator = std::allocator<T>
+> class vector;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::vector::vector(3) - constructs the vector  (public member function)
+std::vector::~vector(3) - destructs the vector  (public member function)
+std::vector::operator=(3) - assigns values to the container   (public member function)
+std::vector::assign(3) - assigns values to the container   (public member function)
+std::vector::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Element access}
+std::vector::at(3) - access specified element with bounds checking   (public member function)
+std::vector::operator[](3) - access specified element   (public member function)
+std::vector::front(3) - access the first element   (public member function)
+std::vector::back(3) - access the last element   (public member function)
+std::vector::data(3) [C++11] - direct access to the underlying array   (public member function)
+\paragraph{Iterators}
+std::vector::begin(3), std::vector::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::vector::end(3), std::vector::cend(3) - returns an iterator to the end   (public member function)
+std::vector::rbegin(3), std::vector::crbegin(3) - returns a reverse iterator to the beginning   (public member function)
+std::vector::rend(3), std::vector::crend(3) - returns a reverse iterator to the end   (public member function)
+\paragraph{Capacity}
+std::vector::empty(3) - checks whether the container is empty   (public member function)
+std::vector::size(3) - returns the number of elements   (public member function)
+std::vector::max\_size(3) - returns the maximum possible number of elements   (public member function)
+std::vector::reserve(3) - reserves storage  (public member function)
+std::vector::capacity(3) - returns the number of elements that can be held in currently allocated storage   (public member function)
+std::vector::shrink\_to\_fit(3) [C++11] - reduces memory usage by freeing unused memory   (public member function)
+\paragraph{Modifiers}
+std::vector::clear(3) - clears the contents   (public member function)
+std::vector::insert(3) - inserts elements   (public member function)
+std::vector::emplace(3) [C++11] - constructs element in-place   (public member function)
+std::vector::erase(3) - erases elements   (public member function)
+std::vector::push\_back(3) - adds elements to the end  (public member function)
+std::vector::emplace\_back(3) [C++11] - constructs elements in-place at the end   (public member function)
+std::vector::pop\_back(3) - removes the last element   (public member function)
+std::vector::resize(3) - changes the number of elements stored   (public member function)
+std::vector::swap(3) - swaps the contents   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the vector   (function template)
+std::swap(std::vector)(3) - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::deque}
+
+\subsubsection{NAME}
+std::deque - std::deque (double-ended queue) is an indexed sequence container that allows fast insertion and deletion at both its beginning and its end. In addition, insertion and deletion at either end of a deque never invalidates pointers or references to the rest of the elements.
+
+\subsubsection{SYNOPSIS}
+\#include <deque>
+
+\begin{lstlisting}
+ template<
+    class T,
+    class Allocator = std::allocator<T>
+> class deque;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::deque::deque(3) - constructs the deque  (public member function)
+std::deque::~deque(3) - destructs the deque  (public member function)
+std::deque::operator=(3) - assigns values to the container   (public member function)
+std::deque::assign(3) - assigns values to the container   (public member function)
+std::deque::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Element access}
+std::deque::at(3) - access specified element with bounds checking   (public member function)
+std::deque::operator[](3) - access specified element   (public member function)
+std::deque::front(3) - access the first element   (public member function)
+std::deque::back(3) - access the last element   (public member function)
+\paragraph{Iterators}
+std::deque::begin(3), std::deque::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::deque::end(3), std::deque::cend(3) - returns an iterator to the end   (public member function)
+std::deque::rbegin(3), std::deque::crbegin(3) - returns a reverse iterator to the beginning   (public member function)
+std::deque::rend(3), std::deque::crend(3) - returns a reverse iterator to the end   (public member function)
+\paragraph{Capacity}
+std::deque::empty(3) - checks whether the container is empty   (public member function)
+std::deque::size(3) - returns the number of elements   (public member function)
+std::deque::max\_size(3) - returns the maximum possible number of elements   (public member function)
+std::deque::shrink\_to\_fit(3) [C++11] - reduces memory usage by freeing unused memory   (public member function)
+\paragraph{Modifiers}
+std::deque::clear(3) - clears the contents   (public member function)
+std::deque::insert(3) - inserts elements   (public member function)
+std::deque::emplace(3) [C++11] - constructs element in-place   (public member function)
+std::deque::erase(3) - erases elements   (public member function)
+std::deque::push\_back(3) - adds elements to the end  (public member function)
+std::deque::emplace\_back(3) [C++11] - constructs elements in-place at the end   (public member function)
+std::deque::pop\_back(3) - removes the last element   (public member function)
+std::deque::push\_front(3) - inserts elements to the beginning  (public member function)
+std::deque::emplace\_front(3) [C++11] - constructs elements in-place at the beginning   (public member function)
+std::deque::pop\_front(3) - removes the first element   (public member function)
+std::deque::resize(3) - changes the number of elements stored   (public member function)
+std::deque::swap(3) - swaps the contents   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the deque   (function template)
+std::swap(std::deque)(3) - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::forward\_list}
+
+\subsubsection{NAME}
+std::forward\_list - std::forward\_list is a container that supports fast insertion and removal of elements from anywhere in the container. Fast random access is not supported. It is implemented as a singly-linked list and essentially does not have any overhead compared to its implementation in C. Compared to std::list this container provides more space efficient storage when bidirectional iteration is not needed.
+
+\subsubsection{SYNOPSIS}
+\#include <forward\_list>
+
+\begin{lstlisting}
+ template<
+    class T,
+    class Allocator = std::allocator<T>
+
+> class forward\_list; [since C++11]
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::forward\_list::forward\_list(3) - constructs the forward\_list  (public member function)
+std::forward\_list::~forward\_list(3) - destructs the forward\_list  (public member function)
+std::forward\_list::operator=(3) - assigns values to the container   (public member function)
+std::forward\_list::assign(3) - assigns values to the container   (public member function)
+std::forward\_list::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Element access}
+std::forward\_list::front(3) - access the first element   (public member function)
+\paragraph{Iterators}
+std::forward\_list::before\_begin(3), std::forward\_list::cbefore\_begin(3) - returns an iterator to the element before beginning   (public member function)
+std::forward\_list::begin(3), std::forward\_list::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::forward\_list::end(3), std::forward\_list::cend(3) - returns an iterator to the end   (public member function)
+\paragraph{Capacity}
+std::forward\_list::empty(3) - checks whether the container is empty   (public member function)
+std::forward\_list::max\_size(3) - returns the maximum possible number of elements   (public member function)
+\paragraph{Modifiers}
+std::forward\_list::clear(3) - clears the contents   (public member function)
+std::forward\_list::insert\_after(3) - inserts elements after an element   (public member function)
+std::forward\_list::emplace\_after(3) - constructs elements in-place after an element   (public member function)
+std::forward\_list::erase\_after(3) - erases an element after an element   (public member function)
+std::forward\_list::push\_front(3) - inserts elements to the beginning  (public member function)
+std::forward\_list::emplace\_front(3) - constructs elements in-place at the beginning   (public member function)
+std::forward\_list::pop\_front(3) - removes the first element   (public member function)
+std::forward\_list::resize(3) - changes the number of elements stored   (public member function)
+std::forward\_list::swap(3) - swaps the contents   (public member function)
+\paragraph{Operations}
+std::forward\_list::merge(3) - merges two sorted lists  (public member function)
+std::forward\_list::splice\_after(3) - moves elements from another forward\_list   (public member function)
+std::forward\_list::remove(3), std::forward\_list::remove\_if(3) - removes elements satisfying specific criteria  (public member function)
+std::forward\_list::reverse(3) - reverses the order of the elements  (public member function)
+std::forward\_list::unique(3) - removes consecutive duplicate elements  (public member function)
+std::forward\_list::sort(3) - sorts the elements  (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the forward\_list   (function template)
+std::swap(std::forward\_list)(3) [C++11] - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::list}
+
+\subsubsection{NAME}
+std::list - std::list is a container that supports constant time insertion and removal of elements from anywhere in the container. Fast random access is not supported. It is usually implemented as double-linked list. Compared to std::forward\_list this container provides bidirectional iteration capability while being less space efficient.
+
+\subsubsection{SYNOPSIS}
+\#include <list>
+
+\begin{lstlisting}
+ template<
+    class T,
+    class Allocator = std::allocator<T>
+> class list;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::list::list(3) - constructs the list  (public member function)
+std::list::~list(3) - destructs the list  (public member function)
+std::list::operator=(3) - assigns values to the container   (public member function)
+std::list::assign(3) - assigns values to the container   (public member function)
+std::list::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Element access}
+std::list::front(3) - access the first element   (public member function)
+std::list::back(3) - access the last element   (public member function)
+\paragraph{Iterators}
+std::list::begin(3), std::list::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::list::end(3), std::list::cend(3) - returns an iterator to the end   (public member function)
+std::list::rbegin(3), std::list::crbegin(3) - returns a reverse iterator to the beginning   (public member function)
+std::list::rend(3), std::list::crend(3) - returns a reverse iterator to the end   (public member function)
+\paragraph{Capacity}
+std::list::empty(3) - checks whether the container is empty   (public member function)
+std::list::size(3) - returns the number of elements   (public member function)
+std::list::max\_size(3) - returns the maximum possible number of elements   (public member function)
+\paragraph{Modifiers}
+std::list::clear(3) - clears the contents   (public member function)
+std::list::insert(3) - inserts elements   (public member function)
+std::list::emplace(3) [C++11] - constructs element in-place   (public member function)
+std::list::erase(3) - erases elements   (public member function)
+std::list::push\_back(3) - adds elements to the end  (public member function)
+std::list::emplace\_back(3) [C++11] - constructs elements in-place at the end   (public member function)
+std::list::pop\_back(3) - removes the last element   (public member function)
+std::list::push\_front(3) - inserts elements to the beginning  (public member function)
+std::list::emplace\_front(3) [C++11] - constructs elements in-place at the beginning   (public member function)
+std::list::pop\_front(3) - removes the first element   (public member function)
+std::list::resize(3) - changes the number of elements stored   (public member function)
+std::list::swap(3) - swaps the contents   (public member function)
+\paragraph{Operations}
+std::list::merge(3) - merges two sorted lists  (public member function)
+std::list::splice(3) - moves elements from another list   (public member function)
+std::list::remove(3), std::list::remove\_if(3) - removes elements satisfying specific criteria  (public member function)
+std::list::reverse(3) - reverses the order of the elements  (public member function)
+std::list::unique(3) - removes consecutive duplicate elements  (public member function)
+std::list::sort(3) - sorts the elements  (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the list   (function template)
+std::swap(std::list)(3) - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::set}
+
+\subsubsection{NAME}
+std::set - std::set is an associative container that contains a sorted set of unique objects of type Key. Sorting is done using the key comparison function Compare. Search, removal, and insertion operations have logarithmic complexity. Sets are usually implemented as red-black trees.
+
+\subsubsection{SYNOPSIS}
+\#include <set>
+
+\begin{lstlisting}
+ template<
+    class Key,
+    class Compare = std::less<Key>,
+    class Allocator = std::allocator<Key>
+> class set;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::set::set(3) - constructs the set  (public member function)
+std::set::~set(3) - destructs the set  (public member function)
+std::set::operator=(3) - assigns values to the container   (public member function)
+std::set::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Iterators}
+std::set::begin(3), std::set::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::set::end(3), std::set::cend(3) - returns an iterator to the end   (public member function)
+std::set::rbegin(3), std::set::crbegin(3) - returns a reverse iterator to the beginning   (public member function)
+std::set::rend(3), std::set::crend(3) - returns a reverse iterator to the end   (public member function)
+\paragraph{Capacity}
+std::set::empty(3) - checks whether the container is empty   (public member function)
+std::set::size(3) - returns the number of elements   (public member function)
+std::set::max\_size(3) - returns the maximum possible number of elements   (public member function)
+\paragraph{Modifiers}
+std::set::clear(3) - clears the contents   (public member function)
+std::set::insert(3) - inserts elements   (public member function)
+std::set::emplace(3) [C++11] - constructs element in-place   (public member function)
+std::set::emplace\_hint(3) [C++11] - constructs elements in-place using a hint   (public member function)
+std::set::erase(3) - erases elements   (public member function)
+std::set::swap(3) - swaps the contents   (public member function)
+\paragraph{Lookup}
+std::set::count(3) - returns the number of elements matching specific key   (public member function)
+std::set::find(3) - finds element with specific key  (public member function)
+std::set::equal\_range(3) - returns range of elements matching a specific key  (public member function)
+std::set::lower\_bound(3) - returns an iterator to the first element not less than the given key  (public member function)
+std::set::upper\_bound(3) - returns an iterator to the first element greater than the given key  (public member function)
+\paragraph{Observers}
+std::set::key\_comp(3) - returns the function that compares keys  (public member function)
+std::set::value\_comp(3) - returns the function that compares keys in objects of type value\_type  (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the set   (function template)
+std::swap(std::set)(3) - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::map}
+
+\subsubsection{NAME}
+std::map - std::map is a sorted associative container that contains key-value pairs with unique keys. Keys are sorted by using the comparison function Compare.  Search, removal, and insertion operations have logarithmic complexity. Maps are usually implemented as red-black trees.
+
+\subsubsection{SYNOPSIS}
+\#include <map>
+
+\begin{lstlisting}
+ template<
+    class Key,
+    class T,
+    class Compare = std::less<Key>,
+    class Allocator = std::allocator<std::pair<const Key, T> >
+> class map;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::map::map(3) - constructs the map  (public member function)
+std::map::~map(3) - destructs the map  (public member function)
+std::map::operator=(3) - assigns values to the container   (public member function)
+std::map::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Element access}
+std::map::at(3) [C++11] - access specified element with bounds checking   (public member function)
+std::map::operator[](3) - access specified element   (public member function)
+\paragraph{Iterators}
+std::map::begin(3), std::map::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::map::end(3), std::map::cend(3) - returns an iterator to the end   (public member function)
+std::map::rbegin(3), std::map::crbegin(3) - returns a reverse iterator to the beginning   (public member function)
+std::map::rend(3), std::map::crend(3) - returns a reverse iterator to the end   (public member function)
+\paragraph{Capacity}
+std::map::empty(3) - checks whether the container is empty   (public member function)
+std::map::size(3) - returns the number of elements   (public member function)
+std::map::max\_size(3) - returns the maximum possible number of elements   (public member function)
+\paragraph{Modifiers}
+std::map::clear(3) - clears the contents   (public member function)
+std::map::insert(3) - inserts elements   (public member function)
+std::map::insert\_or\_assign(3) [C++17] - inserts an element or assigns to the current element if the key already exists   (public member function)
+std::map::emplace(3) [C++11] - constructs element in-place   (public member function)
+std::map::emplace\_hint(3) [C++11] - constructs elements in-place using a hint   (public member function)
+std::map::try\_emplace(3) [C++17] - inserts in-place if the key does not exist, does nothing if the key exists  (public member function)
+std::map::erase(3) - erases elements   (public member function)
+std::map::swap(3) - swaps the contents   (public member function)
+\paragraph{Lookup}
+std::map::count(3) - returns the number of elements matching specific key   (public member function)
+std::map::find(3) - finds element with specific key  (public member function)
+std::map::equal\_range(3) - returns range of elements matching a specific key  (public member function)
+std::map::lower\_bound(3) - returns an iterator to the first element not less than the given key  (public member function)
+std::map::upper\_bound(3) - returns an iterator to the first element greater than the given key  (public member function)
+\paragraph{Observers}
+std::map::key\_comp(3) - returns the function that compares keys  (public member function)
+std::map::value\_comp(3) - returns the function that compares keys in objects of type value\_type  (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the map   (function template)
+std::swap(std::map)(3) - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::multiset}
+
+\subsubsection{NAME}
+std::multiset - Multiset is an associative container that contains a sorted set of objects of type Key. Unlike set, multiple keys with equal values are allowed. Sorting is done using the key comparison function Compare. Search, insertion, and removal operations have logarithmic complexity.
+
+\subsubsection{SYNOPSIS}
+\#include <set>
+
+\begin{lstlisting}
+ template<
+    class Key,
+    class Compare = std::less<Key>,
+    class Allocator = std::allocator<Key>
+> class multiset;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::multiset::multiset(3) - constructs the multiset  (public member function)
+std::multiset::~multiset(3) - destructs the multiset  (public member function)
+std::multiset::operator=(3) - assigns values to the container   (public member function)
+std::multiset::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Iterators}
+std::multiset::begin(3), std::multiset::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::multiset::end(3), std::multiset::cend(3) - returns an iterator to the end   (public member function)
+std::multiset::rbegin(3), std::multiset::crbegin(3) - returns a reverse iterator to the beginning   (public member function)
+std::multiset::rend(3), std::multiset::crend(3) - returns a reverse iterator to the end   (public member function)
+\paragraph{Capacity}
+std::multiset::empty(3) - checks whether the container is empty   (public member function)
+std::multiset::size(3) - returns the number of elements   (public member function)
+std::multiset::max\_size(3) - returns the maximum possible number of elements   (public member function)
+\paragraph{Modifiers}
+std::multiset::clear(3) - clears the contents   (public member function)
+std::multiset::insert(3) - inserts elements   (public member function)
+std::multiset::emplace(3) [C++11] - constructs element in-place   (public member function)
+std::multiset::emplace\_hint(3) [C++11] - constructs elements in-place using a hint   (public member function)
+std::multiset::erase(3) - erases elements   (public member function)
+std::multiset::swap(3) - swaps the contents   (public member function)
+\paragraph{Lookup}
+std::multiset::count(3) - returns the number of elements matching specific key   (public member function)
+std::multiset::find(3) - finds element with specific key  (public member function)
+std::multiset::equal\_range(3) - returns range of elements matching a specific key  (public member function)
+std::multiset::lower\_bound(3) - returns an iterator to the first element not less than the given key  (public member function)
+std::multiset::upper\_bound(3) - returns an iterator to the first element greater than the given key  (public member function)
+\paragraph{Observers}
+std::multiset::key\_comp(3) - returns the function that compares keys  (public member function)
+std::multiset::value\_comp(3) - returns the function that compares keys in objects of type value\_type  (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the multiset   (function template)
+std::swap(std::multiset)(3) - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::multimap}
+
+\subsubsection{NAME}
+std::multimap - Multimap is an associative container that contains a sorted list of key-value pairs. Sorting is done according to the comparison function Compare, applied to the keys. Search, insertion, and removal operations have logarithmic complexity.
+
+\subsubsection{SYNOPSIS}
+\#include <map>
+
+\begin{lstlisting}
+ template<
+    class Key,
+    class T,
+    class Compare = std::less<Key>,
+    class Allocator = std::allocator<std::pair<const Key, T> >
+> class multimap;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::multimap::multimap(3) - constructs the multimap  (public member function)
+std::multimap::~multimap(3) - destructs the multimap  (public member function)
+std::multimap::operator=(3) - assigns values to the container   (public member function)
+std::multimap::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Iterators}
+std::multimap::begin(3), std::multimap::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::multimap::end(3), std::multimap::cend(3) - returns an iterator to the end   (public member function)
+std::multimap::rbegin(3), std::multimap::crbegin(3) - returns a reverse iterator to the beginning   (public member function)
+std::multimap::rend(3), std::multimap::crend(3) - returns a reverse iterator to the end   (public member function)
+\paragraph{Capacity}
+std::multimap::empty(3) - checks whether the container is empty   (public member function)
+std::multimap::size(3) - returns the number of elements   (public member function)
+std::multimap::max\_size(3) - returns the maximum possible number of elements   (public member function)
+\paragraph{Modifiers}
+std::multimap::clear(3) - clears the contents   (public member function)
+std::multimap::insert(3) - inserts elements   (public member function)
+std::multimap::emplace(3) [C++11] - constructs element in-place   (public member function)
+std::multimap::emplace\_hint(3) [C++11] - constructs elements in-place using a hint   (public member function)
+std::multimap::erase(3) - erases elements   (public member function)
+std::multimap::swap(3) - swaps the contents   (public member function)
+\paragraph{Lookup}
+std::multimap::count(3) - returns the number of elements matching specific key   (public member function)
+std::multimap::find(3) - finds element with specific key  (public member function)
+std::multimap::equal\_range(3) - returns range of elements matching a specific key  (public member function)
+std::multimap::lower\_bound(3) - returns an iterator to the first element not less than the given key  (public member function)
+std::multimap::upper\_bound(3) - returns an iterator to the first element greater than the given key  (public member function)
+\paragraph{Observers}
+std::multimap::key\_comp(3) - returns the function that compares keys  (public member function)
+std::multimap::value\_comp(3) - returns the function that compares keys in objects of type value\_type  (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the multimap   (function template)
+std::swap(std::multimap)(3) - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::unordered\_set}
+
+\subsubsection{NAME}
+std::unordered\_set - Unordered set is an associative container that contains set of unique objects of type Key. Search, insertion, and removal have average constant-time complexity.
+
+\subsubsection{SYNOPSIS}
+\#include <unordered\_set>
+
+\begin{lstlisting}
+ template<
+    class Key,
+    class Hash = std::hash<Key>,
+    class KeyEqual = std::equal\_to<Key>,
+    class Allocator = std::allocator<Key>
+
+> class unordered\_set; [since C++11]
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::unordered\_set::unordered\_set(3) - constructs the unordered\_set  (public member function)
+std::unordered\_set::~unordered\_set(3) - destructs the unordered\_set  (public member function)
+std::unordered\_set::operator=(3) - assigns values to the container   (public member function)
+std::unordered\_set::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Iterators}
+std::unordered\_set::begin(3), std::unordered\_set::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::unordered\_set::end(3), std::unordered\_set::cend(3) - returns an iterator to the end   (public member function)
+\paragraph{Capacity}
+std::unordered\_set::empty(3) - checks whether the container is empty   (public member function)
+std::unordered\_set::size(3) - returns the number of elements   (public member function)
+std::unordered\_set::max\_size(3) - returns the maximum possible number of elements   (public member function)
+\paragraph{Modifiers}
+std::unordered\_set::clear(3) - clears the contents   (public member function)
+std::unordered\_set::insert(3) - inserts elements   (public member function)
+std::unordered\_set::emplace(3) - constructs element in-place   (public member function)
+std::unordered\_set::emplace\_hint(3) - constructs elements in-place using a hint   (public member function)
+std::unordered\_set::erase(3) - erases elements   (public member function)
+std::unordered\_set::swap(3) - swaps the contents   (public member function)
+\paragraph{Lookup}
+std::unordered\_set::count(3) - returns the number of elements matching specific key   (public member function)
+std::unordered\_set::find(3) - finds element with specific key  (public member function)
+std::unordered\_set::equal\_range(3) - returns range of elements matching a specific key  (public member function)
+\paragraph{Bucket interface}
+std::unordered\_set::begin(int) cbegin(int)(3) - returns an iterator to the beginning of the specified bucket   (public member function)
+std::unordered\_set::end(int) cend(int)(3) - returns an iterator to the end of the specified bucket   (public member function)
+std::unordered\_set::bucket\_count(3) - returns the number of buckets  (public member function)
+std::unordered\_set::max\_bucket\_count(3) - returns the maximum number of buckets  (public member function)
+std::unordered\_set::bucket\_size(3) - returns the number of elements in specific bucket  (public member function)
+std::unordered\_set::bucket(3) - returns the bucket for specific key  (public member function)
+\paragraph{Hash policy}
+std::unordered\_set::load\_factor(3) - returns average number of elements per bucket  (public member function)
+std::unordered\_set::max\_load\_factor(3) - manages maximum average number of elements per bucket  (public member function)
+std::unordered\_set::rehash(3) - reserves at least the specified number of buckets.This regenerates the hash table.  (public member function)
+std::unordered\_set::reserve(3) - reserves space for at least the specified number of elements.This regenerates the hash table.  (public member function)
+\paragraph{Observers}
+std::unordered\_set::hash\_function(3) - returns function used to hash the keys   (public member function)
+std::unordered\_set::key\_eq(3) - returns the function used to compare keys for equality   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3) - compares the values in the unordered\_set   (function template)
+std::swap(std::unordered\_set)(3) [C++11] - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::unordered\_map}
+
+\subsubsection{NAME}
+std::unordered\_map - Unordered map is an associative container that contains key-value pairs with unique keys. Search, insertion, and removal of elements have average constant-time complexity.
+
+\subsubsection{SYNOPSIS}
+\#include <unordered\_map>
+
+\begin{lstlisting}
+ template<
+    class Key,
+    class T,
+    class Hash = std::hash<Key>,
+    class KeyEqual = std::equal\_to<Key>,
+    class Allocator = std::allocator< std::pair<const Key, T> >
+
+> class unordered\_map; [since C++11]
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::unordered\_map::unordered\_map(3) - constructs the unordered\_map  (public member function)
+std::unordered\_map::~unordered\_map(3) - destructs the unordered\_map  (public member function)
+std::unordered\_map::operator=(3) - assigns values to the container   (public member function)
+std::unordered\_map::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Iterators}
+std::unordered\_map::begin(3), std::unordered\_map::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::unordered\_map::end(3), std::unordered\_map::cend(3) - returns an iterator to the end   (public member function)
+\paragraph{Capacity}
+std::unordered\_map::empty(3) - checks whether the container is empty   (public member function)
+std::unordered\_map::size(3) - returns the number of elements   (public member function)
+std::unordered\_map::max\_size(3) - returns the maximum possible number of elements   (public member function)
+\paragraph{Modifiers}
+std::unordered\_map::clear(3) - clears the contents   (public member function)
+std::unordered\_map::insert(3) - inserts elements   (public member function)
+std::unordered\_map::insert\_or\_assign(3) [C++17] - inserts an element or assigns to the current element if the key already exists   (public member function)
+std::unordered\_map::emplace(3) - constructs element in-place   (public member function)
+std::unordered\_map::emplace\_hint(3) - constructs elements in-place using a hint   (public member function)
+std::unordered\_map::try\_emplace(3) [C++17] - inserts in-place if the key does not exist, does nothing if the key exists  (public member function)
+std::unordered\_map::erase(3) - erases elements   (public member function)
+std::unordered\_map::swap(3) - swaps the contents   (public member function)
+\paragraph{Lookup}
+std::unordered\_map::at(3) - access specified element with bounds checking   (public member function)
+std::unordered\_map::operator[](3) - access specified element   (public member function)
+std::unordered\_map::count(3) - returns the number of elements matching specific key   (public member function)
+std::unordered\_map::find(3) - finds element with specific key  (public member function)
+std::unordered\_map::equal\_range(3) - returns range of elements matching a specific key  (public member function)
+\paragraph{Bucket interface}
+std::unordered\_map::begin(int) cbegin(int)(3) - returns an iterator to the beginning of the specified bucket   (public member function)
+std::unordered\_map::end(int) cend(int)(3) - returns an iterator to the end of the specified bucket   (public member function)
+std::unordered\_map::bucket\_count(3) - returns the number of buckets  (public member function)
+std::unordered\_map::max\_bucket\_count(3) - returns the maximum number of buckets  (public member function)
+std::unordered\_map::bucket\_size(3) - returns the number of elements in specific bucket  (public member function)
+std::unordered\_map::bucket(3) - returns the bucket for specific key  (public member function)
+\paragraph{Hash policy}
+std::unordered\_map::load\_factor(3) - returns average number of elements per bucket  (public member function)
+std::unordered\_map::max\_load\_factor(3) - manages maximum average number of elements per bucket  (public member function)
+std::unordered\_map::rehash(3) - reserves at least the specified number of buckets.This regenerates the hash table.  (public member function)
+std::unordered\_map::reserve(3) - reserves space for at least the specified number of elements.This regenerates the hash table.  (public member function)
+\paragraph{Observers}
+std::unordered\_map::hash\_function(3) - returns function used to hash the keys   (public member function)
+std::unordered\_map::key\_eq(3) - returns the function used to compare keys for equality   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3) - compares the values in the unordered\_map   (function template)
+std::swap(std::unordered\_map)(3) [C++11] - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::unordered\_multiset}
+
+\subsubsection{NAME}
+std::unordered\_multiset - Unordered multiset is an associative container that contains set of possibly non-unique objects of type Key. Search, insertion, and removal have average constant-time complexity.
+
+\subsubsection{SYNOPSIS}
+\#include <unordered\_set>
+
+\begin{lstlisting}
+ template<
+    class Key,
+    class Hash = std::hash<Key>,
+    class KeyEqual = std::equal\_to<Key>,
+    class Allocator = std::allocator<Key>
+
+> class unordered\_multiset; [since C++11]
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::unordered\_multiset::unordered\_multiset(3) - constructs the unordered\_multiset  (public member function)
+std::unordered\_multiset::~unordered\_multiset(3) - destructs the unordered\_multiset  (public member function)
+std::unordered\_multiset::operator=(3) - assigns values to the container   (public member function)
+std::unordered\_multiset::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Iterators}
+std::unordered\_multiset::begin(3), std::unordered\_multiset::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::unordered\_multiset::end(3), std::unordered\_multiset::cend(3) - returns an iterator to the end   (public member function)
+\paragraph{Capacity}
+std::unordered\_multiset::empty(3) - checks whether the container is empty   (public member function)
+std::unordered\_multiset::size(3) - returns the number of elements   (public member function)
+std::unordered\_multiset::max\_size(3) - returns the maximum possible number of elements   (public member function)
+\paragraph{Modifiers}
+std::unordered\_multiset::clear(3) - clears the contents   (public member function)
+std::unordered\_multiset::insert(3) - inserts elements   (public member function)
+std::unordered\_multiset::emplace(3) - constructs element in-place   (public member function)
+std::unordered\_multiset::emplace\_hint(3) - constructs elements in-place using a hint   (public member function)
+std::unordered\_multiset::erase(3) - erases elements   (public member function)
+std::unordered\_multiset::swap(3) - swaps the contents   (public member function)
+\paragraph{Lookup}
+std::unordered\_multiset::count(3) - returns the number of elements matching specific key   (public member function)
+std::unordered\_multiset::find(3) - finds element with specific key  (public member function)
+std::unordered\_multiset::equal\_range(3) - returns range of elements matching a specific key  (public member function)
+\paragraph{Bucket interface}
+std::unordered\_multiset::begin(int) cbegin(int)(3) - returns an iterator to the beginning of the specified bucket   (public member function)
+std::unordered\_multiset::end(int) cend(int)(3) - returns an iterator to the end of the specified bucket   (public member function)
+std::unordered\_multiset::bucket\_count(3) - returns the number of buckets  (public member function)
+std::unordered\_multiset::max\_bucket\_count(3) - returns the maximum number of buckets  (public member function)
+std::unordered\_multiset::bucket\_size(3) - returns the number of elements in specific bucket  (public member function)
+std::unordered\_multiset::bucket(3) - returns the bucket for specific key  (public member function)
+\paragraph{Hash policy}
+std::unordered\_multiset::load\_factor(3) - returns average number of elements per bucket  (public member function)
+std::unordered\_multiset::max\_load\_factor(3) - manages maximum average number of elements per bucket  (public member function)
+std::unordered\_multiset::rehash(3) - reserves at least the specified number of buckets.This regenerates the hash table.  (public member function)
+std::unordered\_multiset::reserve(3) - reserves space for at least the specified number of elements.This regenerates the hash table.  (public member function)
+\paragraph{Observers}
+std::unordered\_multiset::hash\_function(3) - returns function used to hash the keys   (public member function)
+std::unordered\_multiset::key\_eq(3) - returns the function used to compare keys for equality   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3) - compares the values in the unordered\_multiset   (function template)
+std::swap(std::unordered\_multiset)(3) [C++11] - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::unordered\_multimap}
+
+\subsubsection{NAME}
+std::unordered\_multimap - Unordered multimap is an unordered associative container that supports equivalent keys (an unordered\_multimap may contain multiple copies of each key value) and that associates values of another type with the keys. The unordered\_multimap class supports forward iterators. Search, insertion, and removal have average constant-time complexity.
+
+\subsubsection{SYNOPSIS}
+\#include <unordered\_map>
+
+\begin{lstlisting}
+ template<
+    class Key,
+    class T,
+    class Hash = std::hash<Key>,
+    class KeyEqual = std::equal\_to<Key>,
+    class Allocator = std::allocator< std::pair<const Key, T> >
+
+> class unordered\_multimap; [since C++11]
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::unordered\_multimap::unordered\_multimap(3) - constructs the unordered\_multimap  (public member function)
+std::unordered\_multimap::~unordered\_multimap(3) - destructs the unordered\_multimap  (public member function)
+std::unordered\_multimap::operator=(3) - assigns values to the container   (public member function)
+std::unordered\_multimap::get\_allocator(3) - returns the associated allocator   (public member function)
+\paragraph{Iterators}
+std::unordered\_multimap::begin(3), std::unordered\_multimap::cbegin(3) - returns an iterator to the beginning   (public member function)
+std::unordered\_multimap::end(3), std::unordered\_multimap::cend(3) - returns an iterator to the end   (public member function)
+\paragraph{Capacity}
+std::unordered\_multimap::empty(3) - checks whether the container is empty   (public member function)
+std::unordered\_multimap::size(3) - returns the number of elements   (public member function)
+std::unordered\_multimap::max\_size(3) - returns the maximum possible number of elements   (public member function)
+\paragraph{Modifiers}
+std::unordered\_multimap::clear(3) - clears the contents   (public member function)
+std::unordered\_multimap::insert(3) - inserts elements   (public member function)
+std::unordered\_multimap::emplace(3) - constructs element in-place   (public member function)
+std::unordered\_multimap::emplace\_hint(3) - constructs elements in-place using a hint   (public member function)
+std::unordered\_multimap::erase(3) - erases elements   (public member function)
+std::unordered\_multimap::swap(3) - swaps the contents   (public member function)
+\paragraph{Lookup}
+std::unordered\_multimap::count(3) - returns the number of elements matching specific key   (public member function)
+std::unordered\_multimap::find(3) - finds element with specific key  (public member function)
+std::unordered\_multimap::equal\_range(3) - returns range of elements matching a specific key  (public member function)
+\paragraph{Bucket interface}
+std::unordered\_multimap::begin(int) cbegin(int)(3) - returns an iterator to the beginning of the specified bucket   (public member function)
+std::unordered\_multimap::end(int) cend(int)(3) - returns an iterator to the end of the specified bucket   (public member function)
+std::unordered\_multimap::bucket\_count(3) - returns the number of buckets  (public member function)
+std::unordered\_multimap::max\_bucket\_count(3) - returns the maximum number of buckets  (public member function)
+std::unordered\_multimap::bucket\_size(3) - returns the number of elements in specific bucket  (public member function)
+std::unordered\_multimap::bucket(3) - returns the bucket for specific key  (public member function)
+\paragraph{Hash policy}
+std::unordered\_multimap::load\_factor(3) - returns average number of elements per bucket  (public member function)
+std::unordered\_multimap::max\_load\_factor(3) - manages maximum average number of elements per bucket  (public member function)
+std::unordered\_multimap::rehash(3) - reserves at least the specified number of buckets.This regenerates the hash table.  (public member function)
+std::unordered\_multimap::reserve(3) - reserves space for at least the specified number of elements.This regenerates the hash table.  (public member function)
+\paragraph{Observers}
+std::unordered\_multimap::hash\_function(3) - returns function used to hash the keys   (public member function)
+std::unordered\_multimap::key\_eq(3) - returns the function used to compare keys for equality   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3) - compares the values in the unordered\_multimap   (function template)
+std::swap(std::unordered\_multimap)(3) [C++11] - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::stack}
+
+\subsubsection{NAME}
+std::stack - The std::stack class is a container adapter that gives the programmer the functionality of a stack - specifically, a FILO (first-in, last-out) data structure.
+
+\subsubsection{SYNOPSIS}
+\#include <stack>
+
+\begin{lstlisting}
+ template<
+    class T,
+    class Container = std::deque<T>
+> class stack;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::stack::stack(3) - constructs the stack  (public member function)
+std::stack::~stack(3) - destructs the stack  (public member function)
+std::stack::operator=(3) - assigns values to the container adaptor  (public member function)
+\paragraph{Element access}
+std::stack::top(3) - accesses the top element   (public member function)
+\paragraph{Capacity}
+std::stack::empty(3) - checks whether the underlying container is empty   (public member function)
+std::stack::size(3) - returns the number of elements   (public member function)
+\paragraph{Modifiers}
+std::stack::push(3) - inserts element at the top   (public member function)
+std::stack::emplace(3) [C++11] - constructs element in-place at the top   (public member function)
+std::stack::pop(3) - removes the top element   (public member function)
+std::stack::swap(3) - swaps the contents   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the stack   (function template)
+std::swap(std::stack)(3) - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::queue}
+
+\subsubsection{NAME}
+std::queue - The std::queue class is a container adapter that gives the programmer the functionality of a queue - specifically, a FIFO (first-in, first-out) data structure.
+
+\subsubsection{SYNOPSIS}
+\#include <queue>
+
+\begin{lstlisting}
+ template<
+    class T,
+    class Container = std::deque<T>
+> class queue;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::queue::queue(3) - constructs the queue  (public member function)
+std::queue::~queue(3) - destructs the queue  (public member function)
+std::queue::operator=(3) - assigns values to the container adaptor  (public member function)
+\paragraph{Element access}
+std::queue::front(3) - access the first element   (public member function)
+std::queue::back(3) - access the last element   (public member function)
+\paragraph{Capacity}
+std::queue::empty(3) - checks whether the underlying container is empty   (public member function)
+std::queue::size(3) - returns the number of elements   (public member function)
+\paragraph{Modifiers}
+std::queue::push(3) - inserts element at the end  (public member function)
+std::queue::emplace(3) [C++11] - constructs element in-place at the end   (public member function)
+std::queue::pop(3) - removes the first element   (public member function)
+std::queue::swap(3) - swaps the contents   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+operator==(3), operator!=(3), operator<(3), operator<=(3), operator>(3), operator>=(3) - lexicographically compares the values in the queue   (function template)
+std::swap(std::queue)(3) - specializes the std::swap algorithm   (function template)
+
+
+\subsection{std::priority\_queue}
+
+\subsubsection{NAME}
+std::priority\_queue - A priority queue is a container adaptor that provides constant time extraction of the largest (by default) element, at the expense of logarithmic insertion.
+
+\subsubsection{SYNOPSIS}
+\#include <queue>
+
+\begin{lstlisting}
+ template<
+    class T,
+    class Container = std::vector<T>,
+    class Compare = std::less<typename Container::value\_type>
+> class priority\_queue;
+\end{lstlisting}
+
+\subsubsection{MEMBER FUNCTIONS}
+std::priority\_queue::priority\_queue(3) - constructs the priority\_queue  (public member function)
+std::priority\_queue::~priority\_queue(3) - destructs the priority\_queue  (public member function)
+std::priority\_queue::operator=(3) - assigns values to the container adaptor  (public member function)
+\paragraph{Element access}
+std::priority\_queue::top(3) - accesses the top element   (public member function)
+\paragraph{Capacity}
+std::priority\_queue::empty(3) - checks whether the underlying container is empty   (public member function)
+std::priority\_queue::size(3) - returns the number of elements   (public member function)
+\paragraph{Modifiers}
+std::priority\_queue::push(3) - inserts element and sorts the underlying container  (public member function)
+std::priority\_queue::emplace(3) [C++11] - constructs element in-place and sorts the underlying container   (public member function)
+std::priority\_queue::pop(3) - removes the top element   (public member function)
+std::priority\_queue::swap(3) - swaps the contents   (public member function)
+
+\subsubsection{NON-MEMBER FUNCTIONS}
+std::swap(std::priority\_queue)(3) - specializes the std::swap algorithm   (function template)
+
+
+\section{Algorithms library}
+
+\subsection{std::all\_of}
+
+\subsubsection{NAME}
+std::all\_of - 1) Checks if unary predicate p returns true for all elements in the range [first, last).
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class UnaryPredicate >
+bool all\_of( InputIt first, InputIt last, UnaryPredicate p ); [since C++11]
+ template< class InputIt, class UnaryPredicate >
+bool any\_of( InputIt first, InputIt last, UnaryPredicate p ); [since C++11]
+ template< class InputIt, class UnaryPredicate >
+bool none\_of( InputIt first, InputIt last, UnaryPredicate p ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+p - unary predicate .
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type \&a);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The type Type must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type.
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -UnaryPredicate must meet the requirements of Predicate.
+
+\subsubsection{RETURN VALUE}
+1) true if unary predicate returns true for all elements in the range, false otherwise. Returns true if the range is empty.
+
+2) true if unary predicate returns true for at least one element in the range, false otherwise. Returns false if the range is empty.
+
+3) true if unary predicate returns true for no elements in the range, false otherwise. Returns true if the range is empty.
+
+
+
+\subsection{std::for\_each}
+
+\subsubsection{NAME}
+std::for\_each - Applies the given function object f to the result of dereferencing every iterator in the range [first, last), in order.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class UnaryFunction >
+UnaryFunction for\_each( InputIt first, InputIt last, UnaryFunction f );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range to apply the function to
+f - function object,  to be applied to the result of dereferencing every iterator in the range [first, last)
+The signature of the function should be equivalent to the following:
+
+ void fun(const Type \&a);
+
+The signature does not need to have const \&. The type Type must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type.
+
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -UnaryFunction must meet the requirements of MoveConstructible. Does not have to be CopyConstructible
+
+\subsubsection{RETURN VALUE}
+ f [until C++11]
+ std::move(f) [since C++11]
+
+
+\subsection{std::count}
+
+\subsubsection{NAME}
+std::count - Returns the number of elements in the range [first, last) satisfying specific criteria. The first version counts the elements that are equal to value, the second version counts elements for which predicate p returns true.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class T >
+typename iterator\_traits<InputIt>::difference\_type
+    count( InputIt first, InputIt last, const T \&value );
+ template< class InputIt, class UnaryPredicate >
+typename iterator\_traits<InputIt>::difference\_type
+    count\_if( InputIt first, InputIt last, UnaryPredicate p );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+value - the value to search for
+p - unary predicate which returns true  for the required elements.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type \&a);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The type Type must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type.
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+
+\subsubsection{RETURN VALUE}
+number of elements satisfying the condition.
+
+
+
+\subsection{std::mismatch}
+
+\subsubsection{NAME}
+std::mismatch - Returns the first mismatching pair of elements from two ranges: one defined by [first1, last1) and another defined by [first2,last2). If last2 is not provided (overloads (1) and (2)), it denotes first2 + (last1 - first1).
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt1, class InputIt2 >
+std::pair<InputIt1,InputIt2>
+    mismatch( InputIt1 first1, InputIt1 last1,
+              InputIt2 first2 );
+ template< class InputIt1, class InputIt2, class BinaryPredicate >
+std::pair<InputIt1,InputIt2>
+    mismatch( InputIt1 first1, InputIt1 last1,
+              InputIt2 first2,
+              BinaryPredicate p );
+ template< class InputIt1, class InputIt2 >
+std::pair<InputIt1,InputIt2>
+    mismatch( InputIt1 first1, InputIt1 last1,
+
+              InputIt2 first2, InputIt2 last2 ); [since C++14]
+ template< class InputIt1, class InputIt2, class BinaryPredicate >
+std::pair<InputIt1,InputIt2>
+    mismatch( InputIt1 first1, InputIt1 last1,
+              InputIt2 first2, InputIt2 last2,
+
+              BinaryPredicate p ); [since C++14]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the first range of the elements
+first2, last2 - the second range of the elements
+p - binary predicate which returns true  if the elements should be treated as equal.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The types Type1 and Type2 must be such that objects of types InputIt1 and InputIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively.
+
+
+ Type requirements
+ -InputIt1 must meet the requirements of InputIterator.
+ -InputIt2 must meet the requirements of InputIterator.
+ -BinaryPredicate must meet the requirements of BinaryPredicate.
+
+\subsubsection{RETURN VALUE}
+std::pair with iterators to the first two non-equivalent elements.
+
+ If no mismatches are found when the comparison reaches last1, the pair holds last1 and the corresponding iterator from the second range. The behavior is undefined if the second range is shorter than the first range. [until C++14]
+ If no mismatches are found when the comparison reaches last1 or last2, whichever happens first, the pair holds the end iterator and the corresponding iterator from the other range. [since C++14]
+
+
+\subsection{std::equal}
+
+\subsubsection{NAME}
+std::equal - 1,2) Returns true if the range [first1, last1) is equal to the range [first2, first2 + (last1 - first1)), and false otherwise
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt1, class InputIt2 >
+bool equal( InputIt1 first1, InputIt1 last1,
+            InputIt2 first2 );
+ template< class InputIt1, class InputIt2, class BinaryPredicate >
+bool equal( InputIt1 first1, InputIt1 last1,
+            InputIt2 first2, BinaryPredicate p );
+ template< class InputIt1, class InputIt2 >
+bool equal( InputIt1 first1, InputIt1 last1,
+
+            InputIt2 first2, InputIt2 last2 ); [since C++14]
+ template< class InputIt1, class InputIt2, class BinaryPredicate >
+bool equal( InputIt1 first1, InputIt1 last1,
+            InputIt2 first2, InputIt2 last2,
+
+            BinaryPredicate p ); [since C++14]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the first range of the elements to compare
+first2, last2 - the second range of the elements to compare
+p - binary predicate which returns true  if the elements should be treated as equal.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The types Type1 and Type2 must be such that objects of types InputIt1 and InputIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively.
+
+
+ Type requirements
+ -InputIt1, InputIt2 must meet the requirements of InputIterator.
+
+\subsubsection{RETURN VALUE}
+3,4) If the length of the range [first1, last1) does not equal the length of the range [first2, last2), returns false
+
+If the elements in the two ranges are equal, returns true.
+
+Otherwise returns false.
+
+
+
+\subsection{std::find}
+
+\subsubsection{NAME}
+std::find - Returns the first element in the range [first, last) that satisfies specific criteria:
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class T >
+InputIt find( InputIt first, InputIt last, const T\& value );
+ template< class InputIt, class UnaryPredicate >
+InputIt find\_if( InputIt first, InputIt last,
+                 UnaryPredicate p );
+ template< class InputIt, class UnaryPredicate >
+InputIt find\_if\_not( InputIt first, InputIt last,
+
+                     UnaryPredicate q ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+value - value to compare the elements to
+p - unary predicate which returns true  for the required element.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type \&a);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The type Type must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type.
+
+q - unary predicate which returns false  for the required element.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type \&a);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The type Type must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type.
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -UnaryPredicate must meet the requirements of Predicate.
+
+\subsubsection{RETURN VALUE}
+Iterator to the first element satisfying the condition or last if no such element is found.
+
+
+
+\subsection{std::find\_end}
+
+\subsubsection{NAME}
+std::find\_end - Searches for the last subsequence of elements [s\_first, s\_last) in the range [first, last). The first version uses operator== to compare the elements, the second version uses the given binary predicate p.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt1, class ForwardIt2 >
+ForwardIt1 find\_end( ForwardIt1 first, ForwardIt1 last,
+                     ForwardIt2 s\_first, ForwardIt2 s\_last );
+ template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+ForwardIt1 find\_end( ForwardIt1 first, ForwardIt1 last,
+                     ForwardIt2 s\_first, ForwardIt2 s\_last, BinaryPredicate p );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+s\_first, s\_last - the range of elements to search for
+p - binary predicate which returns true  if the elements should be treated as equal.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The types Type1 and Type2 must be such that objects of types ForwardIt1 and ForwardIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively.
+
+
+ Type requirements
+ -ForwardIt1 must meet the requirements of ForwardIterator.
+ -ForwardIt2 must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator to the beginning of last subsequence [s\_first, s\_last) in range [first, last).
+
+If no such subsequence is found, last is returned.
+ [until C++11]
+If [s\_first, s\_last) is empty or if no such subsequence is found, last is returned.
+ [since C++11]
+
+
+\subsection{std::find\_first\_of}
+
+\subsubsection{NAME}
+std::find\_first\_of - Searches the range [first, last) for any of the elements in the range [s\_first, s\_last). The first version uses operator== to compare the elements, the second version uses the given binary predicate p.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+
+(1)
+ template< class ForwardIt1, class ForwardIt2 >
+ForwardIt1 find\_first\_of( ForwardIt1 first, ForwardIt1 last,
+
+                          ForwardIt2 s\_first, ForwardIt2 s\_last ); [until C++11]
+ template< class InputIt, class ForwardIt >
+InputIt find\_first\_of( InputIt first, InputIt last,
+
+                       ForwardIt s\_first, ForwardIt s\_last ); [since C++11]
+(2)
+ template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+ForwardIt1 find\_first\_of( ForwardIt1 first, ForwardIt1 last,
+
+                          ForwardIt2 s\_first, ForwardIt2 s\_last, BinaryPredicate p ); [until C++11]
+ template< class InputIt, class ForwardIt, class BinaryPredicate >
+InputIt find\_first\_of( InputIt first, InputIt last,
+
+                       ForwardIt s\_first, ForwardIt s\_last, BinaryPredicate p ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+s\_first, s\_last - the range of elements to search for
+p - binary predicate which returns true  if the elements should be treated as equal.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The types Type1 and Type2 must be such that objects of types ForwardIt1 and ForwardIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively.
+
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -ForwardIt1 must meet the requirements of ForwardIterator.
+ -ForwardIt2 must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator to the first element in the range [first, last) that is equal to an element from the range [s\_first; s\_last). If no such element is found, last is returned.
+
+
+
+\subsection{std::adjacent\_find}
+
+\subsubsection{NAME}
+std::adjacent\_find - Searches the range [first, last) for two consecutive identical elements. The first version uses operator== to compare the elements, the second version uses the given binary predicate p.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt >
+ForwardIt adjacent\_find( ForwardIt first, ForwardIt last );
+ template< class ForwardIt, class BinaryPredicate>
+ForwardIt adjacent\_find( ForwardIt first, ForwardIt last, BinaryPredicate p );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+p - binary predicate which returns true  if the elements should be treated as equal.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to both of them.
+
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+an iterator to the first of the identical elements, that is, the first iterator it such that *it == *(it+1) for the first version or p(*it, *(it + 1)) != false for the second version.
+
+If no such elements are found, last is returned
+
+
+
+\subsection{std::search}
+
+\subsubsection{NAME}
+std::search - Searches for the first occurrence of the subsequence of elements [s\_first, s\_last) in the range [first, last - (s\_last - s\_first)). The first version uses operator== to compare the elements, the second version uses the given binary predicate p.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt1, class ForwardIt2 >
+ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,
+                   ForwardIt2 s\_first, ForwardIt2 s\_last );
+ template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,
+                   ForwardIt2 s\_first, ForwardIt2 s\_last, BinaryPredicate p );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+s\_first, s\_last - the range of elements to search for
+p - binary predicate which returns true  if the elements should be treated as equal.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The types Type1 and Type2 must be such that objects of types ForwardIt1 and ForwardIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively.
+
+
+ Type requirements
+ -ForwardIt1, ForwardIt2 must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator to the beginning of first subsequence [s\_first, s\_last) in the range [first, last - (s\_last - s\_first)). If no such subsequence is found, last is returned.
+If [s\_first, s\_last) is empty, first is returned.  [since C++11]
+
+
+
+\subsection{std::search\_n}
+
+\subsubsection{NAME}
+std::search\_n - Searches the range [first, last) for the first sequence of count identical elements, each equal to the given value value. The first version uses operator== to compare the elements, the second version uses the given binary predicate p.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt, class Size, class T >
+ForwardIt search\_n( ForwardIt first, ForwardIt last, Size count, const T\& value );
+ template< class ForwardIt, class Size, class T, class BinaryPredicate >
+ForwardIt search\_n( ForwardIt first, ForwardIt last, Size count, const T\& value,
+                     BinaryPredicate p );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+count - the length of the sequence to search for
+value - the value of the elements to search for
+p - binary predicate which returns true  if the elements should be treated as equal.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The type Type1 must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to Type1. The type Type2 must be such that an object of type T can be implicitly converted to Type2.
+
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator to the beginning of the found sequence in the range [first, last). If no such sequence is found, last is returned.
+
+
+
+\subsection{std::copy}
+
+\subsubsection{NAME}
+std::copy - Copies the elements in the range, defined by [first, last), to another range beginning at d\_first. The second function only copies the elements for which the predicate pred returns true. The order of the elements that are not removed is preserved.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class OutputIt >
+OutputIt copy( InputIt first, InputIt last, OutputIt d\_first );
+ template< class InputIt, class OutputIt, class UnaryPredicate >
+OutputIt copy\_if( InputIt first, InputIt last,
+                  OutputIt d\_first,
+
+                  UnaryPredicate pred ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to copy
+d\_first - the beginning of the destination range.
+pred - unary predicate which returns true  for the required elements.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type \&a);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The type Type must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type.
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+ -UnaryPredicate must meet the requirements of Predicate.
+
+\subsubsection{RETURN VALUE}
+Output iterator to the element in the destination range, one past the last element copied.
+
+
+
+\subsection{std::copy\_n}
+
+\subsubsection{NAME}
+std::copy\_n - Copies exactly count values from the range beginning at first to the range beginning at result, if count>0. Does nothing otherwise.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class Size, class OutputIt >
+OutputIt copy\_n( InputIt first, Size count, OutputIt result ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first - the beginning of the range of elements to copy from
+count - number of the elements to copy
+result - the beginning of the destination range
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator in the destination range, pointing past the last element copied if count>0 or result otherwise.
+
+
+
+\subsection{std::copy\_backward}
+
+\subsubsection{NAME}
+std::copy\_backward - Copies the elements from the range, defined by [first, last), to another range ending at d\_last. The elements are copied in reverse order (the last element is copied first), but their relative order is preserved.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class BidirIt1, class BidirIt2 >
+BidirIt2 copy\_backward( BidirIt1 first, BidirIt1 last, BidirIt2 d\_last );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of the elements to copy
+d\_last - end of the destination range..
+ Type requirements
+ -BidirIt must meet the requirements of BidirectionalIterator.
+
+\subsubsection{RETURN VALUE}
+iterator to the last element copied.
+
+
+
+\subsection{std::move}
+
+\subsubsection{NAME}
+std::move - Moves the elements in the range [first, last), to another range beginning at d\_first. After this operation the elements in the moved-from range will still contain valid values of the appropriate type, but not necessarily the same values as before the move.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class OutputIt >
+OutputIt move( InputIt first, InputIt last, OutputIt d\_first ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to move
+d\_first - the beginning of the destination range. If d\_first is within [first, last), std::move\_backward must be used instead of  std::move.
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+Output iterator to the element past the last element moved (d\_first + (last - first))
+
+
+
+\subsection{std::move\_backward}
+
+\subsubsection{NAME}
+std::move\_backward - Moves the elements from the range [first, last), to another range ending at d\_last. The elements are moved in reverse order (the last element is moved first), but their relative order is preserved.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class BidirIt1, class BidirIt2 >
+BidirIt2 move\_backward( BidirIt1 first, BidirIt1 last, BidirIt2 d\_last ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of the elements to move
+d\_last - end of the destination range
+ Type requirements
+ -BidirIt1, BidirIt2 must meet the requirements of BidirectionalIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator in the destination range, pointing at the last element moved.
+
+
+
+\subsection{std::fill}
+
+\subsubsection{NAME}
+std::fill - Assigns the given value to the elements in the range [first, last).
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt, class T >
+void fill( ForwardIt first, ForwardIt last, const T\& value );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to modify
+value - the value to be assigned
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::fill\_n}
+
+\subsubsection{NAME}
+std::fill\_n - Assigns the given value value to the first count elements in the range beginning at first if count > 0. Does nothing otherwise.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+
+ template< class OutputIt, class Size, class T >
+void fill\_n( OutputIt first, Size count, const T\& value ); [until C++11]
+ template< class OutputIt, class Size, class T >
+OutputIt fill\_n( OutputIt first, Size count, const T\& value ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first - the beginning of the range of elements to modify
+count - number of elements to modify
+value - the value to be assigned
+ Type requirements
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+ (none) [until C++11]
+ Iterator one past the last element assigned if count > 0, first otherwise. [since C++11]
+
+
+\subsection{std::transform}
+
+\subsubsection{NAME}
+std::transform - std::transform applies the given function to a range and stores the result in another range, beginning at d\_first.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class OutputIt, class UnaryOperation >
+OutputIt transform( InputIt first1, InputIt last1, OutputIt d\_first,
+                    UnaryOperation unary\_op );
+ template< class InputIt1, class InputIt2, class OutputIt, class BinaryOperation >
+OutputIt transform( InputIt1 first1, InputIt1 last1, InputIt2 first2,
+                    OutputIt d\_first, BinaryOperation binary\_op );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the first range of elements to transform
+first2 - the beginning of the second range of elements to transform
+d\_first - the beginning of the destination range, may be equal to first1 or first2
+unary\_op - unary operation function object that will be applied.
+The signature of the function should be equivalent to the following:
+
+ Ret fun(const Type \&a);
+
+The signature does not need to have const \&. The type Type must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type. The type Ret must be such that an object of type OutputIt can be dereferenced and assigned a value of type Ret.
+
+binary\_op - binary operation function object that will be applied.
+The signature of the function should be equivalent to the following:
+
+ Ret fun(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&. The types Type1 and Type2 must be such that objects of types InputIt1 and InputIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively. The type Ret must be such that an object of type OutputIt can be dereferenced and assigned a value of type Ret.
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -InputIt1 must meet the requirements of InputIterator.
+ -InputIt2 must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+Output iterator to the element past the last element transformed.
+
+
+
+\subsection{std::generate}
+
+\subsubsection{NAME}
+std::generate - Assigns each element in range [first, last) a value generated by the given function object g.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt, class Generator >
+void generate( ForwardIt first, ForwardIt last, Generator g );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to generate
+g - generator function object that will be called.
+The signature of the function should be equivalent to the following:
+
+ Ret fun();
+The type Ret must be such that an object of type ForwardIt can be dereferenced and assigned a value of type Ret.
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::generate\_n}
+
+\subsubsection{NAME}
+std::generate\_n - Assigns values, generated by given function object g, to the first count elements in the range beginning at first, if count>0. Does nothing otherwise.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+
+ template< class OutputIt, class Size, class Generator >
+void generate\_n( OutputIt first, Size count, Generator g ); [until C++11]
+ template< class OutputIt, class Size, class Generator >
+OutputIt generate\_n( OutputIt first, Size count, Generator g ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first - the beginning of the range of elements to generate
+count - number of the elements to generate
+g - generator function object that will be called.
+The signature of the function should be equivalent to the following:
+
+ Ret fun();
+The type Ret must be such that an object of type OutputIt can be dereferenced and assigned a value of type Ret.
+
+ Type requirements
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+ (none) [until C++11]
+ Iterator one past the last element assigned if count>0, first otherwise. [since C++11]
+
+
+\subsection{std::remove}
+
+\subsubsection{NAME}
+std::remove - Deletes the file identified by character string pointed to by fname.
+
+\subsubsection{SYNOPSIS}
+\#include <cstdio>
+
+\begin{lstlisting}
+ int remove( const char *fname );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+fname - pointer to a null-terminated string containing the path identifying the file to delete
+
+\subsubsection{RETURN VALUE}
+0 upon success or non-zero value on error.
+
+
+
+\subsection{std::remove\_copy}
+
+\subsubsection{NAME}
+std::remove\_copy - Copies elements from the range [first, last), to another range beginning at d\_first, omitting the elements which satisfy specific criteria. The first version ignores the elements that are equal to value, the second version ignores the elements for which predicate p returns true. Source and destination ranges cannot overlap.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class OutputIt, class T >
+OutputIt remove\_copy( InputIt first, InputIt last, OutputIt d\_first,
+                      const T\& value );
+ template< class InputIt, class OutputIt, class UnaryPredicate >
+OutputIt remove\_copy\_if( InputIt first, InputIt last, OutputIt d\_first,
+                         UnaryPredicate p );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to copy
+d\_first - the beginning of the destination range.
+value - the value of the elements not to copy
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+ -UnaryPredicate must meet the requirements of Predicate.
+
+\subsubsection{RETURN VALUE}
+Iterator to the element past the last element copied.
+
+
+
+\subsection{std::replace}
+
+\subsubsection{NAME}
+std::replace - Replaces all elements satisfying specific criteria with new\_value in the range [first, last). The first version replaces the elements that are equal to old\_value, the second version replaces elements for which predicate p returns true.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt, class T >
+void replace( ForwardIt first, ForwardIt last,
+              const T\& old\_value, const T\& new\_value );
+ template< class ForwardIt, class UnaryPredicate, class T >
+void replace\_if( ForwardIt first, ForwardIt last,
+                 UnaryPredicate p, const T\& new\_value );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to process
+old\_value - the value of elements to replace
+p - unary predicate which returns true  if the element value should be replaced.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type \&a);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The type Type must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to Type.
+
+new\_value - the value to use as replacement
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+ -UnaryPredicate must meet the requirements of Predicate.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::replace\_copy}
+
+\subsubsection{NAME}
+std::replace\_copy - Copies the all elements from the range [first, last) to another range beginning at d\_first replacing all elements satisfying specific criteria with new\_value. The first version replaces the elements that are equal to old\_value, the second version replaces elements for which predicate p returns true. The source and destination ranges cannot overlap.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class OutputIt, class T >
+OutputIt replace\_copy( InputIt first, InputIt last, OutputIt d\_first,
+                       const T\& old\_value, const T\& new\_value );
+ template< class InputIt, class OutputIt, class UnaryPredicate, class T >
+OutputIt replace\_copy\_if( InputIt first, InputIt last, OutputIt d\_first,
+                          UnaryPredicate p, const T\& new\_value );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to copy
+d\_first - the beginning of the destination range
+old\_value - the value of elements to replace
+p - unary predicate which returns true  if the element value should be replaced.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type \&a);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The type Type must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type.
+
+new\_value - the value to use as replacement
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator to the element past the last element copied.
+
+
+
+\subsection{std::swap}
+
+\subsubsection{NAME}
+std::swap - Exchanges the given values.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+Defined in header <utility> [until C++11] [since C++11]
+ template< class T >
+void swap( T\& a, T\& b );
+ template< class T2, size\_t N >
+void swap( T2 (\&a)[N], T2 (\&b)[N]); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+a, b - the values to be swapped
+ Type requirements
+ -T must meet the requirements of MoveAssignable and MoveConstructible.
+ -T2 must meet the requirements of Swappable.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::swap\_ranges}
+
+\subsubsection{NAME}
+std::swap\_ranges - Exchanges elements between range [first1, last1) and another range starting at first2.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt1, class ForwardIt2 >
+ForwardIt2 swap\_ranges( ForwardIt1 first1, ForwardIt1 last1, ForwardIt2 first2 )
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the first range of elements to swap
+first2 - beginning of the second range of elements to swap
+ Type requirements
+ -ForwardIt1, ForwardIt2 must meet the requirements of ForwardIterator.
+ -The types of dereferenced ForwardIt1 and ForwardIt2 must meet the requirements of Swappable
+
+\subsubsection{RETURN VALUE}
+Iterator to the element past the last element exchanged in the range beginning with first2.
+
+
+
+\subsection{std::iter\_swap}
+
+\subsubsection{NAME}
+std::iter\_swap - Swaps the values of the elements the given iterators are pointing to.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt1, class ForwardIt2 >
+void iter\_swap( ForwardIt1 a, ForwardIt2 b );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+a, b - iterators to the elements to swap
+ Type requirements
+ -ForwardIt1, ForwardIt2 must meet the requirements of ForwardIterator.
+ -*a, *b must meet the requirements of Swappable.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::reverse}
+
+\subsubsection{NAME}
+std::reverse - Reverses the order of the elements in the range [first, last)
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class BidirIt >
+void reverse( BidirIt first, BidirIt last );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to reverse
+ Type requirements
+ -BidirIt must meet the requirements of BidirectionalIterator.
+ -The type of dereferenced BidirIt must meet the requirements of Swappable.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::reverse\_copy}
+
+\subsubsection{NAME}
+std::reverse\_copy - Copies the elements from the range [first, last) to another range beginning at d\_first in such a way that the elements in the new range are in reverse order.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class BidirIt, class OutputIt >
+OutputIt reverse\_copy( BidirIt first, BidirIt last, OutputIt d\_first );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to copy
+d\_first - the beginning of the destination range
+ Type requirements
+ -BidirIt must meet the requirements of BidirectionalIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+Output iterator to the element past the last element copied.
+
+
+
+\subsection{std::rotate}
+
+\subsubsection{NAME}
+std::rotate - Performs a left rotation on a range of elements.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+
+ template< class ForwardIt >
+void rotate( ForwardIt first, ForwardIt n\_first, ForwardIt last ); [until C++11]
+ template< class ForwardIt >
+ForwardIt rotate( ForwardIt first, ForwardIt n\_first, ForwardIt last ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first - the beginning of the original range
+n\_first - the element that should appear at the beginning of the rotated range
+last - the end of the original range
+ Type requirements
+ -ForwardIt must meet the requirements of ValueSwappable and ForwardIterator.
+ -The type of dereferenced ForwardIt must meet the requirements of MoveAssignable and MoveConstructible.
+
+\subsubsection{RETURN VALUE}
+(none)
+ [until C++11]
+The iterator equal to first + (last - n\_first)
+ [since C++11]
+
+
+\subsection{std::rotate\_copy}
+
+\subsubsection{NAME}
+std::rotate\_copy - Copies the elements from the range [first, last), to another range beginning at d\_first in such a way, that the element n\_first becomes the first element of the new range and n\_first - 1 becomes the last element.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt, class OutputIt >
+OutputIt rotate\_copy( ForwardIt first, ForwardIt n\_first,
+                      ForwardIt last, OutputIt d\_first );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to copy
+n\_first - an iterator to an element in [first, last) that should appear at the beginning of the new range
+d\_first - beginning of the destination range
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+Output iterator to the element past the last element copied.
+
+
+
+\subsection{std::random\_shuffle}
+
+\subsubsection{NAME}
+std::random\_shuffle - Reorders the elements in the given range [first, last) such that each possible permutation of those elements has equal probability of appearance.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class RandomIt >
+void random\_shuffle( RandomIt first, RandomIt last ); [until C++17](deprecated in C++14)
+(2)
+ template< class RandomIt, class RandomFunc >
+void random\_shuffle( RandomIt first, RandomIt last, RandomFunc\& r ); [until C++11]
+ template< class RandomIt, class RandomFunc >
+void random\_shuffle( RandomIt first, RandomIt last, RandomFunc\&\& r ); [since C++11]  [until C++17](deprecated in C++14)
+ template< class RandomIt, class URNG >
+void shuffle( RandomIt first, RandomIt last, URNG\&\& g ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to shuffle randomly
+r - function object returning a randomly chosen value of type convertible to  std::iterator\_traits<RandomIt>::difference\_type in the interval [0,n) if invoked as r(n)
+g - a UniformRandomNumberGenerator whose result type is convertible to std::iterator\_traits<RandomIt>::difference\_type
+ Type requirements
+ -RandomIt must meet the requirements of ValueSwappable and RandomAccessIterator.
+ -URNG must meet the requirements of UniformRandomNumberGenerator.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::unique}
+
+\subsubsection{NAME}
+std::unique - Removes all consecutive duplicate elements from the range [first, last) and returns a past-the-end iterator for the new logical end of the range.  The first version uses operator== to compare the elements, the second version uses the given binary predicate p.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt >
+ForwardIt unique( ForwardIt first, ForwardIt last );
+ template< class ForwardIt, class BinaryPredicate >
+ForwardIt unique( ForwardIt first, ForwardIt last, BinaryPredicate p );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to process
+p - binary predicate which returns true  if the elements should be treated as equal.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to both of them.
+
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+ -The type of dereferenced ForwardIt must meet the requirements of MoveAssignable.
+
+\subsubsection{RETURN VALUE}
+Forward iterator to the new end of the range
+
+
+
+\subsection{std::unique\_copy}
+
+\subsubsection{NAME}
+std::unique\_copy - Copies the elements from the range [first, last), to another range beginning at d\_first in such a way that there are no consecutive equal elements. Only the first element of each group of equal elements is copied. The first version uses operator== to compare the elements, the second version uses the given binary predicate p.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class OutputIt >
+OutputIt unique\_copy( InputIt first, InputIt last,
+                       OutputIt d\_first );
+ template< class InputIt, class OutputIt, class BinaryPredicate >
+OutputIt unique\_copy( InputIt first, InputIt last,
+                       OutputIt d\_first, BinaryPredicate p );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to process
+d\_first - the beginning of the destination range
+p - binary predicate which returns true  if the elements should be treated as equal.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to both of them.
+
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+ -The type of dereferenced InputIt must meet the requirements of CopyAssignable.
+ -The type of dereferenced InputIt must meet the requirements of CopyConstructible. if neither InputIt nor OutputIt satisfies ForwardIterator
+
+\subsubsection{RETURN VALUE}
+Output iterator to the element past the last written element
+
+
+
+\subsection{std::partition}
+
+\subsubsection{NAME}
+std::partition - Reorders the elements in the range [first, last) in such a way that all elements for which the predicate p returns true precede the elements for which predicate p returns false. Relative order of the elements is not preserved.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+
+ template< class BidirIt, class UnaryPredicate >
+BidirectionalIterator partition( BidirIt first, BidirIt last,
+
+                                 UnaryPredicate p ); [until C++11]
+ template< class ForwardIt, class UnaryPredicate >
+ForwardIt partition( ForwardIt first, ForwardIt last,
+
+                     UnaryPredicate p ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to reorder
+p - unary predicate which returns true  if the element should be ordered before other elements.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type \&a);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The type Type must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to Type.
+
+ Type requirements
+ -BidirIt must meet the requirements of BidirectionalIterator.
+ -ForwardIt must meet the requirements of ValueSwappable and ForwardIterator. However, the operation is more efficient if ForwardIt also satisfies the requirements of BidirectionalIterator
+ -UnaryPredicate must meet the requirements of Predicate.
+
+\subsubsection{RETURN VALUE}
+Iterator to the first element of the second group.
+
+
+
+\subsection{std::partition\_copy}
+
+\subsubsection{NAME}
+std::partition\_copy - Copies the elements from the range [first, last) to two different ranges depending on the value returned by the predicate p. The elements, that satisfy the predicate p, are copied to the range beginning at d\_first\_true. The rest of the elements are copied to the range beginning at d\_first\_false.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class OutputIt1,
+          class OutputIt2, class UnaryPredicate >
+std::pair<OutputIt1, OutputIt2>
+     partition\_copy( InputIt first, InputIt last,
+                     OutputIt1 d\_first\_true, OutputIt2 d\_first\_false,
+
+                     UnaryPredicate p ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to sort
+d\_first\_true - the beginning of the output range for the elements that satisfy p
+d\_first\_false - the beginning of the output range for the elements that do not satisfy p
+p - unary predicate which returns true  if the element should be placed in d\_first\_true.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type \&a);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The type Type must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type.
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -The type of dereferenced InputIt must meet the requirements of CopyAssignable.
+ -OutputIt1 must meet the requirements of OutputIterator.
+ -OutputIt2 must meet the requirements of OutputIterator.
+ -UnaryPredicate must meet the requirements of Predicate.
+
+\subsubsection{RETURN VALUE}
+A pair constructed from the iterator to the end of the d\_first\_true range and the iterator to the end of the d\_first\_false range.
+
+
+
+\subsection{std::stable\_partition}
+
+\subsubsection{NAME}
+std::stable\_partition - Reorders the elements in the range [first, last) in such a way that all elements for which the predicate p returns true precede the elements for which predicate p returns false. Relative order of the elements is preserved.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class BidirIt, class UnaryPredicate >
+BidirIt stable\_partition( BidirIt first, BidirIt last, UnaryPredicate p );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to reorder
+p - unary predicate which returns true  if the element should be ordered before other elements.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type \&a);
+
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+The type Type must be such that an object of type BidirIt can be dereferenced and then implicitly converted to Type.
+
+ Type requirements
+ -BidirIt must meet the requirements of ValueSwappable and BidirectionalIterator.
+ -The type of dereferenced BidirIt must meet the requirements of MoveAssignable and MoveConstructible.
+ -UnaryPredicate must meet the requirements of Predicate.
+
+\subsubsection{RETURN VALUE}
+Iterator to the first element of the second group
+
+
+
+\subsection{std::is\_sorted}
+
+\subsubsection{NAME}
+std::is\_sorted - Checks if the elements in range [first, last) are sorted in ascending order. The first version of the function uses operator< to compare the elements, the second uses the given comparison function comp.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt >
+bool is\_sorted( ForwardIt first, ForwardIt last ); [since C++11]
+ template< class ForwardIt, class Compare >
+bool is\_sorted( ForwardIt first, ForwardIt last, Compare comp ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+true if the elements in the range are sorted in ascending order
+
+
+
+\subsection{std::sort}
+
+\subsubsection{NAME}
+std::sort - Sorts the elements in the range [first, last) in ascending order. The order of equal elements is not guaranteed to be preserved. The first version uses operator< to compare the elements, the second version uses the given comparison function object comp.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class RandomIt >
+void sort( RandomIt first, RandomIt last );
+ template< class RandomIt, class Compare >
+void sort( RandomIt first, RandomIt last, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to sort
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -RandomIt must meet the requirements of ValueSwappable and RandomAccessIterator.
+ -The type of dereferenced RandomIt must meet the requirements of MoveAssignable and MoveConstructible.
+ -Compare must meet the requirements of Compare.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::partial\_sort}
+
+\subsubsection{NAME}
+std::partial\_sort - Rearranges elements such that the range [first, middle) contains the sorted middle - first smallest elements in the range [first, last).
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class RandomIt >
+void partial\_sort( RandomIt first, RandomIt middle, RandomIt last );
+ template< class RandomIt, class Compare >
+void partial\_sort( RandomIt first, RandomIt middle, RandomIt last, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to sort
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -RandomIt must meet the requirements of ValueSwappable and RandomAccessIterator.
+ -The type of dereferenced RandomIt must meet the requirements of MoveAssignable and MoveConstructible.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::partial\_sort\_copy}
+
+\subsubsection{NAME}
+std::partial\_sort\_copy - Sorts some of the elements in the range [first, last) in ascending order, storing the result in the range [d\_first, d\_last).
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt, class RandomIt >
+RandomIt partial\_sort\_copy( InputIt first, InputIt last,
+                            RandomIt d\_first, RandomIt d\_last );
+ template< class InputIt, class RandomIt, class Compare >
+RandomIt partial\_sort\_copy( InputIt first, InputIt last,
+                            RandomIt d\_first, RandomIt d\_last,
+                            Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to sort
+d\_first, d\_last - random access iterators defining the destination range
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -RandomIt must meet the requirements of ValueSwappable and RandomAccessIterator.
+ -The type of dereferenced RandomIt must meet the requirements of MoveAssignable and MoveConstructible.
+
+\subsubsection{RETURN VALUE}
+an iterator to the element defining the upper boundary of the sorted range, i.e. d\_first + min(last - first, d\_last - d\_first).
+
+
+
+\subsection{std::stable\_sort}
+
+\subsubsection{NAME}
+std::stable\_sort - Sorts the elements in the range [first, last) in ascending order. The order of equal elements is guaranteed to be preserved. The first version uses operator< to compare the elements, the second version uses the given comparison function comp.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class RandomIt >
+void stable\_sort( RandomIt first, RandomIt last );
+ template< class RandomIt, class Compare >
+void stable\_sort( RandomIt first, RandomIt last, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to sort
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -RandomIt must meet the requirements of ValueSwappable and RandomAccessIterator.
+ -The type of dereferenced RandomIt must meet the requirements of MoveAssignable and MoveConstructible.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::nth\_element}
+
+\subsubsection{NAME}
+std::nth\_element - nth\_element is a partial sorting algorithm that rearranges elements in [first, last) such that:
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class RandomIt >
+void nth\_element( RandomIt first, RandomIt nth, RandomIt last );
+ template< class RandomIt, class Compare >
+void nth\_element( RandomIt first, RandomIt nth, RandomIt last, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - random access iterators defining the range sort
+nth - random access iterator defining the sort partition point
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -RandomIt must meet the requirements of ValueSwappable and RandomAccessIterator.
+ -The type of dereferenced RandomIt must meet the requirements of MoveAssignable and MoveConstructible.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::lower\_bound}
+
+\subsubsection{NAME}
+std::lower\_bound - Returns an iterator pointing to the first element in the range [first, last) that is not less than (i.e. greater or equal to) value.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt, class T >
+ForwardIt lower\_bound( ForwardIt first, ForwardIt last, const T\& value );
+ template< class ForwardIt, class T, class Compare >
+ForwardIt lower\_bound( ForwardIt first, ForwardIt last, const T\& value, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - iterators defining the partially-ordered range to examine
+value - value to compare the elements to
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The type Type1 must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to Type1. The type Type2 must be such that an object of type T can be implicitly converted to Type2.
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator pointing to the first element that is not less than value, or last if no such element is found.
+
+
+
+\subsection{std::upper\_bound}
+
+\subsubsection{NAME}
+std::upper\_bound - Returns an iterator pointing to the first element in the range [first, last) that is greater than value.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt, class T >
+ForwardIt upper\_bound( ForwardIt first, ForwardIt last, const T\& value );
+ template< class ForwardIt, class T, class Compare >
+ForwardIt upper\_bound( ForwardIt first, ForwardIt last, const T\& value, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+value - value to compare the elements to
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The type Type1 must be such that an object of type T can be implicitly converted to Type1. The type Type2 must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to Type2.
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+iterator pointing to the first element that is greater than value, or last if no such element is found.
+
+
+
+\subsection{std::binary\_search}
+
+\subsubsection{NAME}
+std::binary\_search - Checks if an element equivalent to value appears within the range [first, last).
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt, class T >
+bool binary\_search( ForwardIt first, ForwardIt last, const T\& value );
+ template< class ForwardIt, class T, class Compare >
+bool binary\_search( ForwardIt first, ForwardIt last, const T\& value, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+value - value to compare the elements to
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The type Type1 must be such that an object of type T can be implicitly converted to Type1. The type Type2 must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to Type2.
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+true if an element equal to value is found, false otherwise.
+
+
+
+\subsection{std::equal\_range}
+
+\subsubsection{NAME}
+std::equal\_range - Returns a range containing all elements equivalent to value in the range [first, last).
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt, class T >
+std::pair<ForwardIt,ForwardIt>
+    equal\_range( ForwardIt first, ForwardIt last,
+                 const T\& value );
+ template< class ForwardIt, class T, class Compare >
+std::pair<ForwardIt,ForwardIt>
+    equal\_range( ForwardIt first, ForwardIt last,
+                 const T\& value, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+value - value to compare the elements to
+comp - comparison function which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+The signature does not need to have const \&, but the function must not modify the objects passed to it.
+cmp will be called as both cmp(value, *iterator) and cmp(*iterator, value).
+
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+std::pair containing a pair of iterators defining the wanted range, the first pointing to the first element that is not less than value and the second pointing to the first element greater than value.
+
+If there are no elements not less than value, last is returned as the first element. Similarly if there are no elements greater than value, last is returned as the second element
+
+
+
+\subsection{std::merge}
+
+\subsubsection{NAME}
+std::merge - Merges two sorted ranges [first1, last1) and [first2, last2) into one sorted range beginning at d\_first. The first version uses operator< to compare the elements, the second version uses the given comparison function comp. The relative order of equivalent elements is preserved.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt1, class InputIt2, class OutputIt >
+OutputIt merge( InputIt1 first1, InputIt1 last1,
+                InputIt2 first2, InputIt2 last2,
+                OutputIt d\_first );
+ template< class InputIt1, class InputIt2, class OutputIt, class Compare>
+OutputIt merge( InputIt1 first1, InputIt1 last1,
+                InputIt2 first2, InputIt2 last2,
+                OutputIt d\_first, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the first range of elements to merge
+first2, last2 - the second range of elements to merge
+d\_first - the beginning of the destination range
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that objects of types InputIt1 and InputIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively.
+
+ Type requirements
+ -InputIt1 must meet the requirements of InputIterator.
+ -InputIt2 must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+An output iterator to element past the last element copied.
+
+
+
+\subsection{std::inplace\_merge}
+
+\subsubsection{NAME}
+std::inplace\_merge - Merges two consecutive sorted ranges [first, middle) and [middle, last) into one sorted range [first, last). The order of equal elements is guaranteed to be preserved. The first version uses operator< to compare the elements, the second version uses the given comparison function comp.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class BidirIt >
+void inplace\_merge( BidirIt first, BidirIt middle, BidirIt last );
+ template< class BidirIt, class Compare>
+void inplace\_merge( BidirIt first, BidirIt middle, BidirIt last, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first - the beginning of the first sorted range
+middle - the end of the first sorted range and the beginning of the second
+last - the end of the second sorted range
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type BidirIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -BidirIt must meet the requirements of ValueSwappable and BidirectionalIterator.
+ -The type of dereferenced BidirIt must meet the requirements of MoveAssignable and MoveConstructible.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::includes}
+
+\subsubsection{NAME}
+std::includes - Returns true if every element from the sorted range [first2, last2) is found within the sorted range [first1, last1). Also returns true if [first2, last2) is empty.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt1, class InputIt2 >
+bool includes( InputIt1 first1, InputIt1 last1,
+               InputIt2 first2, InputIt2 last2 );
+ template< class InputIt1, class InputIt2 >
+bool includes( InputIt1 first1, InputIt1 last1,
+               InputIt2 first2, InputIt2 last2, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the sorted range of elements to examine
+first2, last2 - the sorted range of elements to search for
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type InputIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+
+\subsubsection{RETURN VALUE}
+true if every element from [first2, last2) is a member of [first, last).
+
+
+
+\subsection{std::set\_difference}
+
+\subsubsection{NAME}
+std::set\_difference - Copies the elements from the sorted range [first1, last1) which are not found in the sorted range [first2, last2) to the range beginning at d\_first.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt1, class InputIt2, class OutputIt >
+OutputIt set\_difference( InputIt1 first1, InputIt1 last1,
+                         InputIt2 first2, InputIt2 last2,
+                         OutputIt d\_first );
+ template< class InputIt1, class InputIt2,
+          class OutputIt, class Compare >
+OutputIt set\_difference( InputIt1 first1, InputIt1 last1,
+                         InputIt2 first2, InputIt2 last2,
+                         OutputIt d\_first, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the range of elements to examine
+first2, last2 - the range of elements to search for
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that objects of types InputIt1 and InputIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively.
+
+ Type requirements
+ -InputIt1 must meet the requirements of InputIterator.
+ -InputIt2 must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator past the end of the constructed range.
+
+
+
+\subsection{std::set\_intersection}
+
+\subsubsection{NAME}
+std::set\_intersection - Constructs a sorted range beginning at d\_first consisting of elements that are found in both sorted ranges [first1, last1) and [first2, last2). The first version expects both input ranges to be sorted with operator<, the second version expects them to be sorted with the given comparison function comp. If some element is found m times in [first1, last1) and n times in [first2, last2), the first std::min(m, n) elements will be copied from the first range to the destination range. The order of equivalent elements is preserved. The resulting range cannot overlap with either of the input ranges.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt1, class InputIt2, class OutputIt >
+OutputIt set\_intersection( InputIt1 first1, InputIt1 last1,
+                           InputIt2 first2, InputIt2 last2,
+                           OutputIt d\_first );
+ template< class InputIt1, class InputIt2,
+          class OutputIt, class Compare >
+OutputIt set\_intersection( InputIt1 first1, InputIt1 last1,
+                           InputIt2 first2, InputIt2 last2,
+                           OutputIt d\_first, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the first range of elements to examine
+first2, last2 - the second range of elements to examine
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that objects of types InputIt1 and InputIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively.
+
+ Type requirements
+ -InputIt1 must meet the requirements of InputIterator.
+ -InputIt2 must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator past the end of the constructed range.
+
+
+
+\subsection{std::set\_symmetric\_difference}
+
+\subsubsection{NAME}
+std::set\_symmetric\_difference - Computes symmetric difference of two sorted ranges: the elements that are found in either of the ranges, but not in both of them are copied to the range beginning at d\_first. The resulting range is also sorted.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt1, class InputIt2, class OutputIt >
+OutputIt set\_symmetric\_difference( InputIt1 first1, InputIt1 last1,
+                                   InputIt2 first2, InputIt2 last2,
+                                   OutputIt d\_first );
+ template< class InputIt1, class InputIt2,
+          class OutputIt, class Compare >
+OutputIt set\_symmetric\_difference( InputIt1 first1, InputIt1 last1,
+                                   InputIt2 first2, InputIt2 last2,
+                                   OutputIt d\_first, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the first sorted range of elements
+first2, last2 - the second sorted range of elements
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that objects of types InputIt1 and InputIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively.
+
+ Type requirements
+ -InputIt1 must meet the requirements of InputIterator.
+ -InputIt2 must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator past the end of the constructed range.
+
+
+
+\subsection{std::set\_union}
+
+\subsubsection{NAME}
+std::set\_union - Constructs a sorted range beginning at d\_first consisting of all elements present in one or both sorted ranges [first1, last1) and [first2, last2).
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt1, class InputIt2, class OutputIt >
+OutputIt set\_union( InputIt1 first1, InputIt1 last1,
+                    InputIt2 first2, InputIt2 last2,
+                    OutputIt d\_first );
+ template< class InputIt1, class InputIt2,
+          class OutputIt, class Compare >
+OutputIt set\_union( InputIt1 first1, InputIt1 last1,
+                    InputIt2 first2, InputIt2 last2,
+                    OutputIt d\_first, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the first input sorted range
+first2, last2 - the second input sorted range
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that objects of types InputIt1 and InputIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively.
+
+ Type requirements
+ -InputIt1 must meet the requirements of InputIterator.
+ -InputIt2 must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator past the end of the constructed range.
+
+
+
+\subsection{std::is\_heap}
+
+\subsubsection{NAME}
+std::is\_heap - Checks if the elements in range [first, last) are a max heap.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class RandomIt >
+bool is\_heap( RandomIt first, RandomIt last ); [since C++11]
+ template< class RandomIt, class Compare >
+bool is\_heap( RandomIt first, RandomIt last, Compare comp ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to examine
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -RandomIt must meet the requirements of RandomAccessIterator.
+
+\subsubsection{RETURN VALUE}
+true if the range is max heap, false otherwise.
+
+
+
+\subsection{std::make\_heap}
+
+\subsubsection{NAME}
+std::make\_heap - Constructs a max heap in the range [first, last). The first version of the function uses operator< to compare the elements, the second uses the given comparison function comp.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class RandomIt >
+void make\_heap( RandomIt first, RandomIt last );
+ template< class RandomIt, class Compare >
+void make\_heap( RandomIt first, RandomIt last,
+                Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to make the heap from
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -RandomIt must meet the requirements of RandomAccessIterator.
+ -The type of dereferenced RandomIt must meet the requirements of MoveAssignable and MoveConstructible.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::push\_heap}
+
+\subsubsection{NAME}
+std::push\_heap - Inserts the element at the position last-1 into the max heap defined by the range [first, last-1). The first version of the function uses operator< to compare the elements, the second uses the given comparison function comp.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class RandomIt >
+void push\_heap( RandomIt first, RandomIt last );
+ template< class RandomIt, class Compare >
+void push\_heap( RandomIt first, RandomIt last,
+                Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements defining the heap to modify
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -RandomIt must meet the requirements of RandomAccessIterator.
+ -The type of dereferenced RandomIt must meet the requirements of MoveAssignable and MoveConstructible.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::pop\_heap}
+
+\subsubsection{NAME}
+std::pop\_heap - Swaps the value in the position first and the value in the position last-1 and makes the subrange [first, last-1) into a max heap. This has the effect of removing the first (largest) element from the heap defined by the range [first, last).
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class RandomIt >
+void pop\_heap( RandomIt first, RandomIt last );
+ template< class RandomIt, class Compare >
+void pop\_heap( RandomIt first, RandomIt last, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements defining the valid nonempty heap to modify
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -RandomIt must meet the requirements of ValueSwappable and RandomAccessIterator.
+ -The type of dereferenced RandomIt must meet the requirements of MoveAssignable and MoveConstructible.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::sort\_heap}
+
+\subsubsection{NAME}
+std::sort\_heap - Converts the max heap [first, last) into a sorted range in ascending order. The resulting range no longer has the heap property.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class RandomIt >
+void sort\_heap( RandomIt first, RandomIt last );
+ template< class RandomIt, class Compare >
+void sort\_heap( RandomIt first, RandomIt last, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to sort
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -RandomIt must meet the requirements of ValueSwappable and RandomAccessIterator.
+ -The type of dereferenced RandomIt must meet the requirements of MoveAssignable and MoveConstructible.
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::max}
+
+\subsubsection{NAME}
+std::max - Returns the greater of the given values.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+
+(1)
+ template< class T >
+const T\& max( const T\& a, const T\& b ); [until C++14]
+ template< class T >
+constexpr const T\& max( const T\& a, const T\& b ); [since C++14]
+(2)
+ template< class T, class Compare >
+const T\& max( const T\& a, const T\& b, Compare comp ); [until C++14]
+ template< class T, class Compare >
+constexpr const T\& max( const T\& a, const T\& b, Compare comp ); [since C++14]
+(3)
+ template< class T >
+T max( std::initializer\_list<T> ilist ); [since C++11]  [until C++14]
+ template< class T >
+constexpr T max( std::initializer\_list<T> ilist ); [since C++14]
+(4)
+ template< class T, class Compare >
+T max( std::initializer\_list<T> ilist, Compare comp ); [since C++11]  [until C++14]
+ template< class T, class Compare >
+constexpr T max( std::initializer\_list<T> ilist, Compare comp ); [since C++14]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+a, b - the values to compare
+ilist - initializer list with the values to compare
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if  if a is less than b.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type T can be implicitly converted to both of them.
+
+ Type requirements
+ -T must meet the requirements of LessThanComparable. for the overloads (1) and (3)
+ -T must meet the requirements of CopyConstructible. for the overloads (3) and (4)
+
+\subsubsection{RETURN VALUE}
+1-2) The greater of a and b. If they are equivalent, returns a.
+
+3-4) The greatest value in ilist. If several values are equivalent to the greatest, returns the leftmost one.
+
+
+
+\subsection{std::max\_element}
+
+\subsubsection{NAME}
+std::max\_element - Finds the greatest element in the range [first, last). The first version uses operator< to compare the values, the second version uses the given comparison function cmp.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt >
+ForwardIt max\_element(ForwardIt first, ForwardIt last);
+ template< class ForwardIt, class Compare >
+ForwardIt max\_element(ForwardIt first, ForwardIt last, Compare cmp);
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - forward iterators defining the range to examine
+cmp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator to the greatest element in the range [first, last). If several elements in the range are equivalent to the greatest element, returns the iterator to the first such element. Returns last if the range is empty.
+
+
+
+\subsection{std::min}
+
+\subsubsection{NAME}
+std::min - Returns the smaller of the given values.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+
+(1)
+ template< class T >
+const T\& min( const T\& a, const T\& b ); [until C++14]
+ template< class T >
+constexpr const T\& min( const T\& a, const T\& b ); [since C++14]
+(2)
+ template< class T, class Compare >
+const T\& min( const T\& a, const T\& b, Compare comp ); [until C++14]
+ template< class T, class Compare >
+constexpr const T\& min( const T\& a, const T\& b, Compare comp ); [since C++14]
+(3)
+ template< class T >
+T min( std::initializer\_list<T> ilist ); [since C++11]  [until C++14]
+ template< class T >
+constexpr T min( std::initializer\_list<T> ilist ); [since C++14]
+(4)
+ template< class T, class Compare >
+T min( std::initializer\_list<T> ilist, Compare comp ); [since C++11]  [until C++14]
+ template< class T, class Compare >
+constexpr T min( std::initializer\_list<T> ilist, Compare comp ); [since C++14]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+a, b - the values to compare
+ilist - initializer list with the values to compare
+cmp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if  if a is less than b.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type T can be implicitly converted to both of them.
+
+ Type requirements
+ -T must meet the requirements of LessThanComparable. for the overloads (1) and (3)
+ -T must meet the requirements of CopyConstructible. for the overloads (3) and (4)
+
+\subsubsection{RETURN VALUE}
+1-2) The smaller of a and b. If the values are equivalent, returns a.
+
+3-4) The smallest value in ilist. If several values are equivalent to the smallest, returns the leftmost such value.
+
+
+
+\subsection{std::min\_element}
+
+\subsubsection{NAME}
+std::min\_element - Finds the smallest element in the range [first, last). The first version uses operator< to compare the values, the second version uses the given comparison function comp.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt >
+ForwardIt min\_element( ForwardIt first, ForwardIt last );
+ template< class ForwardIt, class Compare >
+ForwardIt min\_element( ForwardIt first, ForwardIt last, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - forward iterators defining the range to examine
+cmp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if  a is less than b.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator to the smallest element in the range [first, last). If several elements in the range are equivalent to the smallest element, returns the iterator to the first such element. Returns last if the range is empty.
+
+
+
+\subsection{std::minmax}
+
+\subsubsection{NAME}
+std::minmax - Returns the lowest and the greatest of the given values.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+
+(1)
+ template< class T >
+std::pair<const T\&,const T\&> minmax( const T\& a, const T\& b ); [since C++11]  [until C++14]
+ template< class T >
+constexpr std::pair<const T\&,const T\&> minmax( const T\& a, const T\& b ); [since C++14]
+(2)
+ template< class T, class Compare >
+std::pair<const T\&,const T\&> minmax( const T\& a, const T\& b,
+
+                                     Compare comp ); [since C++11]  [until C++14]
+ template< class T, class Compare >
+constexpr std::pair<const T\&,const T\&> minmax( const T\& a, const T\& b,
+
+                                               Compare comp ); [since C++14]
+(3)
+ template< class T >
+std::pair<T,T> minmax( std::initializer\_list<T> ilist); [since C++11]  [until C++14]
+ template< class T >
+constexpr std::pair<T,T> minmax( std::initializer\_list<T> ilist); [since C++14]
+(4)
+ template< class T, class Compare >
+std::pair<T,T> minmax( std::initializer\_list<T> ilist, Compare comp ); [since C++11]  [until C++14]
+ template< class T, class Compare >
+constexpr std::pair<T,T> minmax( std::initializer\_list<T> ilist, Compare comp ); [since C++14]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+a, b - the values to compare
+ilist - initializer list with the values to compare
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type T can be implicitly converted to both of them.
+
+ Type requirements
+ -T must meet the requirements of LessThanComparable.
+ -T must meet the requirements of CopyConstructible in order to use overloads (3,4).
+
+\subsubsection{RETURN VALUE}
+1-2) Returns the result of std::pair<const T\&, const T\&>(a, b) if a<b or if a is equivalent to b. Returns the result of std::pair<const T\&, const T\&>(b, a) if b<a.
+
+3-4) A pair with the smallest value in ilist as the first element and the greatest as the second. If several elements are equivalent to the smallest, the leftmost such element is returned. If several elements are equivalent to the largest, the rightmost such element is returned.
+
+
+
+\subsection{std::minmax\_element}
+
+\subsubsection{NAME}
+std::minmax\_element - Finds the greatest and the smallest element in the range [first, last). The first version uses operator< to compare the values, the second version uses the given comparison function comp.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt >
+std::pair<ForwardIt,ForwardIt>
+
+    minmax\_element( ForwardIt first, ForwardIt last ); [since C++11]
+ template< class ForwardIt, class Compare >
+std::pair<ForwardIt,ForwardIt>
+
+    minmax\_element( ForwardIt first, ForwardIt last, Compare comp ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - forward iterators defining the range to examine
+cmp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if  if *a is less than *b.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type ForwardIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -ForwardIt must meet the requirements of ForwardIterator.
+
+\subsubsection{RETURN VALUE}
+a pair consisting of an iterator to the smallest element as the first element and an iterator to the greatest element as the second. Returns std::make\_pair(first, first) if the range is empty. If several elements are equivalent to the smallest element, the iterator to the first such element is returned. If several elements are equivalent to the largest element, the iterator to the last such element is returned.
+
+
+
+\subsection{std::lexicographical\_compare}
+
+\subsubsection{NAME}
+std::lexicographical\_compare - Checks if the first range [first1, last1) is lexicographically less than the second range [first2, last2). The first version uses operator< to compare the elements, the second version uses the given comparison function comp.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class InputIt1, class InputIt2 >
+bool lexicographical\_compare( InputIt1 first1, InputIt1 last1,
+                              InputIt2 first2, InputIt2 last2 );
+ template< class InputIt1, class InputIt2, class Compare >
+bool lexicographical\_compare( InputIt1 first1, InputIt1 last1,
+                              InputIt2 first2, InputIt2 last2,
+                              Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the first range of elements to examine
+first2, last2 - the second range of elements to examine
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that objects of types InputIt1 and InputIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively.
+
+ Type requirements
+ -InputIt1, InputIt2 must meet the requirements of InputIterator.
+
+\subsubsection{RETURN VALUE}
+true if the first range is lexicographically less than the second.
+
+
+
+\subsection{std::is\_permutation}
+
+\subsubsection{NAME}
+std::is\_permutation - Returns true if there exists a permutation of the elements in the range [first1, last1) that makes that range equal to the range [first2,last2), where last2 denotes first2 + (last1 - first1) if it was not given.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class ForwardIt1, class ForwardIt2 >
+bool is\_permutation( ForwardIt1 first1, ForwardIt1 last1,
+
+                     ForwardIt2 first2 ); [since C++11]
+ template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+bool is\_permutation( ForwardIt1 first1, ForwardIt1 last1,
+
+                     ForwardIt2 first2, BinaryPredicate p ); [since C++11]
+ template< class ForwardIt1, class ForwardIt2 >
+bool is\_permutation( ForwardIt1 first1, ForwardIt1 last1,
+
+                     ForwardIt2 first2, ForwardIt2 last2 ); [since C++14]
+ template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+bool is\_permutation( ForwardIt1 first1, ForwardIt1 last1,
+                     ForwardIt2 first2, ForwardIt2 last2,
+
+                     BinaryPredicate p ); [since C++14]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the range of elements to compare
+first2, last2 - the second range to compare
+p - binary predicate which returns true if the elements should be treated as equal.
+The signature of the predicate function should be equivalent to the following:
+
+ bool pred(const Type \&a, const Type \&b);
+
+Type should be the value type of both ForwardIt1 and ForwardIt2. The signature does not need to have const \&, but the function must not modify the objects passed to it.
+
+ Type requirements
+ -ForwardIt1, ForwardIt2 must meet the requirements of ForwardIterator.
+ -ForwardIt1, ForwardIt2 must have the same value type.
+
+\subsubsection{RETURN VALUE}
+true if the range [first1, last1) is a permutation of the range [first2, last2).
+
+
+
+\subsection{std::next\_permutation}
+
+\subsubsection{NAME}
+std::next\_permutation - Transforms the range [first, last) into the next permutation from the set of all permutations that are lexicographically ordered with respect to operator< or comp. Returns true if such permutation exists, otherwise transforms the range into the first permutation (as if by std::sort(first, last)) and returns false.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class BidirIt >
+bool next\_permutation( BidirIt first, BidirIt last );
+ template< class BidirIt, class Compare >
+bool next\_permutation( BidirIt first, BidirIt last, Compare comp );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to permute
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type BidirIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -BidirIt must meet the requirements of ValueSwappable and BidirectionalIterator.
+
+\subsubsection{RETURN VALUE}
+true if the new permutation is lexicographically greater than the old. false if the last permutation was reached and the range was reset to the first permutation.
+
+
+
+\subsection{std::prev\_permutation}
+
+\subsubsection{NAME}
+std::prev\_permutation - Transforms the range [first, last) into the previous permutation from the set of all permutations that are lexicographically ordered with respect to operator< or comp. Returns true if such permutation exists, otherwise transforms the range into the last permutation (as if by std::sort(first, last); std::reverse(first, last);) and returns false.
+
+\subsubsection{SYNOPSIS}
+\#include <algorithm>
+
+\begin{lstlisting}
+ template< class BidirIt >
+bool prev\_permutation( BidirIt first, BidirIt last);
+ template< class BidirIt, class Compare >
+bool prev\_permutation( BidirIt first, BidirIt last, Compare comp);
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to permute
+comp - comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+The signature of the comparison function should be equivalent to the following:
+
+ bool cmp(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&, but the function object must not modify the objects passed to it.
+The types Type1 and Type2 must be such that an object of type BidirIt can be dereferenced and then implicitly converted to both of them.
+
+ Type requirements
+ -BidirIt must meet the requirements of ValueSwappable and BidirectionalIterator.
+
+\subsubsection{RETURN VALUE}
+true if the new permutation precedes the old in lexicographical order. false if the first permutation was reached and the range was reset to the last permutation.
+
+
+
+\section{Numerics library}
+
+\subsection{std::iota}
+
+\subsubsection{NAME}
+std::iota - Fills the range [first, last) with sequentially increasing values, starting with value and repetitively evaluating ++value.
+
+\subsubsection{SYNOPSIS}
+\#include <numeric>
+
+\begin{lstlisting}
+ template< class ForwardIterator, class T >
+void iota( ForwardIterator first, ForwardIterator last, T value ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to fill with sequentially increasing values starting with value
+value - initial value to store, the expression ++value must be well-formed
+
+\subsubsection{RETURN VALUE}
+(none)
+
+
+
+\subsection{std::accumulate}
+
+\subsubsection{NAME}
+std::accumulate - Computes the sum of the given value init and the elements in the range [first, last). The first version uses operator+ to sum up the elements, the second version uses the given binary function op.
+
+\subsubsection{SYNOPSIS}
+\#include <numeric>
+
+\begin{lstlisting}
+ template< class InputIt, class T >
+T accumulate( InputIt first, InputIt last, T init );
+ template< class InputIt, class T, class BinaryOperation >
+T accumulate( InputIt first, InputIt last, T init,
+              BinaryOperation op );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to sum
+init - initial value of the sum
+op - binary operation function object that will be applied.
+The signature of the function should be equivalent to the following:
+
+ Ret fun(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&. The type Type1 must be such that an object of type T can be implicitly converted to Type1. The type Type2 must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type2. The type Ret must be such that an object of type T can be assigned a value of type Ret.
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -T must meet the requirements of CopyAssignable and CopyConstructible.
+
+\subsubsection{RETURN VALUE}
+The sum of the given value and elements in the given range.
+
+
+
+\subsection{std::inner\_product}
+
+\subsubsection{NAME}
+std::inner\_product - Computes inner product (i.e. sum of products) of the range [first1, last1) and another range beginning at first2. The first version uses operator* to compute product of the element pairs and operator+ to sum up the products, the second version uses op2 and op1 for these tasks respectively.
+
+\subsubsection{SYNOPSIS}
+\#include <numeric>
+
+\begin{lstlisting}
+ template< class InputIt1, class InputIt2, class T >
+T inner\_product( InputIt1 first1, InputIt1 last1,
+                 InputIt2 first2, T value );
+ template<
+    class InputIt1,
+    class InputIt2,
+    class T,
+    class BinaryOperation1,
+    class BinaryOperation2
+> T inner\_product( InputIt1 first1, InputIt1 last1,
+                   InputIt2 first2, T value,
+                   BinaryOperation1 op1,
+                   BinaryOperation2 op2 );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first1, last1 - the first range of elements
+first2 - the beginning of the second range of elements
+value - initial value of the sum of the products
+op1 - binary operation function object that will be applied.  This "sum" function takes a value returned by op2 and the current value of the accumulator and produces a new value to be stored in the accumulator.
+The signature of the function should be equivalent to the following:
+
+ Ret fun(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&. The types Type1 and Type2 must be such that objects of types T and Type3 can be implicitly converted to Type1 and Type2 respectively. The type Ret must be such that an object of type T can be assigned a value of type Ret.
+
+op2 - binary operation function object that will be applied.  This "product" function takes one value from each range and produces a new value.
+The signature of the function should be equivalent to the following:
+
+ Ret fun(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&. The types Type1 and Type2 must be such that objects of types InputIt1 and InputIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively. The type Ret must be such that an object of type Type3 can be assigned a value of type Ret.
+
+ Type requirements
+ -InputIt1, InputIt2 must meet the requirements of InputIterator.
+ -T must meet the requirements of CopyAssignable and CopyConstructible.
+
+\subsubsection{RETURN VALUE}
+The inner product of two ranges.
+
+
+
+\subsection{std::adjacent\_difference}
+
+\subsubsection{NAME}
+std::adjacent\_difference - Computes the differences between the second and the first of each adjacent pair of elements of the range [first, last) and writes them to the range beginning at d\_first + 1. Unmodified copy of first is written to d\_first. The first version uses operator- to calculate the differences, the second version uses the given binary function op.
+
+\subsubsection{SYNOPSIS}
+\#include <numeric>
+
+\begin{lstlisting}
+ template< class InputIt, class OutputIt >
+OutputIt adjacent\_difference( InputIt first, InputIt last,
+                                    OutputIt d\_first );
+ template< class InputIt, class OutputIt, class BinaryOperation >
+OutputIt adjacent\_difference( InputIt first, InputIt last,
+                                    OutputIt d\_first,
+                                    BinaryOperation op );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements
+d\_first - the beginning of the destination range
+op - binary operation function object that will be applied.
+The signature of the function should be equivalent to the following:
+
+ Ret fun(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&. The types Type1 and Type2 must be such that an object of type iterator\_traits<InputIt>::value\_type can be implicitly converted to both of them. The type Ret must be such that an object of type OutputIt can be dereferenced and assigned a value of type Ret.
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+It to the element past the last element written.
+
+
+
+\subsection{std::partial\_sum}
+
+\subsubsection{NAME}
+std::partial\_sum - Computes the partial sums of the elements in the subranges of the range [first, last) and writes them to the range beginning at d\_first. The first version uses operator+ to sum up the elements, the second version uses the given binary function op.
+
+\subsubsection{SYNOPSIS}
+\#include <numeric>
+
+\begin{lstlisting}
+ template< class InputIt, class OutputIt >
+OutputIt partial\_sum( InputIt first, InputIt last, OutputIt d\_first );
+ template< class InputIt, class OutputIt, class BinaryOperation >
+OutputIt partial\_sum( InputIt first, InputIt last, OutputIt d\_first,
+                      BinaryOperation op );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+first, last - the range of elements to sum
+d\_first - the beginning of the destination range
+op - binary operation function object that will be applied.
+The signature of the function should be equivalent to the following:
+
+ Ret fun(const Type1 \&a, const Type2 \&b);
+
+The signature does not need to have const \&. The type Type1 must be such that an object of type iterator\_traits<InputIt>::value\_type can be implicitly converted to Type1. The type Type2 must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type2. The type Ret must be such that an object of type iterator\_traits<InputIt>::value\_type can be assigned a value of type Ret.
+
+ Type requirements
+ -InputIt must meet the requirements of InputIterator.
+ -OutputIt must meet the requirements of OutputIterator.
+
+\subsubsection{RETURN VALUE}
+Iterator to the element past the last element written.
+
+
+
+\section{Input/output library}
+
+\subsection{std::dec}
+
+\subsubsection{NAME}
+std::dec - Modifies the default numeric base for integer I/O
+
+\subsubsection{SYNOPSIS}
+\#include <ios>
+
+\begin{lstlisting}
+ std::ios\_base\& dec( std::ios\_base\& str );
+ std::ios\_base\& hex( std::ios\_base\& str );
+ std::ios\_base\& oct( std::ios\_base\& str );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+str - reference to I/O stream
+
+\subsubsection{RETURN VALUE}
+str (reference to the stream after manipulation)
+
+
+
+\subsection{std::fixed}
+
+\subsubsection{NAME}
+std::fixed - Modifies the default formatting for floating-point input/output.
+
+\subsubsection{SYNOPSIS}
+\#include <ios>
+
+\begin{lstlisting}
+ std::ios\_base\& fixed( std::ios\_base\& str );
+ std::ios\_base\& scientific( std::ios\_base\& str );
+ std::ios\_base\& hexfloat( std::ios\_base\& str ); [since C++11]
+ std::ios\_base\& defaultfloat( std::ios\_base\& str ); [since C++11]
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+str - reference to I/O stream
+
+\subsubsection{RETURN VALUE}
+str (reference to the stream after manipulation)
+
+
+
+\subsection{std::boolalpha}
+
+\subsubsection{NAME}
+std::boolalpha - 1) Enables the boolalpha flag in the stream str as if by calling str.setf(std::ios\_base::boolalpha)
+
+\subsubsection{SYNOPSIS}
+\#include <ios>
+
+\begin{lstlisting}
+ std::ios\_base\& boolalpha( std::ios\_base\& str );
+ std::ios\_base\& noboolalpha( std::ios\_base\& str );
+\end{lstlisting}
+
+\subsubsection{PARAMETERS}
+str - reference to I/O stream
+
+\subsubsection{RETURN VALUE}
+str (reference to the stream after manipulation)
+
+
+
