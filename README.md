@@ -41,8 +41,13 @@ Depending on what you are doing you will need different tools:
 
 *   `git` - for tracking changes
 *   `g++` - all code samples are in C++98 with C++11 listed as noted
+*   `awk` - text processing tool needed for version directives
 *   `pdflatex` - The Hackpack body is written in LaTeX
 *   `make` - Make is to automate compilation and testing of the documents
+*	`perl` - required to support renaming in version directives
+*	`find` - the gnu version of find is required supporting extended posix
+	regular expressions for supporting version directives.  On OSX the
+	`findutils` package from homebrew can be used
 
 ### Presentations 
 
@@ -95,6 +100,7 @@ All examples assume a topic called `foo` and a sample problem `bar`:
 	versions of algorithms in languages other than C++ should be written after
 	the C++ code is written_
 +	`bar.example` files such as `.vimrc` that do not have an extension normally
++	`bar.bats` Automated test case written in bats
 +	`bar-test.cpp` An automated unit test written in cpp
 +	`bar-test.in`  Data for the automated unit test
 +	`bar-test.out` Expected output for the automated unit test
@@ -114,8 +120,15 @@ For each item in the Hackpack, please include the following in clearly delineate
 6.  Please use the `\acmlisting` for code listings.  A caption and label should be specified.  If applicable, line ranges should be specified to limit the amount of text displayed.
 7.  It would be preferred if each set of sample code had some lessons learned to point out some key elements of the implementation
 8.  References using BibTeX where applicable
-9.  Should be "compiled" properly by pdflatex and the make
+9.  Should be "compiled" properly by make
 10.  Each sentence must be on a separate line.
+11.  The condensed version of the hackpack should have the following removed:
+    
+    *   Introductions to the topic.
+    *   Guidelines directing the reader to different sections of the hackpack.
+    *   References to contest problems including statement, sample io, and
+        lessons learned, but solutions should remain.
+    *   As much as possible, index tags should __NOT__ be removed.
 
 #### Writing Code
 Code Must meet the following standards:
@@ -129,15 +142,25 @@ Code Must meet the following standards:
 6.  Source code must solve a problem:  It should solve a specific problem and
     include all relevant IO and supporting code.  The algorithm should not be in
     a vacuum.
+7.  The condensed hackpack version should have the following removed:
+
+    *   Comments that are not _critical_ to the readers understanding
+    *   All _library_ and `#include` code that can be found in other sections of the hackpack
+    *   All input and output code that is not _critical_ to the readers
+        understanding
 
 #### Writing Tests
 All code must have tests that meet the following requirements
 
-1.  Test at least the upper and lower boundaries of the allowed inputs.
-2.  Testing files should be postfixed by `-test` prior to the extension.  For
+1.	All tests should be written using the [bats framework](https://github.com/sstephenson/bats)  See the `structures/set` section for an example.
+2.  Test at least the upper and lower boundaries of the allowed inputs.
+3.  Testing files should be postfixed by `-test` prior to the extension.  For
     example,  `foo.cpp` test files should be called `foo-test.cpp` and
     `foo-test.in` respectively
-3.  Tests should be runnable by calling `make test` in the directory of the source
+4.  Tests should be runnable by calling `make test` in the directory of the source
+
+    +   The tests should return 0 in the case that all test cases passed
+    +   The tests should return 2 in the case that any test cases failed
 
 #### Different Versions of the Hack Pack
 
@@ -154,7 +177,7 @@ of text or code as part of one version or the other. Here's an example:
 	cout << "This is just the regular hack pack." << endl;
 	// #endif
 
-The first cout will only appear in the hackpack++'s code listing, and the
+The first `cout` will only appear in the hackpack++'s code listing, and the
 second will only appear in the normal hackpack. Note that the `#ifdefs` are
 commented out: as long as the line _ends with the if directive_, they'll work
 properly. You might want to comment them out so that they don't break the compilers.
@@ -162,9 +185,10 @@ Make sure you have a new line after each directive somewhere!
 
 Here's a list of filetypes where the if directives will work:
 
-*   .tex
-*   .cpp
-*   .py
+*   `.tex`
+*   `.cpp`
+*   `.py`
+*	`example`
 
 #### Building the Hack Pack
 

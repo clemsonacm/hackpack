@@ -1,4 +1,4 @@
-Introduction to Vim
+Intermediate Vim
 ====================
 
 ### Brought to you by Clemson ACM
@@ -8,7 +8,7 @@ We're on [Steam](http://steamcommunity.com/groups/clemsonacm) &
 
 ### Speakers:
 
-Robert Underwood - CS Major\
+Robert Underwood - ACM Vice-President\
  Austin Anderson - ACM President
 
 
@@ -19,121 +19,200 @@ Coming Up
 
 Setting some Expectations
 ==========================
-+   This discussion will not:
-    +   Go over the basics in vimtutor
-    +   Make you magically a Vim guru
-    +   Show even 10% of Vim's power
++   This discussion will _not_:
+    +   Cover what `vimtutor` will teach you
+    +   Magically make you a Vim guru
+    +   Show even 10% of the power of Vim
 
-+   This discussion will:
-    +   Show you some of the cool and useful features
++   This discussion _will_:
+    +   Show you some of the coolest features of Vim
     +   Teach you enough to teach yourself
 
->   Most people use only 10% of the functionality of vim
+>   Most people use only 10% of the functionality of Vim.
 >   The 10% only differs from person to person
 
 What is Vim?
 ============
 
-Vim is
-------
-+   a programmers text editor
-+   Very programmable and extensible
-+   A tool that is meant to be learned
-+   Awesome
+Vim is...
+---------
++   A programmer's text editor
++   An extremely valuable tool to master
 
 Vim is NOT
 ----------
-+   All of the tools in you tool box
-+   A Word Processor
++   A replacement for **all** of the tools in your tool box
 
 Composability
 =============
-+   To take elements to make up a whole
-+   Actions and Motions
-    +   Motions move the cursor
++   Most commands are composed of an action and a motion
     +   Actions do something
-+   combinations of Action and Motion 
+    +   Motions move the cursor
++   Most editors don't have anything like this!
 
-Antipaterns
+Uncommon Motions
+================
++	Last point in the change list: `g;` (`g,` to go back)
++	Text objects: `w`, `s`, `p`, `b`, `B`, etc.
+    + Pneumonic? 
+        + "a word" -> `aw`
+        + "inner block" -> `ib`
+
+More Uncommon Motions
+==========================
++ Next character: 
+    + `f<char>` (inclusive)
+    + `t<char>` (exclusive)
++	`{number}|`: to a certain column
++	`gj`, `gk` move up and down over window-wrapped lines
++	`(` and `)`: sentences
++	`{` and `}`: paragraphs
++	More: see `:h motion.txt`
+
+Antipatterns
 ============
-+   A bad way of doing something that becomes habit
-    +   llllllll instead of e
-    +   ddi instead of C
++   A less efficient way of doing something that becomes a bad habit
+    +   `ddO` instead of `S`
+	+	`dbx` instead of `daw`
+	+	`f<lvt>U` instead of `gUit`
++ Be careful not to worry about optimization more than working, though
 
 Fixing Some Common Annoyances
 =============================
 +   Use .vimrc to store preferences
-+   Turn on the mouse
-+   Turn on Syntax Highlighting
-+   Set your background color
-+   I hate escape
-+   Each annoyance has a reason
++   Turn on the mouse: `set mouse=a`
++   Turn on syntax highlighting: `syntax on`
++   Set your background color: `set bg=dark`
 
 Copy and Paste
 ==============
 +   Forget Copy and Paste
 +   Think registers
-    +   You now have 20 copy buffers
-+   `"+` register 
+    +   You now have 35 copy buffers
++   `"+` is the X server (i.e. system) copy/paste register, copy to here to
+    copy out of Vim
 +   `:reg` - view the contents of registers
-+   `^r` in insert mode puts the register
++   `<C-r>` in insert mode puts the register
 
 Common registers
 ===================
-+   `"[1-9]` history buffers
-+   `"0` the yank buffer
-+   `"[a-z]` named registers
++   `"[1-9]` history registers
++   `"0` the yank register
++   `"[a-z]` are named registers
 +   `"[A-Z]` same as "[a-z] but append
 
 Important registers
 =========================
-+   `"+` The "global" register
 +   `"/` current search pattern
 +   `"-` small delete
 +   `"=` expression register  
-+   `"_` the blackhole register
++   `"_` the black hole register
 
 Read-only registers
 ===================
-+   `":` last Ex command
-+   `".` last inserted text
-+   `"%` filename of the current buffer.  
-+   `"#` filename of the alternate file 
++   `":` last `:` command 
++   `".` last inserted text 
++   `"%` filename of the current buffer.
++   `"#` filename of the alternate file
     +   More on that in a minute
++   `:h registers`
 
+Macros
+======
+
++	`.` the short macro operator
+    + `.` repeats the last change
++	`qa` record a macro in register `a`
++	`q` to finish recording
++	`@a` execute the macro in register `a`
++ Macros are saved as text, so you can edit them manually!
 
 Multiple Files
 ==============
-+   Use buffers and windows
-+   `^w` is prefixes most "window" commands
-+   very handy for viewing multiple files
-+   :vsp, :sp, :res :bn :bd :bp
-+   :b will change the buffer
++ From `:h windows`:
+   + A buffer is the in-memory text of a file.
+   + A window is a viewport on a buffer.
+   + A tab page is a collection of windows.
++   Use buffers, windows, and tabs 
++   `:argdo`, `:bufdo`, `:tabdo`
+
+Buffers
+=======
+
++ Just a window into a file on disk.
++ Vim remembers a lot of them.
++ `:ls` - check out the buffer list
++ `set hidden` - don't unload buffers when they're not being looked at.
+
+Using Buffers
+==============
++ `:bn` - Next buffer in the list.
++ `:bp` - Previous buffer in the list.
++ `:bd` - Unload and delete the buffer from the buffer list
++ `<C-^>` - Toggle between this and the "alternate" file (usually the last edited)
++ `:b<num>` change to buffer number <num>
++ `:b <name>` fuzzy match buffer change (use tab complete!)
+
+
+Windows
+=======
+
++	Very handy for viewing multiple files at once
++   `<C-w>` prefixes most window commands
++	`<C-w>v` vertical split
++	`<C-w>s` horizontal split
++	`<C-w>n` new buffer in a horizontal split window
++	`<C-w>c` close the window -- useful for escaping from `:h <anything>`.
++	Tons of window commands! Check `:h windows`
+
+Tabs
+====
+
++	Not quite the tabs you're used to in, say, Gedit
++	Useful for holding different sets of windows
++	`gt` go to the next tab
++	`gT` go to the previous tab
++	`:tabnew` create a new tab
 
 Syntax Completion
 ==============================
-+   Syntax Completion
-    +   `^n` - Next default completion
-    +   `^p` - Previous default completion
-+   Omni-completion `^x^o`
++   Syntax Completion in insert mode
+    +   `<C-n>` - Next default completion
+    +   `<C-p>` - Previous default completion
++   Omni-completion `<C-x><C-o>` 
     +   C (limited C++)
     +   CSS, HTML, XHTML, JS
     +   PHP, RUBY
 
 Programming Completion
 ======================
-+   `^x^f` File paths
-+   `^x^d` Definition
-+   `^x^]` Tags
-+   `^x^i` Keywords
-+   `^x^l` lines
++   `<C-x><C-f>` File paths
++   `<C-x><C-d>` Definition
++   `<C-x><C-]>` Tags
++   `<C-x><C-i>` Keywords
++   `<C-x><C-l>` lines
 
 Other Completions
 =================
-+   `^x^t` Thesaurus
-+   `^x^k` Dictionary
-+   `^x^s` Spelling
-+   `^x^v` Vim commands 
++   `<C-x><C-t>` Thesaurus
++   `<C-x><C-k>` Dictionary
++   `<C-x><C-s>` Spelling
++   `<C-x><C-v>` Vim commands 
+
+Digraphs & Special Characters
+=============================
++ Digraphs: insert weird characters like ë, Ω, etc.
+  + In insert mode: `<c-k>`, followed by one or two characters
+  + Example: `i<c-k>a:` yields ä.
+  + Check `:h digraphs` for a list of them all!
++ `<c-v>` in insert mode: insert the next character literally
+  + Tab key doesn't insert a tab character? `<c-v><tab>`
+
+Templates
+==============================
++   `0r ~/path/to/template`
++   Reads in a template to new files
++   Can be blocked on file type using autocmds
 
 Snippets
 ==============================
@@ -143,50 +222,63 @@ Snippets
     +   Better snippets support
     +   Provide advanced completion features
 
-Templates
-==============================
-+   `0r ~/path/to/template`
-+   Reads in a template to new files
-+   Can be blocked on file type
+Plugins and Plugin Managers
+===========================
++ Vim is extensible via plugins 
++ Can be written in `vimscript` (VimL), and other languages 
++ Stored in `~/.vim` 
++ [`vundle`](https://github.com/gmarik/Vundle.vim) is a plugin that can manage your plugins 
++ Plugin commands can use `<LEADER>` keybind for uniqueness 
+	+ You might need to set them up in `.vimrc` 
+	+ `<LEADER>` is `\\` by default, some like space or comma
+
+Some Useful Plugins
+===================
++ `scrooloose/NERDTree` - Tree-style file listing sidebar 
++ `scrooloose/syntastic` - Check syntax while typing 
++ `tpope/vim-fugitive` - Git interaction 
++ `tpope/vim-surround` - Change surrounding characters
++ `SirVer/ultisnips` - Better snippet system 
++ `honza/vim-snippets` - Useful standard snippets 
++ Anything by Tim Pope (`tpope`) is going to be useful.
 
 Navigating large code bases
 ==========================
 +   Ctags
-    +   `^]` go to tag under cursor
-    +   `^T` go back to last place
+    +   `<C-]>` go to tag under cursor
+    +   `<C-T>` go back to last place
     +   `:tags` show the tag stack
 +   Cscope
     +   More powerful but confined to C/C++
     +   Much more intelligent 
-    +   Can be configured otherwise, but its hacky
+    +   Can be configured otherwise, but it's hacky
 
-Using vim to Test faster
+Using Vim to Test faster
 ========================
 +   `:make <make_target>`
 +   `:set makeprg`
 +   `:cn` `:cw` `:cp` `]c` `[c`
++   `:copen`
 +   `:shell`
 
-But Vim does have X feature
-===========================
-+   It may be a feature
-+   Separation of concerns
-    +   Uses Cindent for indenting
-    +   Uses Ctags for tag management
-+   Try Emacs
-
-Wrap-Up
-=======
-
-Summary
-=======
+Other Cool Commands
+===================
++   `gq<motion>`: hard word wrap a line, paragraph, etc.
++   `v` and `V`: visual and linewise visual modes.
+    +   Check `:h visual-mode`: super useful!
++   `:` command line - substitute text, run commands, and more! `:h :`
 
 Further Resources
 =================
++   [Practical Vim by Drew Neil](https://pragprog.com/book/dnvim/practical-vim)
++   [Vimcasts by Drew Neil](http://vimcasts.org/)
++   [Vimtips wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki)
+- [Vundle](https://github.com/gmarik/Vundle.vim) 
++	[Vim Awesome](http://vimawesome.com/) - tons of plugins!
++   `:help` -- an incredible resource!
 
-
-Questions
-=========
+Questions?
+==========
 
 Send us feedback at `acm@cs.clemson.edu`!
 
