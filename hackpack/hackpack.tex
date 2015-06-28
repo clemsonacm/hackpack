@@ -24,7 +24,7 @@
 \input{./algorithms/kmp-string-matching/kmp-string-matching}
 \input{./algorithms/computational-geometry/comp-geom}
 \input{./algorithms/flood-fill/flood-fill}
-\input{./algorithms/breath-first-search/breath-first-search}
+\input{./algorithms/breadth-first-search/breadth-first-search}
 \input{./algorithms/depth-first-search/depth-first-search}
 
 \chapter{Approaches}
@@ -35,6 +35,12 @@
 \input{./general/ciofunctions/ciofunctions}
 \input{./general/vimrc/vimrc}
 \input{./general/makefile/makefile}
+
+#ifdef hackpackpp
+\chapter{C++ Standard Library}
+This chapter was pulled from cppreference.com\cite{cppreference}.
+\input{./util/cppstdlib.tex}
+#endif 
 
 \bibliographystyle{plain}
 \bibliography{hackpack}
