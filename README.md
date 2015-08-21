@@ -63,16 +63,16 @@ Contribution Guidelines
 
 For all projects and improvements:
 
-1.  Clone the repo
-2.  Choose an issue from the issue tracker
-3.  Checkout a new branch with the topic as the name
-4.  Push the branch to the repo
-5.  When the branch is complete, create a pull request in Bitbucket
-6.  When the pull request is reviewed and approved, the code will be merged by
-    one of the admins into master.
+1.  Choose an issue from the issue tracker
+2.  Fork the repo to your personal account
+3.  Make your changes to your personal copy
+4.  When the code is complete, create a pull request in GitHub from your copy to
+	ours
+5.  When the pull request is reviewed and approved, the code will be merged by
+    one of the owners into master.
 
 If you have any questions related to the issues in the tracker, comment on the
-issues and CC one of the admins.
+issues and mention one of the owners.
 
 #### Folder Structure and File Naming conventions
 All examples assume a topic called `foo` and a sample problem `bar`:
@@ -110,6 +110,7 @@ All examples assume a topic called `foo` and a sample problem `bar`:
 
 
 #### Writing Documentation 
+Documentation should be written in `LaTeX`:
 For each item in the Hackpack, please include the following in clearly delineated subsections:
 
 1.  Name and Brief Description of the topic
@@ -209,5 +210,5 @@ for presentations.  If you have an improvement, follow the procedure above.
 
 Who do I talk to?
 -----------------
-Contact <acm@cs.clemson.edu> with any questions.
+Contact one of the members of the Hackpack Developers groups with any questions.
 
