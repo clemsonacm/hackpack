@@ -78,6 +78,14 @@ Adding some files
 -   `git status` - see the current status
 -   `git commit` - saves a set of changes and a *commit message*
 
+A Note on Commits
+=================
+
+-   A good commit addresses the following:
+	1.	Why is this change necessary?
+	2.	How does this address this the issue?
+	3.	Big picture what was changed?
+
 Ok... What just happened?
 ========================
 -   `git log` - See what you did
@@ -174,6 +182,7 @@ Further Resources
 -   [Cheatsheet](https://www.atlassian.com/dms/wac/images/landing/git/atlassian_git_cheatsheet.pdf)
 -   [Workflows](https://www.atlassian.com/git/workflows)
 -   [Mecurial (hg)](http://blogs.atlassian.com/2012/02/mercurial-vs-git-why-mercurial/?utm_source=wac-dvcs&utm_medium=text&utm_content=dvcs-options-git-or-mercurial)
+-   [Why commits messages are important](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message)
 
 
 Questions
