@@ -1,3 +1,8 @@
 .DS_Store
 *.dSYM
 *pdf
+build
+*.bbl
+*.run
+*.exe
+*.o

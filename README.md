@@ -21,16 +21,6 @@ Computer Science.  The main projects are as follows:
 *   We compile the two different versions of the hack pack from the same code
     base. Check the hack pack section for an explanation.
 
-###   Presentations 
-In addition to the Hackpack, we put on a series of educational seminars
-throughout the year.  They cover neat topics and tools in CS. We currently
-have presentations for the following:
-
-*   Linux is Scary - a basic introduction to linux for new folks
-*   Git Thee to a Version Control System - A introduction to version control and
-    git
-*   Vim - An advanced seminar on how to get more out of vim
-
 
 How do I get set up?
 --------------------
@@ -49,12 +39,6 @@ Depending on what you are doing you will need different tools:
 	regular expressions for supporting version directives.  On OSX the
 	`findutils` package from homebrew can be used
 
-### Presentations 
-
-*   `git` - for tracking changes
-*   `pandoc` - convert markdown files to reveal.js
-*   `Firefox` or `Chrome` - any modern web browser really. See reveal.js for more
-    documentation
 
 Contribution Guidelines
 -----------------------
@@ -202,11 +186,6 @@ the make rules you'll probably be using:
 *   `make hackpack` builds the slim version of the hackpack into `build/hackpack.pdf`.
 *   `make hackpackpp` builds the bulky version of the hackpack into `build/hackpack.pdf`.
 *   `make show` launches `evince` (a pdf viewer) to preview the hackpack.
-
-### Presentations
-
-If you have a good presentation let us know.  We will use reveal.js and markdown
-for presentations.  If you have an improvement, follow the procedure above.
 
 Who do I talk to?
 -----------------

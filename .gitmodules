@@ -1,6 +1,3 @@
-[submodule "presents/reveal.js"]
-	path = presents/reveal.js
-	url = https://github.com/hakimel/reveal.js.git
 [submodule "hackpack/util/bats"]
 	path = hackpack/util/bats
 	url = https://github.com/sstephenson/bats.git
