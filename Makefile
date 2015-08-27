@@ -38,10 +38,10 @@ endif
 # Build the Hackpack++ by default.
 default: hackpackpp
 
-include LICENCES/Makefile
+include LICENSES/Makefile
 # Use `make hackpack` or `make hackpackpp` to build the hackpack or hackpack++.
 
-hackpack hackpackpp: licence
+hackpack hackpackpp: license
 	# Back up and preprocess preprocessable files.
 	$(FIND) . -regex $(PREPREGEX) $(EXCLUDEDIR) -exec cp "{}" "{}.$(BACKUPEXT)" \; \
 	-exec sh -c 'awk -v V=$@ -f $(PREPSCRIPT) "{}" > "{}.$(TMPEXT)"' \; \
@@ -78,7 +78,7 @@ else
 	-rm -rf $(OUTDIR) 
 	-mkdir $(OUTDIR)
 endif
-	-cd LICENCES/ && latexmk -c 
+	-cd LICENSES/ && latexmk -c 
 
 test:
 	./modules.sh test
