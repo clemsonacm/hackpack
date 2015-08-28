@@ -137,7 +137,7 @@ Code Must meet the following standards:
 #### Writing Tests
 All code must have tests that meet the following requirements
 
-1.	All tests should be written using the [bats framework](https://github.com/sstephenson/bats)  See the `structures/set` section for an example.
+1.	All tests should be written using the [bats framework](https://github.com/sstephenson/bats), and use `tap` compliant mode. See the `structures/set` section for an example.
 2.  Test at least the upper and lower boundaries of the allowed inputs.
 3.  Testing files should be postfixed by `-test` prior to the extension.  For
     example,  `foo.cpp` test files should be called `foo-test.cpp` and
