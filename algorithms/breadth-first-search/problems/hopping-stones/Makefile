@@ -4,4 +4,4 @@ all: $(SRCS)
 clean:
 	rm hopping-stones.exe
 test: all
-	./hopping-stones.bats
+	./hopping-stones.bats --tap
