@@ -3,7 +3,6 @@ CPPFLAGS=-std=gnu++0x -Wall -g
 union: union.cpp
 	$(CXX) $(CPPFLAGS) $^ -o union.exe
 test: union
-	./union.exe < union-test.in
-	cat union-test.out
+	bats -t union.bats
 clean:
 	-rm union.exe
