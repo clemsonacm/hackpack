@@ -5,6 +5,8 @@ In this table (called the partial match table) are the lengths of the longest pr
 They also determine the number of indices the algorithm should advance should the very \textbf{next} character match fail.
 Because these prefixes and suffixes match, and the prefix is always the first characters of the keyword, the positions of the suffixes are where the algorithm can begin yet another matching sequence.
 
+% #ifdef hackpackpp
+
 For example, let us consider the string 'abababcd'.
 Throughout the construction of the table, we consider the first N characters of the string to yield the substring we want to analyze.
 
@@ -267,3 +269,11 @@ Given a nucleotide sequence, how many tandem repeats occur in it?
 
 \subsubsection{Sample Output}
 \acmlisting[label=Tandem Repeats Output, caption=Tandem Repeats Output]{./algorithms/kmp-string-matching/problems/tandem-repeats/tandem-repeats.out}
+
+% #endif
+
+% #ifdef hackpack
+
+\acmlisting[label=KMP Algorithm Reference Code, caption=KMP Algorithm Reference Code]{./algorithms/kmp-string-matching/kmp.cpp}
+
+% #endif
