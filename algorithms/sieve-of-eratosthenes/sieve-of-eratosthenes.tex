@@ -4,6 +4,8 @@ It works by iteratively eliminating (''sifting'') multiples of primes.
 Numbers that are left are prime.
 The algorithm runs in $O(n\log\log n)$ time and requires $O(n)$ memory to generate all primes up to $n$.
 
+% #ifdef hackpackpp
+
 \subsection{Applications}
 \begin{itemize}
 	\item	Finding prime numbers below \texttildelow10 million
@@ -40,6 +42,13 @@ Find out the number of possible prime head counts the cows can give Farmer John 
 \subsubsection{Example Solution}
 \acmlisting[label=All or Nothing Solution, caption=All or Nothing Solution]{./algorithms/sieve-of-eratosthenes/problems/all-or-nothing/all-or-nothing.cpp}
 
+% #endif
+
+% #ifdef hackpack
+\acmlisting[label=Sieve of Eratosthenes Reference Code, caption=Sieve of Eratosthenes Reference Code]{./algorithms/sieve-of-eratosthenes/problems/all-or-nothing/all-or-nothing.cpp}
+% #endif
+
+% #ifdef hackpackpp
 \subsubsection{Lessons Learned}
 \begin{itemize}
 	\item The sieve is a simple tool for finding primes $<10,000,000$.
@@ -83,3 +92,5 @@ Just report about the ones with an interval short enough to be in the sequence o
 
 \subsubsection{Sample Output}
 \acmlisting[label=Ping! Output, caption=Ping! Output]{./algorithms/sieve-of-eratosthenes/problems/ping/ping.out}
+
+% #endif
