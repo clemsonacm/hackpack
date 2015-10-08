@@ -1,3 +1,3 @@
-[submodule "hackpack/util/bats"]
-	path = hackpack/util/bats
+[submodule "util/bats"]
+	path = util/bats
 	url = https://github.com/sstephenson/bats.git
