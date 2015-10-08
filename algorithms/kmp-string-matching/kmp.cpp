@@ -30,7 +30,7 @@ int main()
 		{
 			for(unsigned int m = 1; m <= keyword.length(); m++)
 			{
-				if(m == keyword.length()) {} // complete match
+				if(m == keyword.length()) {} // complete match starting at i
 				else if(text[i + m] != keyword[m])
 				{
 					i += m - pm_table[m - 1];
