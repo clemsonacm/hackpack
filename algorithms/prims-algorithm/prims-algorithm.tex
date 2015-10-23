@@ -1,0 +1,26 @@
+\section{Prim's Algorithm}\index{graph!Prim's Algorithm}
+Prims algorithm is a greedy algorithm that allows for finding a minimum spanning tree/forest in $O(E + \log{V})$ time.
+Big picture, Prims algorithm works by doing the following:
+
+\begin{enumerate}
+	\item Choose an arbitrary unvisited node in the graph.
+	\item Grow the tree by choosing the node that can be added to the tree by least cost.
+	\item Repeat step 2 until all connected nodes have been visited.  If there are still nodes, return to step 1.
+\end{enumerate}
+
+
+\subsection{Applications}
+\subsection{Example Contest Problem: Cow Connection}
+\subsubsection{Input Format}
+\subsubsection{Sample Input}
+\acmlisting[label=cowconnection sample input, caption=cowconnection sample input]{./algorithms/prims-algorithm/problems/cowconnection/cowconnection-test1.in}
+\subsubsection{Output Format}
+\subsubsection{Sample Output}
+\subsubsection{Example Solution}
+\acmlisting[label=prims, caption=prims]{./algorithms/prims-algorithm/problems/cowconnection/cowconnection.cpp}
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item Typedefs can greatly improve readability of code
+	\item Convince classes can greatly improve readability
+	\item Directed graphs can be converted to undirected graphs by inserting the edge for both the source and the destination.
+\end{itemize}

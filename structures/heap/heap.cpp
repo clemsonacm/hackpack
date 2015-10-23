@@ -67,7 +67,7 @@ class binary_heap{
 		return h.size();
 	}
 	
-	void make_heap(vector<heap_element> v){ // O(N) time
+	void make_heap(vector<heap_element>& v){ // O(N) time
 		h=v;
 		for(int i=v.size() - 1; i>0; i--) sift_down(i);
 	}
