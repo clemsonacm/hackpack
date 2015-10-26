@@ -1,0 +1,41 @@
+\section{Max Flows}\index{graph!Max Flows}
+There are several types of problems that involve finding maximum flow in a graph.
+Many of these problems can easily tackled by making small transformations to the graph.
+
+
+If there is more than one source or sink,  one can add a "super" source and or sink that connects to all of the sources and sinks.
+Then find the flow from the super source to the super sink.
+
+
+If the graph is undirected, simply insert every edge twice in both directions.
+
+
+If the flow is limited through the nodes instead of the edges, simply spit every node into a "in" node and an "out" node.
+
+
+
+\begin{enumerate}
+	\item Greedily
+\end{enumerate}
+
+In a directed acyclic graph, this can be done in linear time.
+
+\begin{enumerate}
+	\item Topologically sort the graph using a breadth first search
+	\item Use dynamic programming to build up the maximum flow.
+\end{enumerate}
+
+\subsection{Applications}
+\subsection{Example Contest Problem: Cow Connection}
+\subsubsection{Input Format}
+\subsubsection{Sample Input}
+\acmlisting[label=cowex sample input, caption=cowex sample input]{./algorithms/max-flow/problems/cowex/cowex.in}
+\subsubsection{Output Format}
+\subsubsection{Sample Output}
+\acmlisting[label=cowex sample output, caption=cowex sample output]{./algorithms/max-flow/problems/cowex/cowex.out}
+\subsubsection{Example Solution}
+\acmlisting[label=cowex sample output, caption=cowex sample output]{./algorithms/max-flow/problems/cowex/cowex.cpp}
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item The inner most while loop is a linear solution to the widest most path problem.
+\end{itemize}
