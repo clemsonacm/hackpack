@@ -8,6 +8,7 @@
 using namespace std;
 
 
+//#ifdef hackpackpp
 //Taken from the section on graphs
 typedef unordered_map<int,int> umii;
 typedef umii::const_iterator edge_iter;
@@ -25,42 +26,59 @@ class graph{
         int size()const{return g.size();}
 		graph(): g() {};
 };
+//#endif
 
+//#ifdef hackpackpp
 //Convenes class that improves readably of code.
+//endif
 class edge{
 	public: int source,dest,cost;
+	//#ifdef hackpackpp
 	//defining the operator> function allows use to use std::greater<edge>
+	//endif
 	bool operator> (const edge& rhs) const{ return cost > rhs.cost ;}
 	edge(int source, int dest, int cost):source(source),dest(dest),cost(cost){};
 };
 
+//#ifdef hackpackpp
 //Finds a undirected minimum spanning forest in O(E log V) time 
 //For connected graphs, this produces a minimum spanning tree
+//#endif
 graph prims(const graph& g){
 	
 	priority_queue<edge, vector<edge>, greater<edge> > Q; //queue of edges
 	vector<bool> in_tree(g.size(), false); //tracks if an element is in the tree
 	graph mst; //Graph that holds the minimum spanning forest
 
+	//#ifdef hackpackpp
 	//chose an arbitrary first node and queue all its edges
+	//#endif
 	for(auto node = g.begin(); node!= g.end(); node++){
+		//#ifdef hackpackpp
 		
 		//Skip nodes that have been visited
+		//#endif
 		if (!in_tree[node->first]) { 
+			//#ifdef hackpackpp
 
 			//Visit an arbitrary node
+			//#endif
 			in_tree[node->first] = true;
 			for(auto i = g.cbegin(node->first); i != g.cend(node->first); i++){
 				Q.emplace(node->first, i->first, i->second);
 			}
 
 			while(Q.size() > 0){
+				//#ifdef hackpackpp
 
 				//Remove an edge from the queue.
+				//#endif
 				edge e = Q.top();
 				Q.pop();
+				//#ifdef hackpackpp
 				
 				//if the edge is in the tree ignore it
+				//#endif
 				if (!in_tree[e.dest]) { 
 					in_tree[e.dest] = true; 
 					mst.insert(e.source, e.dest, e.cost); 
@@ -76,6 +94,7 @@ graph prims(const graph& g){
 
 }
 
+//#ifdef hackpackpp
 int main(){
 	//Assumes nodes are numbered 0..N-1
 	graph g; 
@@ -111,3 +130,5 @@ int main(){
 
 	return 0;
 }
+//#endif
+

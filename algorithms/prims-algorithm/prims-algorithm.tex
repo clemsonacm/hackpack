@@ -1,15 +1,21 @@
 \section{Prim's Algorithm}\index{graph!Prim's Algorithm}
+#ifdef hackpackpp
 Prims algorithm is a greedy algorithm that allows for finding a minimum spanning tree/forest in $O(E + \log{V})$ time.
 Big picture, Prims algorithm works by doing the following:
 
 \begin{enumerate}
 	\item Choose an arbitrary unvisited node in the graph.
 	\item Grow the tree by choosing the node that can be added to the tree by least cost.
-	\item Repeat step 2 until all connected nodes have been visited.  If there are still nodes, return to step 1.
+	\item Repeat step 2 until all connected nodes have been visited. If there are still nodes, return to step 1.
 \end{enumerate}
 
-
+#endif
 \subsection{Applications}
+\begin{itemize}
+	\item Finding a minimum spanning tree
+\end{itemize}
+
+#ifdef hackpackpp
 \subsection{Example Contest Problem: Cow Connection}
 Farmer John has not been very diligent in mowing his farm.
 As a result, the grazing field now resembles a maze with small openings at the intersections.
@@ -35,15 +41,23 @@ Please Farmer John, find the cost of lighting the maze and the paths to include.
 \subsubsection{Output Format}
 \begin{itemize}
 	\item Line 1: One integer, representing the minimum cost.
-	\item Line 2..$(N+1)$: Two integers, the sets of intersections that are endpoints in the paths Farmer John should include.  These integers should be in order from least to greatest.
+	\item Line 2..$(N+1)$: Two integers, the sets of intersections that are endpoints in the paths Farmer John should include. These integers should be in order from least to greatest.
 \end{itemize}
 \subsubsection{Sample Output}
 \acmlisting[label=cowconnection sample output, caption=cowconnection sample output]{./algorithms/prims-algorithm/problems/cowconnection/cowconnection.out}
 \subsubsection{Example Solution}
+#endif
+
+#ifdef hackpack
+\section{Prim's Algorithm}
+#endif
 \acmlisting[label=cowconnection example solution, caption=cowconnection example solution]{./algorithms/prims-algorithm/problems/cowconnection/cowconnection.cpp}
+#ifdef hackpack
 \subsubsection{Lessons Learned}
 \begin{itemize}
 	\item Typedefs can greatly improve readability of code
 	\item Convince classes can greatly improve readability
 	\item Directed graphs can be converted to undirected graphs by inserting the edge for both the source and the destination.
 \end{itemize}
+#endif
+
