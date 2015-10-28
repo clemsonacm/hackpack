@@ -1,4 +1,5 @@
 \section{Max Flows}\index{graph!Max Flows}
+#ifdef hackpackpp
 There are several types of problems that involve finding maximum flow in a graph.
 Many of these problems can easily tackled by making small transformations to the graph.
 
@@ -13,9 +14,13 @@ If the graph is undirected, simply insert every edge twice in both directions.
 If the flow is limited through the nodes instead of the edges, simply spit every node into a "in" node and an "out" node.
 
 
-
 \begin{enumerate}
-	\item Greedily
+	\item While there is a path from source to sink
+	\begin{itemize}
+		\item Greedily find the widest path
+		\item Reduse the cost of the nodes on the widest path by its width
+		\item Create reverse paths by the width of the widest path
+	\end{itemize}
 \end{enumerate}
 
 In a directed acyclic graph, this can be done in linear time.
@@ -34,8 +39,17 @@ In a directed acyclic graph, this can be done in linear time.
 \subsubsection{Sample Output}
 \acmlisting[label=cowex sample output, caption=cowex sample output]{./algorithms/max-flow/problems/cowex/cowex.out}
 \subsubsection{Example Solution}
+#endif
+
+#ifdef hackpack
+\subsubsection{Greedy Max Flow Algorithm}
+#endif
+
 \acmlisting[label=cowex sample output, caption=cowex sample output]{./algorithms/max-flow/problems/cowex/cowex.cpp}
+#ifdef hackpackpp
 \subsubsection{Lessons Learned}
 \begin{itemize}
 	\item The inner most while loop is a linear solution to the widest most path problem.
 \end{itemize}
+#endif
+

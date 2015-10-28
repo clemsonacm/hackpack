@@ -5,6 +5,7 @@
 #include<vector>
 using namespace std;
 
+//#ifdef hackpackpp
 //Taken from the section on graphs
 typedef unordered_map<int,int> umii;
 typedef umii::const_iterator edge_iter;
@@ -22,47 +23,64 @@ class graph{
 	int size()const{return g.size();}
 	graph(): g() {};
 };
-
+//#endif
 int max_flow(graph g, int source, int sink){
+	//#ifdef hackpackpp
 	//If the source and sink are the same node, then max flow
 	if (source == sink) return numeric_limits<int>::max();
+	//#ifdef hackpackpp
 
 	//initalize max flow
+	//#endif
 	int total_flow = 0;
 
 	while(true){
+		//#ifdef hackpackpp
 		//initialize data structures
+		//#endif
 		vector<int> flow(g.size() , 0);
-		vector<bool> visited(g.size()  , false);
+		vector<bool> visited(g.size() , false);
 		vector<int> previous_node(g.size(), -1);
+		//#ifdef hackpackpp
 
 		//initialize the source
+		//#endif
 		flow[source] = numeric_limits<int>::max();
+		//#ifdef hackpackpp
 
 		//Find the widest path in the graph (path of maximal flow)
+		//#endif
 		int max_flow, max_loc;
 		while(true){
 			max_flow = 0;
 			max_loc = -1;
+			//#ifdef hackpackpp
 
 			// find unvistited node with highest capacity O(V) time
+			//#endif
 			for(auto i = g.begin(); i!=g.end(); i++){
 				if( flow[i->first] > max_flow && ! visited[i->first]){
 					max_flow = flow[i->first];
 					max_loc = i->first;
-				}	
+				}
 			}
+			//#ifdef hackpackpp
 
 			//No path from source to sink
+			//#endif
 			if ( max_loc == -1 ){
-				break; 
+				break;
 			}
+			//#ifdef hackpackpp
 
 			//Done! the best node is the sink
+			//#endif
 			if ( max_loc == sink ){
-				break; 
+				break;
 			}
+			//#ifdef hackpackpp
 			//Update the edges leaving the node with the most flow O(1) in sparce graph
+			//#endif
 			visited[max_loc] = true;
 			for (auto i = g.cbegin(max_loc); i != g.cend(max_loc); i++){
 				if (flow[i->first] < min(max_flow, i->second)){
@@ -71,13 +89,17 @@ int max_flow(graph g, int source, int sink){
 				}
 			}
 		}
+		//#ifdef hackpackpp
 
 		//There was no remaining path from source to sink
-		if (max_loc == -1){ 
+		//#endif
+		if (max_loc == -1){
 			break;
 		}
+		//#ifdef hackpackpp
 
 		// update reverse flows
+		//#endif
 		int pathcapactiy = flow[sink];
 		total_flow += pathcapactiy;
 		int current_node = sink;
@@ -85,18 +107,19 @@ int max_flow(graph g, int source, int sink){
 			int next_node= previous_node[current_node];
 			int rev_cap;
 			if(g.find(current_node, next_node) == g.cend(current_node)){
-				rev_cap = 0;	
+				rev_cap = 0;
 			} else {
 				rev_cap = g.find(current_node,next_node)->second;
 			}
 			g.insert(next_node, current_node, g.find(next_node, current_node)->second - pathcapactiy);
 			g.insert(current_node,next_node, rev_cap + pathcapactiy);
 			current_node = next_node;
-
 		}
 	}
 	return total_flow;
 }
+
+//#ifdef hackpackpp
 
 int main(int argc, char *argv[])
 {
@@ -111,8 +134,10 @@ int main(int argc, char *argv[])
 	cin >> s >> d;
 
 	int m = max_flow(g, s, d);
-	
+
 	cout << m << endl;
 
 	return 0;
 }
+//#endif
+
