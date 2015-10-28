@@ -1,9 +1,10 @@
-#include<cmath>
 #include<queue>
 #include<unordered_map>
 #include<limits>
 #include<functional>
 #include<iostream>
+#include<algorithm>
+#include<set>
 using namespace std;
 
 
@@ -90,13 +91,23 @@ int main(){
 	//Solve the problem
 	graph mst = prims(g);
 
-	// print the minimum spanning tree
+	//Prepare the graph for printing
+	int cost=0;
+	set<pair<int,int> > edges;
 	for (auto i = mst.begin(); i != mst.end(); i++){
-		cout << i->first << ": ";
 		for(auto j = mst.cbegin(i->first); j != mst.cend(i->first); j++){
-			cout << j->first << " ";
+			int a=i->first,b=j->first;
+			cost += j->second;
+			edges.emplace(min(a,b),max(a,b));
 		}	
-		cout << endl;
 	}
+	//Edges were double counted so divide by 2.
+	cost/=2;
+
+	//Print a minimum spanning tree
+	cout << cost << endl;
+	for(auto i = edges.begin(); i != edges.end(); i++)
+		cout << i->first << " " << i->second << endl;
+
 	return 0;
 }
