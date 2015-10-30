@@ -1,7 +1,7 @@
 \section{Prim's Algorithm}\index{graph!Prim's Algorithm}
 #ifdef hackpackpp
-Prims algorithm is a greedy algorithm that allows for finding a minimum spanning tree/forest in $O(E + \log{V})$ time.
-Big picture, Prims algorithm works by doing the following:
+Prim's algorithm is a greedy algorithm that allows for finding a minimum spanning tree/forest in $O(E + \log{V})$ time.
+Prim's algorithm is implemented by doing the following:
 
 \begin{enumerate}
 	\item Choose an arbitrary unvisited node in the graph.
@@ -25,7 +25,7 @@ Farmer John wants to improve safety by installing lights along paths in the maze
 However, Farmer John does not have much extra money to spend on this effort.
 
 He would like to find a set of paths that connect all of the intersections at minimal cost, but is unsure if he can afford it.
-Please Farmer John, find the cost of lighting the maze and the paths to include.
+Please help Farmer John find the cost of lighting the maze and the paths to include.
 \subsubsection{Input Format}
 \begin{itemize}
 \item Line 1: One integer, $N$, $(N < 1000000)$ specifying the number of paths in the corn field.
@@ -56,7 +56,7 @@ Please Farmer John, find the cost of lighting the maze and the paths to include.
 \subsubsection{Lessons Learned}
 \begin{itemize}
 	\item Typedefs can greatly improve readability of code
-	\item Convince classes can greatly improve readability
+	\item Convenience classes can greatly improve readability
 	\item Directed graphs can be converted to undirected graphs by inserting the edge for both the source and the destination.
 \end{itemize}
 #endif

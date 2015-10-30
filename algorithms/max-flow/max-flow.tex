@@ -11,14 +11,14 @@ Then find the flow from the super source to the super sink.
 If the graph is undirected, simply insert every edge twice in both directions.
 
 
-If the flow is limited through the nodes instead of the edges, simply spit every node into a "in" node and an "out" node.
+If the flow is limited through the nodes instead of the edges, simply split every node into an "in" node and an "out" node.
 
-
+In a general directed graph, this can be done in $O(FE)$ where F is the maximum flow and E is the number of edges.
 \begin{itemize}
 	\item While there is a path from source to sink
 	\begin{itemize}
 		\item Greedily find the widest path
-		\item Reduse the cost of the nodes on the widest path by its width
+		\item Reduce the cost of the nodes on the widest path by its width
 		\item Create reverse paths by the width of the widest path
 	\end{itemize}
 \end{itemize}
@@ -40,14 +40,14 @@ In a directed acyclic graph, this can be done in linear time.
 #ifdef hackpackpp
 
 \subsection{Example Contest Problem: Cow-Ex}
-The cows are up to another of the insidious schemes.
+The cows are up to another of their insidious schemes.
 The cows have setup a milk distribution system on Farmer John's farm.
 
 The pipes that the cows use to transport the milk are of various sizes.
 Each pipe has been rated with a positive integer referring to the amount of milk that the pipe can carry in 1 minute.
 
 The cows want to know how much milk they can transport to the barn at once.
-\subsubsection{Sample Format}
+\subsubsection{Input Format}
 \begin{itemize}
 	\item Line 1: A positive integer N that represents the number of pipes that the cows have in place. $0 < N \leq 10000$
 	\item Line 2..$(N+1)$: Three non-negative integers, $S$, $D$, $E$ representing a pipe going from location $S$ to location $D$ with a capasity of $E$. $0 \leq S,D < N$
@@ -61,7 +61,7 @@ The cows want to know how much milk they can transport to the barn at once.
 \subsubsection{Output Format}
 \begin{itemize}
 	\item Line 1: A Positive integer representing the maximum capacity of the network.
-				  This should be 0 if it is not possible to transport the milk
+		This should be 0 if it is not possible to transport the milk.
 \end{itemize}
 \subsubsection{Sample Output}
 \acmlisting[label=cowex sample output, caption=cowex sample output]{./algorithms/max-flow/problems/cowex/cowex.out}
@@ -76,7 +76,7 @@ The cows want to know how much milk they can transport to the barn at once.
 #ifdef hackpackpp
 \subsubsection{Lessons Learned}
 \begin{itemize}
-	\item The inner most while loop is a linear solution to the widest most path problem.
+	\item The inner most while loop is a solution to the widest most path problem that runs in $O(V)$ time.
 \end{itemize}
 #endif
 
