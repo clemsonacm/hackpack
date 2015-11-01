@@ -9,3 +9,12 @@ But any updates to the source dataset will require $O(n)$ time to update the pre
 Frequent changes will quickly show the pitfall of this approach.
 A segment tree is a data structure for storing information about intervals that can be constructed in $O(n \log(n))$ time.
 Whenever the source data changes, update times stay low at $O(\log n)$ time.
+
+A segment tree is represented as an array of a size that is dependent on the dataset it is sourced from.
+For a given array of size $n$, a segment tree constructed from it will use up to $2^{\lceil \log_2 (n)\rceil + 1} - 1$ space.
+Once built, the structure of a segment tree cannot changed.
+
+Generally, a segment tree supports two operations: update and query.
+The update operation will account for changes to values in the source dataset.
+The query operation allows for fast retrieval about segment information.
+In the case of the prefix sum, the update operation will modify the tree's nodes such that it will contain correct information after changes, and the the query operation can return a sum for values in an arbitrary range.
