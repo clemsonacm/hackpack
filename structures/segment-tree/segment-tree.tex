@@ -18,6 +18,13 @@ A segment tree is represented as an array of a size that is dependent on the dat
 For a given array of size $n$, a segment tree constructed from it will use up to $2^{\lceil \log_2 (n)\rceil + 1} - 1$ space.
 Once built, the structure of a segment tree cannot changed.
 
+% #ifdef hackpack
+
+\acmlisting[label=Segment Tree Reference Code, caption=Segment Tree Reference Code]{./structures/segment-tree/segment-tree.cpp}
+
+% #endif
+
+
 % #ifdef hackpackpp
 
 Generally, a segment tree supports two operations: update and query.
@@ -85,11 +92,5 @@ The times and cow counts Farmer John requested in the order seen as given in the
 \begin{itemize}
     \item The data the segment tree keeps track of can easily be changed with a few small modifications to the build, update, and query operations.
 \end{itemize}
-
-% #endif
-
-% #ifdef hackpack
-
-\acmlisting[label=Segment Tree Reference Code, caption=Segment Tree Reference Code]{./structures/segment-tree/segment-tree.cpp}
 
 % #endif
