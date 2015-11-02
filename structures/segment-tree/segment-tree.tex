@@ -59,9 +59,7 @@ Help him figure out which hours each day (he defines as 6AM to 8PM) the barn is 
     \item The following lines are placed in $C$ groups detailed as follows:
     \begin{itemize}
         \item A single line containing two integers, $t_1$ and $t_2$ representing a time range.
-        Should both of these values be 0, Farmer John would not like a count of cows present at any time to be printed.
-        Otherwise, these values are guaranteed to fall between 6 and 20 (inclusive), representing the times between and including 6AM to 8PM.
-        In this case, the highest number of cows seen in the barn at this time should be printed as given in the sample output.
+        These values are guaranteed to fall between 6 and 20 (inclusive), representing the times between and including 6AM to 8PM, except for the case when both are 0.
         If two cows are not present in the barn at the same time, but are in the same window, two cows should be counted.
 
         \item A single line containing a single integer, $k$, representing the number of time ranges to follow that a cow was present in the barn.
@@ -75,7 +73,8 @@ Help him figure out which hours each day (he defines as 6AM to 8PM) the barn is 
 
 \subsubsection{Output Format}
 
-The times and cow counts Farmer John requested in the order seen as given in the sample output below.
+The only output should be the times and cow counts Farmer John requested in the order seen as given in the sample output below.
+Times and cow counts should be printed only when $t_1$ and $t_2$ are not both zero in the sample input.
 
 \acmlisting[label=Coming and Going Sample Output, caption=Coming and Going Sample Output]{./structures/segment-tree/problems/coming-and-going/coming-and-going.out}
 
