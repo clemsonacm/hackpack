@@ -1,6 +1,8 @@
+// #ifdef hackpackpp
 #include <iostream>
 #include <cmath>
 using namespace std;
+// #endif
 
 // #ifdef hackpackpp
 // number of entries in array
