@@ -17,22 +17,21 @@ Prim's algorithm is implemented by doing the following:
 
 #ifdef hackpackpp
 \subsection{Example Contest Problem: Cow Connection}
-Farmer John has not been very diligent in mowing his farm.
-As a result, the grazing field now resembles a maze with small openings at the intersections.
+Farmer John has expanded his real estate holdings and now owns several farms.
+These farms are connected by an old, unmaintained road network. 
 
-At night, this maze is unlit, and is very dangerous.
-Farmer John wants to improve safety by installing lights along paths in the maze.
+At night, these roads are unlit and are very dangerous.
+Farmer John wants to improve safety by installing lights along the roads.
 However, Farmer John does not have much extra money to spend on this effort.
 
-He would like to find a set of paths that connect all of the intersections at minimal cost, but is unsure if he can afford it.
-Please help Farmer John find the cost of lighting the maze and the paths to include.
+Help Farmer John determine a minimum cost set of roads that he could light to connect all of the farms by lit roads.
 \subsubsection{Input Format}
 \begin{itemize}
 \item Line 1: One integer, $N$, $(N < 1000000)$ specifying the number of paths in the corn field.
 \item Line 2..$(N+1)$: Each line contains three integers $S$, $D$ and $C$ where:
 	\begin{itemize}
-		\item $S$ and $D$ correspond to end points intersections of a given path. $0 \leq S < N$ and $0 \leq D < N$.
-		\item $C$ is the cost of lighting that edge. $(0 < C < 1000000$
+		\item $S$ and $D$ represent the farm id numbers that a given road connects. $0 \leq S < N$ and $0 \leq D < N$.
+		\item $C$ is the cost of lighting that road. $(0 < C < 1000000$
 	\end{itemize}
 \end{itemize}
 
@@ -41,7 +40,8 @@ Please help Farmer John find the cost of lighting the maze and the paths to incl
 \subsubsection{Output Format}
 \begin{itemize}
 	\item Line 1: One integer, representing the minimum cost.
-	\item Line 2..$(N+1)$: Two integers, the sets of intersections that are endpoints in the paths Farmer John should include. These integers should be in order from least to greatest.
+	\item Line 2..$(N+1)$: Two integers, that represent the farms at the end of either road Farmer John should choose to light.
+		These integers should be in order from least to greatest.
 \end{itemize}
 \subsubsection{Sample Output}
 \acmlisting[label=Cowconnection Sample Output, caption=Cowconnection Sample Output]{./algorithms/prims-algorithm/problems/cowconnection/cowconnection.out}

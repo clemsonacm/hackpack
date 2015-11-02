@@ -1,19 +1,27 @@
 \section{Max Flows}\index{graph!Max Flows}
 #ifdef hackpackpp
+This section does not attempt to define basic terms regarding graphs.
+For these definitions, please review the section entitled graphs in the data structures section of the hackpack.
+
+
 There are several types of problems that involve finding maximum flow in a graph.
 Many of these problems can easily tackled by making small transformations to the graph.
 
 
+The implementation below solves the max flow problem for a single source and sink.
 If there is more than one source or sink, one can add a "super" source and or sink that connects to all of the sources and sinks.
 Then find the flow from the super source to the super sink.
 
 
+The implementation below solves the maximum flow problem for directed graphs.
 If the graph is undirected, simply insert every edge twice in both directions.
 
 
-If the flow is limited through the nodes instead of the edges, simply split every node into an "in" node and an "out" node.
+The implementation below places the weights on the edges instead of the nodes.
+If the flow is limited through the nodes instead of the edges, simply split every node into an "in" node and an "out" node and place the weight on the path between them.
 
-In a general directed graph, this can be done in $O(FE)$ where F is the maximum flow and E is the number of edges.
+
+In a general directed graph, this can be done in $O(FE)$ time where F is the maximum flow and E is the number of edges.
 \begin{itemize}
 	\item While there is a path from source to sink
 	\begin{itemize}
@@ -26,7 +34,7 @@ In a general directed graph, this can be done in $O(FE)$ where F is the maximum 
 In a directed acyclic graph, this can be done in linear time.
 
 \begin{itemize}
-	\item Topologically sort the graph using a breadth first search
+	\item Topologically sort the graph using a modified depth first search
 	\item Use dynamic programming to build up the maximum flow.
 \end{itemize}
 #endif
@@ -40,19 +48,19 @@ In a directed acyclic graph, this can be done in linear time.
 #ifdef hackpackpp
 
 \subsection{Example Contest Problem: Cow-Ex}
-The cows are up to another of their insidious schemes.
-The cows have setup a milk distribution system on Farmer John's farm.
+The cows have opened up a package distribution system.
 
-The pipes that the cows use to transport the milk are of various sizes.
-Each pipe has been rated with a positive integer referring to the amount of milk that the pipe can carry in 1 minute.
+The cows have several routes by which they distribute packages.
+Each route has been rated with a positive integer referring to the amount of packages that the route can carry in 1 day.
 
-The cows want to know how much milk they can transport to the barn at once.
+Today is Farmer John's birthday, and the cows wish to send him as many packages as possible.
+Help the cows determine the how many packages they can send to Farm John's barn.
 \subsubsection{Input Format}
 \begin{itemize}
-	\item Line 1: A positive integer N that represents the number of pipes that the cows have in place. $0 < N \leq 10000$
-	\item Line 2..$(N+1)$: Three non-negative integers, $S$, $D$, $E$ representing a pipe going from location $S$ to location $D$ with a capasity of $E$. $0 \leq S,D < N$
-	\item Line $(N+2)$: A non-negative integer $A$, that represents location where the milk is produced
-	\item Line $(N+3)$: A non-negative ingeger $B$, that represents location of the barn.
+	\item Line 1: A positive integer N that represents the number of routes that the cows have in place. $0 < N \leq 10000$
+	\item Line 2..$(N+1)$: Three non-negative integers, $S$, $D$, $E$ representing a route going from location $S$ to location $D$ with a capacity of $E$. $0 \leq S,D < N$
+	\item Line $(N+2)$: A non-negative integer $A$, that represents location where packages are sent.
+	\item Line $(N+3)$: A non-negative integer $B$, that represents location of the barn.
 \end{itemize}
 
 \subsubsection{Sample Input}
@@ -61,7 +69,7 @@ The cows want to know how much milk they can transport to the barn at once.
 \subsubsection{Output Format}
 \begin{itemize}
 	\item Line 1: A Positive integer representing the maximum capacity of the network.
-		This should be 0 if it is not possible to transport the milk.
+		This should be 0 if it is not possible to transport any packages.
 \end{itemize}
 \subsubsection{Sample Output}
 \acmlisting[label=Cowex Sample Output, caption=Cowex Sample Output]{./algorithms/max-flow/problems/cowex/cowex.out}
@@ -76,7 +84,7 @@ The cows want to know how much milk they can transport to the barn at once.
 #ifdef hackpackpp
 \subsubsection{Lessons Learned}
 \begin{itemize}
-	\item The inner most while loop is a solution to the widest most path problem that runs in $O(V)$ time.
+	\item The innermost while loop is a solution to the widest most path problem that runs in $O(V)$ time.
 \end{itemize}
 #endif
 

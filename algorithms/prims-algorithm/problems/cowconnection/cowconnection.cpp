@@ -29,13 +29,13 @@ class graph{
 //#endif
 
 //#ifdef hackpackpp
-//Convenes class that improves readably of code.
+//Convenience class that improves readably of code.
 //endif
 class edge{
 	public: int source,dest,cost;
 	//#ifdef hackpackpp
-	//defining the operator> function allows use to use std::greater<edge>
-	//endif
+	//defining the operator> function allows us to use std::greater<edge>
+	//#endif
 	bool operator> (const edge& rhs) const{ return cost > rhs.cost ;}
 	edge(int source, int dest, int cost):source(source),dest(dest),cost(cost){};
 };
