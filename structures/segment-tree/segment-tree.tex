@@ -2,6 +2,8 @@
 \index{segment tree}
 \index{interval}
 
+% #ifdef hackpackpp
+
 It is often useful to be aware of the range properties of a given array, such as: prefix sums, suffix sums, range minimum queries, range maximum queries, etc.
 For simpler problems, a secondary array may suffice to calculate a property like the prefix sum of an array.
 The prefix sum calculation only takes $O(n)$ time to perform, and any query thereafter takes only $O(1)$ time.
@@ -10,9 +12,13 @@ Frequent changes will quickly show the pitfall of this approach.
 A segment tree is a data structure for storing information about intervals that can be constructed in $O(n \log(n))$ time.
 Whenever the source data changes, update times stay low at $O(\log n)$ time.
 
+% #endif
+
 A segment tree is represented as an array of a size that is dependent on the dataset it is sourced from.
 For a given array of size $n$, a segment tree constructed from it will use up to $2^{\lceil \log_2 (n)\rceil + 1} - 1$ space.
 Once built, the structure of a segment tree cannot changed.
+
+% #ifdef hackpackpp
 
 Generally, a segment tree supports two operations: update and query.
 The update operation will account for changes to values in the source dataset.
@@ -75,3 +81,11 @@ The times and cow counts Farmer John requested in the order seen as given in the
 \begin{itemize}
     \item The data the segment tree keeps track of can easily be changed with a few small modifications to the build, update, and query operations.
 \end{itemize}
+
+% #endif
+
+% #ifdef hackpack
+
+\acmlisting[label=Segment Tree Reference Code, caption=Segment Tree Reference Code]{./structures/segment-tree/segment-tree.cpp}
+
+% #endif
