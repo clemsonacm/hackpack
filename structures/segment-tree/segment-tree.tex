@@ -16,5 +16,52 @@ Once built, the structure of a segment tree cannot changed.
 
 Generally, a segment tree supports two operations: update and query.
 The update operation will account for changes to values in the source dataset.
+It is even possible to implement a range update operation to change an entire range of values.
 The query operation allows for fast retrieval about segment information.
 In the case of the prefix sum, the update operation will modify the tree's nodes such that it will contain correct information after changes, and the the query operation can return a sum for values in an arbitrary range.
+
+\subsection{Applications}
+
+\begin{itemize}
+    \item range sums in a frequently changing dataset
+    \item range minimum/maximum queries
+\end{itemize}
+
+\subsection{Example Contest Problem: Coming and Going}
+
+In consideration of expanding the cows' barn, Farmer John decided to see just how many of his cows spent any given time of day in the barn.
+To do so, he installed motion sensors on each entryway/exit to the building.
+These sensors are able to detect both the entry and exit of a warm-blooded being.
+This, coupled with his cows' tags, allows him to monitor the movements of specific cows.
+
+The night after the full day in which the sensors were installed, Farmer John sat down to do what he thought was some straightforward analysis, but quickly realized that he was in over his head with only mental math.
+
+Help him figure out which hours each day (he defines as 6AM to 8PM) the barn is the most popular place to be by giving him headcounts as he (slowly) tabulates the data.
+
+\subsubsection{Input Format}
+
+\begin{itemize}
+    \item Line 1: A single integer, $C$, representing the number of cows Farmer John has data on.
+
+    \item The following lines are placed in $C$ groups detailed as follows:
+    \begin{itemize}
+        \item A single line containing two integers, $t_1$ and $t_2$ representing a time range.
+        Should both of these values be 0, Farmer John would not like a count of cows present at any time to be printed.
+        Otherwise, these values are guaranteed to fall between 6 and 20 (inclusive), representing the times between and including 6AM to 8PM.
+        In this case, the highest number of cows seen in the barn at this time should be printed as given in the sample output.
+        If two cows are not present in the barn at the same time, but are in the same window, two cows should be counted.
+
+        \item A single line containing a single integer, $k$, representing the number of time ranges to follow that a cow was present in the barn.
+
+        \item $k$ lines with two distinct integers representing time ranges in which a cow was present in the barn.
+        The first number is guaranteed to be strictly less than the second number.
+    \end{itemize}
+\end{itemize}
+
+\acmlisting[label=Coming and Going Sample Input, caption=Coming and Going Sample Input]{./structures/segment-tree/problems/coming-and-going/coming-and-going.in}
+
+\subsubsection{Output Format}
+
+The times and cow counts Farmer John requested in the order seen as given in the sample output below.
+
+\acmlisting[label=Coming and Going Sample Output, caption=Coming and Going Sample Output]{./structures/segment-tree/problems/coming-and-going/coming-and-going.out}
