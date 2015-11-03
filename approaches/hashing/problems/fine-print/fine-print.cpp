@@ -25,8 +25,8 @@ int main()
 	//Calculate the starting hashes
 	//#endif
 	for(unsigned int i=0; i<target.length(); i++){
-		target_hash = target_hash * 31 + target[i];
-		hash = hash * 31 + text[i] ;
+		target_hash = target_hash * PRIME + target[i];
+		hash = hash * PRIME + text[i] ;
 	}
 	//#ifdef hackpackpp
 
