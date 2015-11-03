@@ -2,7 +2,6 @@ CXX=g++
 all: cowy.o
 	$(CXX) $^ -o cowy.exe
 test: all
-	./cowy.exe < cowy.in
-	./cowy.exe < cowy-test.in
+	./cowy.bats
 clean:
 	-rm *.o *.exe
