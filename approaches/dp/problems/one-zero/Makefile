@@ -4,5 +4,4 @@ all: one-zero.o
 clean:
 	rm *.o one-zero.exe
 test: all
-	./one-zero.exe < one-zero-test.in
-	cat one-zero-test.out
+	./one-zero.bats

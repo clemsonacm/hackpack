@@ -4,4 +4,4 @@ all: knapsack.o
 clean:
 	rm *.o knapsack.exe
 test: all
-	./knapsack.exe < knapsack.in
+	./knapsack.bats

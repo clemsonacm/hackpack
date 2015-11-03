@@ -1,4 +1,5 @@
 \section{Dynamic Programming}\index{Dynamic Programming}
+#ifdef hackpackpp
 Dynamic Programming is a powerful tool that can be applied to several different types of algorithms.\cite{dppractice}
 The basic idea is to save the results of smaller problems and use the results to solve larger problems.
 
@@ -39,7 +40,13 @@ Please help the cows determine the maximum "wow factor" they can get for their l
 \acmlisting[caption=A Knapsack Full of Fireworks Output, label=A Knapsack Full of Fireworks Output]{./approaches/dp/problems/knapsack/knapsack.out}
 
 \subsubsection{Example Solution}
+#endif
+
+#ifdef hackpack
+\subsection{Knapsack Problem}
+#endif
 \acmlisting[caption=A Knapsack Full of Fireworks Solution, label=A Knapsack Full of Fireworks Solution]{./approaches/dp/problems/knapsack/knapsack.cpp}
+#ifdef hackpackpp
 
 \subsubsection{Lessons Learned}
 The optimal solution is of the form:
@@ -70,7 +77,13 @@ Please help the cows determine the maximum "wow factor" they can get for their l
 \acmlisting[caption=A Few Fireworks More Output, label=A Few Fireworks More Output]{./approaches/dp/problems/one-zero/one-zero.out}
 
 \subsubsection{Example Solution}
+#endif
+
+#ifdef hackpack
+\subsection{Knapsack Problem}
+#endif
 \acmlisting[caption=A Few Fireworks More Solution, label=A Few Fireworks More Solution]{./approaches/dp/problems/one-zero/one-zero.cpp}
+#ifdef hackpackpp
 
 \subsubsection{Lesson Learned}
 A similar problem to the knapsack, except each item can be used at most once.  The solution here is to expand the state space.  The optimal solution is of the form
@@ -101,7 +114,14 @@ Help the cows determine the results of their vote.
 \acmlisting[caption={The Good, the Bad, the Cowy Output}, label={The Good, the Bad, the Cowy Output}]{./approaches/dp/problems/cowy/cowy.out}
 
 \subsubsection{Example Solution}
+#endif
+
+#ifdef hackpack
+\subsection{Largest Increasing Subsequence}
+#endif
 \acmlisting[caption={The Good, the Bad, the Cowy Solution}, label={The Good, the Bad, the Cowy Solution}]{./approaches/dp/problems/cowy/cowy.cpp}
+#ifdef hackpackpp
+
 
 \subsubsection{Lesson Learned}
 \begin{itemize}
@@ -109,3 +129,5 @@ Help the cows determine the results of their vote.
 	\item Sometimes you have to check the entire array to find the solution.
 	\item $while(cin >> val)$ can be used to read in an uncertain number of values.
 \end{itemize}
+#endif
+
