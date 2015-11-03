@@ -1,11 +1,12 @@
 \section{Hash Window Approaches}\index{hashing}\index{hash windows}
+#ifdef hackpackpp
 Hashing is a mapping of objects to bytes.
 These bytes are often stored in Strings or numeric data types.
 Normally, hash functions attempt to map each object to a \textit{unique} set of bytes.
 Also a \textit{slight} change in the object should cause a \textit{large} change in the output.
 When two objects map to the same set of bytes, it is referred to as a hash collision.
 
-\subsection{Approaches}
+\subsection{Applications}
 \begin{itemize}
 	\item Identify substrings quickly and cleanly.
 	\item Hash collisions to detect certain features of the input.
@@ -36,9 +37,16 @@ Help Farmer John determine how many times the text `pool' appears in the documen
 \acmlisting[label=Fine Print Sample Output, caption=Fine Print Sample Output]{./approaches/hashing/problems/fine-print/fine-print.out}
 
 \subsubsection{Sample Solution}
-\acmlisting[label=Fine Print Sample Solution, caption=Fine Print Sample Solution]{./approaches/hashing/problems/fine-print/fine-print.cpp}
+#endif
 
+#ifdef hackpack
+\subsection{Hash Windows}
+#endif
+\acmlisting[label=Fine Print Sample Solution, caption=Fine Print Sample Solution]{./approaches/hashing/problems/fine-print/fine-print.cpp}
+#ifdef hackpackpp
 \subsubsection{Lessons Learned}
 \begin{itemize}
-	\item There is often more than one way to solve a problem,  checkout the KMP string matching algorithm for another way to solve this problem.
+	\item There is often more than one way to solve a problem, checkout the KMP string matching algorithm for another way to solve this problem.
 \end{itemize}
+#endif
+
