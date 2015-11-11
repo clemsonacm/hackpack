@@ -1,0 +1,63 @@
+\section{Prim's Algorithm}\index{graph!Prim's Algorithm}
+#ifdef hackpackpp
+Prim's algorithm is a greedy algorithm that allows for finding a minimum spanning tree/forest in $O(E  \log{V})$ time.
+Prim's algorithm is implemented by doing the following:
+
+\begin{enumerate}
+	\item Choose an arbitrary unvisited node in the graph.
+	\item Grow the tree by choosing the node that can be added to the tree by least cost.
+	\item Repeat step 2 until all connected nodes have been visited. If there are still nodes, return to step 1.
+\end{enumerate}
+
+#endif
+\subsection{Applications}
+\begin{itemize}
+	\item Finding a minimum spanning tree
+\end{itemize}
+
+#ifdef hackpackpp
+\subsection{Example Contest Problem: Cow Connection}
+Farmer John has expanded his real estate holdings and now owns several farms.
+These farms are connected by an old, unmaintained road network. 
+
+At night, these roads are unlit and are very dangerous.
+Farmer John wants to improve safety by installing lights along the roads.
+However, Farmer John does not have much extra money to spend on this effort.
+
+Help Farmer John determine a minimum cost set of roads that he could light to connect all of the farms by lit roads.
+\subsubsection{Input Format}
+\begin{itemize}
+\item Line 1: One integer, $N$, $(N < 1000000)$ specifying the number of paths in the corn field.
+\item Line 2..$(N+1)$: Each line contains three integers $S$, $D$ and $C$ where:
+	\begin{itemize}
+		\item $S$ and $D$ represent the farm id numbers that a given road connects. $0 \leq S < N$ and $0 \leq D < N$.
+		\item $C$ is the cost of lighting that road. $(0 < C < 1000000$
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Sample Input}
+\acmlisting[label=Cowconnection Sample Input, caption=Cowconnection Sample Input]{./algorithms/prims-algorithm/problems/cowconnection/cowconnection.in}
+\subsubsection{Output Format}
+\begin{itemize}
+	\item Line 1: One integer, representing the minimum cost.
+	\item Line 2..$(N+1)$: Two integers, that represent the farms at the end of either road Farmer John should choose to light.
+		These integers should be in order from least to greatest.
+\end{itemize}
+\subsubsection{Sample Output}
+\acmlisting[label=Cowconnection Sample Output, caption=Cowconnection Sample Output]{./algorithms/prims-algorithm/problems/cowconnection/cowconnection.out}
+\subsubsection{Example Solution}
+#endif
+
+#ifdef hackpack
+\subsection{Prim's Algorithm}
+#endif
+\acmlisting[label=Cowconnection Example Solution, caption=Cowconnection Example Solution]{./algorithms/prims-algorithm/problems/cowconnection/cowconnection.cpp}
+#ifdef hackpack
+\subsubsection{Lessons Learned}
+\begin{itemize}
+	\item Typedefs can greatly improve readability of code
+	\item Convenience classes can greatly improve readability
+	\item Directed graphs can be converted to undirected graphs by inserting the edge for both the source and the destination.
+\end{itemize}
+#endif
+

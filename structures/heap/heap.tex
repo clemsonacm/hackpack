@@ -1,1 +1,33 @@
-\section{Heaps}
+\section{Heap}\index{heap}\index{priority\_queue}
+Heaps are very useful data structures that support at least the following operations:
+
+
+\begin{itemize}
+	\item Insert
+	\item Either:
+		\begin{itemize}
+			\item Remove the smallest element 
+			\item Remove the largest element
+		\end{itemize}
+\end{itemize}
+
+Heaps that support removing the smallest element are called ``Min Heaps''
+Heaps that support removing the largest element are called ``Max Heaps''
+Many other implementations also implement a decrease key operation and delete operation.
+
+The standard template library provides a two sets of functions that provide heaps.
+By default, both implementations are ``Max Heaps'' but can be made to be ``Min Heaps''.
+The first is the \lstinline{priority_queue} data structure found in the queue header.
+The second is the \lstinline{make_heap} functions in found the algorithm header.
+Neither of these implementations strictly implements the decrease key operation.
+The code sample shown below shows how to create a Binary Min Heap as well in $O(N)$ time as the Heap Sort algorithm which runs in $O(N \log N)$ time.
+
+\subsection{Reference}
+\acmlisting[caption=Heap Reference, label=Heap Reference]{./structures/heap/heap.cpp}
+
+\subsection{Applications}
+\begin{itemize}
+	\item Dijkstra's Algorithm
+	\item Prim's Algorithm
+	\item Priority Based Queuing
+\end{itemize}
