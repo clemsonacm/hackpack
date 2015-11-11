@@ -9,7 +9,7 @@ Many of these problems can easily tackled by making small transformations to the
 
 
 The implementation below solves the max flow problem for a single source and sink.
-If there is more than one source or sink, one can add a "super" source and or sink that connects to all of the sources and sinks.
+If there is more than one source or sink, one can add a ``super'' source and or sink that connects to all of the sources and sinks.
 Then find the flow from the super source to the super sink.
 
 
@@ -18,10 +18,10 @@ If the graph is undirected, simply insert every edge twice in both directions.
 
 
 The implementation below places the weights on the edges instead of the nodes.
-If the flow is limited through the nodes instead of the edges, simply split every node into an "in" node and an "out" node and place the weight on the path between them.
+If the flow is limited through the nodes instead of the edges, simply split every node into an ``in'' node and an ``out'' node and place the weight on the path between them.
 
 
-In a general directed graph, this can be done in $O(FE)$ time where F is the maximum flow and E is the number of edges.
+In a general directed graph, this can be done in $O(EV \log V \log F)$ where E is the number of edges V is the numbr of nodes, and time where F is the maximum flow.
 \begin{itemize}
 	\item While there is a path from source to sink
 	\begin{itemize}

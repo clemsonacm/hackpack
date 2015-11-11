@@ -18,32 +18,38 @@ Two nodes $i,j$ are said to be strongly connected if there is a directed path fr
 \acmlisting[caption= Undirected Graph, label=Undirected Graph]{./structures/graph/graph.cpp}
 
 \subsection{Applications}
-For all run times, $N$ is the number of nodes, and $M$ is the number of edges.
+For all run times, $V$ is the number of nodes, and $E$ is the number of edges.
 \begin{itemize}
 	\item Shortest Paths
 		\begin{itemize}
-			\item Breath First Search --- Graphs with equal weight edges $O(N+M)$
-			\item Dijkstra's Algorithm --- Graphs with non-negative edges weights $O(N \log N)$.
-			\item Bellman Ford --- Graphs with some negative edges $O(N^3)$
-			\item Floyd Warshall --- Graphs with negative edges but not cycles $O(NM)$.
-			\item Dynamic Programming --- Directed Acyclic Graphs
+			\item Breath First Search --- Graphs with equal weight edges $O(V+E)$
+			\item Dijkstra's Algorithm --- Graphs with non-negative edges weights $O(E \log V)$.
+			\item Bellman Ford --- Graphs with some negative edges $O(VE)$
+			\item Floyd Warshall --- Graphs with negative edges but not cycles $O(V^3)$.
+			\item Dynamic Programming --- Directed Acyclic Graphs various running times.
 		\end{itemize}
 	\item Minimum Spanning Trees 
 		\begin{itemize}
-			\item Prim's Algorithm --- for undirected graphs; if run for each component, finds the minimum spanning forest$O(M \log N)$.
-			\item Kruskal's Algorithm --- for graphs; finds the minimum spanning forests in unconnected graphs $(M \log N)$
+			\item Prim's Algorithm --- For undirected graphs; if run for each component, finds the minimum spanning forest$O(E \log V)$.
+			\item Kruskal's Algorithm --- For graphs; finds the minimum spanning forests in unconnected graphs $(E \log V)$
 		\end{itemize}
 	\item Similarity/Connectivity
 		\begin{itemize}
-			\item Depth First Search --- Find (Strongly) Connected Components $O(N+M)$
-			\item Depth First Search --- Find a path from i to j $O(N+M)$
+			\item Depth First Search --- Find (Strongly) Connected Components $O(V+E)$
+			\item Depth First Search --- Find a path from i to j $O(V+E)$
 		\end{itemize}
 	\item Topological Sorting 
 		\begin{itemize}
-			\item Depth First Search --- Use start and stop times to topologically sort $O(N+M)$
+			\item Depth First Search --- Use start and stop times to topologically sort $O(V+E)$
 		\end{itemize}
 	\item Matchings
+		\begin{itemize}
+			\item Greedy --- Many of these problems can be solved by a greedy max/min flow algorithm in $O(EV \log V \log F)$ where F is is the max flow.
+		\end{itemize}
 	\item Flow/Routing
+		\begin{itemize}
+			\item Greedy --- Many of these problems can be solved by a greedy max/min flow algorithm in $O(EV \log V \log F)$ where F is is the max flow.
+		\end{itemize}
 	\item Clustering
 	\item Centrality
 \end{itemize}
