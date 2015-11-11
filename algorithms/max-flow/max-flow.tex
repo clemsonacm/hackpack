@@ -25,9 +25,9 @@ In a general directed graph, this can be done in $O(EV \log V \log F)$ where E i
 \begin{itemize}
 	\item While there is a path from source to sink
 	\begin{itemize}
-		\item Greedily find the widest path
-		\item Reduce the cost of the nodes on the widest path by its width
-		\item Create reverse paths by the width of the widest path
+		\item Greedily find the widest path --- the single path with greatest capacity.
+		\item Reduce the capacity of the edges on the widest path by the capacity of the widest path.
+		\item Increase the capacity of the edges on the widest path by the capacity of the widest path going in the opposite direction creating them if necessary.
 	\end{itemize}
 \end{itemize}
 
@@ -78,7 +78,7 @@ Help the cows determine the how many packages they can send to Farm John's barn.
 #ifdef hackpackpp
 \subsubsection{Lessons Learned}
 \begin{itemize}
-	\item The innermost while loop is a solution to the widest most path problem that runs in $O(V)$ time.
+	\item The innermost while loop is a solution to the widest most path problem that runs in $O(E \log V)$ time.
 \end{itemize}
 #endif
 
