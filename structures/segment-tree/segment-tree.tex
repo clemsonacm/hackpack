@@ -42,14 +42,18 @@ In the case of the prefix sum, the update operation will modify the tree's nodes
 
 \subsection{Example Contest Problem: Coming and Going}
 
+Farmer John is considering expanding the cows' barn, but he would first like to learn just how many of his cows spend any given time of day in the barn.
 In consideration of expanding the cows' barn, Farmer John decided to see just how many of his cows spent any given time of day in the barn.
 To do so, he installed motion sensors on each entryway/exit to the building.
 These sensors are able to detect both the entry and exit of a warm-blooded being.
 This, coupled with his cows' tags, allows him to monitor the movements of specific cows.
 
 The night after the full day in which the sensors were installed, Farmer John sat down to do what he thought was some straightforward analysis, but quickly realized that he was in over his head with only mental math.
+He dusts off his old Commodore 64 and begins tabulating the data that he has collected.
+Among this data are the times that individual cows were inside the barn.
+\textit{While} he enters these times into the computer for each cow, Farmer John might sometimes get curious about how many cows were inside the barn during a specific time range.
 
-Help him figure out which hours each day (he defines as 6AM to 8PM) the barn is the most popular place to be by giving him headcounts as he (slowly) tabulates the data.
+Help him figure out how many cows were inside the barn during a specific time range as he (slowly) tabulates the data.
 
 \subsubsection{Input Format}
 
@@ -58,13 +62,13 @@ Help him figure out which hours each day (he defines as 6AM to 8PM) the barn is 
 
     \item The following lines are placed in $C$ groups detailed as follows:
     \begin{itemize}
-        \item A single line containing two integers, $t_1$ and $t_2$ representing a time range.
+        \item A single line containing two integers, $t_1$ and $t_2$ representing a time range for which Farmer John wants a count of cows present.
         These values are guaranteed to fall between 6 and 20 (inclusive), representing the times between and including 6AM to 8PM, except for the case when both are 0.
-        If two cows are not present in the barn at the same time, but are in the same window, two cows should be counted.
+        Even if two cows were present at disjoint times in the same window, two cows should be counted.
 
-        \item A single line containing a single integer, $k$, representing the number of time ranges to follow that a cow was present in the barn.
+        \item A single line containing a single integer, $k$, representing the number of time ranges to follow that the cow was present in the barn.
 
-        \item $k$ lines with two distinct integers representing time ranges in which a cow was present in the barn.
+        \item $k$ lines with two distinct integers representing times between which a cow was present in the barn.
         The first number is guaranteed to be strictly less than the second number.
     \end{itemize}
 \end{itemize}
