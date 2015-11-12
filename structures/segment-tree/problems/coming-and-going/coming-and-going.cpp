@@ -183,7 +183,7 @@ int main()
 		// #ifdef hackpackpp
 		// print out cow count if requested as data comes in
 		// #endif
-		if(t1 && t2)
+		if(t1 != 0 && t2 != 0)
 		{
 			const int cows_in_barn = query_segment_tree(segtree, 0, N - 1, t1 - START_OF_DAY, t2 - START_OF_DAY, -1, 0);
 			cout << "from " << t1 << " to " << t2 << " - ";
