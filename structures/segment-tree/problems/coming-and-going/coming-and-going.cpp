@@ -40,9 +40,15 @@ int build_segment_tree(int* const data, const unsigned int start, const unsigned
 	const int right = build_segment_tree(data, mid + 1, end, tree, (2 * st_idx) + 2);
 
 	// #ifdef hackpackpp
-	// store the greatest value in the array in non-leaf nodes
-	// this can easily be changed to a summation by instead storing
-	// the sum of the subtrees at this node
+	// store the greatest value in the array in non-leaf nodes;
+	// this can easily be changed to another property by storing
+	// the sum, minimum of the subtrees at this node
+	// sum:
+	//   tree[st_idx] = left + right;
+	//
+	// minimum:
+	//   if(left < right) tree[st_idx] = left;
+	//   else tree[st_idx] = right;
 	// #endif
 	if(left > right) tree[st_idx] = left;
 	else tree[st_idx] = right;
@@ -52,6 +58,12 @@ int build_segment_tree(int* const data, const unsigned int start, const unsigned
 
 // #ifdef hackpackpp
 // update a value in the segment tree
+//
+// to support range sums, this function would have to be modified to recurse
+// down the tree to the leaf node before changing values; after the leaf node
+// is updated, the new value should be passed back as a return value and each
+// parent should update the sum they have by re-adding the values from the
+// two children it has
 //
 // tree        - the segment tree with values to be updated
 // start       - the start index of the _source_ array (should be 0)
@@ -71,6 +83,8 @@ void update_segment_tree(int* const tree, const unsigned int start, const unsign
 	// #ifdef hackpackpp
 	// update the value if the new value is greater or if
 	// this is the leaf
+	// if the tree were storing the range minimum, this would update
+	// if(new_val < tree[st_idx] || start == end)
 	// #endif
 	if(new_val > tree[st_idx] || start == end)
 		tree[st_idx] = new_val;
@@ -131,8 +145,8 @@ int query_segment_tree(const int* const tree, const unsigned int start, const un
 
 		// #ifdef hackpackpp
 		// use the greater of the two values here;
-		// if a summation were desired, one could simply add the
-		// two values together
+		// if a summation were desired, one could simply add the values together;
+		// for a minimum, simply take the lesser of the two values
 		// #endif
 		if(left > greatest)
 			greatest = left;
