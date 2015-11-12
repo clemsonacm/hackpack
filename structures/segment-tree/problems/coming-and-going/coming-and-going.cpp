@@ -170,7 +170,7 @@ int main()
 		{
 			unsigned int start, end;
 			cin >> start >> end;
-			for(unsigned int k = start; k <= end; k++)
+			for(unsigned int k = start; k < end; k++)
 			{
 				// #ifdef hackpackpp
 				// account for times 0 to 5 we don't care about with k - 6
