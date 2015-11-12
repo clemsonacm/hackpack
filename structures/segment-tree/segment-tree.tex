@@ -48,6 +48,7 @@ The left child of a node represents the first half of the section of the dataset
 The right child of a node represents the remaining right half.
 More precisely, if the parent node represents values between and including a starting index, $a$, and ending index $b$, then the left child will represent values between and including $a$ and $a + \frac{b - a}{2}$.
 The right child will represent values between and including $a + \frac{b - a}{2} + 1$ and $b$.
+When $a$ and $b$ are equal, a leaf node has been reached, and its value is simply stored at the appropriate index in the segment tree.
 Due to the static nature of arrays, once built, the structure of a segment tree cannot change.
 
 \begin{figure}[h]
