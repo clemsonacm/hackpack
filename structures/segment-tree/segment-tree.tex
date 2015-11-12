@@ -36,6 +36,18 @@ For a given array of size $n$, a segment tree constructed from it will use up to
 To properly represent tree, the root is located at index 0; its left and right children are located at indices 1 and 2 respectively.
 To properly recurse through the tree, indices of left and right children can be calculated with $2n + 1$ and $2n + 2$ for left and right children respectively.
 
+Construction of a segment tree begins at the root.
+The root node, located at index 0, queries its two children for some property (such as the maximum, the minimum, a range sum, etc\ldots).
+Those two children, in turn, query their children.
+This process continues until a leaf node, one of the values from the source array, is reached.
+The recursive calls return back up the call stack with the parent nodes receiving the information they requested.
+These parent nodes record this information and continue returning up the call stack.
+
+As the recursive calls are made, the starting and ending indices that each node represents is passed on.
+The left child of a node represents the first half of the section of the dataset the parent represents.
+The right child of a node represents the remaining right half.
+More precisely, if the parent node represents values between and including a starting index, $a$, and ending index $b$, then the left child will represent values between and including $a$ and $a + \frac{b - a}{2}$.
+The right child will represent values between and including $a + \frac{b - a}{2} + 1$ and $b$.
 Once built, the structure of a segment tree cannot change.
 
 \begin{figure}[h]
