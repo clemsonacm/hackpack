@@ -14,9 +14,37 @@ Whenever the source data changes, update times stay low at $O(\log n)$ time.
 
 % #endif
 
+% #ifdef hackpack
+
 A segment tree is represented as an array of a size that is dependent on the dataset it is sourced from.
 For a given array of size $n$, a segment tree constructed from it will use up to $2^{\lceil \log_2 (n)\rceil + 1} - 1$ space.
 Once built, the structure of a segment tree cannot change.
+
+% #endif
+
+% #ifdef hackpackpp
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./structures/segment-tree/source-array}
+    \caption{\small The segment tree (bottom) constructed from an array (top) containing five elements.
+      The blank entries in the segment tree array are unused.}
+\end{figure}
+
+A segment tree is represented as an array of a size that is dependent on the dataset it is sourced from.
+For a given array of size $n$, a segment tree constructed from it will use up to $2^{\lceil \log_2 (n)\rceil + 1} - 1$ space.
+To properly represent tree, the root is located at index 0; its left and right children are located at indices 1 and 2 respectively.
+To properly recurse through the tree, indices of left and right children can be calculated with $2n + 1$ and $2n + 2$ for left and right children respectively.
+
+Once built, the structure of a segment tree cannot change.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./structures/segment-tree/tree-visual}
+    \caption{\small The segment tree encoded in the array in the preceding figure.}
+\end{figure}
+
+% #endif
 
 % #ifdef hackpack
 
