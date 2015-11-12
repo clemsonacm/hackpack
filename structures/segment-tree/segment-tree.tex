@@ -9,7 +9,7 @@ For simpler problems, a secondary array may suffice to calculate a property like
 The prefix sum calculation only takes $O(n)$ time to perform, and any query thereafter takes only $O(1)$ time.
 But any updates to the source dataset will require $O(n)$ time to update the prefix sum calculations.
 Frequent changes will quickly show the pitfall of this approach.
-A segment tree is a data structure for storing information about intervals that can be constructed in $O(n \log(n))$ time.
+A segment tree is a data structure for storing information about intervals that can be constructed in $O(n)$ time.
 Whenever the source data changes, update times stay low at $O(\log n)$ time.
 
 % #endif
