@@ -143,6 +143,8 @@ int query_segment_tree(const int* const tree, const unsigned int start, const un
 	return greatest;
 }
 
+#define START_OF_DAY 6
+
 int main()
 {
 	
@@ -173,8 +175,8 @@ int main()
 				// #ifdef hackpackpp
 				// account for times 0 to 5 we don't care about with k - 6
 				// #endif
-				headcount[k - 6]++;
-				update_segment_tree(segtree, 0, N - 1, k - 6, headcount[k - 6], 0);
+				headcount[k - START_OF_DAY]++;
+				update_segment_tree(segtree, 0, N - 1, k - 6, headcount[k - START_OF_DAY], 0);
 			}
 		}
 
@@ -183,7 +185,7 @@ int main()
 		// #endif
 		if(t1 && t2)
 		{
-			const int cows_in_barn = query_segment_tree(segtree, 0, N - 1, t1 - 6, t2 - 6, -1, 0);
+			const int cows_in_barn = query_segment_tree(segtree, 0, N - 1, t1 - START_OF_DAY, t2 - START_OF_DAY, -1, 0);
 			cout << "from " << t1 << " to " << t2 << " - ";
 			if(cows_in_barn > 0)
 				cout << cows_in_barn;
