@@ -95,13 +95,11 @@ He dusts off his old Commodore 64 and begins tabulating the data that he has col
 Among this data are the times that individual cows were inside the barn.
 \textit{While} he enters these times into the computer for each cow, Farmer John wants to see how many cows were inside the barn during a specific time range.
 
-Help him figure out how many cows were inside the barn during a specific time range as he (slowly) tabulates the data.
+Help him figure out how many cows were inside the barn during specific time ranges as he (slowly) tabulates the data.
 
 \subsubsection{Input Format}
 
 \begin{itemize}
-    \item Line 1: Two positive integers, $t_1$ and $t_2$, representing a time range for which Farmer John wants a count of cows seen in the barn; $t_1$ is guaranteed to be strictly less than $t_2$.
-
     \item Line 2: A single integer, $C$, representing the number of cows Farmer John has data on.
 
     \item The following lines are placed in $C$ groups detailed as follows:
@@ -110,6 +108,7 @@ Help him figure out how many cows were inside the barn during a specific time ra
 
         \item $k$ lines with two distinct integers representing times between which a cow was present in the barn.
         The first number is guaranteed to be strictly less than the second number.
+        \item A single line containing two integers $t_1$ and $t_2$ representing times between which the maximum number of cows seen should be reported since the last cow's data was added.
     \end{itemize}
 \end{itemize}
 
