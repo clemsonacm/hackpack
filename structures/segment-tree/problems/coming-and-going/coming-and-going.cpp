@@ -171,9 +171,6 @@ int main()
 	int* segtree = new int[st_size];
 	build_segment_tree(headcount, 0, N - 1, segtree, 0);
 
-	unsigned int t1, t2;
-	cin >> t1 >> t2;
-
 	unsigned int no_cows;
 	cin >> no_cows;
 
@@ -192,14 +189,17 @@ int main()
 				// account for times 0 to 5 we don't care about with k - 6
 				// #endif
 				headcount[k - START_OF_DAY]++;
-				update_segment_tree(segtree, 0, N - 1, k - 6, headcount[k - START_OF_DAY], 0);
+				update_segment_tree(segtree, 0, N - 1, k - START_OF_DAY, headcount[k - START_OF_DAY], 0);
 			}
 		}
+
+		int t1, t2;
+		cin >> t1 >> t2;
 
 		// #ifdef hackpackpp
 		// print out cow count as data comes in
 		// #endif
-		const int cows_in_barn = query_segment_tree(segtree, 0, N - 1, t1 - START_OF_DAY, t2 - START_OF_DAY, -1, 0);
+		const int cows_in_barn = query_segment_tree(segtree, 0, N - 1, t1 - START_OF_DAY, t2 - START_OF_DAY - 1, -1, 0);
 		if(cows_in_barn > 0)
 			cout << cows_in_barn;
 		else
