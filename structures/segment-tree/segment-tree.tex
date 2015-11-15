@@ -33,7 +33,7 @@ Once built, the structure of a segment tree cannot change.
 
 A segment tree is represented as an array of a size that is dependent on the dataset it is sourced from.
 For a given array of size $n$, a segment tree constructed from it will use up to $2^{\lceil \log_2 (n)\rceil + 1} - 1$ space.
-To properly represent tree, the root is located at index 0; its left and right children are located at indices 1 and 2 respectively.
+To properly represent the tree, the root is located at index 0; its left and right children are located at indices 1 and 2 respectively.
 To properly recurse through the tree, indices of left and right children can be calculated with $2n + 1$ and $2n + 2$ for left and right children respectively.
 
 Construction of a segment tree begins at the root.
