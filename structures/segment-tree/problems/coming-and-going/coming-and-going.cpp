@@ -9,17 +9,19 @@ using namespace std;
 // #endif
 const unsigned int N = 14;
 
-// #ifdef hackpackpp
-// build the segment tree
-//
-// data   - source array to build segment tree from
-// start  - the start index of the array (should be 0)
-// end    - the end index of the array (size - 1)
-// tree   - the array to hold the segment tree sized appropriately
-// st_idx - the current index of the segment tree (should be 0 when first called)
-// #endif
 int build_segment_tree(int* const data, const unsigned int start, const unsigned int end, int* const tree, const unsigned int st_idx)
 {
+	// #ifdef hackpackpp
+	// build the segment tree from source data
+	//
+	// data   - source array to build the segment tree from
+	// start  - the start index of the array (should be 0 when first called)
+	// end    - the end index of the array (size - 1)
+	// tree   - the array to hold the segment tree, sized appropriately
+	// st_idx - the current index of the segment tree (should be 0 when first called)
+	// #endif
+	// #ifdef hackpackpp
+
 	// #ifdef hackpackpp
 	// if start == end, this is a leaf node and should
 	// have the original value from the array here
@@ -56,24 +58,31 @@ int build_segment_tree(int* const data, const unsigned int start, const unsigned
 	return tree[st_idx];
 }
 
-// #ifdef hackpackpp
-// update a value in the segment tree
-//
-// to support range sums, this function would have to be modified to recurse
-// down the tree to the leaf node before changing values; after the leaf node
-// is updated, the new value should be passed back as a return value and each
-// parent should update the sum they have by re-adding the values from the
-// two children it has
-//
-// tree        - the segment tree with values to be updated
-// start       - the start index of the _source_ array (should be 0)
-// end         - the end index of the _source_ array (size - 1)
-// changed_idx - the index of the element that changed
-// new_val     - the new value of the element at changed_idx
-// st_idx      - the current index of the segment tree (should be 0 when first called)
-// #endif
+
 void update_segment_tree(int* const tree, const unsigned int start, const unsigned int end, const unsigned int changed_idx, const int new_val, const unsigned int st_idx)
 {
+	// #ifdef hackpackpp
+	// update a value in the segment tree
+	//
+
+	// To support range sums, this function would have to be modified to recurse
+	// down the tree to the leaf node before changing values. After the leaf node
+	// is updated, the new value should be passed back as a return value and each
+	// parent should update the sum they have by re-adding the values from the
+	// two children it has.
+	//
+	// Alternatively, the old value (or at least some delta) could be an additional
+	// argument passed in during the original call. Nodes could update to their new
+	// respective values without waiting for children to report sums back.
+	//
+	// tree        - the segment tree with values to be updated
+	// start       - the start index of the _source_ array (should be 0)
+	// end         - the end index of the _source_ array (size - 1)
+	// changed_idx - the index of the element that changed
+	// new_val     - the new value of the element at changed_idx
+	// st_idx      - the current index of the segment tree (should be 0 when first called)
+	// #endif
+
 	// #ifdef hackpackpp
 	// out of range; should not be counted
 	// #endif
@@ -102,19 +111,20 @@ void update_segment_tree(int* const tree, const unsigned int start, const unsign
 	return;
 }
 
-// #ifdef hackpackpp
-// find the largest value for a range
-//
-// tree        - the segment tree to query
-// start       - the start index of the _source_ array
-// end         - the end index of the _source_ array
-// range_start - the start index of the query
-// range_end   - the end index of the query
-// greatest    - the greatest value found so far (set to zero when first calling)
-// st_idx      - the current index in the segtree (set to zero when first calling)
-// #endif
 int query_segment_tree(const int* const tree, const unsigned int start, const unsigned int end, const unsigned int range_start, const unsigned int range_end, int greatest, const unsigned int st_idx)
 {
+	// #ifdef hackpackpp
+	// find the largest value for a range
+	//
+	// tree        - the segment tree to query
+	// start       - the start index of the _source_ array
+	// end         - the end index of the _source_ array
+	// range_start - the start index of the query
+	// range_end   - the end index of the query
+	// greatest    - the greatest value found so far (set to zero when first calling)
+	// st_idx      - the current index in the segtree (set to zero when first calling)
+	// #endif
+
 	// #ifdef hackpackpp
 	// out of range; do not continue
 	// #endif
