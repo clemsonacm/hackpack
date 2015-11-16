@@ -64,16 +64,6 @@ void update_segment_tree(int* const tree, const unsigned int start, const unsign
 	// #ifdef hackpackpp
 	// update a value in the segment tree
 	//
-	// To support range sums, this function would have to be modified to recurse
-	// down the tree to the leaf node before changing values. After the leaf node
-	// is updated, the new value should be passed back as a return value and each
-	// parent should update the sum they have by re-adding the values from the
-	// two children it has.
-	//
-	// Alternatively, the old value (or at least some delta) could be an additional
-	// argument passed in during the original call. Nodes could update to their new
-	// respective values without waiting for children to report sums back.
-	//
 	// tree        - the segment tree with values to be updated
 	// start       - the start index of the _source_ array (should be 0)
 	// end         - the end index of the _source_ array (size - 1)
