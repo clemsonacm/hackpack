@@ -1,10 +1,15 @@
+set nocp      " prefer vim mode to vi
 set mouse=a   " Turn the mouse on
 imap jj <ESC> " Make it easy to escape
 set ai        " turn on auto-indention
+set cin       " turn on c-style auto indentation
 set nu        " turn on numbers
+set ru        " turn on ruler
+set showmode  " turn on modeline
 set scs       " turn on smart case search
 set bs=2      " turn on better backspacing
 set ts=4      " Set tabstop to 4 spaces
+set hidden    " Allow files to be opened in background
 sy on         " turn on syntax highlighting
 colo elflord  " pick a nice color scheme
 set bg=dark   " make it better for black terminals
