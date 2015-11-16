@@ -89,31 +89,9 @@ All examples assume a topic called `foo` and a sample problem `bar`:
 +	`bar-test.in`  Data for the automated unit test
 +	`bar-test.out` Expected output for the automated unit test
 
+#### Writing Documentation
 
-
-
-
-#### Writing Documentation 
-Documentation should be written in `LaTeX`:
-For each item in the Hackpack, please include the following in clearly delineated subsections:
-
-1.  Name and Brief Description of the topic
-2.  Data structures should have a "Reference" section with a code sample of only commonly used functions
-3.  A list of possible uses and applications
-4.  2-3 possible contest problems; preferably of varying difficulty
-5.  Sample code that answers one of the contest problems
-6.  Please use the `\acmlisting` for code listings.  A caption and label should be specified.  If applicable, line ranges should be specified to limit the amount of text displayed.
-7.  It would be preferred if each set of sample code had some lessons learned to point out some key elements of the implementation
-8.  References using BibTeX where applicable
-9.  Should be "compiled" properly by make
-10.  Each sentence must be on a separate line.
-11.  The condensed version of the hackpack should have the following removed:
-    
-    *   Introductions to the topic.
-    *   Guidelines directing the reader to different sections of the hackpack.
-    *   References to contest problems including statement, sample io, and
-        lessons learned, but solutions should remain.
-    *   As much as possible, index tags should __NOT__ be removed.
+Please see CONTRIBUTING.md for guidelines concerning documentation.
 
 #### Writing Code
 Code Must meet the following standards:
