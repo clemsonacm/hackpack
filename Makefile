@@ -70,7 +70,8 @@ show:
 # Delete temporary files that might exist and clean the OUTDIR.
 clean:
 	-$(FIND) . -iname "*.$(BACKUPEXT)" $(EXCLUDEDIR) -delete
-	-$(find) . -iname "*.$(TMPEXT)" $(EXCLUDEDIR) -delete
+	-$(FIND) . -iname "*.$(TMPEXT)" $(EXCLUDEDIR) -delete
+	-$(FIND) . -name "*.pdf" $(EXCLUDEDIR) -delete
 	-./modules.sh clean
 ifeq ($(HAS_OUTDIR), 1)
 	-latexmk -c -outdir=$(OUTDIR) -auxdir=$(OUTDIR)
@@ -78,7 +79,6 @@ else
 	-rm -rf $(OUTDIR) 
 	-mkdir $(OUTDIR)
 endif
-	-cd LICENSES/ && latexmk -c 
 
 test:
 	./modules.sh test
