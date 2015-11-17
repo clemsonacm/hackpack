@@ -172,6 +172,7 @@ We have defined special keywords (from a familiar language) to separate informat
 Wrap a section with the `#ifdef hackpack` and `#endif` to include the section only in the condensed version of the Hack Pack.
 Wrap a section with the `#ifdef hackpack` and `#endif` to include the section only in the full version of the Hack Pack.
 Any section that is not wrapped with either set of keywords will be included in both versions of the Hack Pack.
+Ensure that index entries are present in both versions of the Hack Pack.
 
 ## Submission
 
