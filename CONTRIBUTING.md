@@ -162,6 +162,7 @@ This is trivial.
 A complete, condensed section of the Hack Pack should include:
 
 - a brief description of the problem (possibly gleaned from the full description)
+- a list of applications
 - reference code (if the section is for a data structure)
 - sample solutions for each included problem
 
