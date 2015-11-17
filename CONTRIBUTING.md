@@ -92,7 +92,7 @@ Entries include:
 
 ### Citations
 
-Information pulled from other sources need to be properly cited.
+Information pulled from other sources needs to be properly cited.
 Any information included in submissions that is not properly cited will cause the entire section to be rejected from consideration for inclusion.
 References should use BibTeX where applicable.
 
