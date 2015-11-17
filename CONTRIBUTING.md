@@ -109,14 +109,14 @@ References should use BibTeX where applicable.
 All sections should have headers using the appropriate LaTeX sectioning commands:
 | Section | Command |
 |---------|:-------:|
-|section title|`\section{}`|
-|Applications|`\subsection{}`|
-|Sample Problem|`\subsection{}`|
-|Input Format|`\subsubsection{}`|
-|Sample Input|`\subsubsection{}`|
-|Output Format|`\subsubsection{}`|
-|Sample Output|`\subsubsection{}`|
-|Lessons Learned|`\subsubsection{}`|
+| section title | `\section{}` |
+| Applications | `\subsection{}` |
+| Sample Problem | `\subsection{}` |
+| Input Format | `\subsubsection{}` |
+| Sample Input | `\subsubsection{}` |
+| Output Format | `\subsubsection{}` |
+| Sample Output | `\subsubsection{}` |
+| Lessons Learned | `\subsubsection{}` |
 
 ### Code Listings
 
