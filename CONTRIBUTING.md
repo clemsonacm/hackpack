@@ -3,10 +3,14 @@
 ## General Guidelines
 
 We largely follow the style guidelines found in the [Linux Kernel Coding
-Style][Linux].  There are a few sections that do not specific apply to the
-Hack Pack namely and can be ignored : 10 (Kconfigs), 13(Kernel Messages),
-14(Memory Allocations in the Kernel), 17(Kernel Macros), and 19 (Inline
-Assembly).
+Style][Linux].  There are a few sections that do not specifically apply to the
+Hack Pack and can be ignored : 
+
+-	10 - Kconfigs
+-	13 - Kernel Messages
+-   14 - Memory Allocations in the Kernel
+-   17 - Kernel Macros
+-   19 - Inline Assembly
 
 Additionally, we have a few additional guidelines:
 
@@ -18,15 +22,16 @@ Additionally, we have a few additional guidelines:
 4.  Source code must solve a problem:  It should solve a specific problem and
     include all relevant IO and supporting code.  The algorithm should not be in
     a vacuum.
-5.  The condensed hackpack version should have the following removed:
+5.  The condensed Hack Pack version should have the following removed:
 
     -   Comments that are not _critical_ to the readers understanding
-    -   All _library_ and `#include` code that can be found in other sections of the hackpack
+    -   All _library_ and `#include` code that can be found in other sections of the Hack Pack
     -   All input and output code that is not _critical_ to the readers
         understanding
 
 ## Writing Tests
-All code must have tests that meet the following requirements
+
+All code must have tests that meet the following requirements:
 
 1.	All tests should be written using the [bats framework][bats], and use `tap`
 	compliant mode. See the `structures/set` section for an example.
@@ -40,11 +45,11 @@ All code must have tests that meet the following requirements
     +   The tests should return 2 in the case that any test cases failed
 
 ## Folder Structure and File Naming conventions
+
 All examples assume a topic called `foo` and a sample problem `bar`:
 
 +	All file names should be lowercase with `-` (hyphens) separating the words
-	in a file.  For example, `ten-commandments.tex` instead of
-	`TenCommandments.tex`
+	in a file.  For example, `ten-commandments.tex` instead of `TenCommandments.tex`
 +	All sample contest problems should be in a subdirectory called `problems`
 	and in a further subdirectory based on the problem name.  For example if the
 	topic `foo` has a problem `bar` the path to the code sample could be `foo/problems/bar/bar.cpp`.
@@ -53,23 +58,24 @@ All examples assume a topic called `foo` and a sample problem `bar`:
 +	See how the `set` material is laid out for reference.  It is in
 	`structures/set`
 
+### Detailed Example
 
-+	`foo` the name of the branch where `foo` is being worked on
-+	`foo.tex` the hackpack documentation on the algorithm
-+	`foo.cpp` reference code for the foo data structure in C++ if applicable
-+	`bar.in`  sample input for foo.cpp if applicable
-+	`bar.out` sample output for foo.cpp if applicable
-+	`bar.exe` untracked compiled binary __DO NOT ADD THIS__.  It makes it
++	`foo` The name of the branch where `foo` is being worked on
++	`foo.tex` The Hack Pack documentation on the algorithm
++	`foo.cpp` Reference code for the foo data structure in C++ if applicable
++	`bar.in`  Sample input for foo.cpp if applicable
++	`bar.out` Sample output for foo.cpp if applicable
++	`bar.exe` Untracked compiled binary __DO NOT ADD THIS__.  It makes it
 	easier to spot in the `.gitignore`.
-+	`bar.py`  a version of `foo.cpp` in python if applicable. _Alternate
++	`bar.py`  A version of `foo.cpp` in python if applicable. _Alternate
 	versions of algorithms in languages other than C++ should be written after
 	the C++ code is written_
-+	`bar.example` files such as `.vimrc` that do not have an extension normally
++	`bar.example` Files such as `.vimrc` that do not have an extension normally
 +	`bar.bats` Automated test case written in bats
 +	`bar-test.cpp` An automated unit test written in cpp
 +	`bar-test.in`  Data for the automated unit test
 +	`bar-test.out` Expected output for the automated unit test
-+	In the case of multiple files of the same type, they should be postfixed a
++	In the case of multiple files of the same type, they should be postfixed by a
 	number for example `bar-test1.out` or `bar-test1.in`.
 
 [Linux]: https://www.kernel.org/doc/Documentation/CodingStyle
