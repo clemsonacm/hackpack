@@ -167,9 +167,9 @@ A complete, condensed section of the Hack Pack should include:
 
 ### How To Condense Your Section
 
-We have defined special keywords (from a familiar language) to separate information that should be displayed in each section: `#define hackpack`, `#define hackpackpp`, and `#endif`.
-Wrap a section with the `#define hackpack` and `#endif` to include the section only in the condensed version of the Hack Pack.
-Wrap a section with the `#define hackpack` and `#endif` to include the section only in the full version of the Hack Pack.
+We have defined special keywords (from a familiar language) to separate information that should be displayed in each section: `#ifdef hackpack`, `#ifdef hackpackpp`, and `#endif`.
+Wrap a section with the `#ifdef hackpack` and `#endif` to include the section only in the condensed version of the Hack Pack.
+Wrap a section with the `#ifdef hackpack` and `#endif` to include the section only in the full version of the Hack Pack.
 Any section that is not wrapped with either set of keywords will be included in both versions of the Hack Pack.
 
 ## Submission
