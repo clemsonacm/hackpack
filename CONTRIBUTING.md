@@ -100,9 +100,14 @@ References should use BibTeX where applicable.
 
 ### General Rules to Type By
 
-- only one line per sentence
-- use tabs for indentation
-- do not use LaTeX comments
+- Use only one sentence per line. This makes it easier to review changes to the documentation.
+- Use tabs for indentation. This allows editors to choose their preferred tab width.
+- Do not use LaTeX comments. Anything important enough to put in a comment should be put into the text. This excludes primarily technical parts like `style.tex`.
+
+### Indentation
+
+Please use one tab per indent.
+Any text wrapped in the `\begin{}` and `\end{}` commands should be indented; this includes lists (both itemize and description).
 
 ### Sectioning
 
@@ -168,5 +173,5 @@ Before submitting a section for inclusion in the Hack Pack, ensure that both the
 
 We strive to make our content as clear and concise as possible, but it is always possible that we have left some content off.
 If you have any question about any part of your LaTeX, it is always a good idea to consult entries that have already made it into the Hack Pack.
-In particular, the section on INSERT SECTION HERE is an example of an excellent addition to the Hack Pack.
-Failing that, feel free to email any of the core Hack Pack team.
+In particular, the section on sets is an example of an excellent addition to the Hack Pack.
+Failing that, feel free to email any of the Hack Pack development team, `@clemsonacm/hackpack-developers`.
