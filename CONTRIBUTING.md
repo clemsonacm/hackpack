@@ -79,6 +79,11 @@ Do _not_ simply pull images from the Internet.
 Doing so may violate the Hack Pack licensing terms.
 Any submission found to be doing so will be rejected until the appropriate changes are made.
 
+Recommended tools:
+
+- Ipe
+- Xfig
+
 ### Indexing
 
 Indexing entries is very helpful for finding relevant entries in the Hack Pack.
