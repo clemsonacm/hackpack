@@ -83,6 +83,8 @@ Any submission found to be doing so will be rejected until the appropriate chang
 
 Indexing entries is very helpful for finding relevant entries in the Hack Pack.
 Please do not sprinkle index entries _too_ liberally throughout, as this will cause the size of the index to explode and make it harder to locate information.
+If an index entry for the term you are looking to add already exists, add it anyway.
+It is possible that a reader may be searching for your section.
 An example of a good set of index entries can be found in the section on the Sieve of Eratosthenes.
 Entries include:
 
