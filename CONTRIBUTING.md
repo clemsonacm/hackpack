@@ -107,6 +107,7 @@ References should use BibTeX where applicable.
 ### Sectioning
 
 All sections should have headers using the appropriate LaTeX sectioning commands:
+
 | Section | Command |
 |---------|:-------:|
 | section title | `\section{}` |
