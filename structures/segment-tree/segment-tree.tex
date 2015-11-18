@@ -142,3 +142,43 @@ Each should appear on its own separate line formatted as given in the sample out
 \end{itemize}
 
 % #endif
+
+% #ifdef hackpackpp
+
+\subsection{USACO Contest Problem: Optimal Milking\cite{optimalmilking}}
+
+Farmer John has recently purchased a new barn containing $N$ milking machines ($1 \leq N \leq 40,000$), conveniently numbered $1$..$N$ and arranged in a row.
+
+Milking machine $i$ is capable of extracting $M(i)$ units of milk per day ($1 \leq
+M(i) \leq 100,000$).
+Unfortunately, the machines were installed so close together that if a machine $i$ is in use on a particular day, its two neighboring machines cannot be used that day (endpoint machines have only one neighbor, of course).
+Farmer John is free to select different subsets of machines to operate on different days.
+
+Farmer John is interested in computing the maximum amount of milk he can
+extract over a series of $D$ days ($1 \leq D \leq 50,000$).
+At the beginning of each day, he has enough time to perform maintenance on one selected milking machine $i$, thereby changing its daily milk output $M(i)$ from that day forward.
+Given a list of these daily modifications, please tell Farmer John how much milk he can produce over $D$ days (note that this number might not fit into a 32-bit integer).
+
+\subsubsection{Input Format}
+
+\begin{itemize}
+    \item Line 1: The values of $N$ and $D$.
+    \item Line 2..$1+N$: Line $i+1$ contains the initial value of $M(i)$.
+    \item Lines $2+N$..$1+N+d$: Line $1+N+d$ contains two integers, $i$ and $m$, indicating that Farmer John updates the value of $M(i)$ to $m$ at the beginning of day $d$.
+\end{itemize}
+
+\subsubsection{Sample Input}
+
+\acmlisting[label=Optimal Milking Sample Input, caption=Optimal Milking Sample Output]{./structures/segment-tree/problems/optimal-milking/optimal-milking.in}
+
+\subsubsection{Output Format}
+
+\begin{itemize}
+    \item Line 1: The maximum total amount of milk FJ can produce over $D$ days.
+\end{itemize}
+
+\subsubsection{Sample Output}
+
+\acmlisting[label=Optimal Milking Sample Input, caption=Optimal Milking Sample Output]{./structures/segment-tree/problems/optimal-milking/optimal-milking.in}
+
+% #endif
