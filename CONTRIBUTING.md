@@ -1,6 +1,6 @@
 # LaTeX Standards
 
-## Quick Start
+## Quick Start - What Should I Know Getting Started?
 
 All sections must have:
 
@@ -21,7 +21,7 @@ See the Content section for more information.
 - one line for each sentence
 - indent using tabs only
 
-## Content
+## Content - What Goes Into a Section?
 
 ### Sections on Algorithms and Data Structures
 
@@ -124,7 +124,7 @@ Information pulled from other sources needs to be properly cited.
 Any information included in submissions that is not properly cited will cause the entire section to be rejected from consideration for inclusion.
 References should use BibTeX where applicable.
 
-## Format
+## Format - How Should My LaTeX Look?
 
 ### General Rules to Type By
 
@@ -173,7 +173,7 @@ Sample output for the problem would be inserted like so:
 Any changes to the style of the document must be cleared with the core Hack Pack team before implementing.
 Any submissions that change the style of document (even if not global) without prior approval will be rejected.
 
-## Condensing
+## Condensing - How Is This 'Condensing' Done?
 
 Each submission to the Hack Pack must also have a condensed version for inclusion in the condensed Hack Pack as well.
 This is trivial.
@@ -195,7 +195,7 @@ Wrap a section with the `#ifdef hackpack` and `#endif` to include the section on
 Any section that is not wrapped with either set of keywords will be included in both versions of the Hack Pack.
 Ensure that index entries are present in both versions of the Hack Pack.
 
-## Submission
+## Submission - What Should I Do Before Submitting?
 
 Before submitting a section for inclusion in the Hack Pack, ensure that both the Hack Pack and Hack Pack++ build (using only `make`) on the McAdams lab machines _without stopping_.
 
