@@ -1,7 +1,11 @@
-SRCS=$(wildcard *.cpp)
-all: $(SRCS)
-	g++ $(SRCS) -g -Wall
-clean:
-	rm a.out
-test:
-	./a.out
+# 'make prob' creates ./prob from prob.cpp or prob.py;
+# you don't need to copy any rules you won't be using.
+
+%: %.cpp
+	g++ $< -g -Wall -o $@
+
+PYTHON=python # Change this if you need the python3 or python2 executable
+%: %.py
+	echo -e "#!/usr/bin/env ${PYTHON}\n" > $@
+	cat $< >> $@
+	chmod +x $@

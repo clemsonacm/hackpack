@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# NOTE: 'make probname' must create an executable called 'probname'.
+# USAGE: assuming this file is saved as ./t (be sure to run chmod +x ./t),
+# './t probname' will test probname with any files matching 'probname.*.in',
+# comparing output with any similar files named 'probname.*.out'. It may help
+# to add an 'alias t=./t' to your bashrc so that you can invoke 't <probname>'.
+
+make $1
+for t in $(ls $1.*.in 2> /dev/null); do
+	h=">> running with $t"
+	o=$(./$1 < $t)
+
+	# This chunk handles output checking -- it's removable.
+	p="${t%%.in}.out" 
+	if [ -a $p ]; then
+		diff -q <(echo -e $o) $p > /dev/null
+		if [ $? -ne 0 ]; then
+			h="$h (output differs)"
+			o="$o\n--- doesn't match $p: ---\n$(cat $p)"
+		fi
+	fi
+
+	echo -e $h
+	echo -e $o
+done

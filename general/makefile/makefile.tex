@@ -1,2 +1,9 @@
-\section{Makefile}
-\acmlisting[language={}, label=makefile, caption=makefile]{./general/makefile/makefile.example}
+\section{Makefile (and Helper)}
+Building and testing your code should be easy -- the competition is about algorithms, after all.
+Here's a helpful \lstinline{Makefile} that will build \lstinline{./probname} from invoking \lstinline{make probname}:
+
+\acmlisting[language=make, label=makefile, caption=Makefile]{./general/makefile/makefile.example}
+
+For easy testing over multiple input files, save any input or output samples to \lstinline{probname.<input-id>.in} and \lstinline{probname.<matching-id>.out} (those files for output checking are optional) and use this script:
+
+\acmlisting[language=bash, label=makefile helper, caption=Makefile Helper Script 't']{./general/makefile/t.example}
