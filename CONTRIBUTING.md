@@ -1,5 +1,26 @@
 # LaTeX Standards
 
+## Quick Start
+
+All sections must have:
+
+- a description
+- reference code showcasing capabilities (only if the section is for a data structure)
+- applications for the algorithm/data structure
+- sample problem using the algorithm/data structure (with sample format and I/O)
+
+The 'Sectioning' section lists the appropriate sectioning commands to use for each portion of a section.
+
+Please wrap content appropriate for only the full-sized Hack Pack++ with `% #ifdef hackpackpp` and `% #endif`.
+Wrap content appropriate for only the condensed Hack Pack with `% #ifdef hackpack` and `% #endif`.
+
+See the Content section for more information.
+
+### Things to Keep In Mind
+
+- one line for each sentence
+- indent using tabs only
+
 ## Content
 
 ### Sections on Algorithms and Data Structures
