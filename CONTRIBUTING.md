@@ -7,10 +7,10 @@ When coding for the hackpack, we use the following style:
 -   Use tabs for indentation
 -   Try to keep lines to 80 characters
 -   Use K&R style braces
--   names should be descriptive, but not _extreemly_ long
--   use `snake_case` for everything except constants and filenames
--   use `UPPER_CASE` for constants
--   use `example-name.txt` for file names
+-   Names should be descriptive, but not _extreemly_ long
+-   Use `snake_case` for everything except constants and filenames
+-   Use `UPPER_CASE` for constants
+-   Use `example-name.txt` for file names
 
 Further more in order for code to be accepted it must:
 
