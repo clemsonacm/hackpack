@@ -9,6 +9,7 @@ For simpler problems, a secondary array may suffice to calculate a property like
 The prefix sum calculation only takes $O(n)$ time to perform, and any query thereafter takes only $O(1)$ time.
 But any updates to the source dataset will require $O(n)$ time to update the prefix sum calculations.
 Frequent changes will quickly show the pitfall of this approach.
+This precalculation approach will also not work for finding minimum or maximum values in an arbitrary range.
 A segment tree is a data structure for storing information about intervals that can be constructed in $O(n)$ time.
 Whenever the source data changes, update times stay low at $O(\log n)$ time.
 
@@ -33,7 +34,7 @@ Once built, the structure of a segment tree cannot change.
 
 A segment tree is represented as an array of a size that is dependent on the dataset it is sourced from.
 For a given array of size $n$, a segment tree constructed from it will use up to $2^{\lceil \log_2 (n)\rceil + 1} - 1$ space.
-To properly represent tree, the root is located at index 0; its left and right children are located at indices 1 and 2 respectively.
+To properly represent the tree, the root is located at index 0; its left and right children are located at indices 1 and 2 respectively.
 To properly recurse through the tree, indices of left and right children can be calculated with $2n + 1$ and $2n + 2$ for left and right children respectively.
 
 Construction of a segment tree begins at the root.
@@ -60,12 +61,7 @@ Due to the static nature of arrays, once built, the structure of a segment tree 
 
 % #endif
 
-% #ifdef hackpack
-
 \acmlisting[label=Segment Tree Reference Code, caption=Segment Tree Reference Code]{./structures/segment-tree/segment-tree.cpp}
-
-% #endif
-
 
 % #ifdef hackpackpp
 
@@ -100,9 +96,9 @@ Help him figure out how many cows were inside the barn during specific time rang
 \subsubsection{Input Format}
 
 \begin{itemize}
-    \item Line 2: A single integer, $C$, representing the number of cows Farmer John has data on.
+    \item Line 1: A single integer, $C$, representing the number of cows Farmer John has data on.
 
-    \item The following lines are placed in $C$ groups detailed as follows:
+    \item The following lines are placed in $C$ groups, each describing the movements of a single cow, detailed as follows:
     \begin{itemize}
         \item A single line containing a single integer, $k$, representing the number of time ranges to follow that the cow was present in the barn.
 
@@ -113,12 +109,16 @@ Help him figure out how many cows were inside the barn during specific time rang
     \end{itemize}
 \end{itemize}
 
+\subsubsection{Sample Input}
+
 \acmlisting[label=Coming and Going Sample Input, caption=Coming and Going Sample Input]{./structures/segment-tree/problems/coming-and-going/coming-and-going.in}
 
 \subsubsection{Output Format}
 
 $C$ lines indicating the maximum number of cows seen in the barn in a single hour after adding data for the 1\textsuperscript{st}, 2\textsuperscript{nd}, \ldots, $C$\textsuperscript{th} cow.
 Each should appear on its own separate line formatted as given in the sample output.
+
+\subsubsection{Sample Output}
 
 \acmlisting[label=Coming and Going Sample Output, caption=Coming and Going Sample Output]{./structures/segment-tree/problems/coming-and-going/coming-and-going.out}
 
@@ -135,5 +135,45 @@ Each should appear on its own separate line formatted as given in the sample out
 \begin{itemize}
     \item The data the segment tree keeps track of can easily be changed with a few small modifications to the build, update, and query operations.
 \end{itemize}
+
+% #endif
+
+% #ifdef hackpackpp
+
+\subsection{USACO Contest Problem: Optimal Milking\cite{optimalmilking}}
+
+Farmer John has recently purchased a new barn containing $N$ milking machines ($1 \leq N \leq 40,000$), conveniently numbered $1$..$N$ and arranged in a row.
+
+Milking machine $i$ is capable of extracting $M(i)$ units of milk per day ($1 \leq
+M(i) \leq 100,000$).
+Unfortunately, the machines were installed so close together that if a machine $i$ is in use on a particular day, its two neighboring machines cannot be used that day (endpoint machines have only one neighbor, of course).
+Farmer John is free to select different subsets of machines to operate on different days.
+
+Farmer John is interested in computing the maximum amount of milk he can
+extract over a series of $D$ days ($1 \leq D \leq 50,000$).
+At the beginning of each day, he has enough time to perform maintenance on one selected milking machine $i$, thereby changing its daily milk output $M(i)$ from that day forward.
+Given a list of these daily modifications, please tell Farmer John how much milk he can produce over $D$ days (note that this number might not fit into a 32-bit integer).
+
+\subsubsection{Input Format}
+
+\begin{itemize}
+    \item Line 1: The values of $N$ and $D$.
+    \item Line 2..$1+N$: Line $i+1$ contains the initial value of $M(i)$.
+    \item Lines $2+N$..$1+N+d$: Line $1+N+d$ contains two integers, $i$ and $m$, indicating that Farmer John updates the value of $M(i)$ to $m$ at the beginning of day $d$.
+\end{itemize}
+
+\subsubsection{Sample Input}
+
+\acmlisting[label=Optimal Milking Sample Input, caption=Optimal Milking Sample Output]{./structures/segment-tree/problems/optimal-milking/optimal-milking.in}
+
+\subsubsection{Output Format}
+
+\begin{itemize}
+    \item Line 1: The maximum total amount of milk FJ can produce over $D$ days.
+\end{itemize}
+
+\subsubsection{Sample Output}
+
+\acmlisting[label=Optimal Milking Sample Input, caption=Optimal Milking Sample Output]{./structures/segment-tree/problems/optimal-milking/optimal-milking.in}
 
 % #endif
