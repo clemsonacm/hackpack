@@ -13,7 +13,7 @@ Computer Science.  The main projects are as follows:
 
 ### Clemson Hackpack and Hackpack++ 
 *   the Hackpack is a concise and extensive cheatsheet/guide designed to be
-    used during ACM style programming comptetions.  If you already know your
+    used during ACM style programming competitions.  If you already know your
     data structures and algorithms, go here.
 *   The Hackpack++ is an extensive guide that includes all of the great info
     from the hackpack, but also includes a bit more detail so that you could
