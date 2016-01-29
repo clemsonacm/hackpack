@@ -48,7 +48,7 @@ All data structures and algorithms should include a description section detailin
 
 #### Reference
 
-If the section is for a data structure, it should include a subsection containing skeleton reference code.
+Each section should include a subsection containing skeleton reference code.
 The reference code should include only what is necessary to use the data structure and perhaps usage examples in a main function if its use is not obvious enough.
 
 #### Applications
