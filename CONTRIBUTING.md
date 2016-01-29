@@ -2,17 +2,28 @@
 
 ## Quick Start - What Should I Know Getting Started?
 
-All sections must have:
+The Hack Pack is an amalgam of algorithms, data structures, and all sorts of handy tidbits intended for use in a programming contest environment.
+Contributions are very much appreciated.
+Content for the Hack Pack is written in LaTeX.
+To contribute a section for the Hack Pack, your submission should include:
 
 - a description.
-- reference code showcasing capabilities (only if the section is for a data structure).
-- applications for the algorithm/data structure.
+- reference code showcasing capabilities.
+- a list of applications for the algorithm/data structure.
 - sample problem using the algorithm/data structure (with sample format and I/O).
 
+To keep the document well-organized, there is a set of commands designated for use to mark each part of the Hack Pack.
 The 'Sectioning' section lists the appropriate sectioning commands to use for each portion of a section.
 
+It is possible to create two versions of the document.
+One is a more informative, but heavyweight document that includes all information about a topic possible.
+The other is a more compact document that excludes information that is likely unwanted in a contest environment.
+They are referred to as the 'Hack Pack++' and 'Hack Pack' respectively.
+Each section of the Hack Pack needs to properly slim itself down when the leaner version is created.
+We have a special method to enable this.
 Please wrap content appropriate for only the full-sized Hack Pack++ with `% #ifdef hackpackpp` and `% #endif`.
 Wrap content appropriate for only the condensed Hack Pack with `% #ifdef hackpack` and `% #endif`.
+Any content that is to appear in both versions of the Hack Pack does not need to be wrapped with anything.
 
 See the Content section for more information.
 
