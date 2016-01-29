@@ -4,10 +4,10 @@
 
 All sections must have:
 
-- a description
-- reference code showcasing capabilities (only if the section is for a data structure)
-- applications for the algorithm/data structure
-- sample problem using the algorithm/data structure (with sample format and I/O)
+- a description.
+- reference code showcasing capabilities (only if the section is for a data structure).
+- applications for the algorithm/data structure.
+- sample problem using the algorithm/data structure (with sample format and I/O).
 
 The 'Sectioning' section lists the appropriate sectioning commands to use for each portion of a section.
 
@@ -18,8 +18,9 @@ See the Content section for more information.
 
 ### Things to Keep In Mind
 
-- one line for each sentence
-- indent using tabs only
+Please remember to:
+- one line for each sentence.
+- indent using tabs only.
 
 ## Content - What Goes Into a Section?
 
@@ -40,10 +41,10 @@ The following subsections __must__ be present before a section will be considere
 #### Description
 
 All data structures and algorithms should include a description section detailing:
-- what it does
-- the problem(s) that it solves
-- how it works
-- construction and run times in O-notation
+- what it does.
+- the problem(s) that it solves.
+- how it works.
+- construction and run times in O-notation.
 
 #### Reference
 
@@ -128,9 +129,10 @@ References should use BibTeX where applicable.
 
 ### General Rules to Type By
 
-- Use only one sentence per line. This makes it easier to review changes to the documentation.
-- Use tabs for indentation. This allows editors to choose their preferred tab width.
-- Do not use LaTeX comments. Anything important enough to put in a comment should be put into the text. This excludes primarily technical parts like `style.tex`.
+Please, remember to:
+- use only one sentence per line.
+- use tabs for indentation.
+- not use LaTeX comments (this excludes primarily technical parts like `style.tex`).
 
 ### Indentation
 
@@ -182,10 +184,10 @@ This is trivial.
 
 A complete, condensed section of the Hack Pack should include:
 
-- a brief description of the problem (possibly gleaned from the full description)
-- a list of applications
-- reference code (if the section is for a data structure)
-- sample solutions for each included problem
+- a brief description of the problem (possibly gleaned from the full description).
+- a list of applications.
+- reference code (if the section is for a data structure).
+- sample solutions for each included problem.
 
 ### How To Condense Your Section
 
