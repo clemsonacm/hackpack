@@ -1,0 +1,10 @@
+\section{Topological Sorting}
+\index{sort!topological}
+\index{topological sort}
+\index{DAG}
+A topological sort involves arranging a DAG (directed, acyclic graph) in such a manner such that for every node $m$ with an incoming edge $E$ from a node $n$, $n$ occurs before $m$.
+This can easily be visualized by thinking of $m$ being a target in a makefile with $n$ as a dependency or $n$ being some prerequisite for $m$.
+Topological sorts typically run in linear ($O(V + E)$) time.
+
+\subsection{Applications}
+
